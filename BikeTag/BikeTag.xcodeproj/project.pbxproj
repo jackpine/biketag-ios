@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
-		45AB7BAE1A3A1D8B00E1961E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAD1A3A1D8B00E1961E /* FirstViewController.swift */; };
+		45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */; };
 		45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
@@ -30,7 +30,7 @@
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45AB7BAD1A3A1D8B00E1961E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
 		45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		45AB7BB21A3A1D8B00E1961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45AB7BB41A3A1D8B00E1961E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */,
-				45AB7BAD1A3A1D8B00E1961E /* FirstViewController.swift */,
+				45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */,
 				45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */,
 				45AB7BB11A3A1D8B00E1961E /* Main.storyboard */,
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
@@ -217,7 +217,7 @@
 			files = (
 				45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
-				45AB7BAE1A3A1D8B00E1961E /* FirstViewController.swift in Sources */,
+				45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +409,7 @@
 				45AB7BC91A3A1D8B00E1961E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45AB7BCA1A3A1D8B00E1961E /* Build configuration list for PBXNativeTarget "BikeTagTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				45AB7BCC1A3A1D8B00E1961E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
