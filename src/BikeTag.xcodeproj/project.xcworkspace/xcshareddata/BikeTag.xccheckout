@@ -14,7 +14,7 @@
 		<string>github.com:michaelkirk/biketag.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>BikeTag/BikeTag.xcodeproj</string>
+	<string>src/BikeTag.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1636949944DC9FD2F14449B25D2DE4B88C5C8779</key>

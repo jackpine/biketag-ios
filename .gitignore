@@ -1,1 +1,5 @@
 node_modules
+src/DerivedData
+
+# XCode UI state, don't want to track this
+xcuserdata
