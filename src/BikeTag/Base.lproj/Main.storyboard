@@ -105,8 +105,8 @@
                                     <segue destination="qI7-Ja-Voa" kind="show" id="gsO-1a-UTh"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
-                                <rect key="frame" x="36" y="84" width="528" height="528"/>
+                            <view clipsSubviews="YES" contentMode="TopLeft" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
+                                <rect key="frame" x="96.5" y="84" width="409" height="409"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="esg-LR-wYA" secondAttribute="height" multiplier="1:1" id="DgJ-b1-EcH"/>
@@ -118,13 +118,21 @@
                             <bool key="isElement" value="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstItem="esg-LR-wYA" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" constant="20" id="1Mx-5c-6Sy"/>
+                            <constraint firstItem="esg-LR-wYA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" constant="20" id="1Mx-5c-6Sy"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="esg-LR-wYA" secondAttribute="bottom" constant="20" id="Bhy-Z8-TsI"/>
                             <constraint firstItem="esg-LR-wYA" firstAttribute="top" secondItem="Ze0-lz-seT" secondAttribute="bottom" constant="20" id="BrZ-Ln-Sdh"/>
                             <constraint firstAttribute="centerX" secondItem="UtK-pk-m87" secondAttribute="centerX" id="Tmq-ON-ke1"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="esg-LR-wYA" secondAttribute="bottom" constant="20" id="VOu-Xy-05M"/>
                             <constraint firstAttribute="centerX" secondItem="esg-LR-wYA" secondAttribute="centerX" id="WH8-HT-PeP"/>
                             <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="UtK-pk-m87" secondAttribute="bottom" constant="8" id="XdX-v9-srE"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="esg-LR-wYA" secondAttribute="trailing" constant="20" id="yUd-n0-l3d"/>
+                            <constraint firstItem="UtK-pk-m87" firstAttribute="top" secondItem="esg-LR-wYA" secondAttribute="bottom" constant="20" id="oZs-H9-HoA"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Bhy-Z8-TsI"/>
+                                <exclude reference="VOu-Xy-05M"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>

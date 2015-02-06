@@ -4,15 +4,17 @@ import AVFoundation
 class SubmitGuessViewController: UIViewController {
 
   @IBOutlet var photoPreviewView: UIView!
-  
+
+  let captureSession = AVCaptureSession()
+  var previewLayer : AVCaptureVideoPreviewLayer?
+  // If we find a device we'll store it here for later use
+  var captureDevice : AVCaptureDevice?
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    let captureSession = AVCaptureSession()
     captureSession.sessionPreset = AVCaptureSessionPresetLow
 
     let devices = AVCaptureDevice.devices()
-    var captureDevice : AVCaptureDevice?
     for device in devices {
       // Make sure this particular device supports video
       if (device.hasMediaType(AVMediaTypeVideo)) {
@@ -23,11 +25,11 @@ class SubmitGuessViewController: UIViewController {
       }
     }
     if captureDevice != nil {
-      beginSession(captureSession, captureDevice: captureDevice!)
+      beginSession()
     }
   }
 
-  func beginSession(captureSession: AVCaptureSession, captureDevice: AVCaptureDevice) -> Void {
+  func beginSession() {
     var err : NSError? = nil
     captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
 
@@ -36,9 +38,10 @@ class SubmitGuessViewController: UIViewController {
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    //FIXME previewLayer is not being scaled to fit inside photopreview layer.
-    self.photoPreviewView.layer.addSublayer(previewLayer)
-    previewLayer.frame = self.photoPreviewView.layer.frame
+    photoPreviewView.layer.addSublayer(previewLayer)
+
+    //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
+    previewLayer.frame = CGRect(x: -74, y: 0, width: 500, height: 500)
     captureSession.startRunning()
   }
 
