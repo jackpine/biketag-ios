@@ -2,13 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--GameList-->
+        <!--Game List-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="GameList" customClass="GameListViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Game List" customClass="GameListViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -83,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="507" y="-710"/>
         </scene>
-        <!--View Controller-->
+        <!--Submit Guess-->
         <scene sceneID="4VN-Ne-Qml">
             <objects>
-                <viewController id="BiW-SU-TUN" sceneMemberID="viewController">
+                <viewController id="BiW-SU-TUN" userLabel="Submit Guess" customClass="SubmitGuessViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ze0-lz-seT"/>
                         <viewControllerLayoutGuide type="bottom" id="OkI-84-ROU"/>
@@ -104,16 +105,30 @@
                                     <segue destination="qI7-Ja-Voa" kind="show" id="gsO-1a-UTh"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
+                                <rect key="frame" x="36" y="84" width="528" height="528"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="esg-LR-wYA" secondAttribute="height" multiplier="1:1" id="DgJ-b1-EcH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <bool key="isElement" value="YES"/>
                         </accessibility>
                         <constraints>
+                            <constraint firstItem="esg-LR-wYA" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" constant="20" id="1Mx-5c-6Sy"/>
+                            <constraint firstItem="esg-LR-wYA" firstAttribute="top" secondItem="Ze0-lz-seT" secondAttribute="bottom" constant="20" id="BrZ-Ln-Sdh"/>
                             <constraint firstAttribute="centerX" secondItem="UtK-pk-m87" secondAttribute="centerX" id="Tmq-ON-ke1"/>
+                            <constraint firstAttribute="centerX" secondItem="esg-LR-wYA" secondAttribute="centerX" id="WH8-HT-PeP"/>
                             <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="UtK-pk-m87" secondAttribute="bottom" constant="8" id="XdX-v9-srE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="esg-LR-wYA" secondAttribute="trailing" constant="20" id="yUd-n0-l3d"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxp-9A-1Yl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -420,6 +435,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QkW-A0-fp9"/>
+        <segue reference="XyA-Nl-Ivb"/>
     </inferredMetricsTieBreakers>
 </document>
