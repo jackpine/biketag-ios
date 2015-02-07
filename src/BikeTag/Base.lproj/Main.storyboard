@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Do you know where this is?" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD" userLabel="Game heading">
-                                <rect key="frame" x="81" y="40" width="438.5" height="30"/>
+                                <rect key="frame" x="162.5" y="40" width="275.5" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ind-PI-DEa"/>
                                     <constraint firstAttribute="width" constant="300" id="kj7-MN-lcs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -105,13 +105,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Take a photo to prove you're there." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="wDo-TZ-5v5" userLabel="Take a photo to prove you're there">
-                                <rect key="frame" x="36" y="40" width="528" height="30"/>
+                                <rect key="frame" x="125.5" y="40" width="349" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dd8-jO-6GN"/>
                                     <constraint firstAttribute="width" constant="300" id="wP7-4j-xHH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -298,7 +298,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29:59" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-5j-dqD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-5j-dqD">
                                 <rect key="frame" x="239" y="247" width="122.5" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -341,10 +341,10 @@
             </objects>
             <point key="canvasLocation" x="3397" y="-1032"/>
         </scene>
-        <!--View Controller-->
+        <!--New Spot-->
         <scene sceneID="I8s-JK-wUz">
             <objects>
-                <viewController id="kB0-aQ-szS" sceneMemberID="viewController">
+                <viewController id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mkQ-aY-6Yn"/>
                         <viewControllerLayoutGuide type="bottom" id="5hT-u1-KNe"/>
@@ -354,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-GQ-Q6q">
-                                <rect key="frame" x="240.5" y="448" width="119" height="30"/>
+                                <rect key="frame" x="240" y="550" width="119" height="30"/>
                                 <state key="normal" title="Capture this spot">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -362,13 +362,62 @@
                                     <segue destination="Tt3-Le-U1z" kind="show" id="gJ7-Wj-Kux"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Capture your new spot." textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="S2L-wE-7u7" userLabel="Take a photo to prove you're there">
+                                <rect key="frame" x="182" y="40" width="235.5" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="EGh-mu-oz1"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nby-xF-3Nk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="EGh-mu-oz1"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <view clipsSubviews="YES" contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
+                                <rect key="frame" x="80" y="90" width="440" height="440"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Z5X-Xm-cwg" secondAttribute="height" multiplier="1:1" id="RUK-pw-APH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="b4v-GQ-Q6q" secondAttribute="bottom" constant="122" id="1sg-dW-aLt"/>
+                            <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="b4v-GQ-Q6q" secondAttribute="bottom" constant="20" id="1sg-dW-aLt"/>
+                            <constraint firstItem="S2L-wE-7u7" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leadingMargin" constant="20" id="2BZ-vq-QJL"/>
+                            <constraint firstItem="b4v-GQ-Q6q" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Z5X-Xm-cwg" secondAttribute="bottom" constant="20" id="5bn-b4-exG"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Z5X-Xm-cwg" secondAttribute="bottom" constant="20" id="C93-41-an8"/>
+                            <constraint firstAttribute="centerX" secondItem="Z5X-Xm-cwg" secondAttribute="centerX" id="Ctu-dP-GLu"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="S2L-wE-7u7" secondAttribute="bottom" constant="20" id="Fvo-Dx-zYh"/>
                             <constraint firstAttribute="centerX" secondItem="b4v-GQ-Q6q" secondAttribute="centerX" id="P0h-oL-S42"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" secondItem="S2L-wE-7u7" secondAttribute="bottom" constant="20" id="PjY-4o-BYr"/>
+                            <constraint firstAttribute="centerX" secondItem="S2L-wE-7u7" secondAttribute="centerX" id="VEQ-Lp-C7V"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="width" secondItem="Z5X-Xm-cwg" secondAttribute="height" multiplier="1:1" id="Xfe-Bq-XAM"/>
+                            <constraint firstItem="b4v-GQ-Q6q" firstAttribute="top" secondItem="Z5X-Xm-cwg" secondAttribute="bottom" priority="999" constant="20" id="YyJ-eo-hmW"/>
+                            <constraint firstItem="S2L-wE-7u7" firstAttribute="top" secondItem="mkQ-aY-6Yn" secondAttribute="bottom" constant="20" id="gTX-4j-Sek"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" secondItem="FPe-7J-yo5" secondAttribute="topMargin" constant="20" id="goK-MS-bRC"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="bottom" secondItem="b4v-GQ-Q6q" secondAttribute="bottom" constant="-20" id="pUp-Xf-X25"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FPe-7J-yo5" secondAttribute="leadingMargin" id="rih-4L-KSa"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2BZ-vq-QJL"/>
+                                <exclude reference="C93-41-an8"/>
+                                <exclude reference="Fvo-Dx-zYh"/>
+                                <exclude reference="Xfe-Bq-XAM"/>
+                                <exclude reference="goK-MS-bRC"/>
+                                <exclude reference="pUp-Xf-X25"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-Dz-Ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -387,25 +436,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ok! This is now YOUR spot." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-1Z-Xf7">
-                                <rect key="frame" x="193" y="141" width="214" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="160" y="84" width="280" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's see if your friends can find it." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAD-tX-Oms">
-                                <rect key="frame" x="168.5" y="367.5" width="263.5" height="20.5"/>
+                                <rect key="frame" x="168" y="290" width="263.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3H-nI-rvf">
+                                <rect key="frame" x="192.5" y="501" width="215" height="30"/>
+                                <state key="normal" title="Take me back to the beginning.">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="9pv-A4-QxB" kind="show" id="dJ0-f8-77G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZGN-sE-ssu" firstAttribute="top" secondItem="I3H-nI-rvf" secondAttribute="bottom" constant="20" id="3Hl-Bv-RpY"/>
                             <constraint firstAttribute="centerX" secondItem="hAD-tX-Oms" secondAttribute="centerX" id="Bz8-QO-Ukc"/>
                             <constraint firstItem="ZGN-sE-ssu" firstAttribute="top" secondItem="hAD-tX-Oms" secondAttribute="bottom" constant="212" id="RsX-DI-c6z"/>
+                            <constraint firstAttribute="centerY" secondItem="hAD-tX-Oms" secondAttribute="centerY" id="Tj4-R2-msA"/>
                             <constraint firstAttribute="centerX" secondItem="ydG-1Z-Xf7" secondAttribute="centerX" id="fn2-1r-5dE"/>
+                            <constraint firstAttribute="centerX" secondItem="I3H-nI-rvf" secondAttribute="centerX" id="jbd-qw-rwF"/>
                             <constraint firstItem="ydG-1Z-Xf7" firstAttribute="top" secondItem="GuJ-bA-3dB" secondAttribute="bottom" constant="121" id="lGF-KN-y8t"/>
+                            <constraint firstItem="ydG-1Z-Xf7" firstAttribute="top" secondItem="GuJ-bA-3dB" secondAttribute="bottom" constant="20" id="nnl-dz-J6h"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lGF-KN-y8t"/>
+                                <exclude reference="RsX-DI-c6z"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ztK-mv-HLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -527,6 +595,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="QkW-A0-fp9"/>
+        <segue reference="dJ0-f8-77G"/>
     </inferredMetricsTieBreakers>
 </document>
