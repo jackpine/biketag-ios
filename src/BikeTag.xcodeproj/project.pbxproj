@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		454ADC521A8598D9003CCE95 /* CaptureCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */; };
-		455F63F51A844DA40035CED3 /* SubmitGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F63F41A844DA40035CED3 /* SubmitGuessViewController.swift */; };
+		4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897361A86827F00AD077E /* CameraViewController.swift */; };
+		4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897371A86827F00AD077E /* CaptureCountdownViewController.swift */; };
+		4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897381A86827F00AD077E /* CheckGuessViewController.swift */; };
+		452897401A86827F00AD077E /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* GameListViewController.swift */; };
+		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
+		452897421A86827F00AD077E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973B1A86827F00AD077E /* SecondViewController.swift */; };
+		452897431A86827F00AD077E /* SubmitGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
-		45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */; };
-		45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45AB7BC41A3A1D8B00E1961E /* BikeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */; };
-		45EDEC251A86733200730315 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EDEC241A86733200730315 /* CameraViewController.swift */; };
-		45EDEC271A8674D700730315 /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EDEC261A8674D700730315 /* NewSpotViewController.swift */; };
-		45F431DF1A858F0600BFEEE9 /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,22 +32,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureCountdownViewController.swift; sourceTree = "<group>"; };
-		455F63F41A844DA40035CED3 /* SubmitGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitGuessViewController.swift; sourceTree = "<group>"; };
+		452897361A86827F00AD077E /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Controllers/CameraViewController.swift; sourceTree = "<group>"; };
+		452897371A86827F00AD077E /* CaptureCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaptureCountdownViewController.swift; path = Controllers/CaptureCountdownViewController.swift; sourceTree = "<group>"; };
+		452897381A86827F00AD077E /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckGuessViewController.swift; path = Controllers/CheckGuessViewController.swift; sourceTree = "<group>"; };
+		452897391A86827F00AD077E /* GameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameListViewController.swift; path = Controllers/GameListViewController.swift; sourceTree = "<group>"; };
+		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
+		4528973B1A86827F00AD077E /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = Controllers/SecondViewController.swift; sourceTree = "<group>"; };
+		4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitGuessViewController.swift; path = Controllers/SubmitGuessViewController.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewController.swift; sourceTree = "<group>"; };
-		45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		45AB7BB21A3A1D8B00E1961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45AB7BB41A3A1D8B00E1961E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45AB7BB71A3A1D8B00E1961E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		45AB7BBD1A3A1D8B00E1961E /* BikeTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTagTests.swift; sourceTree = "<group>"; };
-		45EDEC241A86733200730315 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		45EDEC261A8674D700730315 /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSpotViewController.swift; sourceTree = "<group>"; };
-		45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckGuessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		452897351A8681DD00AD077E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				452897361A86827F00AD077E /* CameraViewController.swift */,
+				452897371A86827F00AD077E /* CaptureCountdownViewController.swift */,
+				452897381A86827F00AD077E /* CheckGuessViewController.swift */,
+				452897391A86827F00AD077E /* GameListViewController.swift */,
+				4528973A1A86827F00AD077E /* NewSpotViewController.swift */,
+				4528973B1A86827F00AD077E /* SecondViewController.swift */,
+				4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		45AB7B9D1A3A1D8B00E1961E = {
 			isa = PBXGroup;
 			children = (
@@ -90,17 +104,11 @@
 			isa = PBXGroup;
 			children = (
 				45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */,
-				45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */,
-				45AB7BAF1A3A1D8B00E1961E /* SecondViewController.swift */,
-				455F63F41A844DA40035CED3 /* SubmitGuessViewController.swift */,
+				452897351A8681DD00AD077E /* Controllers */,
 				45AB7BB11A3A1D8B00E1961E /* Main.storyboard */,
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
 				45AB7BA91A3A1D8B00E1961E /* Supporting Files */,
-				45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */,
-				454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */,
-				45EDEC241A86733200730315 /* CameraViewController.swift */,
-				45EDEC261A8674D700730315 /* NewSpotViewController.swift */,
 			);
 			path = BikeTag;
 			sourceTree = "<group>";
@@ -231,14 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				455F63F51A844DA40035CED3 /* SubmitGuessViewController.swift in Sources */,
-				45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */,
-				45F431DF1A858F0600BFEEE9 /* CheckGuessViewController.swift in Sources */,
+				452897431A86827F00AD077E /* SubmitGuessViewController.swift in Sources */,
+				452897421A86827F00AD077E /* SecondViewController.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
-				45EDEC251A86733200730315 /* CameraViewController.swift in Sources */,
-				45EDEC271A8674D700730315 /* NewSpotViewController.swift in Sources */,
-				454ADC521A8598D9003CCE95 /* CaptureCountdownViewController.swift in Sources */,
-				45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */,
+				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
+				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
+				452897401A86827F00AD077E /* GameListViewController.swift in Sources */,
+				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
+				4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
