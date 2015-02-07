@@ -15,6 +15,7 @@
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45AB7BC41A3A1D8B00E1961E /* BikeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */; };
+		45F431DF1A858F0600BFEEE9 /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		45AB7BBD1A3A1D8B00E1961E /* BikeTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTagTests.swift; sourceTree = "<group>"; };
+		45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckGuessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
 				45AB7BA91A3A1D8B00E1961E /* Supporting Files */,
+				45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */,
 			);
 			path = BikeTag;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				455F63F51A844DA40035CED3 /* SubmitGuessViewController.swift in Sources */,
 				45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */,
+				45F431DF1A858F0600BFEEE9 /* CheckGuessViewController.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */,
 			);
