@@ -3,6 +3,7 @@ import UIKit
 class CheckGuessViewController: UIViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
+  @IBOutlet var submittedImage: UIImageView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
