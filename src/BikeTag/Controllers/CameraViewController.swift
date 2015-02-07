@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+
 class CameraViewController: UIViewController {
 
   @IBOutlet var photoPreviewView: UIView!
