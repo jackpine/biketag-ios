@@ -1,11 +1,3 @@
-//
-//  SecondViewController.swift
-//  BikeTag
-//
-//  Created by Michael Kirk on 12/11/14.
-//  Copyright (c) 2014 Jackpine. All rights reserved.
-//
-
 import UIKit
 
 class SecondViewController: UIViewController {
