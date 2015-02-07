@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454ADC521A8598D9003CCE95 /* CaptureCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */; };
 		455F63F51A844DA40035CED3 /* SubmitGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455F63F41A844DA40035CED3 /* SubmitGuessViewController.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
 		45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAD1A3A1D8B00E1961E /* GameListViewController.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureCountdownViewController.swift; sourceTree = "<group>"; };
 		455F63F41A844DA40035CED3 /* SubmitGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitGuessViewController.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
 				45AB7BA91A3A1D8B00E1961E /* Supporting Files */,
 				45F431DE1A858F0600BFEEE9 /* CheckGuessViewController.swift */,
+				454ADC511A8598D9003CCE95 /* CaptureCountdownViewController.swift */,
 			);
 			path = BikeTag;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				45AB7BB01A3A1D8B00E1961E /* SecondViewController.swift in Sources */,
 				45F431DF1A858F0600BFEEE9 /* CheckGuessViewController.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
+				454ADC521A8598D9003CCE95 /* CaptureCountdownViewController.swift in Sources */,
 				45AB7BAE1A3A1D8B00E1961E /* GameListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

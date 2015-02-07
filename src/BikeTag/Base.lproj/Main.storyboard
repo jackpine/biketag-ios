@@ -269,10 +269,10 @@
             </objects>
             <point key="canvasLocation" x="2654" y="-596"/>
         </scene>
-        <!--View Controller-->
+        <!--Capture Countdown View Controller-->
         <scene sceneID="eTW-17-cc6">
             <objects>
-                <viewController id="uSK-v9-pcx" sceneMemberID="viewController">
+                <viewController id="uSK-v9-pcx" customClass="CaptureCountdownViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D0T-Pg-2CH"/>
                         <viewControllerLayoutGuide type="bottom" id="87x-rg-HLS"/>
@@ -333,6 +333,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="countdownView" destination="e2o-5j-dqD" id="bKk-dh-vDJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugN-1d-pt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

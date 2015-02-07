@@ -1,11 +1,3 @@
-//
-//  CheckGuessViewController.swift
-//  BikeTag
-//
-//  Created by Michael Kirk on 2/6/15.
-//  Copyright (c) 2015 Jackpine. All rights reserved.
-//
-
 import UIKit
 
 class CheckGuessViewController: UIViewController {
