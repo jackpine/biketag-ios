@@ -4,12 +4,19 @@ import AVFoundation
 class SubmitGuessViewController: CameraViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
-    AVCaptureStillImageOutput.captureStillImageAsynchronouslyFromConnection(connection: captureSession.connection, completionHandler:{ (imageBuffer: CMSampleBuffer!, error: NSError!) -> Void in
-      self.saveImage(imageBuffer, error)
-    })
+    super.prepareForSegue(segue, sender: sender)
+
+
+    let createImageFromData = {(imageData: NSData) -> () in
+      if ( imageData.length > 0 ) {
+        let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
+        checkGuessViewController.submittedImage = UIImage(data: imageData)
+      } else {
+        println("Image Data not captured")
+      }
+    }
+
+    self.captureImage(createImageFromData)
   }
 
-  func saveImage(imageBuffer: CMSampleBuffer, error: NSError) -> Void {
-
-  }
 }

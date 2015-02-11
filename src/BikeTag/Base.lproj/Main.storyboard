@@ -251,6 +251,7 @@
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
                                 <rect key="frame" x="206" y="40" width="188.5" height="188.5"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zxW-5G-LFt" secondAttribute="height" multiplier="1:1" constant="112" id="mqK-kM-Pe5"/>
                                     <constraint firstAttribute="width" secondItem="zxW-5G-LFt" secondAttribute="height" multiplier="1:1" id="qyc-f5-voi"/>
@@ -278,7 +279,7 @@
                     <connections>
                         <outlet property="fakeResponseActions" destination="Z6C-Jt-DAh" id="z6B-S6-Q1y"/>
                         <outlet property="progressView" destination="4qg-vl-6Ne" id="mXJ-WG-Yha"/>
-                        <outlet property="submittedImage" destination="zxW-5G-LFt" id="e78-kT-hKe"/>
+                        <outlet property="submittedImageView" destination="zxW-5G-LFt" id="rxc-dT-fCe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihU-7A-Zfl" userLabel="First Responder" sceneMemberID="firstResponder"/>

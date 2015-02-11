@@ -5,14 +5,13 @@ class CameraViewController: UIViewController {
 
   @IBOutlet var photoPreviewView: UIView!
   let captureSession = AVCaptureSession()
-  var previewLayer : AVCaptureVideoPreviewLayer?
-
-  // If we find a device we'll store it here for later use
-  var captureDevice : AVCaptureDevice?
+  var previewLayer: AVCaptureVideoPreviewLayer?
+  var captureDevice: AVCaptureDevice?
+  var imageData: NSData?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    captureSession.sessionPreset = AVCaptureSessionPresetLow
+    captureSession.sessionPreset = AVCaptureSessionPresetMedium
 
     let devices = AVCaptureDevice.devices()
     for device in devices {
@@ -29,10 +28,24 @@ class CameraViewController: UIViewController {
     }
   }
 
+  func captureImage(callback:(NSData)->()) {
+    let stillImageOutput = AVCaptureStillImageOutput()
+    captureSession.addOutput(stillImageOutput)
+
+    let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
+    if videoConnection != nil {
+      stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
+        callback(AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer))
+      }
+    } else {
+      println("couldn't find video connection")
+    }
+  }
+
   func beginSession() {
     var err : NSError? = nil
-    captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &err))
-
+    let captureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+    captureSession.addInput(captureDeviceInput)
     if err != nil {
       println("error: \(err?.localizedDescription)")
     }
