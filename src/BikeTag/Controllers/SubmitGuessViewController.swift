@@ -3,6 +3,11 @@ import AVFoundation
 
 class SubmitGuessViewController: CameraViewController {
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.navigationItem.title = "Capture It";
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
