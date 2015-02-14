@@ -3,12 +3,37 @@ import UIKit
 class CheckGuessViewController: UIViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
-  @IBOutlet var submittedImage: UIImageView!
-  
+  @IBOutlet var submittedImageView: UIImageView! {
+    didSet {
+      println("did set image view")
+      updateSubmittedImage()
+    }
+  }
+
+  var submittedImage: UIImage! {
+    didSet {
+      println("did set image")
+      updateSubmittedImage()
+    }
+  }
+
+  func updateSubmittedImage() {
+    if ( self.submittedImage == nil ) {
+      println("did not set image because image was nil")
+    } else if ( self.submittedImageView == nil ) {
+      println("did not set image because image view was nil")
+    } else {
+      println("updating image view with image")
+      submittedImageView.image = submittedImage
+    }
+  }
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
-
     progressView.progress = 0
+    updateSubmittedImage()
+    self.navigationItem.title = "Checking";
   }
 
   override func viewDidAppear(animated: Bool) {

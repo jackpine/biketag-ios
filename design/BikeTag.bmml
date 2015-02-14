@@ -18,7 +18,7 @@
         <text>Favorite%20Tacos</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="149" y="205" w="187" h="141" measuredW="500" measuredH="375" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Image" x="149" y="205" w="187" h="141" measuredW="77" measuredH="79" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
@@ -58,7 +58,7 @@
         <text>Bike%20Tag</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::Image" x="506" y="378" w="230" h="315" measuredW="640" measuredH="434" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Image" x="506" y="378" w="230" h="315" measuredW="77" measuredH="79" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <filter>true</filter>
         <src>./assets/mexican-food-so-real-they-won-t-give-you-nachos</src>
@@ -146,10 +146,10 @@
         <text>Bike%20Tag</text>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="1486" y="849" w="224" h="315" measuredW="276" measuredH="183" zOrder="25" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Image" x="1486" y="849" w="224" h="315" measuredW="77" measuredH="79" zOrder="25" locked="false" isInGroup="-1">
       <controlProperties>
         <filter>true</filter>
-        <src>./assets/images%253Fq%3Dtbn%3AANd9GcTMcAhFDo_RqQeEUITmcJ2eWr-kFqPajbL5bqGc3BcCjVf7t2cEcw</src>
+        <src>./assets/images%25253Fq%3Dtbn%3AANd9GcTMcAhFDo_RqQeEUITmcJ2eWr-kFqPajbL5bqGc3BcCjVf7t2cEcw</src>
       </controlProperties>
     </control>
     <control controlID="40" controlTypeID="com.balsamiq.mockups::Icon" x="1585" y="1165" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="26" locked="false" isInGroup="-1">
@@ -180,11 +180,11 @@
         <text>Bike%20Tag</text>
       </controlProperties>
     </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::Image" x="1921" y="979" w="111" h="76" measuredW="276" measuredH="183" zOrder="31" locked="false" isInGroup="-1">
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Image" x="1921" y="979" w="111" h="76" measuredW="77" measuredH="79" zOrder="31" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
-        <src>./assets/images%253Fq%3Dtbn%3AANd9GcTMcAhFDo_RqQeEUITmcJ2eWr-kFqPajbL5bqGc3BcCjVf7t2cEcw</src>
+        <src>./assets/images%25253Fq%3Dtbn%3AANd9GcTMcAhFDo_RqQeEUITmcJ2eWr-kFqPajbL5bqGc3BcCjVf7t2cEcw</src>
       </controlProperties>
     </control>
     <control controlID="47" controlTypeID="com.balsamiq.mockups::Button" x="2054" y="1011" w="-1" h="-1" measuredW="64" measuredH="27" zOrder="32" locked="false" isInGroup="-1">
@@ -249,7 +249,7 @@
         <text>Favorite%20Tacos</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::Image" x="2330" y="1013" w="187" h="141" measuredW="500" measuredH="375" zOrder="45" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Image" x="2330" y="1013" w="187" h="141" measuredW="77" measuredH="79" zOrder="45" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
@@ -358,7 +358,7 @@
         <text>Bike%20Tag</text>
       </controlProperties>
     </control>
-    <control controlID="91" controlTypeID="com.balsamiq.mockups::Image" x="548" y="1469" w="224" h="315" measuredW="2000" measuredH="1577" zOrder="64" locked="false" isInGroup="-1">
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::Image" x="548" y="1469" w="224" h="315" measuredW="77" measuredH="79" zOrder="64" locked="false" isInGroup="-1">
       <controlProperties>
         <filter>true</filter>
         <src>./assets/Los-angeles-central-library.jpg</src>
@@ -387,7 +387,7 @@
         <text>Bike%20Tag</text>
       </controlProperties>
     </control>
-    <control controlID="96" controlTypeID="com.balsamiq.mockups::Image" x="981" y="1609" w="111" h="76" measuredW="2000" measuredH="1577" zOrder="69" locked="false" isInGroup="-1">
+    <control controlID="96" controlTypeID="com.balsamiq.mockups::Image" x="981" y="1609" w="111" h="76" measuredW="77" measuredH="79" zOrder="69" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
@@ -450,7 +450,7 @@
         <text>Secret%20Spots%20Downtown</text>
       </controlProperties>
     </control>
-    <control controlID="110" controlTypeID="com.balsamiq.mockups::Image" x="1390" y="1633" w="187" h="141" measuredW="2000" measuredH="1577" zOrder="81" locked="false" isInGroup="-1">
+    <control controlID="110" controlTypeID="com.balsamiq.mockups::Image" x="1390" y="1633" w="187" h="141" measuredW="77" measuredH="79" zOrder="81" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
@@ -513,7 +513,7 @@
         <text>Favorite%20Tacos</text>
       </controlProperties>
     </control>
-    <control controlID="122" controlTypeID="com.balsamiq.mockups::Image" x="169" y="1445" w="187" h="141" measuredW="500" measuredH="375" zOrder="92" locked="false" isInGroup="-1">
+    <control controlID="122" controlTypeID="com.balsamiq.mockups::Image" x="169" y="1445" w="187" h="141" measuredW="77" measuredH="79" zOrder="92" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <filter>true</filter>
@@ -599,7 +599,7 @@
         <text>Favorite%20Tacos</text>
       </controlProperties>
     </control>
-    <control controlID="137" controlTypeID="com.balsamiq.mockups::Image" x="169" y="2085" w="187" h="141" measuredW="500" measuredH="375" zOrder="107" locked="false" isInGroup="-1">
+    <control controlID="137" controlTypeID="com.balsamiq.mockups::Image" x="169" y="2085" w="187" h="141" measuredW="77" measuredH="79" zOrder="107" locked="false" isInGroup="-1">
       <controlProperties>
         <filter>true</filter>
         <src>./assets/6a00e5538de177883401310fc3773b970c-500wi.jpg</src>
