@@ -54,7 +54,9 @@ class CameraViewController: UIViewController {
     photoPreviewView.layer.addSublayer(previewLayer)
 
     //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
-    previewLayer.frame = CGRect(x: -74, y: 0, width: 500, height: 500)
+    previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
+
+
     captureSession.startRunning()
   }
 }
