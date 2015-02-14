@@ -338,9 +338,12 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qAx-W1-UcD">
                                 <rect key="frame" x="204.5" y="550" width="191" height="30"/>
-                                <state key="normal" title="I'm there. Ready to capture.">
+                                <state key="normal" title="I'm there. Ready to claim.">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="111" y="550" width="176" height="30"/>
+                                </variation>
                                 <connections>
                                     <segue destination="kB0-aQ-szS" kind="show" id="uhg-2g-HST"/>
                                 </connections>
@@ -387,7 +390,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-GQ-Q6q">
                                 <rect key="frame" x="240.5" y="550" width="119" height="30"/>
-                                <state key="normal" title="Capture this spot">
+                                <state key="normal" title="Claim this spot">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
