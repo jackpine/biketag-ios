@@ -1,7 +1,7 @@
 import UIKit
 import AVFoundation
 
-class SubmitGuessViewController: CameraViewController {
+class GuessSpotViewController: CameraViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -10,9 +10,9 @@
 		4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897361A86827F00AD077E /* CameraViewController.swift */; };
 		4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897371A86827F00AD077E /* CaptureCountdownViewController.swift */; };
 		4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897381A86827F00AD077E /* CheckGuessViewController.swift */; };
-		452897401A86827F00AD077E /* GameListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* GameListViewController.swift */; };
+		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
 		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
-		452897431A86827F00AD077E /* SubmitGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */; };
+		452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
@@ -34,9 +34,9 @@
 		452897361A86827F00AD077E /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Controllers/CameraViewController.swift; sourceTree = "<group>"; };
 		452897371A86827F00AD077E /* CaptureCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaptureCountdownViewController.swift; path = Controllers/CaptureCountdownViewController.swift; sourceTree = "<group>"; };
 		452897381A86827F00AD077E /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckGuessViewController.swift; path = Controllers/CheckGuessViewController.swift; sourceTree = "<group>"; };
-		452897391A86827F00AD077E /* GameListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameListViewController.swift; path = Controllers/GameListViewController.swift; sourceTree = "<group>"; };
+		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
-		4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubmitGuessViewController.swift; path = Controllers/SubmitGuessViewController.swift; sourceTree = "<group>"; };
+		4528973C1A86827F00AD077E /* GuessSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuessSpotViewController.swift; path = Controllers/GuessSpotViewController.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,9 +72,9 @@
 				452897361A86827F00AD077E /* CameraViewController.swift */,
 				452897371A86827F00AD077E /* CaptureCountdownViewController.swift */,
 				452897381A86827F00AD077E /* CheckGuessViewController.swift */,
-				452897391A86827F00AD077E /* GameListViewController.swift */,
+				452897391A86827F00AD077E /* HomeViewController.swift */,
 				4528973A1A86827F00AD077E /* NewSpotViewController.swift */,
-				4528973C1A86827F00AD077E /* SubmitGuessViewController.swift */,
+				4528973C1A86827F00AD077E /* GuessSpotViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -236,11 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				452897431A86827F00AD077E /* SubmitGuessViewController.swift in Sources */,
+				452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
-				452897401A86827F00AD077E /* GameListViewController.swift in Sources */,
+				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */,
 			);
