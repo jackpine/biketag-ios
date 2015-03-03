@@ -85,6 +85,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="djg-xB-CWe"/>
+                    <connections>
+                        <outlet property="currentImageView" destination="YfV-CN-Xp6" id="8R1-on-y55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

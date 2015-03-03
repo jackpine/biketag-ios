@@ -18,6 +18,7 @@
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45AB7BC41A3A1D8B00E1961E /* BikeTagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */; };
+		45B488851A9AB73B00C7E03F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		45AB7BBD1A3A1D8B00E1961E /* BikeTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BC31A3A1D8B00E1961E /* BikeTagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeTagTests.swift; sourceTree = "<group>"; };
+		45B488841A9AB73B00C7E03F /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +102,9 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
-				45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */,
+				45B488831A9AB73B00C7E03F /* Models */,
 				452897351A8681DD00AD077E /* Controllers */,
+				45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */,
 				45AB7BB11A3A1D8B00E1961E /* Main.storyboard */,
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
@@ -133,6 +136,14 @@
 				45AB7BC21A3A1D8B00E1961E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45B488831A9AB73B00C7E03F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45B488841A9AB73B00C7E03F /* Spot.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */,
+				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
