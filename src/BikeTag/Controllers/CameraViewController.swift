@@ -29,9 +29,13 @@ class CameraViewController: UIViewController {
   }
 
   func captureImage(callback:(NSData)->()) {
+    if UIDevice.currentDevice().model == "iPhone Simulator" {
+      callback(NSData())
+      return
+    }
     let stillImageOutput = AVCaptureStillImageOutput()
     captureSession.addOutput(stillImageOutput)
-
+    
     let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
     if videoConnection != nil {
       stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in

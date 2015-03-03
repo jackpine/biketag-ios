@@ -11,9 +11,16 @@ class NewSpotViewController: CameraViewController {
     super.prepareForSegue(segue, sender: sender)
 
     let createImageFromData = {(imageData: NSData) -> () in
-      if ( imageData.length > 0 ) {
+      var image: UIImage?
+      if UIDevice.currentDevice().model == "iPhone Simulator" {
+        image = UIImage(named: "griffith")
+      } else {
+        image = UIImage(data: imageData)!
+      }
+        
+      if ( image != nil ) {
         let homeViewController = segue.destinationViewController as HomeViewController
-        homeViewController.submittedImage = UIImage(data: imageData)
+        homeViewController.currentSpot = Spot(image:image!, isCurrentUser:true)
       } else {
         println("Image Data not captured")
       }

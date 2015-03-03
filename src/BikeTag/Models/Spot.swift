@@ -3,9 +3,9 @@ import UIKit
 class Spot: NSObject {
   var isCurrentUserOwner = false
   var image:UIImage? = nil
-
-  func initWithImage(image:UIImage, isCurrentUserOwner:Bool) {
-    self.isCurrentUserOwner = isCurrentUserOwner
+  
+  init(image: UIImage, isCurrentUser: Bool) {
+    self.isCurrentUserOwner = isCurrentUser
     self.image = image
   }
 }
