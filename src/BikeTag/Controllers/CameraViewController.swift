@@ -11,7 +11,7 @@ class CameraViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    captureSession.sessionPreset = AVCaptureSessionPresetMedium
+    self.captureSession.sessionPreset = AVCaptureSessionPresetMedium
 
     let devices = AVCaptureDevice.devices()
     for device in devices {
@@ -19,7 +19,7 @@ class CameraViewController: UIViewController {
       if (device.hasMediaType(AVMediaTypeVideo)) {
         // Finally check the position and confirm we've got the back camera
         if(device.position == AVCaptureDevicePosition.Back) {
-          captureDevice = device as? AVCaptureDevice
+          self.captureDevice = device as? AVCaptureDevice
         }
       }
     }
@@ -29,7 +29,7 @@ class CameraViewController: UIViewController {
   }
 
   func captureImage(callback:(NSData)->()) {
-    if UIDevice.currentDevice().model == "iPhone Simulator" {
+    if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
       callback(NSData())
       return
     }
@@ -37,7 +37,7 @@ class CameraViewController: UIViewController {
     captureSession.addOutput(stillImageOutput)
     
     let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
-    if videoConnection != nil {
+    if ( videoConnection != nil ) {
       stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
         callback(AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer))
       }
@@ -49,13 +49,13 @@ class CameraViewController: UIViewController {
   func beginSession() {
     var err : NSError? = nil
     let captureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
-    captureSession.addInput(captureDeviceInput)
+    self.captureSession.addInput(captureDeviceInput)
     if err != nil {
       println("error: \(err?.localizedDescription)")
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    photoPreviewView.layer.addSublayer(previewLayer)
+    self.photoPreviewView.layer.addSublayer(previewLayer)
 
     //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
     previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
