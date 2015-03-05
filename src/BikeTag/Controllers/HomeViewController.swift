@@ -2,8 +2,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
-  @IBOutlet var currentImageView: UIImageView!
-  var currentSpot: Spot?
+  @IBOutlet var currentImageView: UIImageView! {
+    didSet {
+      updateCurrentImage()
+    }
+  }
+
+  var currentSpot: Spot? {
+    didSet {
+      updateCurrentImage()
+    }
+  }
   
   required init(coder aDecoder: NSCoder) {
     let initialImage = UIImage(named: "952 lucile")!
@@ -18,7 +27,12 @@ class HomeViewController: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.currentImageView.image = currentSpot!.image
+  }
+
+  func updateCurrentImage() {
+    if ( self.currentImageView != nil && self.currentSpot != nil ) {
+      self.currentImageView.image = self.currentSpot!.image
+    }
   }
 
 }
