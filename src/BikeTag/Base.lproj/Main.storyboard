@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MVd-WP-RrL"/>
                                 </constraints>
-                                <state key="normal" title="Found it!">
+                                <state key="normal" title="I'm there!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact">
@@ -52,31 +52,63 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know this spot?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ry-jH-CCS">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prove it by getting there." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJm-wL-eId">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5ry-jH-CCS" firstAttribute="top" secondItem="YfV-CN-Xp6" secondAttribute="bottom" constant="20" id="5p9-BM-8ty"/>
                             <constraint firstItem="YfV-CN-Xp6" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" priority="999" id="8PW-DZ-4Ib">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" constant="20" symbolic="YES" id="Av7-kM-ZTV"/>
                             <constraint firstAttribute="centerX" secondItem="VFH-Ki-tZ3" secondAttribute="centerX" id="H4j-rG-3q4"/>
+                            <constraint firstAttribute="centerX" secondItem="5ry-jH-CCS" secondAttribute="centerX" id="Tnj-Le-7or"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YfV-CN-Xp6" secondAttribute="trailing" id="jUF-gn-jvC">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstItem="YfV-CN-Xp6" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="sco-Nb-28R"/>
+                            <constraint firstItem="sJm-wL-eId" firstAttribute="top" secondItem="5ry-jH-CCS" secondAttribute="bottom" constant="8" id="tIy-ob-9RW"/>
+                            <constraint firstAttribute="centerX" secondItem="sJm-wL-eId" secondAttribute="centerX" id="uzj-pz-mg8"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5ry-jH-CCS"/>
+                                <exclude reference="sJm-wL-eId"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="jUF-gn-jvC"/>
                                 <exclude reference="sco-Nb-28R"/>
+                                <exclude reference="5p9-BM-8ty"/>
+                                <exclude reference="Tnj-Le-7or"/>
+                                <exclude reference="tIy-ob-9RW"/>
+                                <exclude reference="uzj-pz-mg8"/>
                                 <exclude reference="Av7-kM-ZTV"/>
                                 <exclude reference="H4j-rG-3q4"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5ry-jH-CCS"/>
+                                <include reference="sJm-wL-eId"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="jUF-gn-jvC"/>
                                 <include reference="sco-Nb-28R"/>
+                                <include reference="5p9-BM-8ty"/>
+                                <include reference="Tnj-Le-7or"/>
+                                <include reference="tIy-ob-9RW"/>
+                                <include reference="uzj-pz-mg8"/>
                                 <include reference="Av7-kM-ZTV"/>
                                 <include reference="H4j-rG-3q4"/>
                             </mask>

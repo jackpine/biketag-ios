@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationItem.title = "Find This"
+    self.navigationItem.title = "Current Spot"
   }
   
   override func viewWillAppear(animated: Bool) {
