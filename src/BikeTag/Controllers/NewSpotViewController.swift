@@ -17,7 +17,7 @@ class NewSpotViewController: CameraViewController {
       } else {
         image = UIImage(data: imageData)!
       }
-        
+
       if ( image != nil ) {
         let homeViewController = segue.destinationViewController as HomeViewController
         homeViewController.currentSpot = Spot(image:image!, isCurrentUser:true)
