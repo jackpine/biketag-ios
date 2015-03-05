@@ -9,7 +9,7 @@
         <!--Game List-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="Game List" customClass="GameListViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" userLabel="Game List" customClass="HomeViewController" customModule="BikeTag" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="MVd-WP-RrL"/>
                                 </constraints>
-                                <state key="normal" title="Found it!">
+                                <state key="normal" title="I'm there!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="widthClass=compact">
@@ -52,31 +52,63 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you know this spot?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ry-jH-CCS">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prove it by getting there." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJm-wL-eId">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5ry-jH-CCS" firstAttribute="top" secondItem="YfV-CN-Xp6" secondAttribute="bottom" constant="20" id="5p9-BM-8ty"/>
                             <constraint firstItem="YfV-CN-Xp6" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" priority="999" id="8PW-DZ-4Ib">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstAttribute="bottom" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" constant="20" symbolic="YES" id="Av7-kM-ZTV"/>
                             <constraint firstAttribute="centerX" secondItem="VFH-Ki-tZ3" secondAttribute="centerX" id="H4j-rG-3q4"/>
+                            <constraint firstAttribute="centerX" secondItem="5ry-jH-CCS" secondAttribute="centerX" id="Tnj-Le-7or"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YfV-CN-Xp6" secondAttribute="trailing" id="jUF-gn-jvC">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstItem="YfV-CN-Xp6" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="sco-Nb-28R"/>
+                            <constraint firstItem="sJm-wL-eId" firstAttribute="top" secondItem="5ry-jH-CCS" secondAttribute="bottom" constant="8" id="tIy-ob-9RW"/>
+                            <constraint firstAttribute="centerX" secondItem="sJm-wL-eId" secondAttribute="centerX" id="uzj-pz-mg8"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5ry-jH-CCS"/>
+                                <exclude reference="sJm-wL-eId"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="jUF-gn-jvC"/>
                                 <exclude reference="sco-Nb-28R"/>
+                                <exclude reference="5p9-BM-8ty"/>
+                                <exclude reference="Tnj-Le-7or"/>
+                                <exclude reference="tIy-ob-9RW"/>
+                                <exclude reference="uzj-pz-mg8"/>
                                 <exclude reference="Av7-kM-ZTV"/>
                                 <exclude reference="H4j-rG-3q4"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5ry-jH-CCS"/>
+                                <include reference="sJm-wL-eId"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="jUF-gn-jvC"/>
                                 <include reference="sco-Nb-28R"/>
+                                <include reference="5p9-BM-8ty"/>
+                                <include reference="Tnj-Le-7or"/>
+                                <include reference="tIy-ob-9RW"/>
+                                <include reference="uzj-pz-mg8"/>
                                 <include reference="Av7-kM-ZTV"/>
                                 <include reference="H4j-rG-3q4"/>
                             </mask>
@@ -84,6 +116,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="djg-xB-CWe"/>
+                    <connections>
+                        <outlet property="currentImageView" destination="YfV-CN-Xp6" id="8R1-on-y55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,7 +144,7 @@
         <!--Guess by Taking Photo-->
         <scene sceneID="4VN-Ne-Qml">
             <objects>
-                <viewController id="BiW-SU-TUN" userLabel="Guess by Taking Photo" customClass="SubmitGuessViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BiW-SU-TUN" userLabel="Guess by Taking Photo" customClass="GuessSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ze0-lz-seT"/>
                         <viewControllerLayoutGuide type="bottom" id="OkI-84-ROU"/>
@@ -186,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="952 lucile" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
                                 <rect key="frame" x="206" y="40" width="188.5" height="188.5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -299,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihU-7A-Zfl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653.5" y="-596"/>
+            <point key="canvasLocation" x="2641.5" y="-710"/>
         </scene>
         <!--Capture Countdown View Controller-->
         <scene sceneID="eTW-17-cc6">
@@ -371,7 +406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugN-1d-pt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3397" y="-1032"/>
+            <point key="canvasLocation" x="3339" y="-710"/>
         </scene>
         <!--New Spot-->
         <scene sceneID="I8s-JK-wUz">
@@ -391,7 +426,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Tt3-Le-U1z" kind="show" id="gJ7-Wj-Kux"/>
+                                    <segue destination="9pv-A4-QxB" kind="show" id="OYl-sk-vgV"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="TopLeft" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
@@ -433,64 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-Dz-Ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4056" y="-1032"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="G0M-sI-byl">
-            <objects>
-                <viewController id="Tt3-Le-U1z" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="GuJ-bA-3dB"/>
-                        <viewControllerLayoutGuide type="bottom" id="ZGN-sE-ssu"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ew9-S9-uoN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ok! This is now YOUR spot." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydG-1Z-Xf7">
-                                <rect key="frame" x="160" y="84" width="280" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's see if your friends can find it." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAD-tX-Oms">
-                                <rect key="frame" x="168" y="290" width="263.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3H-nI-rvf">
-                                <rect key="frame" x="192.5" y="501" width="215" height="30"/>
-                                <state key="normal" title="Take me back to the beginning.">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="9pv-A4-QxB" kind="show" id="dJ0-f8-77G"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ZGN-sE-ssu" firstAttribute="top" secondItem="I3H-nI-rvf" secondAttribute="bottom" constant="20" id="3Hl-Bv-RpY"/>
-                            <constraint firstAttribute="centerX" secondItem="hAD-tX-Oms" secondAttribute="centerX" id="Bz8-QO-Ukc"/>
-                            <constraint firstItem="ZGN-sE-ssu" firstAttribute="top" secondItem="hAD-tX-Oms" secondAttribute="bottom" constant="212" id="RsX-DI-c6z"/>
-                            <constraint firstAttribute="centerY" secondItem="hAD-tX-Oms" secondAttribute="centerY" id="Tj4-R2-msA"/>
-                            <constraint firstAttribute="centerX" secondItem="ydG-1Z-Xf7" secondAttribute="centerX" id="fn2-1r-5dE"/>
-                            <constraint firstAttribute="centerX" secondItem="I3H-nI-rvf" secondAttribute="centerX" id="jbd-qw-rwF"/>
-                            <constraint firstItem="ydG-1Z-Xf7" firstAttribute="top" secondItem="GuJ-bA-3dB" secondAttribute="bottom" constant="121" id="lGF-KN-y8t"/>
-                            <constraint firstItem="ydG-1Z-Xf7" firstAttribute="top" secondItem="GuJ-bA-3dB" secondAttribute="bottom" constant="20" id="nnl-dz-J6h"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="lGF-KN-y8t"/>
-                                <exclude reference="RsX-DI-c6z"/>
-                            </mask>
-                        </variation>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ztK-mv-HLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4720" y="-1034"/>
+            <point key="canvasLocation" x="4071" y="-710"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Fou-F7-GRo">
@@ -539,7 +517,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHx-RE-Yrh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3432" y="-324"/>
+            <point key="canvasLocation" x="3339" y="54"/>
         </scene>
     </scenes>
     <resources>
@@ -547,6 +525,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dJ0-f8-77G"/>
+        <segue reference="OYl-sk-vgV"/>
     </inferredMetricsTieBreakers>
 </document>

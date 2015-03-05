@@ -5,29 +5,21 @@ class CheckGuessViewController: UIViewController {
   @IBOutlet var fakeResponseActions: UIView!
   @IBOutlet var submittedImageView: UIImageView! {
     didSet {
-      println("did set image view")
       updateSubmittedImage()
     }
   }
 
   var submittedImage: UIImage! {
     didSet {
-      println("did set image")
       updateSubmittedImage()
     }
   }
 
   func updateSubmittedImage() {
-    if ( self.submittedImage == nil ) {
-      println("did not set image because image was nil")
-    } else if ( self.submittedImageView == nil ) {
-      println("did not set image because image view was nil")
-    } else {
-      println("updating image view with image")
+    if ( self.submittedImage != nil && self.submittedImageView != nil ) {
       submittedImageView.image = submittedImage
     }
   }
-
 
   override func viewDidLoad() {
     super.viewDidLoad()
