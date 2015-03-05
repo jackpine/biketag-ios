@@ -34,7 +34,9 @@ class CameraViewController: UIViewController {
       return
     }
     let stillImageOutput = AVCaptureStillImageOutput()
-    captureSession.addOutput(stillImageOutput)
+    if ( self.captureSession.canAddOutput(stillImageOutput) ) {
+      self.captureSession.addOutput(stillImageOutput)
+    }
     
     let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
     if ( videoConnection != nil ) {
