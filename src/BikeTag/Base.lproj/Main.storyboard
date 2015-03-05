@@ -87,12 +87,12 @@
                                 <exclude reference="sJm-wL-eId"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="jUF-gn-jvC"/>
-                                <exclude reference="sco-Nb-28R"/>
                                 <exclude reference="5p9-BM-8ty"/>
                                 <exclude reference="Tnj-Le-7or"/>
                                 <exclude reference="tIy-ob-9RW"/>
                                 <exclude reference="uzj-pz-mg8"/>
+                                <exclude reference="jUF-gn-jvC"/>
+                                <exclude reference="sco-Nb-28R"/>
                                 <exclude reference="Av7-kM-ZTV"/>
                                 <exclude reference="H4j-rG-3q4"/>
                             </mask>
@@ -103,12 +103,12 @@
                                 <include reference="sJm-wL-eId"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="jUF-gn-jvC"/>
-                                <include reference="sco-Nb-28R"/>
                                 <include reference="5p9-BM-8ty"/>
                                 <include reference="Tnj-Le-7or"/>
                                 <include reference="tIy-ob-9RW"/>
                                 <include reference="uzj-pz-mg8"/>
+                                <include reference="jUF-gn-jvC"/>
+                                <include reference="sco-Nb-28R"/>
                                 <include reference="Av7-kM-ZTV"/>
                                 <include reference="H4j-rG-3q4"/>
                             </mask>
@@ -426,7 +426,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9pv-A4-QxB" kind="show" id="OYl-sk-vgV"/>
+                                    <action selector="newSpotButtonViewTouched:" destination="kB0-aQ-szS" eventType="touchUpInside" id="223-DW-jNj"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="TopLeft" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
@@ -525,6 +525,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OYl-sk-vgV"/>
+        <segue reference="XyA-Nl-Ivb"/>
     </inferredMetricsTieBreakers>
 </document>

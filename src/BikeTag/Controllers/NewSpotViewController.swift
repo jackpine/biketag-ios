@@ -7,6 +7,10 @@ class NewSpotViewController: CameraViewController {
     self.navigationItem.title = "Claim This"
   }
 
+  @IBAction func newSpotButtonViewTouched(sender: AnyObject) {
+    self.navigationController?.popToRootViewControllerAnimated(true)
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
