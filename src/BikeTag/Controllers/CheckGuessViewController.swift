@@ -3,6 +3,11 @@ import UIKit
 class CheckGuessViewController: UIViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
+  @IBOutlet var fakeCorrectResponseButton: UIButton!
+  @IBOutlet var fakeIncorrectResponseButton: UIButton!
+  @IBOutlet var incorrectGuessView: UIView!
+  @IBOutlet var correctGuessView: UIView!
+  @IBOutlet var countdownView: UIView!
   @IBOutlet var submittedImageView: UIImageView! {
     didSet {
       updateSubmittedImage()
@@ -58,6 +63,25 @@ class CheckGuessViewController: UIViewController {
   }
 
   func handleGuessResponse() {
-    fakeResponseActions.hidden = false
+    self.fakeResponseActions.hidden = false
+  }
+
+  func correctGuess() {
+    self.fakeResponseActions.hidden = true
+    self.correctGuessView.hidden = false
+    self.countdownView.hidden = false
+  }
+
+  func incorrectGuess() {
+    self.fakeResponseActions.hidden = true
+    self.incorrectGuessView.hidden = false
+  }
+
+  @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
+    incorrectGuess()
+  }
+
+  @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
+    correctGuess()
   }
 }
