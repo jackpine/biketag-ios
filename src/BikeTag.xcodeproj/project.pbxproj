@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897361A86827F00AD077E /* CameraViewController.swift */; };
-		4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897371A86827F00AD077E /* CaptureCountdownViewController.swift */; };
 		4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897381A86827F00AD077E /* CheckGuessViewController.swift */; };
 		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
 		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		452897361A86827F00AD077E /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Controllers/CameraViewController.swift; sourceTree = "<group>"; };
-		452897371A86827F00AD077E /* CaptureCountdownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CaptureCountdownViewController.swift; path = Controllers/CaptureCountdownViewController.swift; sourceTree = "<group>"; };
 		452897381A86827F00AD077E /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckGuessViewController.swift; path = Controllers/CheckGuessViewController.swift; sourceTree = "<group>"; };
 		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				452897361A86827F00AD077E /* CameraViewController.swift */,
-				452897371A86827F00AD077E /* CaptureCountdownViewController.swift */,
 				452897381A86827F00AD077E /* CheckGuessViewController.swift */,
 				452897391A86827F00AD077E /* HomeViewController.swift */,
 				4528973A1A86827F00AD077E /* NewSpotViewController.swift */,
@@ -253,7 +250,6 @@
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
-				4528973E1A86827F00AD077E /* CaptureCountdownViewController.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
