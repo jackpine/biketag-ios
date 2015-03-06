@@ -409,14 +409,14 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
                                                 <rect key="frame" x="150" y="87" width="300" height="120"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="120" id="dBX-4r-MJd">
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="dBX-4r-MJd">
                                                         <variation key="widthClass=compact" constant="64"/>
                                                     </constraint>
                                                 </constraints>
-                                                <string key="text">Now, you've got just 30 minutes to keep the game going by capturing a new spot. If the timer runs out, this spot will be available for anyone to recapture.</string>
+                                                <string key="text">Now you've got to keep the game going by capturing a new spot. If the timer runs out, this spot will be available again for anyone to recapture.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -581,7 +581,8 @@
                     </view>
                     <connections>
                         <outlet property="correctGuessView" destination="iF1-gU-jPa" id="zKJ-d1-TpC"/>
-                        <outlet property="countdownView" destination="0rs-uX-AcI" id="1Wn-Zv-TWd"/>
+                        <outlet property="countdownClockView" destination="cgP-jT-iPT" id="3pb-7Z-u3r"/>
+                        <outlet property="countdownContainerView" destination="0rs-uX-AcI" id="fcO-SI-Tb9"/>
                         <outlet property="fakeCorrectResponseButton" destination="hjT-Bm-8zm" id="ZEh-2w-TAS"/>
                         <outlet property="fakeIncorrectResponseButton" destination="YFZ-sb-Lh5" id="Rce-Ha-8ME"/>
                         <outlet property="fakeResponseActions" destination="w4R-8C-yyR" id="z7T-8g-JCg"/>
