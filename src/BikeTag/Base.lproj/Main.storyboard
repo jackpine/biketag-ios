@@ -279,9 +279,6 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qg-vl-6Ne">
-                                <rect key="frame" x="200" y="299" width="200" height="2"/>
-                            </progressView>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-Jt-DAh" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
@@ -513,6 +510,9 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qg-vl-6Ne">
+                                <rect key="frame" x="200" y="299" width="200" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -534,7 +534,9 @@
                             <constraint firstAttribute="centerX" secondItem="Z6C-Jt-DAh" secondAttribute="centerX" id="dPR-87-3N4"/>
                             <constraint firstItem="zxW-5G-LFt" firstAttribute="bottom" secondItem="Z6C-Jt-DAh" secondAttribute="top" id="fGf-TR-7cv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zxW-5G-LFt" secondAttribute="trailing" constant="-16" id="hRz-oS-mkh"/>
-                            <constraint firstItem="zxW-5G-LFt" firstAttribute="bottom" secondItem="4qg-vl-6Ne" secondAttribute="bottom" id="mfz-Gd-cuL"/>
+                            <constraint firstItem="zxW-5G-LFt" firstAttribute="bottom" secondItem="4qg-vl-6Ne" secondAttribute="top" id="mfz-Gd-cuL">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="90v-iu-fVa" firstAttribute="top" secondItem="Z6C-Jt-DAh" secondAttribute="bottom" id="nig-r0-kZ0"/>
                             <constraint firstItem="0rs-uX-AcI" firstAttribute="leading" secondItem="zxW-5G-LFt" secondAttribute="leading" id="vCc-rR-N48"/>
                         </constraints>
