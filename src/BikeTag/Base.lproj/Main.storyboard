@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="952 lucile" translatesAutoresizingMaskIntoConstraints="NO" id="YfV-CN-Xp6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="second" translatesAutoresizingMaskIntoConstraints="NO" id="YfV-CN-Xp6">
                                 <rect key="frame" x="79.5" y="90" width="440" height="440"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -50,7 +51,7 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3">
                                         <rect key="frame" x="230.5" y="550" width="139" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MVd-WP-RrL"/>
@@ -143,12 +144,12 @@
                                         <exclude reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="Db4-bs-syj"/>
-                                        <exclude reference="Zhi-th-M0W"/>
-                                        <exclude reference="vX0-ul-psL"/>
                                         <exclude reference="OEs-62-3ut"/>
                                         <exclude reference="kly-Tj-Sgn"/>
                                         <exclude reference="sSm-LU-8tT"/>
+                                        <exclude reference="Db4-bs-syj"/>
+                                        <exclude reference="Zhi-th-M0W"/>
+                                        <exclude reference="vX0-ul-psL"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -157,12 +158,12 @@
                                         <include reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="Db4-bs-syj"/>
-                                        <include reference="Zhi-th-M0W"/>
-                                        <include reference="vX0-ul-psL"/>
                                         <include reference="OEs-62-3ut"/>
                                         <include reference="kly-Tj-Sgn"/>
                                         <include reference="sSm-LU-8tT"/>
+                                        <include reference="Db4-bs-syj"/>
+                                        <include reference="Zhi-th-M0W"/>
+                                        <include reference="vX0-ul-psL"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -195,14 +196,14 @@
                             <mask key="constraints">
                                 <exclude reference="jUF-gn-jvC"/>
                                 <exclude reference="sco-Nb-28R"/>
-                                <exclude reference="Hv6-UW-rfl"/>
-                                <exclude reference="nPJ-Og-CY2"/>
-                                <exclude reference="uxJ-wu-G7u"/>
                                 <exclude reference="Ohc-uD-m7A"/>
                                 <exclude reference="Ww2-Zd-IIe"/>
                                 <exclude reference="DjI-oa-3Xu"/>
                                 <exclude reference="N1i-04-DXg"/>
                                 <exclude reference="gVf-XB-cHS"/>
+                                <exclude reference="Hv6-UW-rfl"/>
+                                <exclude reference="nPJ-Og-CY2"/>
+                                <exclude reference="uxJ-wu-G7u"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -213,14 +214,14 @@
                             <mask key="constraints">
                                 <include reference="jUF-gn-jvC"/>
                                 <include reference="sco-Nb-28R"/>
-                                <include reference="Hv6-UW-rfl"/>
-                                <include reference="nPJ-Og-CY2"/>
-                                <include reference="uxJ-wu-G7u"/>
                                 <include reference="Ohc-uD-m7A"/>
                                 <include reference="Ww2-Zd-IIe"/>
                                 <include reference="DjI-oa-3Xu"/>
                                 <include reference="N1i-04-DXg"/>
                                 <include reference="gVf-XB-cHS"/>
+                                <include reference="Hv6-UW-rfl"/>
+                                <include reference="nPJ-Og-CY2"/>
+                                <include reference="uxJ-wu-G7u"/>
                             </mask>
                         </variation>
                     </view>
@@ -808,5 +809,6 @@
     <resources>
         <image name="952 lucile" width="200" height="202"/>
         <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
     </resources>
 </document>
