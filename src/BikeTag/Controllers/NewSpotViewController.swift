@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 class NewSpotViewController: CameraViewController {
 
@@ -14,16 +15,20 @@ class NewSpotViewController: CameraViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
-    let createImageFromData = {(imageData: NSData) -> () in
+    let createImageFromData = {(imageData: NSData, location: CLLocation) -> () in
       var image: UIImage?
+      var location: CLLocation?
       if UIDevice.currentDevice().model == "iPhone Simulator" {
-        image = UIImage(named: "griffith")
+        let griffithSpot = Spot.griffithSpot()
+        image = griffithSpot.image
+        location = griffithSpot.location
       } else {
         image = UIImage(data: imageData)
+        location = self.mostRecentLocation
       }
 
       if ( image != nil ) {
-        Spot.createNewSpot(image!, callback: {(newSpot: Spot) -> () in
+        Spot.createNewSpot(image!, location: location!, callback: {(newSpot: Spot) -> () in
           let homeViewController = segue.destinationViewController as HomeViewController
           homeViewController.currentSpot = newSpot
         })
