@@ -78,6 +78,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
       callback(NSData(), self.mostRecentLocation!)
       return
     }
+
     let stillImageOutput = AVCaptureStillImageOutput()
     if ( self.captureSession.canAddOutput(stillImageOutput) ) {
       self.captureSession.addOutput(stillImageOutput)
