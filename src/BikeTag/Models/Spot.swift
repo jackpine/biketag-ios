@@ -9,7 +9,7 @@ class Spot: NSObject {
     self.image = image
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->()) -> () {
+  class func fetchCurrentSpot(callback:(Spot)->()) {
     dispatch_async(dispatch_get_main_queue(), {
       //simulate network delay
       sleep(1)
@@ -17,6 +17,22 @@ class Spot: NSObject {
       let currentSpot = Spot(image: initialImage, isCurrentUser: false)
 
       callback(currentSpot)
+    })
+  }
+
+  class func checkGuess(submittedImage: UIImage, correctCallback:() -> (), incorrectCallback:() -> ()) {
+    dispatch_async(dispatch_get_main_queue(), {
+      //simulate network delay
+      sleep(1)
+
+      //stub network response
+      let guessedCorrectly = true
+
+      if guessedCorrectly {
+        correctCallback()
+      } else {
+        incorrectCallback()
+      }
     })
   }
 

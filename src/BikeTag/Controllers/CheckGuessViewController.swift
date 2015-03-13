@@ -57,9 +57,7 @@ class CheckGuessViewController: UIViewController {
       })
 
       NSThread.sleepForTimeInterval(0.2)
-      dispatch_async(dispatch_get_main_queue(), {
-        self.handleGuessResponse()
-      })
+      Spot.checkGuess(self.submittedImage, correctCallback: self.handleGuessResponse, incorrectCallback: self.handleGuessResponse)
     })
   }
 
