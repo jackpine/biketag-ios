@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 class NewSpotViewController: CameraViewController {
 
@@ -14,7 +15,7 @@ class NewSpotViewController: CameraViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
-    let createImageFromData = {(imageData: NSData) -> () in
+    let createImageFromData = {(imageData: NSData, location: CLLocation) -> () in
       var image: UIImage?
       if UIDevice.currentDevice().model == "iPhone Simulator" {
         image = UIImage(named: "griffith")

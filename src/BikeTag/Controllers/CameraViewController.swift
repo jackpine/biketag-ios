@@ -9,6 +9,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   var previewLayer: AVCaptureVideoPreviewLayer?
   var captureDevice: AVCaptureDevice?
   var imageData: NSData?
+  var mostRecentLocation: CLLocation?
   let locationManager = CLLocationManager()
 
   required init(coder aDecoder: NSCoder) {
@@ -68,9 +69,13 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     setUpLocationServices()
   }
 
-  func captureImage(callback:(NSData)->()) {
+  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    self.mostRecentLocation = locations.last as? CLLocation
+  }
+
+  func captureImage(callback:(NSData, CLLocation)->()) {
     if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
-      callback(NSData())
+      callback(NSData(), self.mostRecentLocation!)
       return
     }
     let stillImageOutput = AVCaptureStillImageOutput()
@@ -79,9 +84,12 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
-    if ( videoConnection != nil ) {
+    if ( videoConnection != nil && self.mostRecentLocation != nil ) {
       stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
-        callback(AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer))
+
+        let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+
+        callback(image!, self.mostRecentLocation!)
       }
     } else {
       println("couldn't find video connection")
@@ -101,7 +109,6 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
     //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
     previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
-
 
     captureSession.startRunning()
   }
