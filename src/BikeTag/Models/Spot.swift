@@ -20,7 +20,18 @@ class Spot: NSObject {
     })
   }
 
-  class func checkGuess(submittedImage: UIImage, correctCallback:() -> (), incorrectCallback:() -> ()) {
+  class func createNewSpot(image: UIImage, callback: (Spot) ->()) {
+    dispatch_async(dispatch_get_main_queue(), {
+      //simulate network delay
+      sleep(1)
+
+      //stub network response
+      let newSpot = Spot(image: image, isCurrentUser: true)
+      callback(newSpot)
+    })
+  }
+
+  class func checkGuess(correctCallback:() -> (), incorrectCallback:() -> ()) {
     dispatch_async(dispatch_get_main_queue(), {
       //simulate network delay
       sleep(1)

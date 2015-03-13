@@ -15,7 +15,7 @@ class GuessSpotViewController: CameraViewController {
     let createImageFromData = {(imageData: NSData) -> () in
       var image: UIImage?
       if UIDevice.currentDevice().model == "iPhone Simulator" {
-        image = UIImage(named: "952 lucile")
+        image = UIImage(named: "952 lucile")!
       } else {
         image = UIImage(data: imageData)!
       }
