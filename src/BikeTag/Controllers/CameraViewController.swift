@@ -1,13 +1,20 @@
 import UIKit
 import AVFoundation
+import CoreLocation
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
   let captureSession = AVCaptureSession()
   var previewLayer: AVCaptureVideoPreviewLayer?
   var captureDevice: AVCaptureDevice?
   var imageData: NSData?
+  let locationManager = CLLocationManager()
+
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder:aDecoder)
+    locationManager.delegate = self
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,6 +33,39 @@ class CameraViewController: UIViewController {
     if captureDevice != nil {
       beginSession()
     }
+    setUpLocationServices()
+  }
+
+  func setUpLocationServices() {
+    switch CLLocationManager.authorizationStatus() {
+    case .Authorized, .AuthorizedWhenInUse:
+      locationManager.startUpdatingLocation()
+    case .NotDetermined:
+      locationManager.requestWhenInUseAuthorization()
+    case .Restricted, .Denied:
+      let alertController = UIAlertController(
+        title: "Background Location Access Disabled",
+        message: "In order to verify your location, please open this app's settings and set location access to 'While Using the App'.",
+        preferredStyle: .Alert)
+
+      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+      alertController.addAction(cancelAction)
+
+      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+          UIApplication.sharedApplication().openURL(url)
+        }
+      }
+      alertController.addAction(openAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+  }
+
+  func locationManager(manager: CLLocationManager!,
+    didChangeAuthorizationStatus status: CLAuthorizationStatus)
+  {
+    setUpLocationServices()
   }
 
   func captureImage(callback:(NSData)->()) {

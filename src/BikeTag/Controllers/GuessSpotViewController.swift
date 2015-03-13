@@ -11,7 +11,6 @@ class GuessSpotViewController: CameraViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
-
     let createImageFromData = {(imageData: NSData) -> () in
       var image: UIImage?
       if UIDevice.currentDevice().model == "iPhone Simulator" {
