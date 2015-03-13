@@ -25,11 +25,13 @@ class HomeViewController: UIViewController {
       updateCurrentSpot()
     }
   }
-  
+
   required init(coder aDecoder: NSCoder) {
-    let initialImage = UIImage(named: "952 lucile")!
-    self.currentSpot = Spot(image: initialImage, isCurrentUser: false)
     super.init(coder:aDecoder)
+
+    Spot.fetchCurrentSpot() { (currentSpot: Spot) -> () in
+      self.currentSpot = currentSpot
+    }
   }
 
   override func viewDidLoad() {

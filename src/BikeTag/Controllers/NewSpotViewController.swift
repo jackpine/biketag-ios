@@ -19,14 +19,16 @@ class NewSpotViewController: CameraViewController {
       if UIDevice.currentDevice().model == "iPhone Simulator" {
         image = UIImage(named: "griffith")
       } else {
-        image = UIImage(data: imageData)!
+        image = UIImage(data: imageData)
       }
 
       if ( image != nil ) {
-        let homeViewController = segue.destinationViewController as HomeViewController
-        homeViewController.currentSpot = Spot(image:image!, isCurrentUser:true)
+        Spot.createNewSpot(image!, callback: {(newSpot: Spot) -> () in
+          let homeViewController = segue.destinationViewController as HomeViewController
+          homeViewController.currentSpot = newSpot
+        })
       } else {
-        println("Image Data not captured")
+        println("New spot image data not captured")
       }
     }
 
