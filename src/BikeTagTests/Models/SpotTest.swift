@@ -6,7 +6,7 @@ class SpotTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    User.setCurrentUser(Spot.lucileSpot().user)
+    User.setCurrentUser(Spot.griffithSpot().user)
   }
 
   func testFetchCurrentSpot(){
@@ -43,18 +43,15 @@ class SpotTests: XCTestCase {
   }
 
   func testIsCurrentUserOwner() {
-    let me = User()
-    let them = User()
+    let me = User.getCurrentUser()!
+    let them = User(deviceId: "bar")
     let someImage = Spot.lucileSpot().image
     let someLocation = Spot.lucileSpot().location
 
-    User.setCurrentUser(me)
     let mySpot = Spot(image: someImage, location: someLocation, user: me)
     let theirSpot = Spot(image: someImage, location: someLocation, user: them)
 
-
     XCTAssert(mySpot.isCurrentUserOwner())
     XCTAssertFalse(theirSpot.isCurrentUserOwner())
-
   }
 }

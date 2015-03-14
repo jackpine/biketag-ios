@@ -4,9 +4,13 @@ import XCTest
 class UserTest: XCTestCase {
 
   func testUserEquality() {
-    let user1 = User()
-    let user2 = User()
+    let user1 = User(deviceId: "foo")
     XCTAssertEqual(user1, user1)
+
+    let anotherUser1 = User(deviceId: "foo")
+    XCTAssertEqual(user1, anotherUser1)
+
+    let user2 = User(deviceId: "bar")
     XCTAssertNotEqual(user1, user2)
   }
 
@@ -14,7 +18,7 @@ class UserTest: XCTestCase {
     User.setCurrentUser(nil)
     XCTAssert(User.getCurrentUser() == nil)
 
-    let user = User()
+    let user = User(deviceId: "foo")
     User.setCurrentUser(user)
     XCTAssertEqual(User.getCurrentUser()!, user)
   }

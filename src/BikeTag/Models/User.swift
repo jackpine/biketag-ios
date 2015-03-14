@@ -3,6 +3,13 @@ import Foundation
 private var currentUser: User?
 
 class User: Equatable {
+
+  let deviceId: String
+
+  init(deviceId: String) {
+    self.deviceId = deviceId
+  }
+
   class func getCurrentUser() -> User? {
     return currentUser;
   }
@@ -15,5 +22,5 @@ class User: Equatable {
 // MARK: Equatable
 
 func ==(lhs: User, rhs: User) -> Bool {
-  return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+  return lhs.deviceId == rhs.deviceId
 }
