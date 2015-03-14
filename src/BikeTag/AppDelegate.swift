@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    // TODO: have a device agnostic login.
+    let deviceId = UIDevice.currentDevice().identifierForVendor.UUIDString
+    User.setCurrentUser(User(deviceId: deviceId))
+
     // Override point for customization after application launch.
     return true
   }

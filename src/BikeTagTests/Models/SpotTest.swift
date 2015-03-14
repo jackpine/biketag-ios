@@ -4,10 +4,15 @@ import CoreLocation
 
 class SpotTests: XCTestCase {
 
+  override func setUp() {
+    super.setUp()
+    User.setCurrentUser(Spot.griffithSpot().user)
+  }
+
   func testFetchCurrentSpot(){
     let expectation = self.expectationWithDescription("fetched current spot")
     Spot.fetchCurrentSpot() { (currentSpot) -> () in
-      if ( !currentSpot.isCurrentUserOwner &&
+      if ( !currentSpot.isCurrentUserOwner() &&
             currentSpot.location.coordinate.longitude == Spot.lucileSpot().location.coordinate.longitude ) {
         expectation.fulfill()
       }
@@ -25,7 +30,7 @@ class SpotTests: XCTestCase {
     let location = CLLocation(latitude: latitude, longitude: longitude)
 
     Spot.createNewSpot(image, location: location) { (newSpot) in
-      if (newSpot.isCurrentUserOwner &&
+      if (newSpot.isCurrentUserOwner() &&
             newSpot.image == image &&
             newSpot.location.coordinate.latitude == latitude &&
             newSpot.location.coordinate.longitude == longitude) {
@@ -35,5 +40,18 @@ class SpotTests: XCTestCase {
     }
 
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
+  }
+
+  func testIsCurrentUserOwner() {
+    let me = User.getCurrentUser()!
+    let them = User(deviceId: "bar")
+    let someImage = Spot.lucileSpot().image
+    let someLocation = Spot.lucileSpot().location
+
+    let mySpot = Spot(image: someImage, location: someLocation, user: me)
+    let theirSpot = Spot(image: someImage, location: someLocation, user: them)
+
+    XCTAssert(mySpot.isCurrentUserOwner())
+    XCTAssertFalse(theirSpot.isCurrentUserOwner())
   }
 }
