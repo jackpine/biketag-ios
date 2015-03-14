@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    // TODO: have a real login.
+    User.setCurrentUser(User())
+
     // Override point for customization after application launch.
     return true
   }

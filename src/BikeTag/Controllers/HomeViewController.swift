@@ -52,7 +52,7 @@ class HomeViewController: UIViewController {
 
   func updateSpotCaption() {
     if( self.currentSpot != nil && self.captureInstructionsView != nil && self.mySpotView != nil ) {
-      if ( self.currentSpot!.isCurrentUserOwner ) {
+      if ( self.currentSpot!.isCurrentUserOwner() ) {
         self.captureInstructionsView.hidden = true
         self.mySpotView.hidden = false
       } else {

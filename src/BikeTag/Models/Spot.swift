@@ -2,12 +2,12 @@ import UIKit
 import CoreLocation
 
 class Spot: NSObject {
-  var isCurrentUserOwner = false
   var image: UIImage
   var location: CLLocation
+  let user: User
   
-  init(image: UIImage, location: CLLocation, isCurrentUser: Bool) {
-    self.isCurrentUserOwner = isCurrentUser
+  init(image: UIImage, location: CLLocation, user: User) {
+    self.user = user
     self.image = image
     self.location = location
   }
@@ -27,8 +27,9 @@ class Spot: NSObject {
       //simulate network delay
       sleep(1)
 
-      //stub network response
-      let newSpot = Spot(image: image, location: location, isCurrentUser: true)
+      //TODO enforce login before creating new spot
+      assert(User.getCurrentUser() != nil)
+      let newSpot = Spot(image: image, location: location, user: User.getCurrentUser()!)
       callback(newSpot)
     })
   }
@@ -55,7 +56,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, location: location, isCurrentUser: false)
+    return Spot(image: image, location: location, user: User())
   }
 
   // static spot, used to seed game and for testing
@@ -64,7 +65,14 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, location: location, isCurrentUser: true)
+    return Spot(image: image, location: location, user: User())
   }
 
+  func isCurrentUserOwner() -> Bool {
+    if User.getCurrentUser() == self.user {
+      return true
+    } else {
+      return false
+    }
+  }
 }

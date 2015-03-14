@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
 		451E51D11AB3778600849262 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
+		451E51D31AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
+		451E51D41AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
+		451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D51AB4AB4C00849262 /* UserTest.swift */; };
 		4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897361A86827F00AD077E /* CameraViewController.swift */; };
 		4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897381A86827F00AD077E /* CheckGuessViewController.swift */; };
 		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
@@ -33,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
+		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		451E51D51AB4AB4C00849262 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
 		452897361A86827F00AD077E /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = Controllers/CameraViewController.swift; sourceTree = "<group>"; };
 		452897381A86827F00AD077E /* CheckGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckGuessViewController.swift; path = Controllers/CheckGuessViewController.swift; sourceTree = "<group>"; };
 		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				451E51CF1AB3743C00849262 /* SpotTest.swift */,
+				451E51D51AB4AB4C00849262 /* UserTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				45B488841A9AB73B00C7E03F /* Spot.swift */,
+				451E51D21AB49AFA00849262 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +264,7 @@
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
+				451E51D31AB49AFA00849262 /* User.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
@@ -267,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
+				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
