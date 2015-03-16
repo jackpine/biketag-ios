@@ -1,8 +1,8 @@
 Bike Tag
 ========
 
-Bike Tag is a game intended to get people to excercise, share secret spots,
-and learn about the city they live in.
+Bike Tag is a game intended to get people to share secret spots,
+exercise, and learn about the city they live in.
 
 The basic premise
 -----------------
@@ -10,9 +10,9 @@ Someone posts a photograph of a spot, and everyone else tries to
 identify the place. You prove you've succesfully identified the place by
 traveling to the same spot and taking a photograph. This is verified by
 your phone's GPS sensor at the time you take the photo. You won't know
-that you're at the right spot until you actually submit your photo. If
+that you're right (or wrong!) until you actually submit your photo. If
 you guessed correctly - you are now in control. You have 30 minutes to
-take a photo of a new place.  Once you take your photo, everyone else
+take a photo of a new place. Once you take your photo, everyone else
 tries to identify *your* spot - and the game repeats itself
 indefinitely.
 
