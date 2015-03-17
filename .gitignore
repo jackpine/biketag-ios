@@ -6,3 +6,5 @@ xcuserdata
 
 # Carthage build and checkouts
 Carthage
+
+.DS_Store
