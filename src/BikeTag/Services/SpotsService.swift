@@ -8,7 +8,9 @@ class SpotsService {
 
     Alamofire.request(.GET, url)
       .responseJSON { (_, _, json, _) in
-        let parsedSpot = ParsedSpot(json: json)
+        let responseAttributes = json as NSDictionary
+        let spotAttributes = responseAttributes.valueForKey("spot") as NSDictionary
+        let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
     }
   }
