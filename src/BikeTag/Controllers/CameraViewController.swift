@@ -74,6 +74,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
+    assert(self.mostRecentLocation != nil)
     if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
       callback(NSData(), self.mostRecentLocation!)
       return
