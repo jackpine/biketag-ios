@@ -229,8 +229,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
-                    <navigationItem key="navigationItem" id="djg-xB-CWe"/>
+                    <navigationItem key="navigationItem" title="Current Spot" id="djg-xB-CWe"/>
                     <connections>
                         <outlet property="captureInstructionsView" destination="yoK-D9-NJO" id="EJj-z3-sCv"/>
                         <outlet property="currentImageView" destination="YfV-CN-Xp6" id="8R1-on-y55"/>
@@ -318,6 +317,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Capture It" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
                     </connections>
@@ -698,6 +698,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Checking" id="DFd-br-DQk"/>
                     <connections>
                         <outlet property="correctGuessView" destination="iF1-gU-jPa" id="zKJ-d1-TpC"/>
                         <outlet property="countdownClockView" destination="cgP-jT-iPT" id="3pb-7Z-u3r"/>
@@ -800,6 +801,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Claim This" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
                     </connections>
@@ -812,7 +814,6 @@
     </scenes>
     <resources>
         <image name="952 lucile" width="200" height="202"/>
-        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

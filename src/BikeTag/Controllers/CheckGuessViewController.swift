@@ -31,7 +31,6 @@ class CheckGuessViewController: UIViewController {
     super.viewDidLoad()
     progressView.progress = 0
     updateSubmittedImage()
-    self.navigationItem.title = "Checking";
   }
 
   override func viewDidAppear(animated: Bool) {

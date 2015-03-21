@@ -56,15 +56,6 @@ class HomeViewController: UIViewController {
     Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.navigationItem.title = "Current Spot"
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-
   func updateCurrentSpot() {
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
       self.currentImageView.image = self.currentSpot!.image

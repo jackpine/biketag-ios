@@ -3,11 +3,6 @@ import CoreLocation
 
 class NewSpotViewController: CameraViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.navigationItem.title = "Claim This"
-  }
-
   @IBAction func newSpotButtonViewTouched(sender: AnyObject) {
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
