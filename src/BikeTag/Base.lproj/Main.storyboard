@@ -253,14 +253,14 @@
                                 <exclude reference="sTU-I6-IDV"/>
                                 <exclude reference="sco-Nb-28R"/>
                                 <exclude reference="u7u-F0-wOm"/>
+                                <exclude reference="Ohc-uD-m7A"/>
+                                <exclude reference="Ww2-Zd-IIe"/>
                                 <exclude reference="DjI-oa-3Xu"/>
                                 <exclude reference="N1i-04-DXg"/>
                                 <exclude reference="gVf-XB-cHS"/>
                                 <exclude reference="Hv6-UW-rfl"/>
                                 <exclude reference="nPJ-Og-CY2"/>
                                 <exclude reference="uxJ-wu-G7u"/>
-                                <exclude reference="Ohc-uD-m7A"/>
-                                <exclude reference="Ww2-Zd-IIe"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -271,14 +271,14 @@
                             <mask key="constraints">
                                 <include reference="jUF-gn-jvC"/>
                                 <include reference="sco-Nb-28R"/>
+                                <include reference="Ohc-uD-m7A"/>
+                                <include reference="Ww2-Zd-IIe"/>
                                 <include reference="DjI-oa-3Xu"/>
                                 <include reference="N1i-04-DXg"/>
                                 <include reference="gVf-XB-cHS"/>
                                 <include reference="Hv6-UW-rfl"/>
                                 <include reference="nPJ-Og-CY2"/>
                                 <include reference="uxJ-wu-G7u"/>
-                                <include reference="Ohc-uD-m7A"/>
-                                <include reference="Ww2-Zd-IIe"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">

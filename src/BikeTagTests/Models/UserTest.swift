@@ -15,12 +15,11 @@ class UserTest: XCTestCase {
   }
 
   func testCurrentUser() {
-    User.setCurrentUser(nil)
-    XCTAssert(User.getCurrentUser() == nil)
-
     let user = User(deviceId: "foo")
+    let userWithSameDeviceId = User(deviceId: "foo")
+
     User.setCurrentUser(user)
-    XCTAssertEqual(User.getCurrentUser()!, user)
+    XCTAssertEqual(User.getCurrentUser(), userWithSameDeviceId)
   }
 
 }

@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 private var currentUser: User?
 
@@ -15,8 +16,14 @@ class User: Equatable {
     self.id = id
   }
 
-  class func getCurrentUser() -> User? {
-    return currentUser;
+  class func getCurrentUser() -> User {
+    if ( currentUser == nil ) {
+      // TODO: have a device agnostic login.
+      let deviceId = UIDevice.currentDevice().identifierForVendor.UUIDString
+      self.setCurrentUser( User(deviceId: deviceId) )
+    }
+
+    return currentUser!;
   }
 
   class func setCurrentUser(user: User?) {

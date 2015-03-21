@@ -35,9 +35,7 @@ class Spot: NSObject {
       //simulate network delay
       sleep(1)
 
-      //TODO enforce login before creating new spot
-      assert(User.getCurrentUser() != nil)
-      let newSpot = Spot(image: image, user: User.getCurrentUser()!, location: location)
+      let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
       callback(newSpot)
     })
   }
