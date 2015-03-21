@@ -3,23 +3,31 @@ import CoreLocation
 
 class Spot: NSObject {
   var image: UIImage
-  var location: CLLocation
+  var location: CLLocation?
+  var id: Int?
   let user: User
-  
-  init(image: UIImage, location: CLLocation, user: User) {
+
+  init(image: UIImage, user: User, id: Int) {
+    self.user = user
+    self.image = image
+  }
+
+  init(image: UIImage, user: User, location: CLLocation) {
     self.user = user
     self.image = image
     self.location = location
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->()) {
-    dispatch_async(dispatch_get_main_queue(), {
-      //simulate network delay
-      sleep(1)
-
-      let currentSpot = self.lucileSpot()
+  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
+    let buildSpotFromResponse = { (parsedSpot: ParsedSpot) -> () in
+      let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
+      let image = UIImage(data: imageData!)
+      let user = User(id: parsedSpot.userId)
+      let currentSpot = Spot(image: image!, user: user, id: parsedSpot.spotId)
       callback(currentSpot)
-    })
+    }
+
+    SpotsService.fetchCurrentSpot(buildSpotFromResponse, errorCallback: errorCallback)
   }
 
   class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->()) {
@@ -29,7 +37,7 @@ class Spot: NSObject {
 
       //TODO enforce login before creating new spot
       assert(User.getCurrentUser() != nil)
-      let newSpot = Spot(image: image, location: location, user: User.getCurrentUser()!)
+      let newSpot = Spot(image: image, user: User.getCurrentUser()!, location: location)
       callback(newSpot)
     })
   }
@@ -56,7 +64,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, location: location, user: User(deviceId: "lucile-device-id"))
+    return Spot(image: image, user: User(deviceId: "lucile-device-id"), location: location)
   }
 
   // static spot, used to seed game and for testing
@@ -65,7 +73,7 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, location: location, user: User(deviceId: "griffith-device-id"))
+    return Spot(image: image, user: User(deviceId: "griffith-device-id"), location: location)
   }
 
   func isCurrentUserOwner() -> Bool {

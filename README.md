@@ -7,7 +7,7 @@ exercise, and learn about the city they live in.
 The basic premise
 -----------------
 Someone posts a photograph of a spot, and everyone else tries to
-identify the place. You prove you've succesfully identified the place by
+identify the place. You prove you've successfully identified the place by
 traveling to the same spot and taking a photograph. This is verified by
 your phone's GPS sensor at the time you take the photo. You won't know
 that you're right (or wrong!) until you actually submit your photo. If
@@ -18,7 +18,7 @@ indefinitely.
 
 The fun of the game comes from sharing interesting places in the city
 with people who might not know about them. Or sometimes the fun is in
-solving the riddle of the photograph - for exampe, maybe it's a really
+solving the riddle of the photograph - for example, maybe it's a really
 common place, but the photograph is a little abstract with just a little
 clue as to where it's taken from.
 

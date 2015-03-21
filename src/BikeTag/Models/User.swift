@@ -4,10 +4,15 @@ private var currentUser: User?
 
 class User: Equatable {
 
-  let deviceId: String
+  let deviceId: String?
+  let id: Int?
 
   init(deviceId: String) {
     self.deviceId = deviceId
+  }
+
+  init(id: Int) {
+    self.id = id
   }
 
   class func getCurrentUser() -> User? {
