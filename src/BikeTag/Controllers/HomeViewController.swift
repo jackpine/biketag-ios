@@ -52,9 +52,6 @@ class HomeViewController: UIViewController {
         message: error.localizedDescription,
         preferredStyle: .Alert)
 
-      let cancelAction = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
-      alertController.addAction(cancelAction)
-
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
         self.refreshCurrentSpot()
       }
