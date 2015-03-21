@@ -18,14 +18,16 @@ class Spot: NSObject {
     self.location = location
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->()) {
-    SpotsService.fetchCurrentSpot() { (parsedSpot: ParsedSpot) -> () in
+  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
+    let buildSpotFromResponse = { (parsedSpot: ParsedSpot) -> () in
       let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
       let image = UIImage(data: imageData!)
       let user = User(id: parsedSpot.userId)
       let currentSpot = Spot(image: image!, user: user, id: parsedSpot.spotId)
       callback(currentSpot)
     }
+
+    SpotsService.fetchCurrentSpot(buildSpotFromResponse, errorCallback: errorCallback)
   }
 
   class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->()) {

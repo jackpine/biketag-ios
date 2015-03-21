@@ -29,9 +29,14 @@ class HomeViewController: UIViewController {
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
 
-    Spot.fetchCurrentSpot() { (currentSpot: Spot) -> () in
+    let setCurrentSpot = { (currentSpot: Spot) -> () in
       self.currentSpot = currentSpot
     }
+    let displayErrorAlert = { (error: NSError) -> () in
+      println(error.localizedDescription);
+    }
+    Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
+
   }
 
   override func viewDidLoad() {

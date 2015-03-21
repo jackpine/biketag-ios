@@ -11,11 +11,19 @@ class SpotTests: XCTestCase {
 
   func testFetchCurrentSpot(){
     let expectation = self.expectationWithDescription("fetched current spot")
-    Spot.fetchCurrentSpot() { (currentSpot) -> () in
+
+    let fulfillExpectation = { (currentSpot: Spot) -> () in
       if ( !currentSpot.isCurrentUserOwner() ) {
         expectation.fulfill()
       }
     }
+
+    let failExpectation = { (error: NSError) -> () in
+      // This will eventually fail, since we're not calling fulfill,
+      // but is there a way to fail fast?
+    }
+
+    Spot.fetchCurrentSpot(fulfillExpectation, errorCallback: failExpectation)
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
 
