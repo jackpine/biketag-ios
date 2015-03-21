@@ -28,15 +28,32 @@ class HomeViewController: UIViewController {
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
+    refreshCurrentSpot()
+  }
 
+  func refreshCurrentSpot() {
     let setCurrentSpot = { (currentSpot: Spot) -> () in
       self.currentSpot = currentSpot
     }
-    let displayErrorAlert = { (error: NSError) -> () in
-      println(error.localizedDescription);
-    }
-    Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
 
+    let displayErrorAlert = { (error: NSError) -> () in
+      let alertController = UIAlertController(
+        title: "We're having some trouble here. Wanna try again?",
+        message: error.localizedDescription,
+        preferredStyle: .Alert)
+
+      let cancelAction = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
+      alertController.addAction(cancelAction)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.refreshCurrentSpot()
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
   override func viewDidLoad() {
