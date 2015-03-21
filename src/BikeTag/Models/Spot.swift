@@ -4,9 +4,10 @@ import CoreLocation
 class Spot: NSObject {
   var image: UIImage
   var location: CLLocation?
+  var id: Int?
   let user: User
 
-  init(image: UIImage, user: User) {
+  init(image: UIImage, user: User, id: Int) {
     self.user = user
     self.image = image
   }
@@ -19,10 +20,10 @@ class Spot: NSObject {
 
   class func fetchCurrentSpot(callback:(Spot)->()) {
     SpotsService.fetchCurrentSpot() { (parsedSpot: ParsedSpot) -> () in
-      let imageData = NSData(contentsOfURL: parsedSpot.imageUrl!)
+      let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
       let image = UIImage(data: imageData!)
-      let user = User(id: parsedSpot.userId!)
-      let currentSpot = Spot(image: image!, user: user)
+      let user = User(id: parsedSpot.userId)
+      let currentSpot = Spot(image: image!, user: user, id: parsedSpot.spotId)
       callback(currentSpot)
     }
   }

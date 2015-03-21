@@ -14,9 +14,9 @@ class ParsedSpotTest: XCTestCase {
 
   func testInit() {
     let parsedSpot = ParsedSpot(attributes: mockAttributes)
-    XCTAssertEqual(parsedSpot.spotId!, 1)
-    XCTAssertEqual(parsedSpot.userId!, 2)
-    XCTAssertEqual(parsedSpot.imageUrl!, NSURL(string: "https://example.com/image.jpg")!)
+    XCTAssertEqual(parsedSpot.spotId, 1)
+    XCTAssertEqual(parsedSpot.userId, 2)
+    XCTAssertEqual(parsedSpot.imageUrl, NSURL(string: "https://example.com/image.jpg")!)
 
     let calendar = NSCalendar.currentCalendar()
     let comps = NSDateComponents()
@@ -29,7 +29,7 @@ class ParsedSpotTest: XCTestCase {
     comps.timeZone = NSTimeZone(name: "America/Los_Angeles")
     //let knownTimeZoneNames = NSTimeZone.knownTimeZoneNames()
     let expectedDate = calendar.dateFromComponents(comps)!
-    let dateComparison = expectedDate.compare(parsedSpot.createdAt!)
+    let dateComparison = expectedDate.compare(parsedSpot.createdAt)
     XCTAssertEqual(dateComparison, NSComparisonResult.OrderedSame)
   }
 }
