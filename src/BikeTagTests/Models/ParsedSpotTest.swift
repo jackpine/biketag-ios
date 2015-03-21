@@ -27,7 +27,8 @@ class ParsedSpotTest: XCTestCase {
     comps.minute = 59
     comps.second = 40
     comps.timeZone = NSTimeZone(name: "America/Los_Angeles")
-    //let knownTimeZoneNames = NSTimeZone.knownTimeZoneNames()
+    // For a list of valid timeZone names...
+    // let knownTimeZoneNames = NSTimeZone.knownTimeZoneNames()
     let expectedDate = calendar.dateFromComponents(comps)!
     let dateComparison = expectedDate.compare(parsedSpot.createdAt)
     XCTAssertEqual(dateComparison, NSComparisonResult.OrderedSame)
