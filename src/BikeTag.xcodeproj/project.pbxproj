@@ -29,6 +29,7 @@
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45B488851A9AB73B00C7E03F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
+		45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		45AB7BBD1A3A1D8B00E1961E /* BikeTagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BikeTagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B488841A9AB73B00C7E03F /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				451E51CF1AB3743C00849262 /* SpotTest.swift */,
 				451E51D51AB4AB4C00849262 /* UserTest.swift */,
+				45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			files = (
 				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
+				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
