@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
 
     let displayErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
-        title: "We're having some trouble here. Wanna try again?",
+        title: "Darn it!",
         message: error.localizedDescription,
         preferredStyle: .Alert)
 
