@@ -20,15 +20,25 @@ class HomeViewController: UIViewController {
     }
   }
 
+  @IBOutlet var loadingView: UIView!
+  @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+
   var currentSpot: Spot? {
     didSet {
       updateCurrentSpot()
     }
   }
 
+  @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+  }
+
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     refreshCurrentSpot()
+  }
+
+  override func viewDidLoad() {
+    self.activityIndicatorView.startAnimating()
   }
 
   func refreshCurrentSpot() {
@@ -59,6 +69,8 @@ class HomeViewController: UIViewController {
   func updateCurrentSpot() {
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
       self.currentImageView.image = self.currentSpot!.image
+      self.activityIndicatorView.stopAnimating()
+      self.loadingView.hidden = true
       updateSpotCaption()
     }
   }
@@ -73,9 +85,6 @@ class HomeViewController: UIViewController {
         self.mySpotView.hidden = true
       }
     }
-  }
-
-  @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
 }
