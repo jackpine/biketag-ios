@@ -17,7 +17,8 @@ class GuessSpotViewController: CameraViewController {
       
       if ( imageData.length > 0 ) {
         let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
-        checkGuessViewController.submittedImage = image
+        let guessedSpot = Spot(image: image!, user: User.getCurrentUser(), location: location)
+        checkGuessViewController.guessedSpot = guessedSpot
       } else {
         println("Image Data not captured")
       }

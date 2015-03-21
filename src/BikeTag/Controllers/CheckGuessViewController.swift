@@ -15,15 +15,15 @@ class CheckGuessViewController: UIViewController {
     }
   }
 
-  var submittedImage: UIImage! {
+  var guessedSpot: Spot? {
     didSet {
       updateSubmittedImage()
     }
   }
 
   func updateSubmittedImage() {
-    if ( self.submittedImage != nil && self.submittedImageView != nil ) {
-      submittedImageView.image = submittedImage
+    if ( self.guessedSpot != nil && self.submittedImageView != nil ) {
+      submittedImageView.image = guessedSpot!.image
     }
   }
 
