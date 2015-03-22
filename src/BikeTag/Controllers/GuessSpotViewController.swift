@@ -4,6 +4,8 @@ import CoreLocation
 
 class GuessSpotViewController: CameraViewController {
 
+  var currentSpot: Spot?
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
 
@@ -14,15 +16,10 @@ class GuessSpotViewController: CameraViewController {
       } else {
         image = UIImage(data: imageData)!
       }
-      
-      if ( imageData.length > 0 ) {
-        let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
-        let guessedSpot = Spot(image: image!, user: User.getCurrentUser(), location: location)
-        checkGuessViewController.guessedSpot = guessedSpot
-      } else {
-        println("Image Data not captured")
-      }
 
+      let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
+      let guessedSpot = Spot(image: image!, user: User.getCurrentUser(), location: location, id:self.currentSpot!.id!)
+      checkGuessViewController.guessedSpot = guessedSpot
     }
 
     self.captureImage(createImageFromData)

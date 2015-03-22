@@ -10,12 +10,20 @@ class Spot: NSObject {
   init(image: UIImage, user: User, id: Int) {
     self.user = user
     self.image = image
+    self.id = id
   }
 
   init(image: UIImage, user: User, location: CLLocation) {
     self.user = user
     self.image = image
     self.location = location
+  }
+
+  init(image: UIImage, user: User, location: CLLocation, id: Int) {
+    self.user = user
+    self.image = image
+    self.location = location
+    self.id = id
   }
 
   class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
@@ -37,22 +45,6 @@ class Spot: NSObject {
 
       let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
       callback(newSpot)
-    })
-  }
-
-  class func checkGuess(correctCallback:() -> (), incorrectCallback:() -> ()) {
-    dispatch_async(dispatch_get_main_queue(), {
-      //simulate network delay
-      sleep(1)
-
-      //stub network response
-      let guessedCorrectly = true
-
-      if guessedCorrectly {
-        correctCallback()
-      } else {
-        incorrectCallback()
-      }
     })
   }
 
