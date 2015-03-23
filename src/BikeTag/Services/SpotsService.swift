@@ -21,13 +21,13 @@ class SpotsService {
     }
   }
 
-  class func postSpotGuess(guessedSpot: Spot, callback: (Bool)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "games/1/spots/\(guessedSpot.id!)/guesses.json"
+  class func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+    let url = apiEndpoint + "games/1/spots/\(guess.spot.id!)/guesses.json"
 
     let parameters = [ "guess": [
       "location": [
         "type": "Point",
-        "coordinates": [guessedSpot.location!.coordinate.longitude, guessedSpot.location!.coordinate.latitude]
+        "coordinates": [guess.location.coordinate.longitude, guess.location.coordinate.latitude]
       ]
     ]]
 

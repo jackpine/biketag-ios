@@ -19,13 +19,6 @@ class Spot: NSObject {
     self.location = location
   }
 
-  init(image: UIImage, user: User, location: CLLocation, id: Int) {
-    self.user = user
-    self.image = image
-    self.location = location
-    self.id = id
-  }
-
   class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
     let buildSpotFromResponse = { (parsedSpot: ParsedSpot) -> () in
       let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)

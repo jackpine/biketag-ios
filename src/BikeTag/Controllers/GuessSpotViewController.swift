@@ -18,8 +18,8 @@ class GuessSpotViewController: CameraViewController {
       }
 
       let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
-      let guessedSpot = Spot(image: image!, user: User.getCurrentUser(), location: location, id:self.currentSpot!.id!)
-      checkGuessViewController.guessedSpot = guessedSpot
+      let guess = Guess(spot: self.currentSpot!, user: User.getCurrentUser(), location: location, image:image!)
+      checkGuessViewController.guess = guess
     }
 
     self.captureImage(createImageFromData)

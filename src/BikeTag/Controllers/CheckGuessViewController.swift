@@ -15,18 +15,19 @@ class CheckGuessViewController: UIViewController {
     }
   }
 
-  var guessedSpot: Spot? {
+
+  var guess: Guess? {
     didSet {
       updateSubmittedImage()
-      if (guessedSpot != nil) {
+      if (guess != nil) {
         submitGuessToServer()
       }
     }
   }
 
   func updateSubmittedImage() {
-    if ( self.guessedSpot != nil && self.submittedImageView != nil ) {
-      submittedImageView.image = guessedSpot!.image
+    if ( self.guess != nil && self.submittedImageView != nil ) {
+      submittedImageView.image = guess!.image
     }
   }
 
@@ -44,7 +45,7 @@ class CheckGuessViewController: UIViewController {
     let displayAlert = { (error: NSError) -> () in
       println(error.localizedDescription)
     }
-    SpotsService.postSpotGuess(self.guessedSpot!, callback: handleGuessResponse, errorCallback: displayAlert)
+    SpotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayAlert)
   }
 
   func handleGuessResponse(guessedCorrectly: Bool) {
