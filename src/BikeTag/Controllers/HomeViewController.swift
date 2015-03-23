@@ -84,5 +84,10 @@ class HomeViewController: UIViewController {
     }
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
+    super.prepareForSegue(segue, sender: sender)
+    let guessSpotViewController = segue.destinationViewController as GuessSpotViewController
+    guessSpotViewController.currentSpot = self.currentSpot
+  }
 }
 

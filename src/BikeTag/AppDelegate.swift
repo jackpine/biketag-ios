@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  BikeTag
-//
-//  Created by Michael Kirk on 12/11/14.
-//  Copyright (c) 2014 Jackpine. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
@@ -15,9 +7,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // TODO: have a device agnostic login.
-    let deviceId = UIDevice.currentDevice().identifierForVendor.UUIDString
-    User.setCurrentUser(User(deviceId: deviceId))
 
     // Override point for customization after application launch.
     return true

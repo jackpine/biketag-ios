@@ -15,15 +15,19 @@ class CheckGuessViewController: UIViewController {
     }
   }
 
-  var submittedImage: UIImage! {
+
+  var guess: Guess? {
     didSet {
       updateSubmittedImage()
+      if (guess != nil) {
+        submitGuessToServer()
+      }
     }
   }
 
   func updateSubmittedImage() {
-    if ( self.submittedImage != nil && self.submittedImageView != nil ) {
-      submittedImageView.image = submittedImage
+    if ( self.guess != nil && self.submittedImageView != nil ) {
+      submittedImageView.image = guess!.image
     }
   }
 
@@ -35,36 +39,25 @@ class CheckGuessViewController: UIViewController {
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    submitGuessToServer()
   }
 
   func submitGuessToServer() {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
-      NSThread.sleepForTimeInterval(0.2)
-      dispatch_async(dispatch_get_main_queue(), {
-        self.progressView.setProgress(0.1, animated:true)
-      })
-
-      NSThread.sleepForTimeInterval(0.2)
-      dispatch_async(dispatch_get_main_queue(), {
-        self.progressView.setProgress(0.5, animated:true)
-      })
-
-      NSThread.sleepForTimeInterval(0.2)
-      dispatch_async(dispatch_get_main_queue(), {
-        self.progressView.setProgress(1.0, animated:true)
-      })
-
-      NSThread.sleepForTimeInterval(0.2)
-      dispatch_async(dispatch_get_main_queue(), {
-        //TODO only do this once image is set. Make sure we only submit once.
-        Spot.checkGuess(self.handleGuessResponse, incorrectCallback: self.handleGuessResponse)
-      })
-    })
+    let displayAlert = { (error: NSError) -> () in
+      println(error.localizedDescription)
+    }
+    SpotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayAlert)
   }
 
-  func handleGuessResponse() {
-    self.fakeResponseActions.hidden = false
+  func handleGuessResponse(guessedCorrectly: Bool) {
+    if( Config.testing() ) {
+      self.fakeResponseActions.hidden = false
+    } else {
+      if (guessedCorrectly) {
+        correctGuess()
+      } else {
+        incorrectGuess()
+      }
+    }
   }
 
   func correctGuess() {

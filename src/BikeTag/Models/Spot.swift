@@ -10,6 +10,7 @@ class Spot: NSObject {
   init(image: UIImage, user: User, id: Int) {
     self.user = user
     self.image = image
+    self.id = id
   }
 
   init(image: UIImage, user: User, location: CLLocation) {
@@ -35,26 +36,8 @@ class Spot: NSObject {
       //simulate network delay
       sleep(1)
 
-      //TODO enforce login before creating new spot
-      assert(User.getCurrentUser() != nil)
-      let newSpot = Spot(image: image, user: User.getCurrentUser()!, location: location)
+      let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
       callback(newSpot)
-    })
-  }
-
-  class func checkGuess(correctCallback:() -> (), incorrectCallback:() -> ()) {
-    dispatch_async(dispatch_get_main_queue(), {
-      //simulate network delay
-      sleep(1)
-
-      //stub network response
-      let guessedCorrectly = true
-
-      if guessedCorrectly {
-        correctCallback()
-      } else {
-        incorrectCallback()
-      }
     })
   }
 

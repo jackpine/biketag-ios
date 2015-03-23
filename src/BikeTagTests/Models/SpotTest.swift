@@ -50,7 +50,7 @@ class SpotTests: XCTestCase {
   }
 
   func testIsCurrentUserOwner() {
-    let me = User.getCurrentUser()!
+    let me = User.getCurrentUser()
     let them = User(deviceId: "bar")
     let someImage = Spot.lucileSpot().image
     let someLocation = Spot.lucileSpot().location!
