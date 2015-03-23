@@ -71,4 +71,8 @@ class Spot: NSObject {
       return false
     }
   }
+
+  func base64ImageData() -> String {
+    return UIImageJPEGRepresentation(self.image, 0.9).base64EncodedStringWithOptions(nil)
+  }
 }

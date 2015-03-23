@@ -29,6 +29,7 @@ class SpotsService {
         "type": "Point",
         "coordinates": [spot.location!.coordinate.longitude, spot.location!.coordinate.latitude]
       ],
+      "image": spot.base64ImageData(),
       "user": userParameters(spot.user)
     ]]
 
