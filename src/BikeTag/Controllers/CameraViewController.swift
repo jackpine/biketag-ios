@@ -35,6 +35,27 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
       beginSession()
     }
     setUpLocationServices()
+    waitForLocation()
+  }
+
+  func waitForLocation() {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+
+      if(self.mostRecentLocation == nil) {
+        let alertController = UIAlertController(
+          title: "Hang on a second.",
+          message: "We're having trouble pinpointing your location",
+          preferredStyle: .Alert)
+
+        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+          self.waitForLocation()
+        }
+        alertController.addAction(retryAction)
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+        return
+      }
+    }
   }
 
   func setUpLocationServices() {
@@ -75,21 +96,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
-
-    if(self.mostRecentLocation == nil) {
-      let alertController = UIAlertController(
-        title: "Hang on a second.",
-        message: "We're having trouble pinpointing your location",
-        preferredStyle: .Alert)
-
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.captureImage(callback)
-      }
-      alertController.addAction(retryAction)
-
-      self.presentViewController(alertController, animated: true, completion: nil)
-      return
-    }
+    assert(self.mostRecentLocation != nil )
 
     if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
       callback(NSData(), self.mostRecentLocation!)
