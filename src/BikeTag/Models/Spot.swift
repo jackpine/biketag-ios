@@ -19,26 +19,31 @@ class Spot: NSObject {
     self.location = location
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
-    let buildSpotFromResponse = { (parsedSpot: ParsedSpot) -> () in
-      let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
-      let image = UIImage(data: imageData!)
-      let user = User(id: parsedSpot.userId)
-      let currentSpot = Spot(image: image!, user: user, id: parsedSpot.spotId)
-      callback(currentSpot)
-    }
-
-    SpotsService.fetchCurrentSpot(buildSpotFromResponse, errorCallback: errorCallback)
+  init(parsedSpot: ParsedSpot) {
+    let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
+    self.image = UIImage(data: imageData!)!
+    self.user = User(id: parsedSpot.userId)
+    self.id = parsedSpot.spotId
   }
 
-  class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->()) {
-    dispatch_async(dispatch_get_main_queue(), {
-      //simulate network delay
-      sleep(1)
+  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
+    let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
+      let spot = Spot(parsedSpot: parsedSpot)
+      callback(spot)
+    }
 
-      let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
-      callback(newSpot)
-    })
+    SpotsService.fetchCurrentSpot(callbackWithBuiltSpot, errorCallback: errorCallback)
+  }
+
+  class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
+    let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
+      //hydrate spot with server response - should be more-or-less identical to newSpot
+      let spot = Spot(parsedSpot: parsedSpot)
+      callback(spot)
+    }
+
+    let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
+    SpotsService.postNewSpot(newSpot, callback: callbackWithBuiltSpot, errorCallback: errorCallback)
   }
 
   // static spot, used to seed game and for testing

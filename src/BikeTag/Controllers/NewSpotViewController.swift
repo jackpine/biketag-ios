@@ -23,10 +23,17 @@ class NewSpotViewController: CameraViewController {
       }
 
       if ( image != nil ) {
-        Spot.createNewSpot(image!, location: location!, callback: {(newSpot: Spot) -> () in
+        let assignNewSpot = { (newSpot: Spot) -> () in
           let homeViewController = segue.destinationViewController as HomeViewController
           homeViewController.currentSpot = newSpot
-        })
+        }
+
+        let displayError = { (error: NSError) -> () in
+          println(error)
+        }
+
+        Spot.createNewSpot(image!, location: location!, callback: assignNewSpot, errorCallback: displayError)
+
       } else {
         println("New spot image data not captured")
       }

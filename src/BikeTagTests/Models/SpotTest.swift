@@ -36,15 +36,23 @@ class SpotTests: XCTestCase {
     let longitude = griffithSpot.location!.coordinate.longitude
     let location = CLLocation(latitude: latitude, longitude: longitude)
 
-    Spot.createNewSpot(image, location: location) { (newSpot) in
+    let fulfillExpectation = { (newSpot: Spot) -> () in
       if (newSpot.isCurrentUserOwner() &&
-            newSpot.image == image &&
-            newSpot.location!.coordinate.latitude == latitude &&
-            newSpot.location!.coordinate.longitude == longitude) {
+        newSpot.image == image &&
+        newSpot.location!.coordinate.latitude == latitude &&
+        newSpot.location!.coordinate.longitude == longitude) {
 
-        expectation.fulfill()
+          expectation.fulfill()
       }
     }
+
+
+    let failExpectation = { (error: NSError) -> () in
+      // This will eventually fail, since we're not calling fulfill,
+      // but is there a way to fail fast?
+    }
+
+    Spot.createNewSpot(image, location: location, callback: fulfillExpectation, errorCallback: failExpectation)
 
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
