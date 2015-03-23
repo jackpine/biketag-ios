@@ -70,11 +70,27 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    println("updated location")
     self.mostRecentLocation = locations.last as? CLLocation
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
-    assert(self.mostRecentLocation != nil)
+
+    if(self.mostRecentLocation == nil) {
+      let alertController = UIAlertController(
+        title: "Hang on a second.",
+        message: "We're having trouble pinpointing your location",
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.captureImage(callback)
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+      return
+    }
+
     if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
       callback(NSData(), self.mostRecentLocation!)
       return
