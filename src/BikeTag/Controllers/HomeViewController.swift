@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
 
     let displayErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
-        title: "Darn it!",
+        title: "Unable to fetch the current Spot.",
         message: error.localizedDescription,
         preferredStyle: .Alert)
 
@@ -69,6 +69,11 @@ class HomeViewController: UIViewController {
       self.activityIndicatorView.stopAnimating()
       self.loadingView.hidden = true
       updateSpotCaption()
+
+      if (self.currentSpot!.location != nil) {
+        //It's a new spot. Upload it. This is some spaghetti horse shit.
+        self.uploadNewSpot()
+      }
     }
   }
 
@@ -82,6 +87,28 @@ class HomeViewController: UIViewController {
         self.mySpotView.hidden = true
       }
     }
+  }
+
+  func uploadNewSpot() {
+    let assignNewSpot = { (newSpot: Spot) -> () in
+      self.currentSpot = newSpot
+    }
+
+    let displayErrorAlert = { (error: NSError) -> () in
+      let alertController = UIAlertController(
+        title: "There was trouble uploading your new Spot.",
+        message: error.localizedDescription,
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.uploadNewSpot()
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    Spot.createNewSpot(self.currentSpot!.image, location: self.currentSpot!.location!, callback: assignNewSpot, errorCallback: displayErrorAlert)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
