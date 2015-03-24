@@ -21,7 +21,11 @@ class Spot: NSObject {
 
   init(parsedSpot: ParsedSpot) {
     let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
-    self.image = UIImage(data: imageData!)!
+    if( imageData == nil ) {
+      self.image = UIImage(named: "952 lucile")!
+    } else {
+      self.image = UIImage(data: imageData!)!
+    }
     self.user = User(id: parsedSpot.userId)
     self.id = parsedSpot.spotId
   }
