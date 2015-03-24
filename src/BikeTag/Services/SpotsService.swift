@@ -5,7 +5,7 @@ let apiEndpoint = "http://192.168.59.103:3000/api/v1/"
 
 class SpotsService {
 
-  class func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
+  func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint + "games/1/current_spot.json"
 
     Alamofire.request(.GET, url)
@@ -21,7 +21,7 @@ class SpotsService {
     }
   }
 
-  class func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
+  func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint + "games/1/spots.json"
 
     let parameters = [ "spot": [
@@ -46,19 +46,7 @@ class SpotsService {
     }
   }
 
-  class func userParameters(user: User) -> NSDictionary {
-    let userParameters = NSMutableDictionary()
-    assert(user.id != nil || user.deviceId != nil)
-    if (user.id != nil) {
-      userParameters.setValue(user.id!, forKey: "id")
-    } else if (user.deviceId != nil ) {
-      userParameters.setValue(user.deviceId!, forKey: "device_id")
-    }
-
-    return userParameters
-  }
-
-  class func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+  func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint + "games/1/spots/\(guess.spot.id!)/guesses.json"
 
     let parameters = [ "guess": [
@@ -81,5 +69,18 @@ class SpotsService {
 
         callback(guessResult)
     }
+  }
+
+
+  private func userParameters(user: User) -> NSDictionary {
+    let userParameters = NSMutableDictionary()
+    assert(user.id != nil || user.deviceId != nil)
+    if (user.id != nil) {
+      userParameters.setValue(user.id!, forKey: "id")
+    } else if (user.deviceId != nil ) {
+      userParameters.setValue(user.deviceId!, forKey: "device_id")
+    }
+
+    return userParameters
   }
 }

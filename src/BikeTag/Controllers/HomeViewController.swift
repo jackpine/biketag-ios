@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpot(SpotsService(), setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
   func updateCurrentSpot() {
@@ -108,7 +108,7 @@ class HomeViewController: UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.createNewSpot(self.currentSpot!.image, location: self.currentSpot!.location!, callback: assignNewSpot, errorCallback: displayErrorAlert)
+    Spot.createNewSpot(SpotsService(), image: self.currentSpot!.image, location: self.currentSpot!.location!, callback: assignNewSpot, errorCallback: displayErrorAlert)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {

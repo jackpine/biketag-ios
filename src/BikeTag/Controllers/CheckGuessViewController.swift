@@ -45,7 +45,7 @@ class CheckGuessViewController: UIViewController {
     let displayAlert = { (error: NSError) -> () in
       println(error.localizedDescription)
     }
-    SpotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayAlert)
+    SpotsService().postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayAlert)
   }
 
   func handleGuessResponse(guessedCorrectly: Bool) {

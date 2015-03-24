@@ -30,16 +30,16 @@ class Spot: NSObject {
     self.id = parsedSpot.spotId
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
+  class func fetchCurrentSpot(spotsService: SpotsService, callback:(Spot)->(), errorCallback:(NSError)->()) {
     let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
       let spot = Spot(parsedSpot: parsedSpot)
       callback(spot)
     }
 
-    SpotsService.fetchCurrentSpot(callbackWithBuiltSpot, errorCallback: errorCallback)
+    spotsService.fetchCurrentSpot(callbackWithBuiltSpot, errorCallback: errorCallback)
   }
 
-  class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
+  class func createNewSpot(spotsService: SpotsService, image: UIImage, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
     let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
       //hydrate spot with server response - should be more-or-less identical to newSpot
       let spot = Spot(parsedSpot: parsedSpot)
@@ -47,7 +47,7 @@ class Spot: NSObject {
     }
 
     let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
-    SpotsService.postNewSpot(newSpot, callback: callbackWithBuiltSpot, errorCallback: errorCallback)
+    spotsService.postNewSpot(newSpot, callback: callbackWithBuiltSpot, errorCallback: errorCallback)
   }
 
   // static spot, used to seed game and for testing
