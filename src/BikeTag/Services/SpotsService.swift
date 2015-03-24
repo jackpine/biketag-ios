@@ -1,8 +1,6 @@
 import Alamofire
 
-//let apiEndPoint = "http://172.16.150.109:3000/api/v1/"
-let apiEndpoint = "http://192.168.59.103:3000/api/v1/"
-
+let apiEndpoint = Config.apiEndpoint()
 class SpotsService {
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
