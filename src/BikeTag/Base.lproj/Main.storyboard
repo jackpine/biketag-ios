@@ -801,7 +801,6 @@
                                 </state>
                                 <connections>
                                     <action selector="newSpotButtonViewTouched:" destination="kB0-aQ-szS" eventType="touchUpInside" id="223-DW-jNj"/>
-                                    <segue destination="MU9-h1-rSI" kind="unwind" unwindAction="unwindToHome:" id="8LN-r6-AV1"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="TopLeft" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
@@ -873,7 +872,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-Dz-Ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="MU9-h1-rSI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3339" y="-710"/>
         </scene>
