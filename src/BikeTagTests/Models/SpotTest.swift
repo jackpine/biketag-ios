@@ -2,6 +2,45 @@ import XCTest
 import UIKit
 import CoreLocation
 
+class FakeSpotsService: SpotsService {
+
+  override func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
+
+    let spot = Spot.lucileSpot()
+    let parameters = [
+      "location": [
+        "type": "Point",
+        "coordinates": [spot.location!.coordinate.longitude, spot.location!.coordinate.latitude]
+      ],
+      "image_url": "http://example.com/image.jpg",
+      "user_id": 1,
+      "created_at": "2015-03-20T21:59:40.394Z",
+      "id": 1
+    ]
+
+    let parsedSpot = ParsedSpot(attributes: parameters)
+    callback(parsedSpot)
+  }
+
+  override func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
+
+    let spot = Spot.griffithSpot()
+    let mockResponse = [
+      "image_url": "http://example.com/image.jpg",
+      "user_id": 2,
+      "created_at": "2015-03-20T21:59:40.394Z",
+      "id": 2
+    ]
+
+    let parsedSpot = ParsedSpot(attributes: mockResponse)
+    callback(parsedSpot)
+  }
+
+  override func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+    callback(true)
+  }
+}
+
 class SpotTests: XCTestCase {
 
   override func setUp() {
@@ -23,7 +62,7 @@ class SpotTests: XCTestCase {
       // but is there a way to fail fast?
     }
 
-    Spot.fetchCurrentSpot(fulfillExpectation, errorCallback: failExpectation)
+    Spot.fetchCurrentSpot(FakeSpotsService(), fulfillExpectation, errorCallback: failExpectation)
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
 
@@ -36,15 +75,19 @@ class SpotTests: XCTestCase {
     let longitude = griffithSpot.location!.coordinate.longitude
     let location = CLLocation(latitude: latitude, longitude: longitude)
 
-    Spot.createNewSpot(image, location: location) { (newSpot) in
-      if (newSpot.isCurrentUserOwner() &&
-            newSpot.image == image &&
-            newSpot.location!.coordinate.latitude == latitude &&
-            newSpot.location!.coordinate.longitude == longitude) {
-
-        expectation.fulfill()
+    let fulfillExpectation = { (newSpot: Spot) -> () in
+      if (newSpot.id == 2) {
+          expectation.fulfill()
       }
     }
+
+
+    let failExpectation = { (error: NSError) -> () in
+      // This will eventually fail, since we're not calling fulfill,
+      // but is there a way to fail fast?
+    }
+
+    Spot.createNewSpot(FakeSpotsService(), image: image, location: location, callback: fulfillExpectation, errorCallback: failExpectation)
 
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }

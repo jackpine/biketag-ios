@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
 
     let displayErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
-        title: "Darn it!",
+        title: "Unable to fetch the current Spot.",
         message: error.localizedDescription,
         preferredStyle: .Alert)
 
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpot(setCurrentSpot, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpot(SpotsService(), setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
   func updateCurrentSpot() {

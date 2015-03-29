@@ -19,26 +19,35 @@ class Spot: NSObject {
     self.location = location
   }
 
-  class func fetchCurrentSpot(callback:(Spot)->(), errorCallback:(NSError)->()) {
-    let buildSpotFromResponse = { (parsedSpot: ParsedSpot) -> () in
-      let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
-      let image = UIImage(data: imageData!)
-      let user = User(id: parsedSpot.userId)
-      let currentSpot = Spot(image: image!, user: user, id: parsedSpot.spotId)
-      callback(currentSpot)
+  init(parsedSpot: ParsedSpot) {
+    let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
+    if( imageData == nil ) {
+      self.image = UIImage(named: "952 lucile")!
+    } else {
+      self.image = UIImage(data: imageData!)!
     }
-
-    SpotsService.fetchCurrentSpot(buildSpotFromResponse, errorCallback: errorCallback)
+    self.user = User(id: parsedSpot.userId)
+    self.id = parsedSpot.spotId
   }
 
-  class func createNewSpot(image: UIImage, location: CLLocation, callback: (Spot) ->()) {
-    dispatch_async(dispatch_get_main_queue(), {
-      //simulate network delay
-      sleep(1)
+  class func fetchCurrentSpot(spotsService: SpotsService, callback:(Spot)->(), errorCallback:(NSError)->()) {
+    let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
+      let spot = Spot(parsedSpot: parsedSpot)
+      callback(spot)
+    }
 
-      let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
-      callback(newSpot)
-    })
+    spotsService.fetchCurrentSpot(callbackWithBuiltSpot, errorCallback: errorCallback)
+  }
+
+  class func createNewSpot(spotsService: SpotsService, image: UIImage, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
+    let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
+      //hydrate spot with server response - should be more-or-less identical to newSpot
+      let spot = Spot(parsedSpot: parsedSpot)
+      callback(spot)
+    }
+
+    let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
+    spotsService.postNewSpot(newSpot, callback: callbackWithBuiltSpot, errorCallback: errorCallback)
   }
 
   // static spot, used to seed game and for testing
@@ -65,5 +74,9 @@ class Spot: NSObject {
     } else {
       return false
     }
+  }
+
+  func base64ImageData() -> String {
+    return UIImageJPEGRepresentation(self.image, 0.9).base64EncodedStringWithOptions(nil)
   }
 }
