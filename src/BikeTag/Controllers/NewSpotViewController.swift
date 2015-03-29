@@ -37,8 +37,8 @@ class NewSpotViewController: CameraViewController {
 
   func uploadNewSpot(spot: Spot) {
     let popToHomeViewController = { (newSpot: Spot) -> () in
+      self.newSpot = newSpot
       self.performSegueWithIdentifier("unwindToHome", sender: nil)
-//      self.navigationController?.popToRootViewControllerAnimated(true)
       return
     }
 
