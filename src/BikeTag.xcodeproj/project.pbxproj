@@ -472,6 +472,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BuildConfigurationAppBundleId = "";
+				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.AdHoc";
+				BuildConfigurationProductName = "";
+				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Preview";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -579,6 +583,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BuildConfigurationAppBundleId = "";
+				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.Debug";
+				BuildConfigurationProductName = "";
+				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Dev";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -593,6 +601,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BuildConfigurationAppBundleId = "";
+				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}";
+				BuildConfigurationProductName = "";
+				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
