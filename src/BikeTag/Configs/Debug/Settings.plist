@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>apiEndpoint</key>
-	<string>http://localhost:3000/api/v1</string>
+	<string>http://localhost:3000/api/v1/</string>
 </dict>
 </plist>

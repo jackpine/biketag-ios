@@ -4,7 +4,7 @@ let apiEndpoint = Config.apiEndpoint()
 class SpotsService {
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "games/1/current_spot.json"
+    let url = apiEndpoint + "/games/1/current_spot.json"
 
     Alamofire.request(.GET, url)
       .responseJSON { (request, response, json, error) in
@@ -20,7 +20,7 @@ class SpotsService {
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "games/1/spots.json"
+    let url = apiEndpoint + "/games/1/spots.json"
 
     let parameters = [ "spot": [
       "location": [
@@ -45,7 +45,7 @@ class SpotsService {
   }
 
   func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "games/1/spots/\(guess.spot.id!)/guesses.json"
+    let url = apiEndpoint + "/games/1/spots/\(guess.spot.id!)/guesses.json"
 
     let parameters = [ "guess": [
       "location": [
