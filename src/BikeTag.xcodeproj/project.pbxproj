@@ -262,6 +262,7 @@
 				45AB7BA21A3A1D8B00E1961E /* Sources */,
 				45AB7BA31A3A1D8B00E1961E /* Frameworks */,
 				45AB7BA41A3A1D8B00E1961E /* Resources */,
+				45466E9F1ACA0A3B00D7B69A /* Copy Configuration File(s) */,
 				4581A60E1AB7FA27004C871F /* CopyFiles */,
 			);
 			buildRules = (
@@ -348,6 +349,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45466E9F1ACA0A3B00D7B69A /* Copy Configuration File(s) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Configuration File(s)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "RESOURCE_PATH=${SRCROOT}/${PRODUCT_NAME}/Configs/${CONFIGURATION}\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho \"Copying all files under ${RESOURCE_PATH} to ${BUILD_APP_DIR}\"\ncp -v \"${RESOURCE_PATH}/\"* \"${BUILD_APP_DIR}/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		45AB7BA21A3A1D8B00E1961E /* Sources */ = {
