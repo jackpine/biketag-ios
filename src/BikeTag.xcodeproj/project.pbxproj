@@ -68,6 +68,9 @@
 		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
 		4528973C1A86827F00AD077E /* GuessSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuessSpotViewController.swift; path = Controllers/GuessSpotViewController.swift; sourceTree = "<group>"; };
+		45466E9B1ACA01BF00D7B69A /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A60B1AB7F7B8004C871F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
@@ -127,6 +130,40 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		45466E971ACA01AD00D7B69A /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				45466E981ACA01AD00D7B69A /* AdHoc */,
+				45466E991ACA01AD00D7B69A /* Debug */,
+				45466E9A1ACA01AD00D7B69A /* Release */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		45466E981ACA01AD00D7B69A /* AdHoc */ = {
+			isa = PBXGroup;
+			children = (
+				45466E9B1ACA01BF00D7B69A /* Settings.plist */,
+			);
+			path = AdHoc;
+			sourceTree = "<group>";
+		};
+		45466E991ACA01AD00D7B69A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				45466E9D1ACA01D900D7B69A /* Settings.plist */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		45466E9A1ACA01AD00D7B69A /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				45466E9E1ACA01E800D7B69A /* Settings.plist */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
 		4581A5F81AB7C9BA004C871F /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +202,7 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
+				45466E971ACA01AD00D7B69A /* Configs */,
 				4581A5F81AB7C9BA004C871F /* Services */,
 				45B488831A9AB73B00C7E03F /* Models */,
 				452897351A8681DD00AD077E /* Controllers */,
