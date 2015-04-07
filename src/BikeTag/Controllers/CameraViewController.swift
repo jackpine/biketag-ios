@@ -5,6 +5,8 @@ import CoreLocation
 class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
+  @IBOutlet var takePictureButton: UIButton!
+
   let captureSession = AVCaptureSession()
   var previewLayer: AVCaptureVideoPreviewLayer?
   var captureDevice: AVCaptureDevice?
@@ -54,6 +56,8 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
         self.presentViewController(alertController, animated: true, completion: nil)
         return
+      } else {
+        self.takePictureButton.enabled = true
       }
     }
   }
