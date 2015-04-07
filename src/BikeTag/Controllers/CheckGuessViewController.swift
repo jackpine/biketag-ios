@@ -42,10 +42,27 @@ class CheckGuessViewController: UIViewController {
   }
 
   func submitGuessToServer() {
-    let displayAlert = { (error: NSError) -> () in
-      println(error.localizedDescription)
+
+    let displayErrorAlert = { (error: NSError) -> () in
+      let alertController = UIAlertController(
+        title: "Unable to submit your guess.",
+        message: error.localizedDescription,
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.submitGuessToServer()
+      }
+      alertController.addAction(retryAction)
+
+      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        let navigationController: UINavigationController = self.navigationController!
+        navigationController.popToRootViewControllerAnimated(true)
+      }
+      alertController.addAction(cancelAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
     }
-    SpotsService().postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayAlert)
+    SpotsService().postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
   }
 
   func handleGuessResponse(guessedCorrectly: Bool) {
