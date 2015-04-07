@@ -835,6 +835,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="dBX-4r-MJd">
                                                         <variation key="widthClass=compact" constant="64"/>
+                                                        <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                                     </constraint>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
