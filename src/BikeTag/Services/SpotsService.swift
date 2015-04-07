@@ -1,4 +1,5 @@
 import Alamofire
+import CoreLocation
 
 let apiEndpoint = Config.apiEndpoint()
 class SpotsService {
@@ -20,14 +21,12 @@ class SpotsService {
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "/games/1/spots.json"
+    let url = apiEndpoint + "/spots.json"
 
     let parameters = [ "spot": [
-      "location": [
-        "type": "Point",
-        "coordinates": [spot.location!.coordinate.longitude, spot.location!.coordinate.latitude]
-      ],
-      "image": spot.base64ImageData(),
+      "game_id": 1,
+      "location": locationParameters(spot.location!),
+      "image_data": spot.base64ImageData(),
       "user": userParameters(spot.user)
     ]]
 
@@ -45,13 +44,11 @@ class SpotsService {
   }
 
   func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint + "/games/1/spots/\(guess.spot.id!)/guesses.json"
+    let url = apiEndpoint + "/guesses.json"
 
     let parameters = [ "guess": [
-      "location": [
-        "type": "Point",
-        "coordinates": [guess.location.coordinate.longitude, guess.location.coordinate.latitude]
-      ],
+      "spot_id": guess.spot.id!,
+      "location": locationParameters(guess.location),
       "user": userParameters(guess.user)
     ]]
 
@@ -69,7 +66,6 @@ class SpotsService {
     }
   }
 
-
   private func userParameters(user: User) -> NSDictionary {
     let userParameters = NSMutableDictionary()
     assert(user.id != nil || user.deviceId != nil)
@@ -80,5 +76,12 @@ class SpotsService {
     }
 
     return userParameters
+  }
+
+  private func locationParameters(location: CLLocation) -> NSDictionary {
+    return [
+      "type": "Point",
+      "coordinates": [location.coordinate.longitude, location.coordinate.latitude]
+    ]
   }
 }
