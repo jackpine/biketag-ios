@@ -12,6 +12,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   var captureDevice: AVCaptureDevice?
   var imageData: NSData?
   var mostRecentLocation: CLLocation?
+  var stillImageOutput: AVCaptureStillImageOutput?
   let locationManager = CLLocationManager()
 
   required init(coder aDecoder: NSCoder) {
@@ -21,7 +22,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.captureSession.sessionPreset = AVCaptureSessionPresetMedium
+    self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
 
     let devices = AVCaptureDevice.devices()
     for device in devices {
@@ -64,7 +65,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   func setUpLocationServices() {
     switch CLLocationManager.authorizationStatus() {
-    case .Authorized, .AuthorizedWhenInUse:
+    case .AuthorizedAlways, .AuthorizedWhenInUse:
       locationManager.startUpdatingLocation()
     case .NotDetermined:
       locationManager.requestWhenInUseAuthorization()
@@ -107,14 +108,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
       return
     }
 
-    let stillImageOutput = AVCaptureStillImageOutput()
-    if ( self.captureSession.canAddOutput(stillImageOutput) ) {
-      self.captureSession.addOutput(stillImageOutput)
-    }
-    
-    let videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
+    let videoConnection = self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo)
     if ( videoConnection != nil && self.mostRecentLocation != nil ) {
-      stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
+      stillImageOutput!.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
 
         let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
 
@@ -140,5 +136,10 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
 
     captureSession.startRunning()
+
+    self.stillImageOutput = AVCaptureStillImageOutput()
+    if ( self.captureSession.canAddOutput(self.stillImageOutput!) ) {
+      self.captureSession.addOutput(self.stillImageOutput!)
+    }
   }
 }
