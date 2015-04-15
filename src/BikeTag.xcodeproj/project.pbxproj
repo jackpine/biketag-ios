@@ -476,6 +476,8 @@
 				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.AdHoc";
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Preview";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -483,6 +485,7 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = AdHoc;
 		};
@@ -587,6 +590,8 @@
 				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.Debug";
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Dev";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -594,6 +599,7 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -605,6 +611,8 @@
 				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}";
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -612,6 +620,7 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
