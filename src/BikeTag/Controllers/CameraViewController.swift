@@ -96,7 +96,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    println("updated location")
+    Logger.debug("updated location")
     self.mostRecentLocation = locations.last as? CLLocation
   }
 
@@ -117,7 +117,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
         callback(image!, self.mostRecentLocation!)
       }
     } else {
-      println("couldn't find video connection")
+      Logger.error("couldn't find video connection")
     }
   }
 
@@ -126,7 +126,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     let captureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
     self.captureSession.addInput(captureDeviceInput)
     if err != nil {
-      println("error: \(err?.localizedDescription)")
+      Logger.error("error initializing camera: \(err?.localizedDescription)")
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)

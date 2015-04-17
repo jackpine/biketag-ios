@@ -13,8 +13,7 @@ class Config {
 
       let settingsPath = NSBundle.mainBundle().pathForResource("Settings", ofType: "plist")!
       let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
-      println("Loaded Config:")
-      println(settingsFromFile)
+      Logger.info("Loaded Config: \(settingsFromFile)")
 
       self.apiEndpoint = settingsFromFile["apiEndpoint"] as String
 

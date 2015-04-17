@@ -64,8 +64,8 @@ class HomeViewController: UIViewController {
   }
 
   func updateCurrentSpot() {
-    println("updating currentSpot")
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
+      Logger.info("updating currentSpot")
       self.currentImageView.image = self.currentSpot!.image
       self.activityIndicatorView.stopAnimating()
       self.loadingView.hidden = true
