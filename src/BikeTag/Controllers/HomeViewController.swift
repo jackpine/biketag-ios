@@ -8,7 +8,7 @@ class HomeViewController: UIViewController {
     }
   }
 
-  @IBOutlet var captureInstructionsView: UIView! {
+  @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
       updateCurrentSpot()
     }
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
       updateCurrentSpot()
     }
   }
+
 
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
@@ -39,6 +40,9 @@ class HomeViewController: UIViewController {
 
   override func viewDidLoad() {
     self.activityIndicatorView.startAnimating()
+
+//    self.guessSpotButtonView.layer.cornerRadius = 5.0;
+//    self.guessSpotButtonView.layer.masksToBounds = true;
   }
 
   func refreshCurrentSpot() {
@@ -74,12 +78,12 @@ class HomeViewController: UIViewController {
   }
 
   func updateSpotCaption() {
-    if( self.currentSpot != nil && self.captureInstructionsView != nil && self.mySpotView != nil ) {
+    if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
-        self.captureInstructionsView.hidden = true
+//        self.guessSpotButtonView.hidden = true
         self.mySpotView.hidden = false
       } else {
-        self.captureInstructionsView.hidden = false
+//        self.guessSpotButtonView.hidden = false
         self.mySpotView.hidden = true
       }
     }
