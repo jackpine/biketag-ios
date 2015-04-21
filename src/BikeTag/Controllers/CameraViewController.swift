@@ -7,12 +7,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   @IBOutlet var photoPreviewView: UIView!
   @IBOutlet var takePictureButton: UIButton!
 
-  let captureSession = AVCaptureSession()
   var previewLayer: AVCaptureVideoPreviewLayer?
-  var captureDevice: AVCaptureDevice?
-  var imageData: NSData?
   var mostRecentLocation: CLLocation?
-  var stillImageOutput: AVCaptureStillImageOutput?
+  let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
 
   required init(coder aDecoder: NSCoder) {
@@ -22,23 +19,27 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.captureSession.sessionPreset = AVCaptureSessionPresetMedium
 
+    if let captureDevice = getCaptureDevice() {
+      beginCapturingVideo(captureDevice)
+    }
+
+    setUpLocationServices()
+    waitForLocation()
+  }
+
+  func getCaptureDevice() -> AVCaptureDevice? {
     let devices = AVCaptureDevice.devices()
     for device in devices {
       // Make sure this particular device supports video
       if (device.hasMediaType(AVMediaTypeVideo)) {
         // Finally check the position and confirm we've got the back camera
         if(device.position == AVCaptureDevicePosition.Back) {
-          self.captureDevice = device as? AVCaptureDevice
+          return device as? AVCaptureDevice
         }
       }
     }
-    if captureDevice != nil {
-      beginSession()
-    }
-    setUpLocationServices()
-    waitForLocation()
+    return nil
   }
 
   func waitForLocation() {
@@ -111,9 +112,9 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
       return
     }
 
-    let videoConnection = self.stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo)
+    let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
     if ( videoConnection != nil && self.mostRecentLocation != nil ) {
-      stillImageOutput!.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
+      stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
 
         let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
         Logger.debug("calling callback")
@@ -124,12 +125,20 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
   }
 
-  func beginSession() {
+  func beginCapturingVideo(captureDevice: AVCaptureDevice) {
     var err : NSError? = nil
     let captureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
-    self.captureSession.addInput(captureDeviceInput)
     if err != nil {
       Logger.error("error initializing camera: \(err?.localizedDescription)")
+    }
+
+    let captureSession = AVCaptureSession()
+    captureSession.sessionPreset = AVCaptureSessionPresetMedium
+
+    if ( captureSession.canAddInput(captureDeviceInput) ) {
+      captureSession.addInput(captureDeviceInput)
+    } else {
+      Logger.error("Couldn't add capture device input.")
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
@@ -138,11 +147,12 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
     previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
 
-    captureSession.startRunning()
-
-    self.stillImageOutput = AVCaptureStillImageOutput()
-    if ( self.captureSession.canAddOutput(self.stillImageOutput!) ) {
-      self.captureSession.addOutput(self.stillImageOutput!)
+    if ( captureSession.canAddOutput(self.stillImageOutput) ) {
+      captureSession.addOutput(self.stillImageOutput)
+    } else {
+      Logger.error("Couldn't add still image output.")
     }
+
+    captureSession.startRunning()
   }
 }
