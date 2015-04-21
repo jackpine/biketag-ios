@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -27,9 +27,11 @@
                                 <rect key="frame" x="230.5" y="550" width="139" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="7IC-iY-4zF"/>
+                                    <constraint firstAttribute="width" constant="100" id="7IC-iY-4zF">
+                                        <variation key="widthClass=compact" constant="120"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
-                                        <variation key="widthClass=compact" constant="40"/>
+                                        <variation key="widthClass=compact" constant="50"/>
                                     </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -183,12 +185,12 @@
                             <mask key="constraints">
                                 <exclude reference="jUF-gn-jvC"/>
                                 <exclude reference="sMo-0H-lOw"/>
-                                <exclude reference="N1i-04-DXg"/>
-                                <exclude reference="gVf-XB-cHS"/>
-                                <exclude reference="rVj-Dh-kp6"/>
                                 <exclude reference="Ohc-uD-m7A"/>
                                 <exclude reference="Qhp-fz-o5e"/>
                                 <exclude reference="TOy-zg-Fpa"/>
+                                <exclude reference="N1i-04-DXg"/>
+                                <exclude reference="gVf-XB-cHS"/>
+                                <exclude reference="rVj-Dh-kp6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -199,12 +201,12 @@
                             <mask key="constraints">
                                 <include reference="jUF-gn-jvC"/>
                                 <include reference="sMo-0H-lOw"/>
-                                <include reference="N1i-04-DXg"/>
-                                <include reference="gVf-XB-cHS"/>
-                                <include reference="rVj-Dh-kp6"/>
                                 <include reference="Ohc-uD-m7A"/>
                                 <include reference="Qhp-fz-o5e"/>
                                 <include reference="TOy-zg-Fpa"/>
+                                <include reference="N1i-04-DXg"/>
+                                <include reference="gVf-XB-cHS"/>
+                                <include reference="rVj-Dh-kp6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -217,8 +219,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="O3a-By-Tsf" id="pxU-pi-KJA"/>
                         <outlet property="currentImageView" destination="YfV-CN-Xp6" id="8R1-on-y55"/>
-                        <outlet property="guessSpotButton" destination="VFH-Ki-tZ3" id="R4L-Tj-dt8"/>
-                        <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="iHA-n2-Awi"/>
+                        <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
                     </connections>
@@ -230,7 +231,6 @@
         <!--Item-->
         <scene sceneID="1Bz-zF-iAb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ag-J8-fws" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="89J-R4-vFb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Tlo-Y9-srY"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" id="amq-2V-zg3">
@@ -241,6 +241,7 @@
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="XyA-Nl-Ivb"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ag-J8-fws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="507" y="-710"/>
         </scene>
