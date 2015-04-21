@@ -22,7 +22,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+    self.captureSession.sessionPreset = AVCaptureSessionPresetMedium
 
     let devices = AVCaptureDevice.devices()
     for device in devices {
@@ -96,12 +96,15 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    Logger.debug("updated location")
+    if( self.mostRecentLocation == nil ) {
+        Logger.debug("Initialized location: \(locations.last)")
+    }
     self.mostRecentLocation = locations.last as? CLLocation
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
     assert(self.mostRecentLocation != nil )
+    Logger.debug("Location is not nil")
 
     if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
       callback(NSData(), self.mostRecentLocation!)
@@ -113,7 +116,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
       stillImageOutput!.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
 
         let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-
+        Logger.debug("calling callback")
         callback(image!, self.mostRecentLocation!)
       }
     } else {

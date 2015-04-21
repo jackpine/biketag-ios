@@ -26,6 +26,7 @@ class NewSpotViewController: CameraViewController {
   }
 
   @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
+    Logger.debug("capturing image")
     self.captureImage(createSpotFromData)
   }
 
