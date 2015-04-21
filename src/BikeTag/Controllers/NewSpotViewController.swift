@@ -21,11 +21,12 @@ class NewSpotViewController: CameraViewController {
       let spot = Spot(image: image!, user: User.getCurrentUser(), location: location!)
       self.uploadNewSpot(spot)
     } else {
-      println("New spot image data not captured")
+      Logger.error("New spot image data not captured")
     }
   }
 
   @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
+    Logger.debug("capturing image")
     self.captureImage(createSpotFromData)
   }
 
