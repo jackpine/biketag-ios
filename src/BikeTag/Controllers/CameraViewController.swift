@@ -2,7 +2,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class CameraViewController: UIViewController, CLLocationManagerDelegate {
+class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
   @IBOutlet var takePictureButton: UIButton!
@@ -12,14 +12,14 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
 
-  required init(coder aDecoder: NSCoder) {
+  required override init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    self.stylePrimaryButton(self.takePictureButton)
     if let captureDevice = getCaptureDevice() {
       beginCapturingVideo(captureDevice)
     }

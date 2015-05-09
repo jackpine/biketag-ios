@@ -183,7 +183,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YfV-CN-Xp6" secondAttribute="trailing" id="jUF-gn-jvC">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
-                            <constraint firstAttribute="centerX" secondItem="VFH-Ki-tZ3" secondAttribute="centerX" id="rVj-Dh-kp6"/>
                             <constraint firstItem="YfV-CN-Xp6" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="sMo-0H-lOw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" constant="-16" id="zC6-Uh-ta4">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -204,7 +203,6 @@
                                 <exclude reference="N1i-04-DXg"/>
                                 <exclude reference="gVf-XB-cHS"/>
                                 <exclude reference="48t-t5-2C3"/>
-                                <exclude reference="rVj-Dh-kp6"/>
                                 <exclude reference="zC6-Uh-ta4"/>
                                 <exclude reference="Ohc-uD-m7A"/>
                                 <exclude reference="Qhp-fz-o5e"/>
@@ -227,7 +225,6 @@
                                 <include reference="N1i-04-DXg"/>
                                 <include reference="gVf-XB-cHS"/>
                                 <include reference="48t-t5-2C3"/>
-                                <include reference="rVj-Dh-kp6"/>
                                 <include reference="zC6-Uh-ta4"/>
                                 <include reference="Ohc-uD-m7A"/>
                                 <include reference="Qhp-fz-o5e"/>
@@ -782,7 +779,9 @@
                         <outlet property="fakeCorrectResponseButton" destination="hjT-Bm-8zm" id="ZEh-2w-TAS"/>
                         <outlet property="fakeIncorrectResponseButton" destination="YFZ-sb-Lh5" id="Rce-Ha-8ME"/>
                         <outlet property="fakeResponseActions" destination="w4R-8C-yyR" id="z7T-8g-JCg"/>
+                        <outlet property="guessAgainButton" destination="lNy-6P-ZfL" id="G7g-vM-Qkw"/>
                         <outlet property="incorrectGuessView" destination="FeN-hZ-eDe" id="DGt-pa-VJa"/>
+                        <outlet property="newSpotButton" destination="sVr-T3-VXe" id="N07-Zs-2aU"/>
                         <outlet property="progressView" destination="4qg-vl-6Ne" id="mXJ-WG-Yha"/>
                         <outlet property="submittedImageView" destination="zxW-5G-LFt" id="rxc-dT-fCe"/>
                     </connections>

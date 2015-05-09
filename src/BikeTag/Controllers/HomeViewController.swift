@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: ApplicationViewController {
   
   @IBOutlet var currentImageView: UIImageView! {
     didSet {
@@ -33,17 +33,14 @@ class HomeViewController: UIViewController {
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required override init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     refreshCurrentSpot()
   }
 
   override func viewDidLoad() {
     self.startLoadingAnimation()
-    self.guessSpotButtonView.layer.cornerRadius = 8.0;
-    self.guessSpotButtonView.layer.masksToBounds = true;
-    self.guessSpotButtonView.layer.borderWidth = 1;
-    self.guessSpotButtonView.layer.borderColor = UIColor.grayColor().CGColor
+    self.stylePrimaryButton(self.guessSpotButtonView)
   }
 
   func refreshCurrentSpot() {
