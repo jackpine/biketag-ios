@@ -145,8 +145,10 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
     self.photoPreviewView.layer.addSublayer(previewLayer)
 
-    //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
-    previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
+    // FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
+    // previewLayer.frame = self.photoPreviewView.frame
+    previewLayer.frame = CGRect(x: 0, y: 0, width: 400, height: 680)
+
 
     if ( captureSession.canAddOutput(self.stillImageOutput) ) {
       captureSession.addOutput(self.stillImageOutput)
