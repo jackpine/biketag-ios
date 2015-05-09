@@ -39,8 +39,7 @@ class HomeViewController: UIViewController {
   }
 
   override func viewDidLoad() {
-    self.activityIndicatorView.startAnimating()
-
+    self.startLoadingAnimation()
     self.guessSpotButtonView.layer.cornerRadius = 8.0;
     self.guessSpotButtonView.layer.masksToBounds = true;
     self.guessSpotButtonView.layer.borderWidth = 1;
@@ -73,11 +72,21 @@ class HomeViewController: UIViewController {
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
       Logger.info("updating currentSpot")
       self.currentImageView.image = self.currentSpot!.image
-      self.activityIndicatorView.stopAnimating()
-      self.loadingView.hidden = true
+      self.stopLoadingAnimation()
       updateSpotCaption()
     }
   }
+
+  func stopLoadingAnimation() {
+    self.activityIndicatorView.stopAnimating()
+    self.loadingView.hidden = true
+  }
+
+  func startLoadingAnimation() {
+    self.activityIndicatorView.startAnimating()
+    self.loadingView.hidden = false
+  }
+
 
   func updateSpotCaption() {
     if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
