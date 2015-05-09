@@ -27,9 +27,6 @@
                                 <rect key="frame" x="230.5" y="550" width="139" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="7IC-iY-4zF">
-                                        <variation key="widthClass=compact" constant="120"/>
-                                    </constraint>
                                     <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
                                         <variation key="widthClass=compact" constant="50"/>
                                     </constraint>
@@ -41,13 +38,11 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="7IC-iY-4zF"/>
                                         <exclude reference="HA6-Rz-YQu"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <exclude reference="7IC-iY-4zF"/>
                                         <include reference="HA6-Rz-YQu"/>
                                     </mask>
                                 </variation>
@@ -73,6 +68,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="7Xm-W7-1Xn"/>
                                     <constraint firstItem="a9v-9r-GSk" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="top" constant="40" id="Cq4-ck-BSZ"/>
                                     <constraint firstAttribute="centerX" secondItem="p8A-6A-4yf" secondAttribute="centerX" id="Db4-bs-syj"/>
                                     <constraint firstItem="a9v-9r-GSk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gl7-Uo-dgZ" secondAttribute="leading" constant="20" id="Y0r-8u-NdV"/>
@@ -88,6 +84,7 @@
                                         <exclude reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="7Xm-W7-1Xn"/>
                                         <exclude reference="Cq4-ck-BSZ"/>
                                         <exclude reference="Y0r-8u-NdV"/>
                                         <exclude reference="ZAR-OF-yl9"/>
@@ -104,6 +101,7 @@
                                         <include reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="7Xm-W7-1Xn"/>
                                         <include reference="Cq4-ck-BSZ"/>
                                         <include reference="Y0r-8u-NdV"/>
                                         <include reference="ZAR-OF-yl9"/>
@@ -172,7 +170,7 @@
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" constant="-16" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
-                                <variation key="widthClass=compact" constant="16"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="TFQ-Dr-h4t" secondAttribute="trailing" constant="-16" id="Oq6-O2-Qm5"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" constant="20" id="Qhp-fz-o5e">
@@ -249,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257" y="-710.25"/>
+            <point key="canvasLocation" x="1257" y="-711"/>
         </scene>
         <!--Item-->
         <scene sceneID="1Bz-zF-iAb">
@@ -283,75 +281,65 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
                                 <rect key="frame" x="75" y="90" width="450" height="450"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-pk-m87">
-                                        <rect key="frame" x="267.5" y="560" width="65" height="20"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="Xr5-g9-UJe">
-                                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
-                                            </constraint>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="suf-Xm-a5Z"/>
-                                        </constraints>
-                                        <state key="normal" title="Take a Picture to Prove it.">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="suf-Xm-a5Z"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="560" width="400" height="20"/>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=compact">
-                                            <mask key="constraints">
-                                                <include reference="suf-Xm-a5Z"/>
-                                            </mask>
-                                        </variation>
-                                        <connections>
-                                            <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="UtK-pk-m87"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="subviews">
-                                        <include reference="UtK-pk-m87"/>
-                                    </mask>
-                                </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-pk-m87">
+                                <rect key="frame" x="267.5" y="560" width="65" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Xr5-g9-UJe">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="Take a Picture to Prove it.">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <bool key="isElement" value="YES"/>
                         </accessibility>
                         <constraints>
+                            <constraint firstItem="UtK-pk-m87" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" id="1rJ-dx-5AV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UtK-pk-m87" secondAttribute="trailing" id="71O-bd-YaF"/>
                             <constraint firstItem="esg-LR-wYA" firstAttribute="top" secondItem="v6M-UC-jWP" secondAttribute="topMargin" id="Pka-u6-9M9"/>
                             <constraint firstItem="esg-LR-wYA" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" id="UpC-C0-1gg">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="esg-LR-wYA" secondAttribute="bottom" id="ZTE-Lt-o0K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="esg-LR-wYA" secondAttribute="trailing" constant="-16" id="eco-sz-Wgv"/>
+                            <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="UtK-pk-m87" secondAttribute="bottom" constant="16" id="o5h-uI-KuA"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="UtK-pk-m87"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="Pka-u6-9M9"/>
                                 <exclude reference="eco-sz-Wgv"/>
+                                <exclude reference="1rJ-dx-5AV"/>
+                                <exclude reference="71O-bd-YaF"/>
                                 <exclude reference="ZTE-Lt-o0K"/>
+                                <exclude reference="o5h-uI-KuA"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="UtK-pk-m87"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="Pka-u6-9M9"/>
                                 <include reference="eco-sz-Wgv"/>
+                                <include reference="1rJ-dx-5AV"/>
+                                <include reference="71O-bd-YaF"/>
                                 <include reference="ZTE-Lt-o0K"/>
+                                <include reference="o5h-uI-KuA"/>
                             </mask>
                         </variation>
                     </view>
