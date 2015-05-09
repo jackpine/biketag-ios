@@ -41,8 +41,10 @@ class HomeViewController: UIViewController {
   override func viewDidLoad() {
     self.activityIndicatorView.startAnimating()
 
-    self.guessSpotButtonView.layer.cornerRadius = 5.0;
+    self.guessSpotButtonView.layer.cornerRadius = 8.0;
     self.guessSpotButtonView.layer.masksToBounds = true;
+    self.guessSpotButtonView.layer.borderWidth = 1;
+    self.guessSpotButtonView.layer.borderColor = UIColor.grayColor().CGColor
   }
 
   func refreshCurrentSpot() {
