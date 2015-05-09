@@ -604,6 +604,9 @@
                                                         <include reference="84g-RT-zNt"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <segue destination="kB0-aQ-szS" kind="show" id="pdm-a3-rbz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
