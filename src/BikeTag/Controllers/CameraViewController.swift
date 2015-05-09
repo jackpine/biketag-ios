@@ -133,7 +133,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     let captureSession = AVCaptureSession()
-    captureSession.sessionPreset = AVCaptureSessionPresetMedium
+    captureSession.sessionPreset = AVCaptureSessionPresetHigh
 
     if ( captureSession.canAddInput(captureDeviceInput) ) {
       captureSession.addInput(captureDeviceInput)
@@ -142,6 +142,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
     self.photoPreviewView.layer.addSublayer(previewLayer)
 
     //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
