@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: ApplicationViewController {
   
   @IBOutlet var currentImageView: UIImageView! {
     didSet {
@@ -8,7 +8,7 @@ class HomeViewController: UIViewController {
     }
   }
 
-  @IBOutlet var captureInstructionsView: UIView! {
+  @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
       updateCurrentSpot()
     }
@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
       updateCurrentSpot()
     }
   }
+
 
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
@@ -32,13 +33,14 @@ class HomeViewController: UIViewController {
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required override init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     refreshCurrentSpot()
   }
 
   override func viewDidLoad() {
-    self.activityIndicatorView.startAnimating()
+    self.startLoadingAnimation()
+    self.stylePrimaryButton(self.guessSpotButtonView)
   }
 
   func refreshCurrentSpot() {
@@ -67,19 +69,29 @@ class HomeViewController: UIViewController {
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
       Logger.info("updating currentSpot")
       self.currentImageView.image = self.currentSpot!.image
-      self.activityIndicatorView.stopAnimating()
-      self.loadingView.hidden = true
+      self.stopLoadingAnimation()
       updateSpotCaption()
     }
   }
 
+  func stopLoadingAnimation() {
+    self.activityIndicatorView.stopAnimating()
+    self.loadingView.hidden = true
+  }
+
+  func startLoadingAnimation() {
+    self.activityIndicatorView.startAnimating()
+    self.loadingView.hidden = false
+  }
+
+
   func updateSpotCaption() {
-    if( self.currentSpot != nil && self.captureInstructionsView != nil && self.mySpotView != nil ) {
+    if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
-        self.captureInstructionsView.hidden = true
+        self.guessSpotButtonView.hidden = true
         self.mySpotView.hidden = false
       } else {
-        self.captureInstructionsView.hidden = false
+        self.guessSpotButtonView.hidden = false
         self.mySpotView.hidden = true
       }
     }

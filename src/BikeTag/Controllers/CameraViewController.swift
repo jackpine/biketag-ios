@@ -2,7 +2,7 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class CameraViewController: UIViewController, CLLocationManagerDelegate {
+class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
   @IBOutlet var takePictureButton: UIButton!
@@ -12,14 +12,14 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
   let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
 
-  required init(coder aDecoder: NSCoder) {
+  required override init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    self.stylePrimaryButton(self.takePictureButton)
     if let captureDevice = getCaptureDevice() {
       beginCapturingVideo(captureDevice)
     }
@@ -133,7 +133,7 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     let captureSession = AVCaptureSession()
-    captureSession.sessionPreset = AVCaptureSessionPresetMedium
+    captureSession.sessionPreset = AVCaptureSessionPresetHigh
 
     if ( captureSession.canAddInput(captureDeviceInput) ) {
       captureSession.addInput(captureDeviceInput)
@@ -142,10 +142,13 @@ class CameraViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
     self.photoPreviewView.layer.addSublayer(previewLayer)
 
-    //FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
-    previewLayer.frame = CGRect(x: -64, y: 0, width: 504, height: 504)
+    // FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
+    // previewLayer.frame = self.photoPreviewView.frame
+    previewLayer.frame = CGRect(x: 0, y: 0, width: 400, height: 680)
+
 
     if ( captureSession.canAddOutput(self.stillImageOutput) ) {
       captureSession.addOutput(self.stillImageOutput)

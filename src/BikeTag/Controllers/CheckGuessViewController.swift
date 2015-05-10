@@ -1,6 +1,6 @@
 import UIKit
 
-class CheckGuessViewController: UIViewController {
+class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
   @IBOutlet var fakeCorrectResponseButton: UIButton!
@@ -14,7 +14,8 @@ class CheckGuessViewController: UIViewController {
       updateSubmittedImage()
     }
   }
-
+  @IBOutlet var newSpotButton: UIButton!
+  @IBOutlet var guessAgainButton: UIButton!
 
   var guess: Guess? {
     didSet {
@@ -33,6 +34,8 @@ class CheckGuessViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.stylePrimaryButton(self.guessAgainButton)
+    self.stylePrimaryButton(self.newSpotButton)
     progressView.progress = 0
     updateSubmittedImage()
   }
