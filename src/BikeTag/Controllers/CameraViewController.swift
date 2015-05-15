@@ -12,7 +12,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
 
-  required override init(coder aDecoder: NSCoder) {
+  required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }

@@ -15,8 +15,8 @@ class SpotsService {
           return errorCallback(error!)
         }
 
-        let responseAttributes = json as NSDictionary
-        let spotAttributes = responseAttributes.valueForKey("spot") as NSDictionary
+        let responseAttributes = json as! NSDictionary
+        let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
         let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
     }
@@ -45,8 +45,8 @@ class SpotsService {
           return errorCallback(error!)
         }
 
-        let responseAttributes = json as NSDictionary
-        let spotAttributes = responseAttributes.valueForKey("spot") as NSDictionary
+        let responseAttributes = json as! NSDictionary
+        let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
         let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
     }
@@ -69,9 +69,9 @@ class SpotsService {
           return errorCallback(error!)
         }
 
-        let responseAttributes = json as NSDictionary
-        let guessAttributes = responseAttributes.valueForKey("guess") as NSDictionary
-        let guessResult = guessAttributes.valueForKey("correct") as Bool
+        let responseAttributes = json as! NSDictionary
+        let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
+        let guessResult = guessAttributes.valueForKey("correct") as! Bool
 
         callback(guessResult)
     }

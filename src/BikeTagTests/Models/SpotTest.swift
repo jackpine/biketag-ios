@@ -62,7 +62,7 @@ class SpotTests: XCTestCase {
       // but is there a way to fail fast?
     }
 
-    Spot.fetchCurrentSpot(FakeSpotsService(), fulfillExpectation, errorCallback: failExpectation)
+    Spot.fetchCurrentSpot(FakeSpotsService(), callback: fulfillExpectation, errorCallback: failExpectation)
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
 
