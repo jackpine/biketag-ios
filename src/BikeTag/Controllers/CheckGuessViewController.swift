@@ -104,7 +104,7 @@ class CheckGuessViewController: ApplicationViewController {
   var secondsLeft:Int = 1800 {
     didSet {
       let clockString = NSString(format:"%02d:%02d", secondsLeft / 60, secondsLeft % 60 )
-      self.countdownClockView.text = clockString
+      self.countdownClockView.text = clockString as String
     }
   }
 

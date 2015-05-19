@@ -26,7 +26,7 @@ class GuessSpotViewController: CameraViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    let checkGuessViewController = segue.destinationViewController as CheckGuessViewController
+    let checkGuessViewController = segue.destinationViewController as! CheckGuessViewController
     checkGuessViewController.guess = self.newGuess!
   }
 

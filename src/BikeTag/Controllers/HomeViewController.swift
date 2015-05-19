@@ -33,7 +33,7 @@ class HomeViewController: ApplicationViewController {
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  required override init(coder aDecoder: NSCoder) {
+  required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     refreshCurrentSpot()
   }
@@ -62,7 +62,7 @@ class HomeViewController: ApplicationViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpot(SpotsService(), setCurrentSpot, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpot(SpotsService(), callback: setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
   func updateCurrentSpot() {
@@ -99,7 +99,7 @@ class HomeViewController: ApplicationViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    let guessSpotViewController = segue.destinationViewController as GuessSpotViewController
+    let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
     guessSpotViewController.currentSpot = self.currentSpot
   }
 }

@@ -15,7 +15,7 @@ class Config {
       let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
       Logger.info("Loaded Config: \(settingsFromFile)")
 
-      self.apiEndpoint = settingsFromFile["apiEndpoint"] as String
+      self.apiEndpoint = settingsFromFile["apiEndpoint"] as! String
 
     }
   }
