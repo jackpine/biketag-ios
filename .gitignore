@@ -11,3 +11,9 @@ Carthage
 
 # JetBrains project files
 .idea
+
+# Xcode build products
+*.ipa
+*.app
+*.app.dSYM
+build
