@@ -15,4 +15,3 @@ Feature: Creating my account
     Then I should see an error message
     When I submit a unique username and email
     Then I should be logged into my new account
-

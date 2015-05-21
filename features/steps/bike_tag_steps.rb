@@ -85,4 +85,3 @@ end
 Then(/^their tag should still be the current tag$/) do
     pending # express the regexp above with the code you wish you had
 end
-
