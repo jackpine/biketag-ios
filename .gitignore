@@ -8,3 +8,6 @@ xcuserdata
 Carthage
 
 .DS_Store
+
+# JetBrains project files
+.idea
