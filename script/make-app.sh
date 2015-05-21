@@ -50,4 +50,3 @@ APP_BUNDLE_PATH="${CAL_BUILD_DIR}/Build/Products/${CAL_BUILD_CONFIG}-iphonesimul
 
 echo "Moving $APP_BUNDLE_PATH to ./"
 mv "${APP_BUNDLE_PATH}" "${PWD}"
-echo "export APP=${PWD}/${TARGET_NAME}.app"

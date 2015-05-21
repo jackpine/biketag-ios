@@ -17,3 +17,6 @@ Carthage
 *.app
 *.app.dSYM
 build
+
+# Calabash
+.irb-history
