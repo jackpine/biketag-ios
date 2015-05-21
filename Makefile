@@ -7,3 +7,7 @@ clean:
 # Builds an app for the iOS Simulators
 app:
 	./script/make-app.sh Debug
+
+# Builds an ipa for physical devices
+ipa:
+	./script/make-ipa.sh Debug
