@@ -3,6 +3,7 @@ src/DerivedData
 
 # XCode UI state, don't want to track this
 xcuserdata
+*.xccheckout
 
 # Carthage build and checkouts
 Carthage
