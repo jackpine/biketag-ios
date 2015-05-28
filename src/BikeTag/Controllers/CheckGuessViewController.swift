@@ -20,9 +20,6 @@ class CheckGuessViewController: ApplicationViewController {
   var guess: Guess? {
     didSet {
       updateSubmittedImage()
-      if (guess != nil) {
-        submitGuessToServer()
-      }
     }
   }
 
@@ -36,6 +33,7 @@ class CheckGuessViewController: ApplicationViewController {
     super.viewDidLoad()
     self.stylePrimaryButton(self.guessAgainButton)
     self.stylePrimaryButton(self.newSpotButton)
+    self.submitGuessToServer()
     progressView.progress = 0
     updateSubmittedImage()
   }
@@ -65,11 +63,11 @@ class CheckGuessViewController: ApplicationViewController {
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
-    SpotsService().postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
+    self.spotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
   }
 
   func handleGuessResponse(guessedCorrectly: Bool) {
-    if( Config.testing() ) {
+    if( Config.fakeApiCalls() ) {
       self.fakeResponseActions.hidden = false
     } else {
       if (guessedCorrectly) {

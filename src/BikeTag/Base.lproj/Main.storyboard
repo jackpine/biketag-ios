@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -235,7 +235,7 @@
                     <navigationItem key="navigationItem" title="Do you know this spot?" id="djg-xB-CWe"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="oRT-rZ-KuX" id="Sgj-0k-btP"/>
-                        <outlet property="currentImageView" destination="YfV-CN-Xp6" id="8R1-on-y55"/>
+                        <outlet property="currentImageView" destination="YfV-CN-Xp6" id="0Xa-wO-kIb"/>
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
@@ -370,7 +370,7 @@
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Countdown View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
                                         <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -417,7 +417,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-Jt-DAh" userLabel="Response Actions">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-Jt-DAh" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4R-8C-yyR" userLabel="Pretend Responses">
@@ -476,10 +476,10 @@
                                             <mask key="constraints">
                                                 <exclude reference="7pg-a4-6QV"/>
                                                 <exclude reference="BSa-tU-UAa"/>
-                                                <exclude reference="fHE-Bb-YLG"/>
-                                                <exclude reference="oYT-Zj-T2X"/>
                                                 <exclude reference="BLS-b0-k92"/>
                                                 <exclude reference="TTn-VK-PhE"/>
+                                                <exclude reference="fHE-Bb-YLG"/>
+                                                <exclude reference="oYT-Zj-T2X"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -491,10 +491,10 @@
                                             <mask key="constraints">
                                                 <include reference="7pg-a4-6QV"/>
                                                 <include reference="BSa-tU-UAa"/>
-                                                <include reference="fHE-Bb-YLG"/>
-                                                <include reference="oYT-Zj-T2X"/>
                                                 <include reference="BLS-b0-k92"/>
                                                 <include reference="TTn-VK-PhE"/>
+                                                <include reference="fHE-Bb-YLG"/>
+                                                <include reference="oYT-Zj-T2X"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -825,7 +825,7 @@
                                 <rect key="frame" x="80" y="90" width="440" height="440"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing too tricky! If no one can guess your spot, you'll lose points." lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
@@ -851,7 +851,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-GQ-Q6q">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-GQ-Q6q">
                                         <rect key="frame" x="240.5" y="550" width="119" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -960,10 +960,10 @@
                             <mask key="constraints">
                                 <exclude reference="BKK-2M-yAz"/>
                                 <exclude reference="JIU-hk-x0g"/>
-                                <exclude reference="M3x-DJ-Dqi"/>
-                                <exclude reference="kUR-xO-P8A"/>
                                 <exclude reference="bdh-c9-koz"/>
                                 <exclude reference="fI0-qw-HkT"/>
+                                <exclude reference="M3x-DJ-Dqi"/>
+                                <exclude reference="kUR-xO-P8A"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -973,10 +973,10 @@
                             <mask key="constraints">
                                 <include reference="BKK-2M-yAz"/>
                                 <include reference="JIU-hk-x0g"/>
-                                <include reference="M3x-DJ-Dqi"/>
-                                <include reference="kUR-xO-P8A"/>
                                 <include reference="bdh-c9-koz"/>
                                 <include reference="fI0-qw-HkT"/>
+                                <include reference="M3x-DJ-Dqi"/>
+                                <include reference="kUR-xO-P8A"/>
                             </mask>
                         </variation>
                     </view>

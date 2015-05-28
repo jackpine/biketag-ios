@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>fakeApiCalls</key>
+	<false/>
 	<key>apiEndpoint</key>
-	<string>http://api.biketag-staging.jackpine.me/api/v1/</string>
+	<string>http://localhost:3000/api/v1/</string>
 </dict>
 </plist>

@@ -31,6 +31,8 @@
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
+		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
@@ -85,6 +87,7 @@
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
 		459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
+		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4581A5F91AB7C9BA004C871F /* SpotsService.swift */,
+				45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,6 +394,7 @@
 			files = (
 				452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */,
 				459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */,
+				45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
@@ -411,6 +416,7 @@
 			files = (
 				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,
+				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,

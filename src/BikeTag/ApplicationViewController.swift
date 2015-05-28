@@ -3,6 +3,8 @@ import UIKit
 
 class ApplicationViewController: UIViewController {
 
+  let spotsService = Config.fakeApiCalls() ? FakeSpotsService() : SpotsService()
+  
   func stylePrimaryButton(button: UIButton) {
     button.layer.cornerRadius = 8.0
     button.layer.masksToBounds = true
