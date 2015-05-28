@@ -5,6 +5,21 @@ let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 let apiKey = Config.getApiKey()
 
 class SpotsService {
+  class APIError: NSError {
+    required init(errorDict: [NSObject: AnyObject]) {
+      let domain = "BikeTagApi"
+      let code = errorDict["code"] as! Int
+      let userInfo = [
+        NSLocalizedDescriptionKey: errorDict["message"] as! String
+      ]
+      super.init(domain: domain, code: code, userInfo: userInfo)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+      super.init(coder:aDecoder)
+    }
+  }
+
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("games/1/current_spot.json")
     Logger.info("GET \(url)")
@@ -17,13 +32,19 @@ class SpotsService {
     }
 
     Alamofire.request(currentSpotRequest)
-      .responseJSON { (request, response, json, error) in
-        if( error != nil ) {
-          Logger.warning("HTTP Error: \(error)")
-          return errorCallback(error!)
+      .responseJSON { (request, response, json, requestError) in
+        if( requestError != nil ) {
+          Logger.warning("HTTP Error: \(requestError)")
+          return errorCallback(requestError!)
         }
 
         let responseAttributes = json as! NSDictionary
+
+        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
+          Logger.error("API Error: \(apiError)")
+          return errorCallback(APIError(errorDict: apiError))
+        }
+
         let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
         let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
@@ -62,6 +83,12 @@ class SpotsService {
         }
 
         let responseAttributes = json as! NSDictionary
+
+        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
+          Logger.error("API Error: \(apiError)")
+          return errorCallback(APIError(errorDict: apiError))
+        }
+
         let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
         let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
@@ -93,6 +120,12 @@ class SpotsService {
         }
 
         let responseAttributes = json as! NSDictionary
+
+        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
+          Logger.error("API Error: \(apiError)")
+          return errorCallback(APIError(errorDict: apiError))
+        }
+
         let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
         let guessResult = guessAttributes.valueForKey("correct") as! Bool
 
