@@ -69,7 +69,7 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   func handleGuessResponse(guessedCorrectly: Bool) {
-    if( Config.testing() ) {
+    if( Config.fakeApiCalls() ) {
       self.fakeResponseActions.hidden = false
     } else {
       if (guessedCorrectly) {

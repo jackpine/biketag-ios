@@ -5,23 +5,21 @@ private let sharedInstance = Config.Instance()
 
 class Config {
   class Instance {
-    let testing: Bool
+    let fakeApiCalls: Bool
     let apiEndpoint: String
 
     init() {
-      self.testing = false
-
       let settingsPath = NSBundle.mainBundle().pathForResource("Settings", ofType: "plist")!
       let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
       Logger.info("Loaded Config: \(settingsFromFile)")
 
       self.apiEndpoint = settingsFromFile["apiEndpoint"] as! String
-
+      self.fakeApiCalls = settingsFromFile["fakeApiCalls"] as! Bool
     }
   }
 
-  class func testing() -> Bool {
-    return sharedInstance.testing
+  class func fakeApiCalls() -> Bool {
+    return sharedInstance.fakeApiCalls
   }
 
   class func apiEndpoint() -> String {
