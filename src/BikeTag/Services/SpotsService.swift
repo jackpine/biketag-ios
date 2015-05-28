@@ -2,13 +2,21 @@ import Alamofire
 import CoreLocation
 
 let apiEndpoint = NSURL(string: Config.apiEndpoint())!
+let apiKey = "6A6ArqBokMSSXACamqn-"
 
 class SpotsService {
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("games/1/current_spot.json")
     Logger.info("GET \(url)")
 
-    Alamofire.request(.GET, url)
+    var currentSpotRequest: NSURLRequest {
+      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      mutableURLRequest.HTTPMethod = Method.GET.rawValue
+      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      return mutableURLRequest
+    }
+
+    Alamofire.request(currentSpotRequest)
       .responseJSON { (request, response, json, error) in
         if( error != nil ) {
           Logger.warning("HTTP Error: \(error)")
@@ -39,7 +47,14 @@ class SpotsService {
     spotParametersWithoutImage["image_data"] = "\(spot.base64ImageData().lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) bytes"
     Logger.debug("BODY: { spot: \(spotParametersWithoutImage) }")
 
-    Alamofire.request(.POST, url, parameters: parameters, encoding: .JSON)
+    var postSpotRequest: NSURLRequest {
+      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      mutableURLRequest.HTTPMethod = Method.POST.rawValue
+      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+    }
+
+    Alamofire.request(postSpotRequest)
       .responseJSON { (request, response, json, error) in
         if( error != nil ) {
           Logger.warning("HTTP Error: \(error)")
@@ -63,7 +78,14 @@ class SpotsService {
       "user": userParameters(guess.user)
     ]]
 
-    Alamofire.request(.POST, url, parameters: parameters, encoding: .JSON)
+    var postSpotGuessRequest: NSURLRequest {
+      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      mutableURLRequest.HTTPMethod = Method.POST.rawValue
+      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
+    }
+
+    Alamofire.request(postSpotGuessRequest)
       .responseJSON { (request, response, json, error) in
         if( error != nil ) {
           Logger.warning("HTTP Error: \(error)")
