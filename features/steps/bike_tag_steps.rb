@@ -1,6 +1,6 @@
 Given(/^the game has started$/) do
   wait_for do
-    !query("view marked:'Retry'").empty?
+    !query('UINavigationBar').empty?
   end
 end
 
