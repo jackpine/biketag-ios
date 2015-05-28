@@ -8,3 +8,16 @@ xcuserdata
 Carthage
 
 .DS_Store
+
+# JetBrains project files
+.idea
+
+# Xcode build products
+*.ipa
+*.app
+*.app.dSYM
+build
+
+# Calabash
+.irb-history
+screenshot*.png

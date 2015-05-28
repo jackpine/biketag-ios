@@ -29,4 +29,3 @@ Feature: Making a new Tag
     When I finally submit my tag
     Then I should see that I was too slow
     And their tag should still be the current tag
-

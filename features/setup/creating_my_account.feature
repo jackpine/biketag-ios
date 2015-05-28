@@ -6,7 +6,7 @@ Feature: Creating my account
   Background:
     Given I've just installed the app
 
-  Scenario: Succesful account creation
+  Scenario: Successful account creation
     When I submit a unique username and email
     Then I should be logged into my new account
 
@@ -15,4 +15,3 @@ Feature: Creating my account
     Then I should see an error message
     When I submit a unique username and email
     Then I should be logged into my new account
-
