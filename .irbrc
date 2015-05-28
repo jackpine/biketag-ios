@@ -85,8 +85,10 @@ unless ENV['APP']
   ENV['APP'] = './BikeTag.app'
 end
 
+puts 'INFO: *** Application Information ***'
 puts "INFO: Target app is #{ENV['APP']}"
 puts 'INFO: You can build a new app with `make_app`'
+puts ''
 
 def make_app
   system('make', 'app')
