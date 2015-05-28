@@ -5,7 +5,9 @@ Given(/^the game has started$/) do
 end
 
 Then(/^I should see a photo of the current tag$/) do
-  pending # express the regexp above with the code you wish you had
+  wait_for do
+    query("UIImageView marked:'current photo'", :image).first != nil
+  end
 end
 
 Given(/^I've created an account$/) do
