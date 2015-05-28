@@ -90,7 +90,3 @@ Before do |scenario|
     end
   end
 end
-
-After do |_|
-
-end
