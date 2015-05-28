@@ -35,12 +35,12 @@ class HomeViewController: ApplicationViewController {
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
-    refreshCurrentSpot()
   }
 
   override func viewDidLoad() {
     self.startLoadingAnimation()
     self.stylePrimaryButton(self.guessSpotButtonView)
+    self.refreshCurrentSpot()
   }
 
   func refreshCurrentSpot() {
@@ -62,7 +62,7 @@ class HomeViewController: ApplicationViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpot(SpotsService(), callback: setCurrentSpot, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpot(self.spotsService, callback: setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
   func updateCurrentSpot() {

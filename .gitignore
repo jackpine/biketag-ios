@@ -21,3 +21,4 @@ build
 # Calabash
 .irb-history
 screenshot*.png
+tags

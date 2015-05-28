@@ -20,6 +20,7 @@ class SpotsService {
         let parsedSpot = ParsedSpot(attributes: spotAttributes)
         callback(parsedSpot)
     }
+
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
