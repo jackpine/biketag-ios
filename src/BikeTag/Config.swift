@@ -26,4 +26,8 @@ class Config {
     return sharedInstance.apiEndpoint
   }
 
+  class func getApiKey() -> String {
+    return "6A6ArqBokMSSXACamqn-"
+  }
+
 }

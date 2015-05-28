@@ -2,7 +2,7 @@ import Alamofire
 import CoreLocation
 
 let apiEndpoint = NSURL(string: Config.apiEndpoint())!
-let apiKey = "6A6ArqBokMSSXACamqn-"
+let apiKey = Config.getApiKey()
 
 class SpotsService {
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
