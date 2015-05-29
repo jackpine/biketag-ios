@@ -44,7 +44,6 @@ class SpotTests: XCTestCase {
       }
     }
 
-
     let failExpectation = { (error: NSError) -> () in
       // This will eventually fail, since we're not calling fulfill,
       // but is there a way to fail fast?

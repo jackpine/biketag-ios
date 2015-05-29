@@ -55,63 +55,42 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-Uo-dgZ" userLabel="My Spot">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is YOUR spot." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8A-6A-4yf" userLabel="This is YOUR spot.">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you just have to wait for your friends to find it." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
                                         <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="164" id="7Xm-W7-1Xn"/>
-                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="top" constant="40" id="Cq4-ck-BSZ"/>
-                                    <constraint firstAttribute="centerX" secondItem="p8A-6A-4yf" secondAttribute="centerX" id="Db4-bs-syj"/>
-                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gl7-Uo-dgZ" secondAttribute="leading" constant="20" id="Y0r-8u-NdV"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a9v-9r-GSk" secondAttribute="trailing" constant="20" id="ZAR-OF-yl9"/>
-                                    <constraint firstAttribute="centerX" secondItem="p8A-6A-4yf" secondAttribute="centerX" id="Zhi-th-M0W"/>
-                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="centerX" secondItem="p8A-6A-4yf" secondAttribute="centerX" id="eFM-3K-xgZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="a9v-9r-GSk" secondAttribute="bottom" constant="56" id="i3y-sL-TvJ"/>
-                                    <constraint firstItem="p8A-6A-4yf" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="top" constant="20" id="vX0-ul-psL"/>
+                                    <constraint firstAttribute="height" constant="164" id="7Xm-W7-1Xn">
+                                        <variation key="widthClass=compact" constant="60"/>
+                                    </constraint>
+                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="leading" secondItem="gl7-Uo-dgZ" secondAttribute="leading" constant="20" id="Y0r-8u-NdV"/>
+                                    <constraint firstAttribute="trailing" secondItem="a9v-9r-GSk" secondAttribute="trailing" constant="20" id="ZAR-OF-yl9"/>
+                                    <constraint firstAttribute="centerY" secondItem="a9v-9r-GSk" secondAttribute="centerY" id="q5f-i7-cgW"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="p8A-6A-4yf"/>
                                         <exclude reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="7Xm-W7-1Xn"/>
-                                        <exclude reference="Cq4-ck-BSZ"/>
                                         <exclude reference="Y0r-8u-NdV"/>
                                         <exclude reference="ZAR-OF-yl9"/>
-                                        <exclude reference="eFM-3K-xgZ"/>
-                                        <exclude reference="i3y-sL-TvJ"/>
-                                        <exclude reference="Db4-bs-syj"/>
-                                        <exclude reference="Zhi-th-M0W"/>
-                                        <exclude reference="vX0-ul-psL"/>
+                                        <exclude reference="q5f-i7-cgW"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="p8A-6A-4yf"/>
                                         <include reference="a9v-9r-GSk"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="7Xm-W7-1Xn"/>
-                                        <include reference="Cq4-ck-BSZ"/>
                                         <include reference="Y0r-8u-NdV"/>
                                         <include reference="ZAR-OF-yl9"/>
-                                        <include reference="eFM-3K-xgZ"/>
-                                        <include reference="i3y-sL-TvJ"/>
-                                        <include reference="Db4-bs-syj"/>
-                                        <include reference="Zhi-th-M0W"/>
-                                        <include reference="vX0-ul-psL"/>
+                                        <include reference="q5f-i7-cgW"/>
                                     </mask>
                                 </variation>
                             </view>
