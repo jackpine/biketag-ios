@@ -9,7 +9,16 @@ class ApiKey {
   let userId: Int
 
   class func getCurrentApiKey() -> ApiKey? {
-    return currentApiKey
+    if (Config.fakeApiCalls()) {
+      let fakeApiAttributes = [
+        "client_id": "fake-client-id",
+        "secret": "fake-secret",
+        "user_id": 666
+      ]
+      return ApiKey(parsedApiKey: ParsedApiKey(attributes: fakeApiAttributes))
+    } else {
+      return currentApiKey
+    }
   }
 
   required init(parsedApiKey: ParsedApiKey) {
@@ -27,7 +36,7 @@ class ApiKey {
   }
 
   class func ensureApiKey(successCallback: ()->()) {
-    if Config.fakeApiCalls() {
+    if let currentApiKey = getCurrentApiKey() {
       return successCallback()
     }
 

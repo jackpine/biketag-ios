@@ -30,7 +30,7 @@ class FakeSpotsService: SpotsService {
     let spot = Spot.griffithSpot()
     let mockResponse = [
       "image_url": base64EncodedImageUrlString,
-      "user_id": spot.user.id,
+      "user_id": User.getCurrentUser().id,
       "created_at": "2015-03-20T21:59:40.394Z",
       "id": 2
     ]
