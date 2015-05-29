@@ -27,7 +27,7 @@ class Config {
   }
 
   class func getApiKey() -> String {
-    return "6A6ArqBokMSSXACamqn-"
+    return ApiKey.getCurrentApiKey()!.clientId
   }
 
 }

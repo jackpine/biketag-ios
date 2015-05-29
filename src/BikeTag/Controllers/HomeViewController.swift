@@ -40,7 +40,10 @@ class HomeViewController: ApplicationViewController {
   override func viewDidLoad() {
     self.startLoadingAnimation()
     self.stylePrimaryButton(self.guessSpotButtonView)
-    self.refreshCurrentSpot()
+    //TODO only if needed
+    ApiKey.createApiKey({
+      self.refreshCurrentSpot()
+    })
   }
 
   func refreshCurrentSpot() {

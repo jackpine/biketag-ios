@@ -2,7 +2,6 @@ import Alamofire
 import CoreLocation
 
 class SpotsService {
-  let apiKey = Config.getApiKey()
   let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
@@ -12,7 +11,7 @@ class SpotsService {
     var currentSpotRequest: NSURLRequest {
       let mutableURLRequest = NSMutableURLRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.GET.rawValue
-      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return mutableURLRequest
     }
 
@@ -56,7 +55,7 @@ class SpotsService {
     var postSpotRequest: NSURLRequest {
       let mutableURLRequest = NSMutableURLRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.POST.rawValue
-      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
@@ -93,7 +92,7 @@ class SpotsService {
     var postSpotGuessRequest: NSURLRequest {
       let mutableURLRequest = NSMutableURLRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.POST.rawValue
-      mutableURLRequest.setValue("Token \(apiKey)", forHTTPHeaderField: "Authorization")
+      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
