@@ -1,24 +1,9 @@
 import Alamofire
 import CoreLocation
 
-let apiEndpoint = NSURL(string: Config.apiEndpoint())!
-let apiKey = Config.getApiKey()
-
 class SpotsService {
-  class APIError: NSError {
-    required init(errorDict: [NSObject: AnyObject]) {
-      let domain = "BikeTagApi"
-      let code = errorDict["code"] as! Int
-      let userInfo = [
-        NSLocalizedDescriptionKey: errorDict["message"] as! String
-      ]
-      super.init(domain: domain, code: code, userInfo: userInfo)
-    }
-
-    required init(coder aDecoder: NSCoder) {
-      super.init(coder:aDecoder)
-    }
-  }
+  let apiKey = Config.getApiKey()
+  let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("games/1/current_spot.json")

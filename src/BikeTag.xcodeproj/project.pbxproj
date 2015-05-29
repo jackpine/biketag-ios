@@ -17,6 +17,7 @@
 		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
 		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
 		452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
+		454E11021B18FFFE00FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847F1B18CF0A00A286C9 /* ApiKeysService.swift */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
@@ -33,6 +34,13 @@
 		459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
+		45A384801B18CF0A00A286C9 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847F1B18CF0A00A286C9 /* ApiKeysService.swift */; };
+		45A384821B18D04B00A286C9 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384811B18D04B00A286C9 /* ApiError.swift */; };
+		45A384831B18D04B00A286C9 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384811B18D04B00A286C9 /* ApiError.swift */; };
+		45A384851B18D0B700A286C9 /* ParsedApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384841B18D0B700A286C9 /* ParsedApiKey.swift */; };
+		45A384861B18D0B700A286C9 /* ParsedApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384841B18D0B700A286C9 /* ParsedApiKey.swift */; };
+		45A384881B18D1BA00A286C9 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384871B18D1BA00A286C9 /* ApiKey.swift */; };
+		45A384891B18D1BA00A286C9 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A384871B18D1BA00A286C9 /* ApiKey.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
@@ -88,6 +96,10 @@
 		459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
+		45A3847F1B18CF0A00A286C9 /* ApiKeysService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeysService.swift; sourceTree = "<group>"; };
+		45A384811B18D04B00A286C9 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		45A384841B18D0B700A286C9 /* ParsedApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedApiKey.swift; sourceTree = "<group>"; };
+		45A384871B18D1BA00A286C9 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +198,8 @@
 			children = (
 				4581A5F91AB7C9BA004C871F /* SpotsService.swift */,
 				45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */,
+				45A3847F1B18CF0A00A286C9 /* ApiKeysService.swift */,
+				45A384811B18D04B00A286C9 /* ApiError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -268,6 +282,8 @@
 				451E51D21AB49AFA00849262 /* User.swift */,
 				4581A6101AB7FC48004C871F /* ParsedSpot.swift */,
 				45C770AC1AC081620036847D /* Guess.swift */,
+				45A384841B18D0B700A286C9 /* ParsedApiKey.swift */,
+				45A384871B18D1BA00A286C9 /* ApiKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,16 +408,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */,
+				45A384821B18D04B00A286C9 /* ApiError.swift in Sources */,
 				459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
+				45A384801B18CF0A00A286C9 /* ApiKeysService.swift in Sources */,
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45A384881B18D1BA00A286C9 /* ApiKey.swift in Sources */,
 				451E51D31AB49AFA00849262 /* User.swift in Sources */,
+				45A384851B18D0B700A286C9 /* ParsedApiKey.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
@@ -419,12 +439,16 @@
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
+				454E11021B18FFFE00FBAAC3 /* ApiKeysService.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
+				45A384891B18D1BA00A286C9 /* ApiKey.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45A384831B18D04B00A286C9 /* ApiError.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
+				45A384861B18D0B700A286C9 /* ParsedApiKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
