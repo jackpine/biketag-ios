@@ -6,7 +6,7 @@ class ApiKeysService {
 
   func createApiKey(callback: (ParsedApiKey)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("api_keys")
-    Logger.info("GET \(url)")
+    Logger.info("POST \(url)")
 
     Alamofire.request(.POST, url)
       .responseJSON { (request, response, json, requestError) in

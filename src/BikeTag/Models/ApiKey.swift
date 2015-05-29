@@ -27,6 +27,10 @@ class ApiKey {
   }
 
   class func ensureApiKey(successCallback: ()->()) {
+    if Config.fakeApiCalls() {
+      return successCallback()
+    }
+
     let defaults = NSUserDefaults.standardUserDefaults()
 
     let setCurrentApiKey = { (parsedApiKey: ParsedApiKey) -> () in

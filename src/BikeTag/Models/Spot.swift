@@ -56,7 +56,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(deviceId: "lucile-device-id"), location: location)
+    return Spot(image: image, user: User(id: 2), location: location)
   }
 
   // static spot, used to seed game and for testing
@@ -65,7 +65,7 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(deviceId: "griffith-device-id"), location: location)
+    return Spot(image: image, user: User(id: 1), location: location)
   }
 
   func isCurrentUserOwner() -> Bool {

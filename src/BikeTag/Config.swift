@@ -30,4 +30,8 @@ class Config {
     return ApiKey.getCurrentApiKey()!.clientId
   }
 
+  class func getCurrentUserId() -> Int {
+    return ApiKey.getCurrentApiKey()!.userId
+  }
+
 }
