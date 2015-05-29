@@ -43,9 +43,9 @@ class SpotsService {
     let spotParameters = [
       "game_id": 1,
       "location": locationParameters(spot.location!),
-      "image_data": spot.base64ImageData(),
-      "user": userParameters(spot.user)
+      "image_data": spot.base64ImageData()
     ]
+    
     let parameters = [ "spot": spotParameters ]
 
     let spotParametersWithoutImage = NSMutableDictionary(dictionary: spotParameters)
@@ -85,8 +85,7 @@ class SpotsService {
 
     let parameters = [ "guess": [
       "spot_id": guess.spot.id!,
-      "location": locationParameters(guess.location),
-      "user": userParameters(guess.user)
+      "location": locationParameters(guess.location)
     ]]
 
     var postSpotGuessRequest: NSURLRequest {
@@ -115,18 +114,6 @@ class SpotsService {
 
         callback(guessResult)
     }
-  }
-
-  private func userParameters(user: User) -> NSDictionary {
-    let userParameters = NSMutableDictionary()
-    assert(user.id != nil || user.deviceId != nil)
-    if (user.id != nil) {
-      userParameters.setValue(user.id!, forKey: "id")
-    } else if (user.deviceId != nil ) {
-      userParameters.setValue(user.deviceId!, forKey: "device_id")
-    }
-
-    return userParameters
   }
 
   private func locationParameters(location: CLLocation) -> NSDictionary {
