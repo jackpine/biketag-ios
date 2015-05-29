@@ -41,7 +41,7 @@ class HomeViewController: ApplicationViewController {
     self.startLoadingAnimation()
     self.stylePrimaryButton(self.guessSpotButtonView)
     //TODO only if needed
-    ApiKey.createApiKey({
+    ApiKey.ensureApiKey({
       self.refreshCurrentSpot()
     })
   }

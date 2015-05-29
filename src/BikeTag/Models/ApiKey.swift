@@ -16,18 +16,22 @@ class ApiKey {
     self.clientId = parsedApiKey.clientId
     self.secret = parsedApiKey.secret
     self.userId = parsedApiKey.userId
-    self.save()
   }
 
-  func save() {
-    currentApiKey = self
-    //TODO persist this somewhere non-volitile
+  func asDictionary() -> NSDictionary {
+    return [
+      "client_id": self.clientId,
+      "secret": self.secret,
+      "user_id": self.userId
+    ]
   }
 
-  class func createApiKey(successCallback: ()->()) {
-    let setCurrentApiKey = { (newParsedApiKey: ParsedApiKey) -> () in
-      Logger.info("setting new api key")
-      currentApiKey = ApiKey(parsedApiKey: newParsedApiKey)
+  class func ensureApiKey(successCallback: ()->()) {
+    let defaults = NSUserDefaults.standardUserDefaults()
+
+    let setCurrentApiKey = { (parsedApiKey: ParsedApiKey) -> () in
+      currentApiKey = ApiKey(parsedApiKey: parsedApiKey)
+      defaults.setObject(currentApiKey!.asDictionary(), forKey: "apiCredentials")
       successCallback()
     }
 
@@ -35,7 +39,14 @@ class ApiKey {
       Logger.error("Error setting API Credentials: \(error)")
     }
 
-    ApiKeysService().createApiKey(setCurrentApiKey, errorCallback: logFailure)
+    if let apiCredentialsAttributes = defaults.dictionaryForKey("apiCredentials") {
+      Logger.info("Found existing API credentials")
+      let parsedApiKey = ParsedApiKey(attributes: apiCredentialsAttributes)
+      setCurrentApiKey(parsedApiKey)
+    } else {
+      Logger.info("Creating new API credentials")
+      ApiKeysService().createApiKey(setCurrentApiKey, errorCallback: logFailure)
+    }
   }
 
 }
