@@ -2,7 +2,6 @@ import Foundation
 
 private var currentApiKey: ApiKey?
 
-//TODO rename to ApiCredentials since it's 2 keys
 class ApiKey {
   let clientId: String
   let secret: String
@@ -44,20 +43,20 @@ class ApiKey {
 
     let setCurrentApiKey = { (parsedApiKey: ParsedApiKey) -> () in
       currentApiKey = ApiKey(parsedApiKey: parsedApiKey)
-      defaults.setObject(currentApiKey!.asDictionary(), forKey: "apiCredentials")
+      defaults.setObject(currentApiKey!.asDictionary(), forKey: "apiKey")
       successCallback()
     }
 
     let logFailure = {(error: NSError)  in
-      Logger.error("Error setting API Credentials: \(error)")
+      Logger.error("Error setting API Key: \(error)")
     }
 
-    if let apiCredentialsAttributes = defaults.dictionaryForKey("apiCredentials") {
-      Logger.info("Found existing API credentials")
-      let parsedApiKey = ParsedApiKey(attributes: apiCredentialsAttributes)
+    if let apiKeyAttributes = defaults.dictionaryForKey("apiKey") {
+      Logger.info("Found existing API Key")
+      let parsedApiKey = ParsedApiKey(attributes: apiKeyAttributes)
       setCurrentApiKey(parsedApiKey)
     } else {
-      Logger.info("Creating new API credentials")
+      Logger.info("Creating new API Key")
       ApiKeysService().createApiKey(setCurrentApiKey, errorCallback: logFailure)
     }
   }
