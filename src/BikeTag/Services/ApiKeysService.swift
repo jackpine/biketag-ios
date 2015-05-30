@@ -1,8 +1,7 @@
 import Foundation
 import Alamofire
 
-class ApiKeysService {
-  let apiEndpoint = NSURL(string: Config.apiEndpoint())!
+class ApiKeysService: ApiService {
 
   func createApiKey(callback: (NSDictionary)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("api_keys")

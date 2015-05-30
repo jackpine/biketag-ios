@@ -1,8 +1,7 @@
 import Alamofire
 import CoreLocation
 
-class SpotsService {
-  let apiEndpoint = NSURL(string: Config.apiEndpoint())!
+class SpotsService: ApiService {
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("games/1/current_spot.json")
