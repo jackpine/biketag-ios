@@ -22,6 +22,7 @@ class Spot: NSObject {
   init(parsedSpot: ParsedSpot) {
     let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
     if( imageData == nil ) {
+      //TODO this is a super confusing error condition since this image is used all over the place in testing.
       self.image = UIImage(named: "952 lucile")!
     } else {
       self.image = UIImage(data: imageData!)!
