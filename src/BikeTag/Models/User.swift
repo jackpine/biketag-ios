@@ -13,11 +13,11 @@ class User: Equatable {
 
   class func getCurrentUser() -> User {
     if ( currentUser == nil ) {
-      let user_id = Config.getCurrentUserId()
-      self.setCurrentUser( User(id: user_id) )
+      let userId = Config.getCurrentUserId()
+      self.setCurrentUser( User(id: userId) )
     }
 
-    return currentUser!;
+    return currentUser!
   }
 
   class func setCurrentUser(user: User?) {
