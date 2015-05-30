@@ -14,24 +14,16 @@ class ApiKey {
         "secret": "fake-secret",
         "user_id": 666
       ]
-      return ApiKey(parsedApiKey: ParsedApiKey(attributes: fakeApiAttributes))
+      return ApiKey(attributes: fakeApiAttributes)
     } else {
       return currentApiKey
     }
   }
 
-  required init(parsedApiKey: ParsedApiKey) {
-    self.clientId = parsedApiKey.clientId
-    self.secret = parsedApiKey.secret
-    self.userId = parsedApiKey.userId
-  }
-
-  func asDictionary() -> NSDictionary {
-    return [
-      "client_id": self.clientId,
-      "secret": self.secret,
-      "user_id": self.userId
-    ]
+  required init(attributes: NSDictionary) {
+    self.clientId = attributes["client_id"] as! String
+    self.secret = attributes["secret"] as! String
+    self.userId = attributes["user_id"] as! Int
   }
 
   class func ensureApiKey(successCallback: ()->()) {
@@ -41,9 +33,9 @@ class ApiKey {
 
     let defaults = NSUserDefaults.standardUserDefaults()
 
-    let setCurrentApiKey = { (parsedApiKey: ParsedApiKey) -> () in
-      currentApiKey = ApiKey(parsedApiKey: parsedApiKey)
-      defaults.setObject(currentApiKey!.asDictionary(), forKey: "apiKey")
+    let setCurrentApiKey = { (apiKeyAttributes: NSDictionary) -> () in
+      currentApiKey = ApiKey(attributes: apiKeyAttributes)
+      defaults.setObject(apiKeyAttributes, forKey: "apiKey")
       successCallback()
     }
 
@@ -53,8 +45,7 @@ class ApiKey {
 
     if let apiKeyAttributes = defaults.dictionaryForKey("apiKey") {
       Logger.info("Found existing API Key")
-      let parsedApiKey = ParsedApiKey(attributes: apiKeyAttributes)
-      setCurrentApiKey(parsedApiKey)
+      setCurrentApiKey(apiKeyAttributes)
     } else {
       Logger.info("Creating new API Key")
       ApiKeysService().createApiKey(setCurrentApiKey, errorCallback: logFailure)

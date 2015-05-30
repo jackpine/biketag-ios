@@ -4,7 +4,7 @@ import Alamofire
 class ApiKeysService {
   let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 
-  func createApiKey(callback: (ParsedApiKey)->(), errorCallback: (NSError)->()) {
+  func createApiKey(callback: (NSDictionary)->(), errorCallback: (NSError)->()) {
     let url = apiEndpoint.URLByAppendingPathComponent("api_keys")
     Logger.info("POST \(url)")
 
@@ -23,8 +23,7 @@ class ApiKeysService {
         }
 
         let apiKeyAttributes = responseAttributes.valueForKey("api_key") as! NSDictionary
-        let parsedApiKey = ParsedApiKey(attributes: apiKeyAttributes)
-        callback(parsedApiKey)
+        callback(apiKeyAttributes)
     }
   }
 }

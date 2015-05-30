@@ -19,12 +19,11 @@
 		452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
 		454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
-		454E11071B19278F00FBAAC3 /* ParsedApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11041B19278F00FBAAC3 /* ParsedApiKey.swift */; };
-		454E11081B19278F00FBAAC3 /* ParsedApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11041B19278F00FBAAC3 /* ParsedApiKey.swift */; };
 		454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
 		454E110C1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
 		454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110A1B1927B200FBAAC3 /* ApiError.swift */; };
 		454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110A1B1927B200FBAAC3 /* ApiError.swift */; };
+		454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
@@ -90,9 +89,9 @@
 		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		454E11031B19278F00FBAAC3 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
-		454E11041B19278F00FBAAC3 /* ParsedApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedApiKey.swift; sourceTree = "<group>"; };
 		454E11091B1927B200FBAAC3 /* ApiKeysService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeysService.swift; sourceTree = "<group>"; };
 		454E110A1B1927B200FBAAC3 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A60B1AB7F7B8004C871F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
@@ -142,6 +141,7 @@
 				451E51CF1AB3743C00849262 /* SpotTest.swift */,
 				451E51D51AB4AB4C00849262 /* UserTest.swift */,
 				45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */,
+				454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -278,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				454E11031B19278F00FBAAC3 /* ApiKey.swift */,
-				454E11041B19278F00FBAAC3 /* ParsedApiKey.swift */,
 				459B3F8C1AE1B32900BFCF79 /* Logger.swift */,
 				45B488841A9AB73B00C7E03F /* Spot.swift */,
 				451E51D21AB49AFA00849262 /* User.swift */,
@@ -416,7 +415,6 @@
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
-				454E11071B19278F00FBAAC3 /* ParsedApiKey.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */,
@@ -446,9 +444,9 @@
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
-				454E11081B19278F00FBAAC3 /* ParsedApiKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
