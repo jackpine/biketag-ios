@@ -7,22 +7,19 @@ class ApiKeysService: ApiService {
     let url = apiEndpoint.URLByAppendingPathComponent("api_keys")
     Logger.info("POST \(url)")
 
-    Alamofire.request(.POST, url)
-      .responseJSON { (request, response, json, requestError) in
-        if( requestError != nil ) {
-          Logger.warning("HTTP Error: \(requestError)")
-          return errorCallback(requestError!)
-        }
-
-        let responseAttributes = json as! NSDictionary
-
-        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
-          Logger.error("API Error: \(apiError)")
-          return errorCallback(APIError(errorDict: apiError))
-        }
-
-        let apiKeyAttributes = responseAttributes.valueForKey("api_key") as! NSDictionary
-        callback(apiKeyAttributes)
+    var postApiKeyRequest: NSURLRequest {
+      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      mutableURLRequest.HTTPMethod = Method.POST.rawValue
+      // Note that this request is the only one not authenticated. It's how we *get* our authentication token
+      // mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
+      return mutableURLRequest
     }
+
+    let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
+      let apiKeyAttributes = responseAttributes.valueForKey("api_key") as! NSDictionary
+      callback(apiKeyAttributes)
+    }
+
+    self.request(postApiKeyRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 }

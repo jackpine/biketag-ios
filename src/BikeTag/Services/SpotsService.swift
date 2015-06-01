@@ -1,5 +1,5 @@
-import Alamofire
 import CoreLocation
+import Alamofire
 
 class SpotsService: ApiService {
 
@@ -14,25 +14,13 @@ class SpotsService: ApiService {
       return mutableURLRequest
     }
 
-    Alamofire.request(currentSpotRequest)
-      .responseJSON { (request, response, json, requestError) in
-        if( requestError != nil ) {
-          Logger.warning("HTTP Error: \(requestError)")
-          return errorCallback(requestError!)
-        }
-
-        let responseAttributes = json as! NSDictionary
-
-        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
-          Logger.error("API Error: \(apiError)")
-          return errorCallback(APIError(errorDict: apiError))
-        }
-
-        let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
-        let parsedSpot = ParsedSpot(attributes: spotAttributes)
-        callback(parsedSpot)
+    let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
+      let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
+      let parsedSpot = ParsedSpot(attributes: spotAttributes)
+      callback(parsedSpot)
     }
 
+    self.request(currentSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
@@ -58,24 +46,13 @@ class SpotsService: ApiService {
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
-    Alamofire.request(postSpotRequest)
-      .responseJSON { (request, response, json, error) in
-        if( error != nil ) {
-          Logger.warning("HTTP Error: \(error)")
-          return errorCallback(error!)
-        }
-
-        let responseAttributes = json as! NSDictionary
-
-        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
-          Logger.error("API Error: \(apiError)")
-          return errorCallback(APIError(errorDict: apiError))
-        }
-
-        let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
-        let parsedSpot = ParsedSpot(attributes: spotAttributes)
-        callback(parsedSpot)
+    let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
+      let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
+      let parsedSpot = ParsedSpot(attributes: spotAttributes)
+      callback(parsedSpot)
     }
+
+    self.request(postSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
   func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
@@ -94,25 +71,13 @@ class SpotsService: ApiService {
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
-    Alamofire.request(postSpotGuessRequest)
-      .responseJSON { (request, response, json, error) in
-        if( error != nil ) {
-          Logger.warning("HTTP Error: \(error)")
-          return errorCallback(error!)
-        }
-
-        let responseAttributes = json as! NSDictionary
-
-        if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
-          Logger.error("API Error: \(apiError)")
-          return errorCallback(APIError(errorDict: apiError))
-        }
-
-        let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
-        let guessResult = guessAttributes.valueForKey("correct") as! Bool
-
-        callback(guessResult)
+    let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
+      let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
+      let guessResult = guessAttributes.valueForKey("correct") as! Bool
+      callback(guessResult)
     }
+
+    self.request(postSpotGuessRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
   private func locationParameters(location: CLLocation) -> NSDictionary {
