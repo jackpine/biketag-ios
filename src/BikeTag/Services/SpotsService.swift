@@ -4,7 +4,7 @@ import Alamofire
 class SpotsService: ApiService {
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let currentSpotRequest = APIRequest(method: Method.GET.rawValue, path: "games/1/current_spot.json")
+    let currentSpotRequest = APIRequest.build(Method.GET, path: "games/1/current_spot.json")
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
@@ -28,10 +28,7 @@ class SpotsService: ApiService {
     spotParametersWithoutImage["image_data"] = "\(spot.base64ImageData().lengthOfBytesUsingEncoding(NSUTF8StringEncoding)) bytes"
     Logger.debug("BODY: { spot: \(spotParametersWithoutImage) }")
 
-    var postSpotRequest: NSURLRequest {
-      let mutableURLRequest = APIRequest(method: Method.POST.rawValue, path: "spots.json")
-      return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-    }
+    let postSpotRequest = APIRequest.build(Method.POST, path: "spots.json", parameters: parameters)
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
@@ -48,10 +45,7 @@ class SpotsService: ApiService {
       "location": locationParameters(guess.location)
     ]]
 
-    var postSpotGuessRequest: NSURLRequest {
-      let mutableURLRequest = APIRequest(method: Method.POST.rawValue, path: "guesses.json")
-      return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
-    }
+    let postSpotGuessRequest = APIRequest.build(Method.POST, path: "guesses.json", parameters: parameters)
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary

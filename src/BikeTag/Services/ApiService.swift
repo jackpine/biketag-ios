@@ -6,17 +6,19 @@ let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 class ApiService {
 
   // an authenticated request against our API
-  class APIRequest: NSMutableURLRequest {
-    required init(method: String, path: String) {
+  class APIRequest  {
+    class func build(method: Alamofire.Method, path: String, parameters: [String: AnyObject]? = nil) -> NSURLRequest {
       let url = apiEndpoint.URLByAppendingPathComponent(path)
-      Logger.info("[API] \(method): \(url)")
-      super.init(URL: url, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: NSTimeInterval(60))
-      self.HTTPMethod = method
-      super.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
-    }
+      Logger.info("[API] \(method.rawValue): \(url)")
+      let mutableRequest = NSMutableURLRequest(URL: url)
+      mutableRequest.HTTPMethod = method.rawValue
+      mutableRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
 
-    required init(coder: NSCoder) {
-      super.init(coder: coder)
+      if method == Method.POST {
+        return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: parameters!).0
+      } else {
+        return mutableRequest as NSURLRequest
+      }
     }
   }
 
