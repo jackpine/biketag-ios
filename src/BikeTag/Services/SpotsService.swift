@@ -4,14 +4,7 @@ import Alamofire
 class SpotsService: ApiService {
 
   func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint.URLByAppendingPathComponent("games/1/current_spot.json")
-    Logger.info("GET \(url)")
-
-    var currentSpotRequest: NSURLRequest {
-      let mutableURLRequest = APIRequest(URL: url)
-      mutableURLRequest.HTTPMethod = Method.GET.rawValue
-      return mutableURLRequest
-    }
+    let currentSpotRequest = APIRequest(method: Method.GET.rawValue, path: "games/1/current_spot.json")
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
@@ -23,15 +16,12 @@ class SpotsService: ApiService {
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint.URLByAppendingPathComponent("spots.json")
-    Logger.info("POST \(url)")
-
     let spotParameters = [
       "game_id": 1,
       "location": locationParameters(spot.location!),
       "image_data": spot.base64ImageData()
     ]
-    
+
     let parameters = [ "spot": spotParameters ]
 
     let spotParametersWithoutImage = NSMutableDictionary(dictionary: spotParameters)
@@ -39,8 +29,7 @@ class SpotsService: ApiService {
     Logger.debug("BODY: { spot: \(spotParametersWithoutImage) }")
 
     var postSpotRequest: NSURLRequest {
-      let mutableURLRequest = APIRequest(URL: url)
-      mutableURLRequest.HTTPMethod = Method.POST.rawValue
+      let mutableURLRequest = APIRequest(method: Method.POST.rawValue, path: "spots.json")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
@@ -54,17 +43,13 @@ class SpotsService: ApiService {
   }
 
   func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
-    let url = apiEndpoint.URLByAppendingPathComponent("guesses.json")
-    Logger.info("POST \(url)")
-
     let parameters = [ "guess": [
       "spot_id": guess.spot.id!,
       "location": locationParameters(guess.location)
     ]]
 
     var postSpotGuessRequest: NSURLRequest {
-      let mutableURLRequest = APIRequest(URL: url)
-      mutableURLRequest.HTTPMethod = Method.POST.rawValue
+      let mutableURLRequest = APIRequest(method: Method.POST.rawValue, path: "guesses.json")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 

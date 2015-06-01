@@ -1,13 +1,17 @@
 import Foundation
 import Alamofire
 
+let apiEndpoint = NSURL(string: Config.apiEndpoint())!
+
 class ApiService {
-  let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 
   // an authenticated request against our API
   class APIRequest: NSMutableURLRequest {
-    required init(URL: NSURL) {
-      super.init(URL: URL, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: NSTimeInterval(60))
+    required init(method: String, path: String) {
+      let url = apiEndpoint.URLByAppendingPathComponent(path)
+      Logger.info("[API] \(method): \(url)")
+      super.init(URL: url, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: NSTimeInterval(60))
+      self.HTTPMethod = method
       super.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
     }
 
