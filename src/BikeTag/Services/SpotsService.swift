@@ -8,9 +8,8 @@ class SpotsService: ApiService {
     Logger.info("GET \(url)")
 
     var currentSpotRequest: NSURLRequest {
-      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      let mutableURLRequest = APIRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.GET.rawValue
-      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return mutableURLRequest
     }
 
@@ -40,9 +39,8 @@ class SpotsService: ApiService {
     Logger.debug("BODY: { spot: \(spotParametersWithoutImage) }")
 
     var postSpotRequest: NSURLRequest {
-      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      let mutableURLRequest = APIRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.POST.rawValue
-      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
@@ -65,9 +63,8 @@ class SpotsService: ApiService {
     ]]
 
     var postSpotGuessRequest: NSURLRequest {
-      let mutableURLRequest = NSMutableURLRequest(URL: url)
+      let mutableURLRequest = APIRequest(URL: url)
       mutableURLRequest.HTTPMethod = Method.POST.rawValue
-      mutableURLRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
       return Alamofire.ParameterEncoding.JSON.encode(mutableURLRequest, parameters: parameters).0
     }
 
