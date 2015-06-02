@@ -114,10 +114,32 @@ class CheckGuessViewController: ApplicationViewController {
   func updateSecondsLeft() {
     self.secondsLeft = secondsToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
     //Potentially way passed time if the app was backgrounded for a while.
-    if(self.secondsLeft < 1) {
-      self.secondsLeft = 0
-      self.timer?.invalidate()
+    if(self.secondsLeft < 11) {
+      self.blinkClock()
     }
+
+    if(self.secondsLeft < 1) {
+      timeHasRunOut()
+    }
+  }
+
+  func timeHasRunOut() {
+    self.secondsLeft = 0
+    self.timer?.invalidate()
+  }
+
+  var clockBlinking: Bool = false
+  func blinkClock() {
+    if self.clockBlinking {
+      return
+    }
+
+    self.clockBlinking = true
+    self.countdownClockView.alpha = 1
+    UIView.animateWithDuration(0.24, delay: 0,
+      options: .CurveEaseInOut | .Repeat | .Autoreverse,
+      animations: { self.countdownClockView.alpha = 0 },
+      completion: nil)
   }
 
   deinit {
