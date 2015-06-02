@@ -352,9 +352,15 @@
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Countdown View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
-                                        <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now, hustle to a new secret spot before the timer runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
+                                        <rect key="frame" x="150" y="87" width="300" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="nX2-Lt-xQw">
+                                                <variation key="widthClass=compact" constant="20"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -364,37 +370,52 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
+                                        <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="cgP-jT-iPT" firstAttribute="top" secondItem="tot-7W-58O" secondAttribute="bottom" constant="60" id="GMt-xn-yOi">
-                                        <variation key="widthClass=compact" constant="16"/>
-                                    </constraint>
-                                    <constraint firstAttribute="centerY" secondItem="cgP-jT-iPT" secondAttribute="centerY" id="Iqy-F7-BkO"/>
+                                    <constraint firstItem="cgP-jT-iPT" firstAttribute="top" secondItem="MSM-pN-Bhb" secondAttribute="bottom" constant="16" id="2HC-Rd-mpr"/>
+                                    <constraint firstAttribute="trailing" secondItem="MSM-pN-Bhb" secondAttribute="trailing" constant="20" id="HMK-oP-NKR"/>
+                                    <constraint firstItem="MSM-pN-Bhb" firstAttribute="leading" secondItem="0rs-uX-AcI" secondAttribute="leading" constant="20" id="HTw-Kj-OwV"/>
                                     <constraint firstAttribute="centerX" secondItem="tot-7W-58O" secondAttribute="centerX" id="JMs-g5-iTu"/>
                                     <constraint firstAttribute="centerX" secondItem="cgP-jT-iPT" secondAttribute="centerX" id="Wbv-gn-m7N"/>
+                                    <constraint firstAttribute="centerY" secondItem="MSM-pN-Bhb" secondAttribute="centerY" id="tsu-dj-vJx"/>
+                                    <constraint firstItem="MSM-pN-Bhb" firstAttribute="top" secondItem="tot-7W-58O" secondAttribute="bottom" constant="16" id="xMK-cb-9yT"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="tot-7W-58O"/>
+                                        <exclude reference="MSM-pN-Bhb"/>
                                         <exclude reference="cgP-jT-iPT"/>
+                                        <exclude reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="JMs-g5-iTu"/>
-                                        <exclude reference="GMt-xn-yOi"/>
-                                        <exclude reference="Iqy-F7-BkO"/>
+                                        <exclude reference="HMK-oP-NKR"/>
+                                        <exclude reference="HTw-Kj-OwV"/>
+                                        <exclude reference="tsu-dj-vJx"/>
+                                        <exclude reference="xMK-cb-9yT"/>
+                                        <exclude reference="2HC-Rd-mpr"/>
                                         <exclude reference="Wbv-gn-m7N"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="tot-7W-58O"/>
+                                        <include reference="MSM-pN-Bhb"/>
                                         <include reference="cgP-jT-iPT"/>
+                                        <include reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="JMs-g5-iTu"/>
-                                        <include reference="GMt-xn-yOi"/>
-                                        <include reference="Iqy-F7-BkO"/>
+                                        <include reference="HMK-oP-NKR"/>
+                                        <include reference="HTw-Kj-OwV"/>
+                                        <include reference="tsu-dj-vJx"/>
+                                        <include reference="xMK-cb-9yT"/>
+                                        <include reference="2HC-Rd-mpr"/>
                                         <include reference="Wbv-gn-m7N"/>
                                     </mask>
                                 </variation>
@@ -550,7 +571,7 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iF1-gU-jPa" userLabel="Correct Guess">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now, hustle to a new secret spot before the timer runs out." lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Are you there yet?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
                                                 <rect key="frame" x="150" y="87" width="300" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="dBX-4r-MJd">
@@ -561,6 +582,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="28" y="8" width="344" height="41"/>
+                                                </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-T3-VXe" userLabel="I'm at my new Spot!">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
