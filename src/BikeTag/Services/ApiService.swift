@@ -32,6 +32,8 @@ class ApiService {
 
         let responseAttributes = json as! NSDictionary
 
+        Logger.debug("Response: \(responseAttributes)")
+
         // Application level errors e.g. missing required attribute
         if let apiError = responseAttributes["error"] as! [NSObject: AnyObject]? {
           Logger.error("API Error: \(apiError)")
