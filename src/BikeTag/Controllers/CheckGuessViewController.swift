@@ -1,5 +1,7 @@
 import UIKit
 
+private let secondsToCapture = 1800
+
 class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
@@ -16,6 +18,9 @@ class CheckGuessViewController: ApplicationViewController {
   }
   @IBOutlet var newSpotButton: UIButton!
   @IBOutlet var guessAgainButton: UIButton!
+
+  var timer: NSTimer? = nil
+  var startTime: NSDate? = nil
 
   var guess: Guess? {
     didSet {
@@ -82,8 +87,8 @@ class CheckGuessViewController: ApplicationViewController {
     self.fakeResponseActions.hidden = true
     self.correctGuessView.hidden = false
     self.countdownContainerView.hidden = false
-
-    let timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "decrementSecondsLeft", userInfo: nil, repeats: true)
+    self.startTime = NSDate()
+    self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "updateSecondsLeft", userInfo: nil, repeats: true)
   }
 
   func incorrectGuess() {
@@ -99,14 +104,26 @@ class CheckGuessViewController: ApplicationViewController {
     correctGuess()
   }
 
-  var secondsLeft:Int = 1800 {
+  var secondsLeft: Int = secondsToCapture {
     didSet {
       let clockString = NSString(format:"%02d:%02d", secondsLeft / 60, secondsLeft % 60 )
       self.countdownClockView.text = clockString as String
     }
   }
 
-  func decrementSecondsLeft() {
-    self.secondsLeft--
+  func updateSecondsLeft() {
+    self.secondsLeft = secondsToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
+    //Potentially way passed time if the app was backgrounded for a while.
+    if(self.secondsLeft < 1) {
+      self.secondsLeft = 0
+      self.timer?.invalidate()
+    }
   }
+
+  deinit {
+    // Run loops create a strong reference to the timer, 
+    // make sure we explicitly invalidate it.
+    self.timer?.invalidate()
+  }
+
 }
