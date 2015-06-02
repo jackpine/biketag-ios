@@ -20,7 +20,7 @@ class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var countdownHeader: UILabel!
   @IBOutlet var newSpotButton: UIButton!
   @IBOutlet var guessAgainButton: UIButton!
-
+  @IBOutlet var sadFaceView: UILabel!
   var timer: NSTimer? = nil
   var startTime: NSDate? = nil
 
@@ -143,7 +143,7 @@ class CheckGuessViewController: ApplicationViewController {
       options: .CurveEaseInOut,
       animations: {
         self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 3
-        self.sadFaceView = self.countdownClockView.frame.origin.y + 16
+        self.sadFaceView.frame.origin.y = self.countdownContainerView.center.y
       },
       completion: nil)
   }

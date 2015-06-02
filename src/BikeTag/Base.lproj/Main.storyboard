@@ -376,6 +376,12 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5I-ZL-gsn" userLabel="Sad Face">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -385,20 +391,27 @@
                                     <constraint firstAttribute="centerX" secondItem="tot-7W-58O" secondAttribute="centerX" id="JMs-g5-iTu"/>
                                     <constraint firstAttribute="centerX" secondItem="cgP-jT-iPT" secondAttribute="centerX" id="Wbv-gn-m7N"/>
                                     <constraint firstAttribute="centerY" secondItem="MSM-pN-Bhb" secondAttribute="centerY" id="tsu-dj-vJx"/>
+                                    <constraint firstAttribute="bottom" secondItem="O5I-ZL-gsn" secondAttribute="bottom" constant="528" id="wbA-HD-I6Q">
+                                        <variation key="widthClass=compact" constant="-100"/>
+                                    </constraint>
                                     <constraint firstItem="MSM-pN-Bhb" firstAttribute="top" secondItem="tot-7W-58O" secondAttribute="bottom" constant="16" id="xMK-cb-9yT"/>
+                                    <constraint firstAttribute="centerX" secondItem="O5I-ZL-gsn" secondAttribute="centerX" id="yiZ-QN-GGP"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="tot-7W-58O"/>
                                         <exclude reference="MSM-pN-Bhb"/>
                                         <exclude reference="cgP-jT-iPT"/>
+                                        <exclude reference="O5I-ZL-gsn"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <exclude reference="wbA-HD-I6Q"/>
+                                        <exclude reference="yiZ-QN-GGP"/>
+                                        <exclude reference="JMs-g5-iTu"/>
                                         <exclude reference="HMK-oP-NKR"/>
                                         <exclude reference="HTw-Kj-OwV"/>
                                         <exclude reference="tsu-dj-vJx"/>
                                         <exclude reference="xMK-cb-9yT"/>
-                                        <exclude reference="JMs-g5-iTu"/>
                                         <exclude reference="2HC-Rd-mpr"/>
                                         <exclude reference="Wbv-gn-m7N"/>
                                     </mask>
@@ -408,13 +421,16 @@
                                         <include reference="tot-7W-58O"/>
                                         <include reference="MSM-pN-Bhb"/>
                                         <include reference="cgP-jT-iPT"/>
+                                        <include reference="O5I-ZL-gsn"/>
                                     </mask>
                                     <mask key="constraints">
+                                        <include reference="wbA-HD-I6Q"/>
+                                        <include reference="yiZ-QN-GGP"/>
+                                        <include reference="JMs-g5-iTu"/>
                                         <include reference="HMK-oP-NKR"/>
                                         <include reference="HTw-Kj-OwV"/>
                                         <include reference="tsu-dj-vJx"/>
                                         <include reference="xMK-cb-9yT"/>
-                                        <include reference="JMs-g5-iTu"/>
                                         <include reference="2HC-Rd-mpr"/>
                                         <include reference="Wbv-gn-m7N"/>
                                     </mask>
@@ -806,6 +822,7 @@
                         <outlet property="incorrectGuessView" destination="FeN-hZ-eDe" id="DGt-pa-VJa"/>
                         <outlet property="newSpotButton" destination="sVr-T3-VXe" id="N07-Zs-2aU"/>
                         <outlet property="progressView" destination="4qg-vl-6Ne" id="mXJ-WG-Yha"/>
+                        <outlet property="sadFaceView" destination="O5I-ZL-gsn" id="H5i-Ta-kU2"/>
                         <outlet property="submittedImageView" destination="zxW-5G-LFt" id="rxc-dT-fCe"/>
                     </connections>
                 </viewController>
