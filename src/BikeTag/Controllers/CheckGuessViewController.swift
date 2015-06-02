@@ -131,8 +131,21 @@ class CheckGuessViewController: ApplicationViewController {
 
     self.newSpotButton.userInteractionEnabled = false
 
-    self.countdownSubheader.hidden = true
-    self.countdownHeader.hidden = true
+    UIView.animateWithDuration(1.0, delay: 0,
+      options: .CurveEaseInOut,
+      animations: {
+        self.countdownSubheader.alpha = 0
+        self.countdownHeader.alpha = 0
+      },
+      completion: nil)
+
+    UIView.animateWithDuration(2.0, delay: 1.0,
+      options: .CurveEaseInOut,
+      animations: {
+        self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 3
+        self.sadFaceView = self.countdownClockView.frame.origin.y + 16
+      },
+      completion: nil)
   }
 
   var clockBlinking: Bool = false
