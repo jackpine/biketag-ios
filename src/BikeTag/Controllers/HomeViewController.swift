@@ -39,9 +39,27 @@ class HomeViewController: ApplicationViewController {
   override func viewDidLoad() {
     self.stylePrimaryButton(self.guessSpotButtonView)
     self.initializeDownSwipe()
+    self.refreshCurrentSpotAfterGettingApiKey()
+  }
+
+  func refreshCurrentSpotAfterGettingApiKey() {
+    let displayAuthenticationErrorAlert = { (error: NSError) -> () in
+      let alertController = UIAlertController(
+        title: "Unable to authenticate you.",
+        message: error.localizedDescription,
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.refreshCurrentSpotAfterGettingApiKey()
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
     ApiKey.ensureApiKey({
       self.refreshCurrentSpot()
-    })
+    }, errorCallback: displayAuthenticationErrorAlert)
   }
 
   func refreshCurrentSpot() {
