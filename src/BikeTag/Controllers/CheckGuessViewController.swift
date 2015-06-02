@@ -5,6 +5,7 @@ private let secondsToCapture = 1800
 class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
+  @IBOutlet var timesUpResponseActions: UIView!
   @IBOutlet var fakeCorrectResponseButton: UIButton!
   @IBOutlet var fakeIncorrectResponseButton: UIButton!
   @IBOutlet var incorrectGuessView: UIView!
@@ -16,9 +17,13 @@ class CheckGuessViewController: ApplicationViewController {
       updateSubmittedImage()
     }
   }
+  @IBOutlet var countdownSubheader: UILabel!
+  @IBOutlet var countdownHeader: UILabel!
   @IBOutlet var newSpotButton: UIButton!
   @IBOutlet var guessAgainButton: UIButton!
+  @IBOutlet var timesUpGuessAgainButton: UIButton!
 
+  @IBOutlet var sadFaceView: UILabel!
   var timer: NSTimer? = nil
   var startTime: NSDate? = nil
 
@@ -37,6 +42,7 @@ class CheckGuessViewController: ApplicationViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.stylePrimaryButton(self.guessAgainButton)
+    self.stylePrimaryButton(self.timesUpGuessAgainButton)
     self.stylePrimaryButton(self.newSpotButton)
     self.submitGuessToServer()
     progressView.progress = 0
@@ -114,10 +120,72 @@ class CheckGuessViewController: ApplicationViewController {
   func updateSecondsLeft() {
     self.secondsLeft = secondsToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
     //Potentially way passed time if the app was backgrounded for a while.
-    if(self.secondsLeft < 1) {
-      self.secondsLeft = 0
-      self.timer?.invalidate()
+    if(self.secondsLeft < 11) {
+      self.blinkClock()
     }
+
+    if(self.secondsLeft < 1) {
+      timeHasRunOut()
+    }
+  }
+
+  func timeHasRunOut() {
+    self.timer?.invalidate()
+    self.secondsLeft = 0
+
+    self.newSpotButton.userInteractionEnabled = false
+
+    //Animate out "you got it" text
+    UIView.animateWithDuration(1.0, delay: 0,
+      options: .CurveEaseInOut,
+      animations: {
+        self.countdownSubheader.alpha = 0
+        self.countdownHeader.alpha = 0
+        self.correctGuessView.alpha = 0
+      },
+      completion: nil)
+
+    //Animate in "Times Up" elements
+    self.timesUpResponseActions.hidden = false
+    self.timesUpResponseActions.alpha = 0
+
+    UIView.animateWithDuration(3.0, delay: 1.0,
+      options: .CurveEaseInOut,
+      animations: {
+        // slide up clock and sad face
+        self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 3
+        self.sadFaceView.center.y = self.countdownContainerView.center.y
+
+        // fade in retry actions
+        self.timesUpResponseActions.alpha = 1
+      },
+      completion: rotateSadFaceView)
+  }
+
+  func rotateSadFaceView(someBool: Bool) -> () {
+    let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+    rotateAnimation.fromValue = 0.0
+    //90 degrees
+    rotateAnimation.toValue = CGFloat(M_PI * 0.5)
+    rotateAnimation.duration = 3.0
+    rotateAnimation.fillMode = kCAFillModeForwards;
+    rotateAnimation.removedOnCompletion = false;
+    rotateAnimation.beginTime = CACurrentMediaTime() + 2.0
+    self.sadFaceView.layer.addAnimation(rotateAnimation, forKey: nil)
+  }
+
+  var clockBlinking: Bool = false
+  func blinkClock() {
+    if self.clockBlinking {
+      return
+    }
+
+    self.clockBlinking = true
+    self.countdownClockView.alpha = 1
+    UIView.animateWithDuration(0.24, delay: 0,
+      options: .CurveEaseInOut | .Repeat | .Autoreverse,
+      animations: { self.countdownClockView.alpha = 0 },
+      completion: nil)
   }
 
   deinit {
