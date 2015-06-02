@@ -352,7 +352,7 @@
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Countdown View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now, hustle to a new secret spot before the timer runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, hustle to a new secret spot before the timer runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="nX2-Lt-xQw">
@@ -394,11 +394,11 @@
                                         <exclude reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="JMs-g5-iTu"/>
                                         <exclude reference="HMK-oP-NKR"/>
                                         <exclude reference="HTw-Kj-OwV"/>
                                         <exclude reference="tsu-dj-vJx"/>
                                         <exclude reference="xMK-cb-9yT"/>
+                                        <exclude reference="JMs-g5-iTu"/>
                                         <exclude reference="2HC-Rd-mpr"/>
                                         <exclude reference="Wbv-gn-m7N"/>
                                     </mask>
@@ -410,11 +410,11 @@
                                         <include reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="JMs-g5-iTu"/>
                                         <include reference="HMK-oP-NKR"/>
                                         <include reference="HTw-Kj-OwV"/>
                                         <include reference="tsu-dj-vJx"/>
                                         <include reference="xMK-cb-9yT"/>
+                                        <include reference="JMs-g5-iTu"/>
                                         <include reference="2HC-Rd-mpr"/>
                                         <include reference="Wbv-gn-m7N"/>
                                     </mask>
@@ -582,9 +582,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="28" y="8" width="344" height="41"/>
-                                                </variation>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-T3-VXe" userLabel="I'm at my new Spot!">
                                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
