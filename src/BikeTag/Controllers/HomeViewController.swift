@@ -37,14 +37,15 @@ class HomeViewController: ApplicationViewController {
   }
 
   override func viewDidLoad() {
-    self.startLoadingAnimation()
     self.stylePrimaryButton(self.guessSpotButtonView)
+    self.initializeDownSwipe()
     ApiKey.ensureApiKey({
       self.refreshCurrentSpot()
     })
   }
 
   func refreshCurrentSpot() {
+    self.startLoadingAnimation()
     let setCurrentSpot = { (currentSpot: Spot) -> () in
       self.currentSpot = currentSpot
     }
@@ -97,6 +98,17 @@ class HomeViewController: ApplicationViewController {
         self.mySpotView.hidden = true
       }
     }
+  }
+
+  func handleDownSwipe(sender:UISwipeGestureRecognizer) {
+    refreshCurrentSpot()
+  }
+
+  func initializeDownSwipe() {
+    Logger.info("setting up swipe gesture")
+    var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleDownSwipe:"))
+    downSwipe.direction = .Down
+    view.addGestureRecognizer(downSwipe)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
