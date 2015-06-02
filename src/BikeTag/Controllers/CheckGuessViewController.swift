@@ -16,6 +16,8 @@ class CheckGuessViewController: ApplicationViewController {
       updateSubmittedImage()
     }
   }
+  @IBOutlet var countdownSubheader: UILabel!
+  @IBOutlet var countdownHeader: UILabel!
   @IBOutlet var newSpotButton: UIButton!
   @IBOutlet var guessAgainButton: UIButton!
 
@@ -124,8 +126,13 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   func timeHasRunOut() {
-    self.secondsLeft = 0
     self.timer?.invalidate()
+    self.secondsLeft = 0
+
+    self.newSpotButton.userInteractionEnabled = false
+
+    self.countdownSubheader.hidden = true
+    self.countdownHeader.hidden = true
   }
 
   var clockBlinking: Bool = false

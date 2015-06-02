@@ -352,7 +352,13 @@
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Countdown View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, hustle to a new secret spot before the timer runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
+                                        <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, hustle to a new spot you'd like to share before the timer runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="nX2-Lt-xQw">
@@ -370,12 +376,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
-                                        <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -389,9 +389,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
+                                        <exclude reference="tot-7W-58O"/>
                                         <exclude reference="MSM-pN-Bhb"/>
                                         <exclude reference="cgP-jT-iPT"/>
-                                        <exclude reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="HMK-oP-NKR"/>
@@ -405,9 +405,9 @@
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
+                                        <include reference="tot-7W-58O"/>
                                         <include reference="MSM-pN-Bhb"/>
                                         <include reference="cgP-jT-iPT"/>
-                                        <include reference="tot-7W-58O"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="HMK-oP-NKR"/>
@@ -797,6 +797,8 @@
                         <outlet property="correctGuessView" destination="iF1-gU-jPa" id="zKJ-d1-TpC"/>
                         <outlet property="countdownClockView" destination="cgP-jT-iPT" id="3pb-7Z-u3r"/>
                         <outlet property="countdownContainerView" destination="0rs-uX-AcI" id="fcO-SI-Tb9"/>
+                        <outlet property="countdownHeader" destination="tot-7W-58O" id="4LO-gX-PNA"/>
+                        <outlet property="countdownSubheader" destination="MSM-pN-Bhb" id="00V-mc-tdD"/>
                         <outlet property="fakeCorrectResponseButton" destination="hjT-Bm-8zm" id="ZEh-2w-TAS"/>
                         <outlet property="fakeIncorrectResponseButton" destination="YFZ-sb-Lh5" id="Rce-Ha-8ME"/>
                         <outlet property="fakeResponseActions" destination="w4R-8C-yyR" id="z7T-8g-JCg"/>
