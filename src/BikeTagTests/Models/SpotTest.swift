@@ -15,6 +15,8 @@ class SpotTests: XCTestCase {
     let fulfillExpectation = { (currentSpot: Spot) -> () in
       if ( !currentSpot.isCurrentUserOwner() ) {
         expectation.fulfill()
+      } else {
+        println("FAILURE. Current user should not be owner of current spot.")
       }
     }
 
@@ -42,7 +44,6 @@ class SpotTests: XCTestCase {
       }
     }
 
-
     let failExpectation = { (error: NSError) -> () in
       // This will eventually fail, since we're not calling fulfill,
       // but is there a way to fail fast?
@@ -55,7 +56,7 @@ class SpotTests: XCTestCase {
 
   func testIsCurrentUserOwner() {
     let me = User.getCurrentUser()
-    let them = User(deviceId: "bar")
+    let them = User(id: me.id + 1)
     let someImage = Spot.lucileSpot().image
     let someLocation = Spot.lucileSpot().location!
 

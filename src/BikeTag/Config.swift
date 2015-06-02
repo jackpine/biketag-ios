@@ -26,4 +26,12 @@ class Config {
     return sharedInstance.apiEndpoint
   }
 
+  class func getApiKey() -> String {
+    return ApiKey.getCurrentApiKey()!.clientId
+  }
+
+  class func getCurrentUserId() -> Int {
+    return ApiKey.getCurrentApiKey()!.userId
+  }
+
 }

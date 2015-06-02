@@ -22,6 +22,7 @@ class Spot: NSObject {
   init(parsedSpot: ParsedSpot) {
     let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
     if( imageData == nil ) {
+      //TODO this is a super confusing error condition since this image is used all over the place in testing.
       self.image = UIImage(named: "952 lucile")!
     } else {
       self.image = UIImage(data: imageData!)!
@@ -56,7 +57,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(deviceId: "lucile-device-id"), location: location)
+    return Spot(image: image, user: User(id: 2), location: location)
   }
 
   // static spot, used to seed game and for testing
@@ -65,7 +66,7 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(deviceId: "griffith-device-id"), location: location)
+    return Spot(image: image, user: User(id: 1), location: location)
   }
 
   func isCurrentUserOwner() -> Bool {

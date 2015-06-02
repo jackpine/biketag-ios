@@ -20,7 +20,6 @@ class HomeViewController: ApplicationViewController {
     }
   }
 
-
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
@@ -40,7 +39,9 @@ class HomeViewController: ApplicationViewController {
   override func viewDidLoad() {
     self.startLoadingAnimation()
     self.stylePrimaryButton(self.guessSpotButtonView)
-    self.refreshCurrentSpot()
+    ApiKey.ensureApiKey({
+      self.refreshCurrentSpot()
+    })
   }
 
   func refreshCurrentSpot() {
@@ -84,13 +85,14 @@ class HomeViewController: ApplicationViewController {
     self.loadingView.hidden = false
   }
 
-
   func updateSpotCaption() {
     if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
+        self.title = "This is YOUR Spot!"
         self.guessSpotButtonView.hidden = true
         self.mySpotView.hidden = false
       } else {
+        self.title = "Do you know this spot?"
         self.guessSpotButtonView.hidden = false
         self.mySpotView.hidden = true
       }
