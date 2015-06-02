@@ -1,6 +1,6 @@
 import UIKit
 
-private let timeToCapture = 1800
+private let secondsToCapture = 1800
 
 class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var progressView: UIProgressView!
@@ -104,7 +104,7 @@ class CheckGuessViewController: ApplicationViewController {
     correctGuess()
   }
 
-  var secondsLeft: Int = timeToCapture {
+  var secondsLeft: Int = secondsToCapture {
     didSet {
       let clockString = NSString(format:"%02d:%02d", secondsLeft / 60, secondsLeft % 60 )
       self.countdownClockView.text = clockString as String
@@ -112,6 +112,18 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   func updateSecondsLeft() {
-    self.secondsLeft = timeToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
+    self.secondsLeft = secondsToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
+    //Potentially way passed time if the app was backgrounded for a while.
+    if(self.secondsLeft < 1) {
+      self.secondsLeft = 0
+      self.timer?.invalidate()
+    }
   }
+
+  deinit {
+    // Run loops create a strong reference to the timer, 
+    // make sure we explicitly invalidate it.
+    self.timer?.invalidate()
+  }
+
 }
