@@ -5,6 +5,9 @@ class NewSpotViewController: CameraViewController {
 
   var newSpot: Spot?
 
+  @IBOutlet var progressView: UIView!
+  @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
     var location: CLLocation?
@@ -26,7 +29,8 @@ class NewSpotViewController: CameraViewController {
   }
 
   @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
-    Logger.debug("capturing image")
+    Logger.debug("Touched take picture button")
+    self.takePictureButton.userInteractionEnabled = false
     self.captureImage(createSpotFromData)
   }
 
@@ -37,13 +41,22 @@ class NewSpotViewController: CameraViewController {
   }
 
   func uploadNewSpot(spot: Spot) {
+    self.progressView.hidden = false
+    self.activityIndicatorView.startAnimating()
+    var capturedImageView = UIImageView(image: spot.image)
+    capturedImageView.frame = self.photoPreviewView.frame
+    self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
+
     let popToHomeViewController = { (newSpot: Spot) -> () in
+      self.activityIndicatorView.stopAnimating()
       self.newSpot = newSpot
       self.performSegueWithIdentifier("unwindToHome", sender: nil)
       return
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
+      self.activityIndicatorView.stopAnimating()
+
       let alertController = UIAlertController(
         title: "There was trouble uploading your new Spot.",
         message: error.localizedDescription,

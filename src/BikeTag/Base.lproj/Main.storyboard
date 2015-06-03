@@ -956,6 +956,73 @@
                                 <rect key="frame" x="80" y="90" width="440" height="440"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q58-dZ-it4" userLabel="Progress View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-M8-9Ot">
+                                        <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading your Spot..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esu-5R-jaZ">
+                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="Ufm-M8-9Ot" secondAttribute="centerY" id="9hd-OP-yTn"/>
+                                    <constraint firstAttribute="width" constant="150" id="IWM-5e-KTo">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="Esu-5R-jaZ" secondAttribute="trailing" constant="79" id="bh3-PN-Zw8">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="Esu-5R-jaZ" firstAttribute="leading" secondItem="Q58-dZ-it4" secondAttribute="leading" constant="16" id="dbT-3w-dCa"/>
+                                    <constraint firstItem="Ufm-M8-9Ot" firstAttribute="top" secondItem="Q58-dZ-it4" secondAttribute="top" constant="42" id="eic-Mk-jYU">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="200" id="gU7-YE-qMV">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="120"/>
+                                    </constraint>
+                                    <constraint firstItem="Esu-5R-jaZ" firstAttribute="top" secondItem="Ufm-M8-9Ot" secondAttribute="bottom" constant="13" id="k7g-6k-bgf">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstAttribute="centerX" secondItem="Ufm-M8-9Ot" secondAttribute="centerX" id="qVB-PC-isI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Ufm-M8-9Ot"/>
+                                        <exclude reference="Esu-5R-jaZ"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="IWM-5e-KTo"/>
+                                        <exclude reference="gU7-YE-qMV"/>
+                                        <exclude reference="9hd-OP-yTn"/>
+                                        <exclude reference="eic-Mk-jYU"/>
+                                        <exclude reference="qVB-PC-isI"/>
+                                        <exclude reference="bh3-PN-Zw8"/>
+                                        <exclude reference="dbT-3w-dCa"/>
+                                        <exclude reference="k7g-6k-bgf"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="Ufm-M8-9Ot"/>
+                                        <include reference="Esu-5R-jaZ"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="IWM-5e-KTo"/>
+                                        <include reference="gU7-YE-qMV"/>
+                                        <exclude reference="9hd-OP-yTn"/>
+                                        <include reference="eic-Mk-jYU"/>
+                                        <include reference="qVB-PC-isI"/>
+                                        <include reference="bh3-PN-Zw8"/>
+                                        <include reference="dbT-3w-dCa"/>
+                                        <include reference="k7g-6k-bgf"/>
+                                    </mask>
+                                </variation>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
@@ -1073,6 +1140,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="0zK-ub-zOi" secondAttribute="trailing" id="M3x-DJ-Dqi">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
+                            <constraint firstAttribute="centerY" secondItem="Q58-dZ-it4" secondAttribute="centerY" id="OGa-oJ-jhH"/>
+                            <constraint firstAttribute="centerX" secondItem="Q58-dZ-it4" secondAttribute="centerX" id="Rvi-pb-Sfy"/>
                             <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="0zK-ub-zOi" secondAttribute="bottom" constant="406" id="bdh-c9-koz">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -1086,15 +1155,18 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="Q58-dZ-it4"/>
                                 <exclude reference="0zK-ub-zOi"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="BKK-2M-yAz"/>
                                 <exclude reference="JIU-hk-x0g"/>
-                                <exclude reference="bdh-c9-koz"/>
-                                <exclude reference="fI0-qw-HkT"/>
+                                <exclude reference="OGa-oJ-jhH"/>
+                                <exclude reference="Rvi-pb-Sfy"/>
                                 <exclude reference="M3x-DJ-Dqi"/>
                                 <exclude reference="kUR-xO-P8A"/>
+                                <exclude reference="bdh-c9-koz"/>
+                                <exclude reference="fI0-qw-HkT"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1104,16 +1176,27 @@
                             <mask key="constraints">
                                 <include reference="BKK-2M-yAz"/>
                                 <include reference="JIU-hk-x0g"/>
-                                <include reference="bdh-c9-koz"/>
-                                <include reference="fI0-qw-HkT"/>
                                 <include reference="M3x-DJ-Dqi"/>
                                 <include reference="kUR-xO-P8A"/>
+                                <include reference="bdh-c9-koz"/>
+                                <include reference="fI0-qw-HkT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Q58-dZ-it4"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="OGa-oJ-jhH"/>
+                                <include reference="Rvi-pb-Sfy"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Claim This" id="TsD-mA-2Af"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="Ufm-M8-9Ot" id="Wep-c9-28j"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
+                        <outlet property="progressView" destination="Q58-dZ-it4" id="WG4-oz-z42"/>
                         <outlet property="takePictureButton" destination="b4v-GQ-Q6q" id="FDI-mY-9fm"/>
                         <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="DYr-an-1MF"/>
                     </connections>
