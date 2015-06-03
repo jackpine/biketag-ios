@@ -43,6 +43,9 @@ class NewSpotViewController: CameraViewController {
   func uploadNewSpot(spot: Spot) {
     self.progressView.hidden = false
     self.activityIndicatorView.startAnimating()
+    var capturedImageView = UIImageView(image: spot.image)
+    capturedImageView.frame = self.photoPreviewView.frame
+    self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
 
     let popToHomeViewController = { (newSpot: Spot) -> () in
       self.activityIndicatorView.stopAnimating()
