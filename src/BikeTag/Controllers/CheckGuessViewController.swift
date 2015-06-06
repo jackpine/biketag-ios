@@ -14,7 +14,7 @@ class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var countdownClockView: UILabel!
   @IBOutlet var submittedImageView: UIImageView! {
     didSet {
-      updateSubmittedImage()
+      updateSubmittedImageView()
     }
   }
   @IBOutlet var countdownSubheader: UILabel!
@@ -29,11 +29,12 @@ class CheckGuessViewController: ApplicationViewController {
 
   var guess: Guess? {
     didSet {
-      updateSubmittedImage()
+      updateSubmittedImageView()
     }
   }
 
-  func updateSubmittedImage() {
+  func updateSubmittedImageView() {
+    // Wait until both are set before updating - since they are set async
     if ( self.guess != nil && self.submittedImageView != nil ) {
       submittedImageView.image = guess!.image
     }
@@ -46,7 +47,7 @@ class CheckGuessViewController: ApplicationViewController {
     self.stylePrimaryButton(self.newSpotButton)
     self.submitGuessToServer()
     progressView.progress = 0
-    updateSubmittedImage()
+    updateSubmittedImageView()
   }
 
   override func viewDidAppear(animated: Bool) {

@@ -4,19 +4,19 @@ class HomeViewController: ApplicationViewController {
   
   @IBOutlet var currentImageView: UIImageView! {
     didSet {
-      updateCurrentSpot()
+      updateCurrentSpotView()
     }
   }
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
-      updateCurrentSpot()
+      updateSpotCaption()
     }
   }
 
   @IBOutlet var mySpotView: UIView! {
     didSet {
-      updateCurrentSpot()
+      updateCurrentSpotView()
     }
   }
 
@@ -25,7 +25,7 @@ class HomeViewController: ApplicationViewController {
 
   var currentSpot: Spot? {
     didSet {
-      updateCurrentSpot()
+      updateCurrentSpotView()
     }
   }
 
@@ -85,7 +85,8 @@ class HomeViewController: ApplicationViewController {
     Spot.fetchCurrentSpot(self.spotsService, callback: setCurrentSpot, errorCallback: displayErrorAlert)
   }
 
-  func updateCurrentSpot() {
+  func updateCurrentSpotView() {
+    // There are set async, and we can't proceed until all are set.
     if ( self.currentImageView != nil && self.currentSpot != nil ) {
       Logger.info("updating currentSpot")
       self.currentImageView.image = self.currentSpot!.image
@@ -105,6 +106,7 @@ class HomeViewController: ApplicationViewController {
   }
 
   func updateSpotCaption() {
+    // There are set async, and we can't proceed until all are set.
     if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
         self.title = "This is YOUR Spot!"
