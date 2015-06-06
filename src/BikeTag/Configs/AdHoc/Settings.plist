@@ -5,6 +5,6 @@
 	<key>fakeApiCalls</key>
 	<false/>
 	<key>apiEndpoint</key>
-	<string>http://api.biketag-staging.jackpine.me/api/v1/</string>
+	<string>http://api.biketag.jackpine.me/api/v1/</string>
 </dict>
 </plist>
