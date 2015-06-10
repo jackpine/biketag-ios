@@ -12,8 +12,8 @@ class SpotTests: XCTestCase {
   func testFetchCurrentSpot(){
     let expectation = self.expectationWithDescription("fetched current spot")
 
-    let fulfillExpectation = { (currentSpot: Spot) -> () in
-      if ( !currentSpot.isCurrentUserOwner() ) {
+    let fulfillExpectation = { (currentSpots: [Spot]) -> () in
+      if ( !currentSpots[0].isCurrentUserOwner() ) {
         expectation.fulfill()
       } else {
         println("FAILURE. Current user should not be owner of current spot.")
@@ -25,7 +25,7 @@ class SpotTests: XCTestCase {
       // but is there a way to fail fast?
     }
 
-    Spot.fetchCurrentSpot(FakeSpotsService(), callback: fulfillExpectation, errorCallback: failExpectation)
+    Spot.fetchCurrentSpots(FakeSpotsService(), callback: fulfillExpectation, errorCallback: failExpectation)
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
 

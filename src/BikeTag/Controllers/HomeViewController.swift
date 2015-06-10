@@ -23,6 +23,8 @@ class HomeViewController: ApplicationViewController {
     }
   }
 
+  var currentSpot: Spot?
+
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
@@ -35,10 +37,10 @@ class HomeViewController: ApplicationViewController {
   override func viewDidLoad() {
     self.stylePrimaryButton(self.guessSpotButtonView)
     self.initializeDownSwipe()
-    self.refreshCurrentSpotAfterGettingApiKey()
+    self.refreshCurrentSpotsAfterGettingApiKey()
   }
 
-  func refreshCurrentSpotAfterGettingApiKey() {
+  func refreshCurrentSpotsAfterGettingApiKey() {
     let displayAuthenticationErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
         title: "Unable to authenticate you.",
@@ -46,7 +48,7 @@ class HomeViewController: ApplicationViewController {
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.refreshCurrentSpotAfterGettingApiKey()
+        self.refreshCurrentSpotsAfterGettingApiKey()
       }
       alertController.addAction(retryAction)
 
@@ -62,6 +64,7 @@ class HomeViewController: ApplicationViewController {
     self.startLoadingAnimation()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       self.currentSpots = currentSpots
+      self.stopLoadingAnimation()
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -83,10 +86,12 @@ class HomeViewController: ApplicationViewController {
 
   func updateCurrentSpotViews() {
     let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
-      SpotView(frame:self.gameListView.frame, spot:spot)
+      let sv = SpotView(frame: self.gameListView.frame, spot: spot)
+      sv.bounds = self.gameListView.frame
+      return sv
     }
 
-    for oldSpotView: SpotView in (self.gameListView.subviews as! [SpotView]) {
+    for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
       oldSpotView.removeFromSuperview()
     }
     for newSpotView: SpotView in currentSpotViews {
@@ -120,7 +125,7 @@ class HomeViewController: ApplicationViewController {
   }
 
   func handleDownSwipe(sender:UISwipeGestureRecognizer) {
-    refreshCurrentSpot()
+    refreshCurrentSpots()
   }
 
   func initializeDownSwipe() {
@@ -133,7 +138,8 @@ class HomeViewController: ApplicationViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
     let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
-    guessSpotViewController.currentSpot = self.currentSpot
+    //FIXME which one is the current spot?
+    guessSpotViewController.currentSpot = self.currentSpots[0]
   }
 }
 

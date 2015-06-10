@@ -1,20 +1,12 @@
 import UIKit
 
-class SpotView: UIView {
-  let imageView: UIImageView?
-  let spot: Spot?
-
+class SpotView: UIImageView {
   required init(frame: CGRect, spot: Spot) {
-    self.spot = spot
-    self.imageView = UIImageView(image: spot.image)
-    super.init(frame: frame)
+    super.init(image: spot.image)
+    self.frame = frame
   }
 
   required init(coder: NSCoder) {
-    self.imageView = nil
-    self.spot = nil
     super.init(coder: coder)
   }
-
-
 }
