@@ -54,6 +54,8 @@
 		45C770AB1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AD1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
+		45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
+		45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +120,7 @@
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
+		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +250,7 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
+				45DB1F871B27BDCD0001EC8A /* Views */,
 				45466E971ACA01AD00D7B69A /* Configs */,
 				4581A5F81AB7C9BA004C871F /* Services */,
 				45B488831A9AB73B00C7E03F /* Models */,
@@ -297,6 +301,14 @@
 				45C770AC1AC081620036847D /* Guess.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		45DB1F871B27BDCD0001EC8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45DB1F881B27BDCD0001EC8A /* SpotView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +464,7 @@
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
+				45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +481,7 @@
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
+				45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,

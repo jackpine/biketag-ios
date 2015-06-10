@@ -1,12 +1,6 @@
 import UIKit
 
 class HomeViewController: ApplicationViewController {
-  
-  @IBOutlet var currentImageView: UIImageView! {
-    didSet {
-      updateCurrentSpotView()
-    }
-  }
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
@@ -16,21 +10,23 @@ class HomeViewController: ApplicationViewController {
 
   @IBOutlet var mySpotView: UIView! {
     didSet {
-      updateCurrentSpotView()
+      updateSpotCaption()
     }
   }
 
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
-  var currentSpot: Spot? {
+  var currentSpots: [Spot] = [] {
     didSet {
-      updateCurrentSpotView()
+      updateCurrentSpotViews()
     }
   }
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
+
+  @IBOutlet var gameListView: UIScrollView!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
@@ -58,14 +54,14 @@ class HomeViewController: ApplicationViewController {
     }
 
     ApiKey.ensureApiKey({
-      self.refreshCurrentSpot()
+      self.refreshCurrentSpots()
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  func refreshCurrentSpot() {
+  func refreshCurrentSpots() {
     self.startLoadingAnimation()
-    let setCurrentSpot = { (currentSpot: Spot) -> () in
-      self.currentSpot = currentSpot
+    let setCurrentSpots = { (currentSpots: [Spot]) -> () in
+      self.currentSpots = currentSpots
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -75,23 +71,26 @@ class HomeViewController: ApplicationViewController {
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.refreshCurrentSpot()
+        self.refreshCurrentSpots()
       }
       alertController.addAction(retryAction)
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpot(self.spotsService, callback: setCurrentSpot, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpots(self.spotsService, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
-  func updateCurrentSpotView() {
-    // There are set async, and we can't proceed until all are set.
-    if ( self.currentImageView != nil && self.currentSpot != nil ) {
-      Logger.info("updating currentSpot")
-      self.currentImageView.image = self.currentSpot!.image
-      self.stopLoadingAnimation()
-      updateSpotCaption()
+  func updateCurrentSpotViews() {
+    let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
+      SpotView(frame:self.gameListView.frame, spot:spot)
+    }
+
+    for oldSpotView: SpotView in (self.gameListView.subviews as! [SpotView]) {
+      oldSpotView.removeFromSuperview()
+    }
+    for newSpotView: SpotView in currentSpotViews {
+      self.gameListView.addSubview(newSpotView)
     }
   }
 
