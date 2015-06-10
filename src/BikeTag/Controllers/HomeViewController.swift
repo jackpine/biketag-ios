@@ -138,8 +138,8 @@ class HomeViewController: ApplicationViewController {
   func initializeDownSwipe() {
     Logger.info("setting up swipe gesture")
     var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleDownSwipe:"))
-    downSwipe.direction = .Down
-//    view.addGestureRecognizer(downSwipe)
+    downSwipe.direction = .Left
+    view.addGestureRecognizer(downSwipe)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
