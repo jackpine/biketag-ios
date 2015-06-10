@@ -19,7 +19,7 @@ class HomeViewController: ApplicationViewController {
 
   var currentSpots: [Spot] = [] {
     didSet {
-      updateCurrentSpotViews()
+      renderCurrentSpots()
     }
   }
 
@@ -84,7 +84,7 @@ class HomeViewController: ApplicationViewController {
     Spot.fetchCurrentSpots(self.spotsService, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
-  func updateCurrentSpotViews() {
+  func renderCurrentSpots() {
     let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
       let spotView = SpotView(frame: self.gameListView.frame, spot: spot)
       return spotView
