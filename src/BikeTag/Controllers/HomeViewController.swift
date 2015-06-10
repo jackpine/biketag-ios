@@ -87,15 +87,20 @@ class HomeViewController: ApplicationViewController {
   func updateCurrentSpotViews() {
     let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
       let spotView = SpotView(frame: self.gameListView.frame, spot: spot)
-      spotView.bounds = self.gameListView.frame
       return spotView
     }
 
     for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
       oldSpotView.removeFromSuperview()
     }
+
+    var yOffset: CGFloat = 0
     for newSpotView: SpotView in currentSpotViews {
+      var frame = self.gameListView.bounds
+      frame.offset(dx: 0, dy: yOffset)
+      newSpotView.frame = frame
       self.gameListView.addSubview(newSpotView)
+      yOffset = self.gameListView.frame.height + yOffset
     }
   }
 
