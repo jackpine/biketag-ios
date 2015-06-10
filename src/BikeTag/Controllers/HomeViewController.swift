@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: ApplicationViewController {
+class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
@@ -38,6 +38,7 @@ class HomeViewController: ApplicationViewController {
     self.stylePrimaryButton(self.guessSpotButtonView)
     self.initializeRefreshSwipe()
     self.refreshCurrentSpotsAfterGettingApiKey()
+    self.gameListView.delegate = self
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
@@ -96,11 +97,9 @@ class HomeViewController: ApplicationViewController {
 
     var yOffset: CGFloat = 0
     for newSpotView: SpotView in currentSpotViews {
-      var frame = self.gameListView.bounds
-      frame.offset(dx: 0, dy: yOffset)
-      newSpotView.frame = frame
+      newSpotView.frame = CGRect(x: 0, y: yOffset, width: self.gameListView.frame.width, height: self.spotViewHeight())
       self.gameListView.addSubview(newSpotView)
-      yOffset = self.gameListView.frame.height + yOffset
+      yOffset = self.spotViewHeight() + yOffset
     }
     self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
                                            height: gameListView.frame.height * CGFloat(currentSpotViews.count))
@@ -147,6 +146,17 @@ class HomeViewController: ApplicationViewController {
     let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
     //FIXME which one is the current spot?
     guessSpotViewController.currentSpot = self.currentSpots[0]
+  }
+
+  func spotViewHeight() -> CGFloat {
+    return self.gameListView.frame.height
+  }
+
+  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    let cellIndex = round(targetContentOffset.memory.y / scrollView.frame.height)
+    Logger.info("original content offset: \(targetContentOffset.memory.y)")
+    targetContentOffset.memory.y = cellIndex * self.spotViewHeight()
+    Logger.info("new content offset: \(targetContentOffset.memory.y)")
   }
 }
 
