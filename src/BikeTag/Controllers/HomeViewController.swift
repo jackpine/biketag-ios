@@ -103,6 +103,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     }
     self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
                                            height: gameListView.frame.height * CGFloat(currentSpotViews.count))
+
+    // HACK - scroll view is intially offset 30px or so. Not sure why. Future scrolls land it at the right spot.
+    // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
+    // but since I'm planning a pulldown to refresh anyway, I think this will be less invasive in the future.
+    self.gameListView.contentOffset = CGPoint(x:0, y:0)
   }
 
   func stopLoadingAnimation() {
