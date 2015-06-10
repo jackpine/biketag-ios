@@ -158,10 +158,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    // Snap SpotView to fill frame
     let cellIndex = round(targetContentOffset.memory.y / scrollView.frame.height)
-    Logger.info("original content offset: \(targetContentOffset.memory.y)")
     targetContentOffset.memory.y = cellIndex * self.spotViewHeight()
-    Logger.info("new content offset: \(targetContentOffset.memory.y)")
   }
 }
 
