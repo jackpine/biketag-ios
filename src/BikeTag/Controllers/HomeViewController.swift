@@ -102,6 +102,8 @@ class HomeViewController: ApplicationViewController {
       self.gameListView.addSubview(newSpotView)
       yOffset = self.gameListView.frame.height + yOffset
     }
+    self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
+                                           height: gameListView.frame.height * CGFloat(currentSpotViews.count))
   }
 
   func stopLoadingAnimation() {
@@ -137,7 +139,7 @@ class HomeViewController: ApplicationViewController {
     Logger.info("setting up swipe gesture")
     var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleDownSwipe:"))
     downSwipe.direction = .Down
-    view.addGestureRecognizer(downSwipe)
+//    view.addGestureRecognizer(downSwipe)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
