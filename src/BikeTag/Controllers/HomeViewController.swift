@@ -36,7 +36,7 @@ class HomeViewController: ApplicationViewController {
 
   override func viewDidLoad() {
     self.stylePrimaryButton(self.guessSpotButtonView)
-    self.initializeDownSwipe()
+    self.initializeRefreshSwipe()
     self.refreshCurrentSpotsAfterGettingApiKey()
   }
 
@@ -135,7 +135,7 @@ class HomeViewController: ApplicationViewController {
     refreshCurrentSpots()
   }
 
-  func initializeDownSwipe() {
+  func initializeRefreshSwipe() {
     Logger.info("setting up swipe gesture")
     var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleDownSwipe:"))
     downSwipe.direction = .Left
