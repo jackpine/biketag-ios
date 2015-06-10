@@ -7,7 +7,8 @@ class SpotsService: ApiService {
     let currentSpotRequest = APIRequest.build(Method.GET, path: "games/current_spots.json")
 
     let handleResponseAttributes = { (responseAttributes: AnyObject) -> () in
-      let parsedSpots = (responseAttributes as! [NSDictionary]).map { (spotAttributes) -> ParsedSpot in
+      let spotsAttributes = responseAttributes as! NSDictionary
+      let parsedSpots = (spotsAttributes["spots"] as! [NSDictionary]).map { (spotAttributes) -> ParsedSpot in
         ParsedSpot(attributes: spotAttributes)
       }
       callback(parsedSpots)
