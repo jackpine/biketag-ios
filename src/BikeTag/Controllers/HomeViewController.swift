@@ -4,13 +4,13 @@ class HomeViewController: ApplicationViewController {
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
-      updateSpotCaption()
+      updateSpotControls()
     }
   }
 
   @IBOutlet var mySpotView: UIView! {
     didSet {
-      updateSpotCaption()
+      updateSpotControls()
     }
   }
 
@@ -86,9 +86,9 @@ class HomeViewController: ApplicationViewController {
 
   func updateCurrentSpotViews() {
     let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
-      let sv = SpotView(frame: self.gameListView.frame, spot: spot)
-      sv.bounds = self.gameListView.frame
-      return sv
+      let spotView = SpotView(frame: self.gameListView.frame, spot: spot)
+      spotView.bounds = self.gameListView.frame
+      return spotView
     }
 
     for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
@@ -109,7 +109,7 @@ class HomeViewController: ApplicationViewController {
     self.loadingView.hidden = false
   }
 
-  func updateSpotCaption() {
+  func updateSpotControls() {
     // There are set async, and we can't proceed until all are set.
     if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
