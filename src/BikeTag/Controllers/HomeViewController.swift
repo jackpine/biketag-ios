@@ -23,7 +23,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     }
   }
 
-  var currentSpot: Spot?
+  var currentSpot: Spot? {
+    didSet {
+      updateSpotControls()
+    }
+  }
+
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
@@ -108,6 +113,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
     // but since I'm planning a pulldown to refresh anyway, I think this will be less invasive in the future.
     self.gameListView.contentOffset = CGPoint(x:0, y:0)
+    self.currentSpot = self.currentSpots[0]
   }
 
   func stopLoadingAnimation() {
@@ -150,7 +156,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     super.prepareForSegue(segue, sender: sender)
     let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
     //FIXME which one is the current spot?
-    guessSpotViewController.currentSpot = self.currentSpots[0]
+    guessSpotViewController.currentSpot = self.currentSpot
   }
 
   func spotViewHeight() -> CGFloat {
@@ -159,8 +165,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
 
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame
-    let cellIndex = round(targetContentOffset.memory.y / scrollView.frame.height)
-    targetContentOffset.memory.y = cellIndex * self.spotViewHeight()
+    let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
+    self.currentSpot = self.currentSpots[cellIndex]
+    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
 }
 
