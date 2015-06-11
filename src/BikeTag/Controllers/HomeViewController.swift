@@ -17,7 +17,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
-  var currentSpots: [Spot] = [] {
+  var currentSpots: [Int: Spot] = Dictionary<Int, Spot>() {
     didSet {
       renderCurrentSpots()
     }
@@ -28,7 +28,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
       updateSpotControls()
     }
   }
-
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
@@ -69,7 +68,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   func refreshCurrentSpots() {
     self.startLoadingAnimation()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
-      self.currentSpots = currentSpots
+      for currentSpot in currentSpots {
+        self.currentSpots[currentSpot.game.id] = currentSpot
+      }
       self.stopLoadingAnimation()
     }
 
@@ -90,8 +91,13 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     Spot.fetchCurrentSpots(self.spotsService, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
+  func currentSpotsArray() -> [Spot] {
+    // reverse here to respect the order of the API
+    return self.currentSpots.values.array.reverse()
+  }
+
   func renderCurrentSpots() {
-    let currentSpotViews = self.currentSpots.map { (spot: Spot) -> SpotView in
+    let currentSpotViews = self.currentSpotsArray().map { (spot: Spot) -> SpotView in
       let spotView = SpotView(frame: self.gameListView.frame, spot: spot)
       return spotView
     }
@@ -107,13 +113,13 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
       yOffset = self.spotViewHeight() + yOffset
     }
     self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
-                                           height: gameListView.frame.height * CGFloat(currentSpotViews.count))
+                                           height: gameListView.frame.height * CGFloat(currentSpots.count))
 
     // HACK - scroll view is intially offset 30px or so. Not sure why. Future scrolls land it at the right spot.
     // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
     // but since I'm planning a pulldown to refresh anyway, I think this will be less invasive in the future.
     self.gameListView.contentOffset = CGPoint(x:0, y:0)
-    self.currentSpot = self.currentSpots[0]
+    self.currentSpot = self.currentSpotsArray()[0]
   }
 
   func stopLoadingAnimation() {
@@ -155,7 +161,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
     let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
-    //FIXME which one is the current spot?
     guessSpotViewController.currentSpot = self.currentSpot
   }
 
@@ -166,8 +171,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    self.currentSpot = self.currentSpots[cellIndex]
+    self.currentSpot = self.currentSpotsArray()[cellIndex]
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
 }
-

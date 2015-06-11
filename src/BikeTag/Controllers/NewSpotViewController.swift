@@ -38,7 +38,9 @@ class NewSpotViewController: CameraViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
     let homeViewController = segue.destinationViewController as! HomeViewController
-    homeViewController.refreshCurrentSpots()
+    if self.newSpot != nil {
+      homeViewController.currentSpots[self.newSpot!.game.id] = self.newSpot!
+    }
   }
 
   func uploadNewSpot(spot: Spot) {
