@@ -6,7 +6,7 @@ end
 
 Then(/^I should see a photo of the current tag$/) do
   wait_for do
-    query("UIImageView marked:'current photo'", :image).first != nil
+    query("BikeTag.SpotView").first != nil
   end
 end
 
