@@ -51,7 +51,7 @@ class SpotsService: ApiService {
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
-      guess.correct = guessAttributes.valueForKey("correct") as! Bool
+      guess.correct = guessAttributes.valueForKey("correct") as? Bool
       callback(guess)
     }
 
