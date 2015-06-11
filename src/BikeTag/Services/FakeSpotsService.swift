@@ -20,6 +20,7 @@ class FakeSpotsService: SpotsService {
       "image_url": firstImageAsbase64Encoded,
       "user_id": firstGameSpot.user.id,
       "created_at": "2015-03-20T21:59:40.394Z",
+      "game_id": 1,
       "id": 1
       ],
       [
@@ -30,7 +31,8 @@ class FakeSpotsService: SpotsService {
         "image_url": secondImageAsbase64Encoded,
         "user_id": secondGameSpot.user.id,
         "created_at": "2015-03-20T21:59:40.394Z",
-        "id": 1
+        "game_id": 2,
+        "id": 2
       ]]
 
     let parsedSpots = fakeResponse.map( { ParsedSpot(attributes: $0) })
@@ -46,6 +48,7 @@ class FakeSpotsService: SpotsService {
       "image_url": base64EncodedImageUrlString,
       "user_id": User.getCurrentUser().id,
       "created_at": "2015-03-20T21:59:40.394Z",
+      "game_id": 2,
       "id": 2
     ]
 
@@ -55,7 +58,6 @@ class FakeSpotsService: SpotsService {
 
   override func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
     Logger.info("FAKE post new guess")
-    guess.correct = true
     callback(guess)
   }
 }

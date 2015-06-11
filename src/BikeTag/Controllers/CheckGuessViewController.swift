@@ -104,10 +104,12 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
+    self.guess!.correct = false
     incorrectGuess()
   }
 
   @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
+    self.guess!.correct = true
     correctGuess()
   }
 
