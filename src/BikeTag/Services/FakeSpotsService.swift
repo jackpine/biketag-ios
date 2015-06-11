@@ -53,9 +53,10 @@ class FakeSpotsService: SpotsService {
     callback(parsedSpot)
   }
 
-  override func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+  override func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
     Logger.info("FAKE post new guess")
-    callback(true)
+    guess.correct = true
+    callback(guess)
   }
 }
 

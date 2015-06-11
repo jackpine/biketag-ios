@@ -41,7 +41,7 @@ class SpotsService: ApiService {
     self.request(postSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
-  func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+  func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
     let parameters = [ "guess": [
       "spot_id": guess.spot.id!,
       "location": locationParameters(guess.location)
@@ -51,8 +51,8 @@ class SpotsService: ApiService {
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
-      let guessResult = guessAttributes.valueForKey("correct") as! Bool
-      callback(guessResult)
+      guess.correct = guessAttributes.valueForKey("correct") as! Bool
+      callback(guess)
     }
 
     self.request(postSpotGuessRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)

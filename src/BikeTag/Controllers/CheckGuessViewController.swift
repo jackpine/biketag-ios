@@ -78,11 +78,11 @@ class CheckGuessViewController: ApplicationViewController {
     self.spotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
   }
 
-  func handleGuessResponse(guessedCorrectly: Bool) {
+  func handleGuessResponse(guess: Guess) {
     if( Config.fakeApiCalls() ) {
       self.fakeResponseActions.hidden = false
     } else {
-      if (guessedCorrectly) {
+      if guess.correct! {
         correctGuess()
       } else {
         incorrectGuess()
@@ -191,8 +191,10 @@ class CheckGuessViewController: ApplicationViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    let newSpotViewController = segue.destinationViewController as! NewSpotViewController
-    newSpotViewController.game = self.guess!.game
+    if (guess != nil && guess!.correct == true) {
+      let newSpotViewController = segue.destinationViewController as! NewSpotViewController
+      newSpotViewController.game = self.guess!.game
+    }
   }
 
   deinit {
