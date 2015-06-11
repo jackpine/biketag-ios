@@ -189,6 +189,12 @@ class CheckGuessViewController: ApplicationViewController {
       completion: nil)
   }
 
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
+    super.prepareForSegue(segue, sender: sender)
+    let newSpotViewController = segue.destinationViewController as! NewSpotViewController
+    newSpotViewController.game = self.guess!.game
+  }
+
   deinit {
     // Run loops create a strong reference to the timer, 
     // make sure we explicitly invalidate it.

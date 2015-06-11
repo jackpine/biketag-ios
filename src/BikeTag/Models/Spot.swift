@@ -5,18 +5,21 @@ class Spot: NSObject {
   var image: UIImage
   var location: CLLocation?
   var id: Int?
+  let game: Game
   let user: User
 
-  init(image: UIImage, user: User, id: Int) {
+  init(image: UIImage, game: Game, user: User, id: Int) {
     self.user = user
     self.image = image
     self.id = id
+    self.game = game
   }
 
-  init(image: UIImage, user: User, location: CLLocation) {
+  init(image: UIImage, game: Game, user: User, location: CLLocation) {
     self.user = user
     self.image = image
     self.location = location
+    self.game = game
   }
 
   init(parsedSpot: ParsedSpot) {
@@ -28,6 +31,7 @@ class Spot: NSObject {
     }
     self.user = User(id: parsedSpot.userId)
     self.id = parsedSpot.spotId
+    self.game = Game(id: parsedSpot.gameId)
   }
 
 
@@ -40,14 +44,14 @@ class Spot: NSObject {
     spotsService.fetchCurrentSpots(callbackWithBuiltSpots, errorCallback: errorCallback)
   }
 
-  class func createNewSpot(spotsService: SpotsService, image: UIImage, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
+  class func createNewSpot(spotsService: SpotsService, image: UIImage, game: Game, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
     let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> () in
       //hydrate spot with server response - should be more-or-less identical to newSpot
       let spot = Spot(parsedSpot: parsedSpot)
       callback(spot)
     }
 
-    let newSpot = Spot(image: image, user: User.getCurrentUser(), location: location)
+    let newSpot = Spot(image: image, game: game, user: User.getCurrentUser(), location: location)
     spotsService.postNewSpot(newSpot, callback: callbackWithBuiltSpot, errorCallback: errorCallback)
   }
 
@@ -57,7 +61,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(id: 2), location: location)
+    return Spot(image: image, game: Game(id: 2), user: User(id: 2), location: location)
   }
 
   // static spot, used to seed game and for testing
@@ -66,7 +70,7 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, user: User(id: 1), location: location)
+    return Spot(image: image, game: Game(id: 1), user: User(id: 1), location: location)
   }
 
   func isCurrentUserOwner() -> Bool {

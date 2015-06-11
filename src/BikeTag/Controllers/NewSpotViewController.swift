@@ -4,6 +4,7 @@ import CoreLocation
 class NewSpotViewController: CameraViewController {
 
   var newSpot: Spot?
+  var game: Game?
 
   @IBOutlet var progressView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
@@ -21,7 +22,7 @@ class NewSpotViewController: CameraViewController {
     }
 
     if ( image != nil ) {
-      let spot = Spot(image: image!, user: User.getCurrentUser(), location: location!)
+      let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location!)
       self.uploadNewSpot(spot)
     } else {
       Logger.error("New spot image data not captured")
@@ -70,7 +71,7 @@ class NewSpotViewController: CameraViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.createNewSpot(self.spotsService, image: spot.image, location: spot.location!, callback: popToHomeViewController, errorCallback: displayErrorAlert)
+    Spot.createNewSpot(self.spotsService, image: spot.image, game: spot.game, location: spot.location!, callback: popToHomeViewController, errorCallback: displayErrorAlert)
   }
 
 

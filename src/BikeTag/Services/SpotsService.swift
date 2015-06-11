@@ -19,7 +19,7 @@ class SpotsService: ApiService {
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let spotParameters = [
-      "game_id": 1,
+      "game_id": spot.game.id,
       "location": locationParameters(spot.location!),
       "image_data": spot.base64ImageData()
     ]

@@ -49,7 +49,7 @@ class SpotTests: XCTestCase {
       // but is there a way to fail fast?
     }
 
-    Spot.createNewSpot(FakeSpotsService(), image: image, location: location, callback: fulfillExpectation, errorCallback: failExpectation)
+    Spot.createNewSpot(FakeSpotsService(), image: image, game: Game(id: 1), location: location, callback: fulfillExpectation, errorCallback: failExpectation)
 
     self.waitForExpectationsWithTimeout(5.0, handler:nil)
   }
@@ -59,9 +59,10 @@ class SpotTests: XCTestCase {
     let them = User(id: me.id + 1)
     let someImage = Spot.lucileSpot().image
     let someLocation = Spot.lucileSpot().location!
+    let game = Game(id: 1)
 
-    let mySpot = Spot(image: someImage, user: me, location: someLocation)
-    let theirSpot = Spot(image: someImage, user: them, location: someLocation)
+    let mySpot = Spot(image: someImage, game: game, user: me, location: someLocation)
+    let theirSpot = Spot(image: someImage, game: game, user: them, location: someLocation)
 
     XCTAssert(mySpot.isCurrentUserOwner())
     XCTAssertFalse(theirSpot.isCurrentUserOwner())

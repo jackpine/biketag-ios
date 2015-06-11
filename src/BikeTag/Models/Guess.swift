@@ -5,6 +5,7 @@ import UIKit
 class Guess {
   let spot: Spot
   let user: User
+  let game: Game
   let location: CLLocation
   let image: UIImage
 
@@ -13,5 +14,6 @@ class Guess {
     self.user = user
     self.location = location
     self.image = image
+    self.game = spot.game
   }
 }

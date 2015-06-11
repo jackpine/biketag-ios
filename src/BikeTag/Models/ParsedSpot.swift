@@ -1,16 +1,18 @@
 import Foundation
 
 class ParsedSpot {
-  var spotId: Int
-  var userId: Int
-  var imageUrl: NSURL
-  var createdAt: NSDate
+  let spotId: Int
+  let userId: Int
+  let gameId: Int
+  let imageUrl: NSURL
+  let createdAt: NSDate
 
   init(attributes: NSDictionary) {
     let imageUrlString = attributes.valueForKey("image_url") as! String
     self.imageUrl = NSURL(string:imageUrlString)!
     self.userId = attributes.valueForKey("user_id") as! Int
     self.spotId = attributes.valueForKey("id") as! Int
+    self.gameId = attributes.valueForKey("game_id") as! Int
     let dateString = attributes.valueForKey("created_at") as! NSString
     let dateFormatter = NSDateFormatter()
     //e.g. 2015-03-20T21:59:40.394Z
