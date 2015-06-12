@@ -92,6 +92,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func currentSpotsArray() -> [Spot] {
+    // XXX I'm making an (unfounded) assumption that the order of the values 
+    // returned by the dictionary is opposite of that in which they were inserted
+    // and that it is stable. This has been true anecdotally, but I'm leaving this
+    // comment here as a bread crumb for when it inevitably breaks. If it does,
+    // consider a more sophisticated data structure like this: 
+    //      http://timekl.com/blog/2014/06/02/learning-swift-ordered-dictionaries/
     // reverse here to respect the order of the API
     return self.currentSpots.values.array.reverse()
   }
