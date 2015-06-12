@@ -28,6 +28,8 @@
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
+		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
+		456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
 		4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6C1B1F7F49005EF625 /* Fabric.framework */; };
 		4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
@@ -54,6 +56,8 @@
 		45C770AB1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AD1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
+		45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
+		45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +102,7 @@
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
+		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
+		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +253,7 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
+				45DB1F871B27BDCD0001EC8A /* Views */,
 				45466E971ACA01AD00D7B69A /* Configs */,
 				4581A5F81AB7C9BA004C871F /* Services */,
 				45B488831A9AB73B00C7E03F /* Models */,
@@ -295,8 +302,17 @@
 				451E51D21AB49AFA00849262 /* User.swift */,
 				4581A6101AB7FC48004C871F /* ParsedSpot.swift */,
 				45C770AC1AC081620036847D /* Guess.swift */,
+				456116C11B2A0C6C00CDAF2A /* Game.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		45DB1F871B27BDCD0001EC8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45DB1F881B27BDCD0001EC8A /* SpotView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,8 +466,10 @@
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				454E11121B19564500FBAAC3 /* ApiService.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
+				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
+				45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,11 +486,13 @@
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
+				45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
+				456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,

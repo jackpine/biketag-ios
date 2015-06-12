@@ -3,13 +3,15 @@ import Alamofire
 
 class SpotsService: ApiService {
 
-  func fetchCurrentSpot(callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let currentSpotRequest = APIRequest.build(Method.GET, path: "games/1/current_spot.json")
+  func fetchCurrentSpots(callback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
+    let currentSpotRequest = APIRequest.build(Method.GET, path: "games/current_spots.json")
 
-    let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
-      let spotAttributes = responseAttributes.valueForKey("spot") as! NSDictionary
-      let parsedSpot = ParsedSpot(attributes: spotAttributes)
-      callback(parsedSpot)
+    let handleResponseAttributes = { (responseAttributes: AnyObject) -> () in
+      let spotsAttributes = responseAttributes as! NSDictionary
+      let parsedSpots = (spotsAttributes["spots"] as! [NSDictionary]).map { (spotAttributes) -> ParsedSpot in
+        ParsedSpot(attributes: spotAttributes)
+      }
+      callback(parsedSpots)
     }
 
     self.request(currentSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
@@ -17,7 +19,7 @@ class SpotsService: ApiService {
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
     let spotParameters = [
-      "game_id": 1,
+      "game_id": spot.game.id,
       "location": locationParameters(spot.location!),
       "image_data": spot.base64ImageData()
     ]
@@ -39,7 +41,7 @@ class SpotsService: ApiService {
     self.request(postSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
-  func postSpotGuess(guess: Guess, callback: (Bool)->(), errorCallback: (NSError)->()) {
+  func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
     let parameters = [ "guess": [
       "spot_id": guess.spot.id!,
       "location": locationParameters(guess.location)
@@ -49,8 +51,8 @@ class SpotsService: ApiService {
 
     let handleResponseAttributes = { (responseAttributes: NSDictionary) -> () in
       let guessAttributes = responseAttributes.valueForKey("guess") as! NSDictionary
-      let guessResult = guessAttributes.valueForKey("correct") as! Bool
-      callback(guessResult)
+      guess.correct = guessAttributes.valueForKey("correct") as? Bool
+      callback(guess)
     }
 
     self.request(postSpotGuessRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
