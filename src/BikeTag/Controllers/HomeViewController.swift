@@ -147,15 +147,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     }
   }
 
-  func handleDownSwipe(sender:UISwipeGestureRecognizer) {
+  func handleRefreshSwipe(sender:UISwipeGestureRecognizer) {
     refreshCurrentSpots()
   }
 
   func initializeRefreshSwipe() {
-    Logger.info("setting up swipe gesture")
-    var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleDownSwipe:"))
-    downSwipe.direction = .Left
-    view.addGestureRecognizer(downSwipe)
+    var refreshSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleRefreshSwipe:"))
+    refreshSwipe.direction = .Left
+    view.addGestureRecognizer(refreshSwipe)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
