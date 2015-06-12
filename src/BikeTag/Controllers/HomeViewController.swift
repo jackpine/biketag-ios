@@ -41,8 +41,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   override func viewDidLoad() {
     self.stylePrimaryButton(self.guessSpotButtonView)
     self.initializeRefreshSwipe()
-    self.refreshCurrentSpotsAfterGettingApiKey()
     self.gameListView.delegate = self
+    self.refreshCurrentSpotsAfterGettingApiKey()
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
@@ -97,23 +97,23 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func renderCurrentSpots() {
-    let currentSpotViews = self.currentSpotsArray().map { (spot: Spot) -> SpotView in
-      let spotView = SpotView(frame: self.gameListView.frame, spot: spot)
-      return spotView
-    }
-
     for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
       oldSpotView.removeFromSuperview()
     }
 
+    let currentSpotViews = self.currentSpotsArray().map { (spot: Spot) -> SpotView in
+      let spotView = SpotView(frame: self.view.frame, spot: spot)
+      return spotView
+    }
+
     var yOffset: CGFloat = 0
     for newSpotView: SpotView in currentSpotViews {
-      newSpotView.frame = CGRect(x: 0, y: yOffset, width: self.gameListView.frame.width, height: self.spotViewHeight())
+      newSpotView.frame = CGRect(x: 0, y: yOffset, width: self.view.frame.width, height: self.spotViewHeight())
       self.gameListView.addSubview(newSpotView)
       yOffset = self.spotViewHeight() + yOffset
     }
     self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
-                                           height: gameListView.frame.height * CGFloat(currentSpots.count))
+                                           height: self.spotViewHeight() * CGFloat(currentSpots.count))
 
     // HACK - scroll view is intially offset 30px or so. Not sure why. Future scrolls land it at the right spot.
     // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
@@ -164,7 +164,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func spotViewHeight() -> CGFloat {
-    return self.gameListView.frame.height
+    // FIXME - I was expecting to use gameListView.frame.height here, but the gameListView is only 
+    // something like 300X125 pixels in 'viewDidLoad'.
+    // By the time subsequent spot refreshes have happened it is full size.
+    //return self.gameListView.frame.height
+    return self.view.frame.height
   }
 
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
