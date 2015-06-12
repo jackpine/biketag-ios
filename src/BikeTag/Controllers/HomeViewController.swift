@@ -178,7 +178,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    // Snap SpotView to fill frame
+    // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
     self.currentSpot = self.currentSpotsArray()[cellIndex]
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
