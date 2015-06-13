@@ -25,7 +25,6 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     }
 
     setUpLocationServices()
-    waitForLocation()
   }
 
   func getCaptureDevice() -> AVCaptureDevice? {
@@ -68,6 +67,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     switch CLLocationManager.authorizationStatus() {
     case .AuthorizedAlways, .AuthorizedWhenInUse:
       locationManager.startUpdatingLocation()
+      self.waitForLocation()
     case .NotDetermined:
       locationManager.requestWhenInUseAuthorization()
     case .Restricted, .Denied:
@@ -76,7 +76,10 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         message: "In order to verify your location, please open this app's settings and set location access to 'While Using the App'.",
         preferredStyle: .Alert)
 
-      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        self.waitForLocation()
+      }
+
       alertController.addAction(cancelAction)
 
       let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
