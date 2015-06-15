@@ -9,6 +9,7 @@ class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var fakeCorrectResponseButton: UIButton!
   @IBOutlet var fakeIncorrectResponseButton: UIButton!
   @IBOutlet var incorrectGuessView: UIView!
+  @IBOutlet var incorrectOverlayView: UIView!
   @IBOutlet var correctGuessView: UIView!
   @IBOutlet var countdownContainerView: UIView!
   @IBOutlet var countdownClockView: UILabel!
@@ -23,7 +24,8 @@ class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var guessAgainButton: UIButton!
   @IBOutlet var timesUpGuessAgainButton: UIButton!
 
-  @IBOutlet var sadFaceView: UILabel!
+  @IBOutlet var timesUpSadFaceView: UILabel!
+  @IBOutlet var incorrectSadFaceView: UILabel!
   var timer: NSTimer? = nil
   var startTime: NSDate? = nil
 
@@ -101,6 +103,8 @@ class CheckGuessViewController: ApplicationViewController {
   func incorrectGuess() {
     self.fakeResponseActions.hidden = true
     self.incorrectGuessView.hidden = false
+    self.incorrectOverlayView.hidden = false
+    self.rotateSadFaceView(incorrectSadFaceView)
   }
 
   @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
@@ -157,15 +161,18 @@ class CheckGuessViewController: ApplicationViewController {
       animations: {
         // slide up clock and sad face
         self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 3
-        self.sadFaceView.center.y = self.countdownContainerView.center.y
+        self.timesUpSadFaceView.center.y = self.countdownContainerView.center.y
 
         // fade in retry actions
         self.timesUpResponseActions.alpha = 1
       },
-      completion: rotateSadFaceView)
+      completion: { (someBool: Bool) -> () in
+        self.rotateSadFaceView(self.timesUpSadFaceView)
+      }
+    )
   }
 
-  func rotateSadFaceView(someBool: Bool) -> () {
+  func rotateSadFaceView(sadFaceView: UIView) -> () {
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
     rotateAnimation.fromValue = 0.0
     //90 degrees
@@ -174,7 +181,7 @@ class CheckGuessViewController: ApplicationViewController {
     rotateAnimation.fillMode = kCAFillModeForwards;
     rotateAnimation.removedOnCompletion = false;
     rotateAnimation.beginTime = CACurrentMediaTime() + 2.0
-    self.sadFaceView.layer.addAnimation(rotateAnimation, forKey: nil)
+    sadFaceView.layer.addAnimation(rotateAnimation, forKey: nil)
   }
 
   var clockBlinking: Bool = false
