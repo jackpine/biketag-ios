@@ -193,7 +193,7 @@ class CheckGuessViewController: ApplicationViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    if (guess != nil && guess!.correct == true) {
+    if segue.destinationViewController is NewSpotViewController {
       let newSpotViewController = segue.destinationViewController as! NewSpotViewController
       newSpotViewController.game = self.guess!.game
     }
