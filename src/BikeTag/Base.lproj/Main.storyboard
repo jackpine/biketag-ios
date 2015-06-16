@@ -271,68 +271,170 @@
                                 <rect key="frame" x="75" y="90" width="450" height="450"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-pk-m87">
-                                <rect key="frame" x="267.5" y="560" width="65" height="20"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inN-Os-Ndg" userLabel="Response Actions">
+                                <rect key="frame" x="150" y="361" width="300" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
+                                        <rect key="frame" x="150" y="87" width="300" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="VhZ-zz-fOD"/>
+                                            <constraint firstAttribute="height" constant="120" id="moe-wI-ZJi">
+                                                <variation key="widthClass=compact" constant="80"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="VhZ-zz-fOD"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="VhZ-zz-fOD"/>
+                                                <exclude reference="moe-wI-ZJi"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-pk-m87">
+                                        <rect key="frame" x="267.5" y="560" width="65" height="20"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Xr5-g9-UJe">
+                                                <variation key="widthClass=compact" constant="48"/>
+                                                <variation key="heightClass=regular-widthClass=compact" constant="48"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <state key="normal" title="Take a Picture to Prove it.">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Xr5-g9-UJe">
-                                        <variation key="widthClass=compact" constant="48"/>
-                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    <constraint firstAttribute="height" constant="300" id="6Qa-Oe-lGe">
+                                        <variation key="widthClass=compact" constant="120"/>
+                                    </constraint>
+                                    <constraint firstItem="EC8-42-NAR" firstAttribute="top" secondItem="inN-Os-Ndg" secondAttribute="top" constant="-480" id="CU8-gp-GDp">
+                                        <variation key="widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="EC8-42-NAR" secondAttribute="trailing" id="KgI-mw-ZJ7">
+                                        <variation key="widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstAttribute="bottom" secondItem="UtK-pk-m87" secondAttribute="bottom" constant="30" id="Uob-8P-0ub">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="EC8-42-NAR" firstAttribute="leading" secondItem="inN-Os-Ndg" secondAttribute="leading" id="dIc-72-Ab6">
+                                        <variation key="widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="UtK-pk-m87" secondAttribute="trailing" constant="141" id="iJm-IT-JZk">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
+                                    </constraint>
+                                    <constraint firstItem="UtK-pk-m87" firstAttribute="leading" secondItem="inN-Os-Ndg" secondAttribute="leading" id="tjo-S8-vbU">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <state key="normal" title="Take a Picture to Prove it.">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
-                                </connections>
-                            </button>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="EC8-42-NAR"/>
+                                        <exclude reference="UtK-pk-m87"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="6Qa-Oe-lGe"/>
+                                        <exclude reference="CU8-gp-GDp"/>
+                                        <exclude reference="KgI-mw-ZJ7"/>
+                                        <exclude reference="dIc-72-Ab6"/>
+                                        <exclude reference="Uob-8P-0ub"/>
+                                        <exclude reference="iJm-IT-JZk"/>
+                                        <exclude reference="tjo-S8-vbU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="EC8-42-NAR"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="6Qa-Oe-lGe"/>
+                                        <include reference="CU8-gp-GDp"/>
+                                        <include reference="KgI-mw-ZJ7"/>
+                                        <include reference="dIc-72-Ab6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="UtK-pk-m87"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="Uob-8P-0ub"/>
+                                        <include reference="iJm-IT-JZk"/>
+                                        <include reference="tjo-S8-vbU"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
                             <bool key="isElement" value="YES"/>
                         </accessibility>
                         <constraints>
-                            <constraint firstItem="UtK-pk-m87" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" id="1rJ-dx-5AV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UtK-pk-m87" secondAttribute="trailing" id="71O-bd-YaF"/>
+                            <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="inN-Os-Ndg" secondAttribute="bottom" constant="670" id="ChW-A4-QB3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="inN-Os-Ndg" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" constant="-6" id="HbY-AD-swB">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                            </constraint>
                             <constraint firstItem="esg-LR-wYA" firstAttribute="top" secondItem="v6M-UC-jWP" secondAttribute="topMargin" id="Pka-u6-9M9"/>
                             <constraint firstItem="esg-LR-wYA" firstAttribute="leading" secondItem="v6M-UC-jWP" secondAttribute="leadingMargin" id="UpC-C0-1gg">
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                             <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="esg-LR-wYA" secondAttribute="bottom" id="ZTE-Lt-o0K"/>
                             <constraint firstAttribute="trailingMargin" secondItem="esg-LR-wYA" secondAttribute="trailing" constant="-16" id="eco-sz-Wgv"/>
-                            <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="UtK-pk-m87" secondAttribute="bottom" constant="16" id="o5h-uI-KuA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="inN-Os-Ndg" secondAttribute="trailing" constant="-26" id="gSa-0X-Lkq">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
+                            </constraint>
+                            <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="inN-Os-Ndg" secondAttribute="bottom" constant="670" id="nXW-zF-5kp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="UtK-pk-m87"/>
+                                <exclude reference="inN-Os-Ndg"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Pka-u6-9M9"/>
                                 <exclude reference="eco-sz-Wgv"/>
+                                <exclude reference="HbY-AD-swB"/>
+                                <exclude reference="gSa-0X-Lkq"/>
+                                <exclude reference="ChW-A4-QB3"/>
                                 <exclude reference="ZTE-Lt-o0K"/>
-                                <exclude reference="o5h-uI-KuA"/>
-                                <exclude reference="1rJ-dx-5AV"/>
-                                <exclude reference="71O-bd-YaF"/>
+                                <exclude reference="nXW-zF-5kp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="UtK-pk-m87"/>
-                            </mask>
                             <mask key="constraints">
                                 <include reference="Pka-u6-9M9"/>
                                 <include reference="eco-sz-Wgv"/>
                                 <include reference="ZTE-Lt-o0K"/>
-                                <include reference="o5h-uI-KuA"/>
-                                <include reference="1rJ-dx-5AV"/>
-                                <include reference="71O-bd-YaF"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="inN-Os-Ndg"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="HbY-AD-swB"/>
+                                <include reference="gSa-0X-Lkq"/>
+                                <include reference="ChW-A4-QB3"/>
+                                <exclude reference="nXW-zF-5kp"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Capture It" id="vg2-rb-gz0" userLabel="Capture It"/>
+                    <navigationItem key="navigationItem" title="Prove it" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
                         <outlet property="takePictureButton" destination="UtK-pk-m87" id="d7w-tQ-6N0"/>
@@ -1127,7 +1229,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nothing too tricky! If no one can guess your spot, you'll lose points." lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="MkR-fb-ueF"/>
@@ -1180,6 +1282,7 @@
                                 <constraints>
                                     <constraint firstItem="BeB-Ck-C6X" firstAttribute="top" secondItem="0zK-ub-zOi" secondAttribute="top" constant="-480" id="3vj-4t-M6y">
                                         <variation key="widthClass=compact" constant="8"/>
+                                        <variation key="heightClass=regular-widthClass=compact" constant="16"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="300" id="WGG-6k-MwU">
                                         <variation key="widthClass=compact" constant="120"/>
