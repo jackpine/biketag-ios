@@ -2,25 +2,6 @@ import UIKit
 
 class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
 
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.currentSpotsArray().count;
-  }
-
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return self.view.frame.height
-  }
-
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    // TODO some way to reuse cells that haven't changed?
-    let cell = UITableViewCell()
-    let spot = self.currentSpotsArray()[indexPath.row]
-    let spotView = SpotView(frame: cell.frame, spot: spot)
-    cell.insertSubview(spotView, atIndex: 0)
-    return cell
-  }
-  ///////////END TABLE DEMO
-
-
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
       updateSpotControls()
@@ -173,10 +154,31 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     return self.view.frame.height
   }
 
+  // MARK UIScrollViewDelegate
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
     self.currentSpot = self.currentSpotsArray()[cellIndex]
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
+
+  // MARK UITableViewDataSource
+  // MARK UITableViewDelegate
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.currentSpotsArray().count;
+  }
+
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return self.view.frame.height
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    // TODO some way to reuse cells that haven't changed?
+    let cell = UITableViewCell()
+    let spot = self.currentSpotsArray()[indexPath.row]
+    let spotView = SpotView(frame: self.view.frame, spot: spot)
+    cell.insertSubview(spotView, atIndex: 0)
+    return cell
+  }
+
 }
