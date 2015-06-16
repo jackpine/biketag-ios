@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
+class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
@@ -19,7 +19,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
 
   var currentSpots: [Int: Spot] = Dictionary<Int, Spot>() {
     didSet {
-      renderCurrentSpots()
+      self.gameListView.reloadData()
     }
   }
 
@@ -29,20 +29,36 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     }
   }
 
+  var refreshControl:UIRefreshControl!
+
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  @IBOutlet var gameListView: UIScrollView!
+  @IBOutlet var gameListView: UITableView!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
   }
 
   override func viewDidLoad() {
+    super.viewDidLoad()
+
+    self.startLoadingAnimation()
+    self.refreshControl = UIRefreshControl()
+    let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: titleAttributes)
+    self.refreshControl.tintColor = UIColor.whiteColor()
+    self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
+    self.gameListView.addSubview(refreshControl)
+
     self.stylePrimaryButton(self.guessSpotButtonView)
-    self.initializeRefreshSwipe()
-    self.gameListView.delegate = self
+    self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     self.refreshCurrentSpotsAfterGettingApiKey()
+  }
+
+  func refreshControlPulled(sender:AnyObject) {
+    Logger.info("refreshing spots")
+    refreshCurrentSpots()
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
@@ -66,12 +82,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   }
 
   func refreshCurrentSpots() {
-    self.startLoadingAnimation()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       for currentSpot in currentSpots {
         self.currentSpots[currentSpot.game.id] = currentSpot
       }
+      self.gameListView.contentOffset = CGPoint(x:0, y:0)
+      self.currentSpot = self.currentSpotsArray()[0]
       self.stopLoadingAnimation()
+      self.refreshControl.endRefreshing()
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -102,32 +120,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     return self.currentSpots.values.array.reverse()
   }
 
-  func renderCurrentSpots() {
-    for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
-      oldSpotView.removeFromSuperview()
-    }
-
-    let currentSpotViews = self.currentSpotsArray().map { (spot: Spot) -> SpotView in
-      let spotView = SpotView(frame: self.view.frame, spot: spot)
-      return spotView
-    }
-
-    var yOffset: CGFloat = 0
-    for newSpotView: SpotView in currentSpotViews {
-      newSpotView.frame = CGRect(x: 0, y: yOffset, width: self.view.frame.width, height: self.spotViewHeight())
-      self.gameListView.addSubview(newSpotView)
-      yOffset = self.spotViewHeight() + yOffset
-    }
-    self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
-                                           height: self.spotViewHeight() * CGFloat(currentSpots.count))
-
-    // HACK - scroll view is intially offset 30px or so. Not sure why. Future scrolls land it at the right spot.
-    // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
-    // but since I'm planning a pulldown to refresh anyway, I think this will be less invasive in the future.
-    self.gameListView.contentOffset = CGPoint(x:0, y:0)
-    self.currentSpot = self.currentSpotsArray()[0]
-  }
-
   func stopLoadingAnimation() {
     self.activityIndicatorView.stopAnimating()
     self.loadingView.hidden = true
@@ -153,16 +145,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     }
   }
 
-  func handleRefreshSwipe(sender:UISwipeGestureRecognizer) {
-    refreshCurrentSpots()
-  }
-
-  func initializeRefreshSwipe() {
-    var refreshSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleRefreshSwipe:"))
-    refreshSwipe.direction = .Left
-    view.addGestureRecognizer(refreshSwipe)
-  }
-
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
     let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
@@ -177,10 +159,31 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
     return self.view.frame.height
   }
 
+  // MARK UIScrollViewDelegate
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
     self.currentSpot = self.currentSpotsArray()[cellIndex]
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
+
+  // MARK UITableViewDataSource
+  // MARK UITableViewDelegate
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.currentSpotsArray().count;
+  }
+
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return self.view.frame.height
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    // TODO some way to reuse cells that haven't changed?
+    let cell = UITableViewCell()
+    let spot = self.currentSpotsArray()[indexPath.row]
+    let spotView = SpotView(frame: self.view.frame, spot: spot)
+    cell.insertSubview(spotView, atIndex: 0)
+    return cell
+  }
+
 }
