@@ -11,7 +11,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell:UITableViewCell = self.gameListView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+    // TODO some way to reuse cells that haven't changed?
+    let cell = UITableViewCell()
     let spot = self.currentSpotsArray()[indexPath.row]
     let spotView = SpotView(frame: cell.frame, spot: spot)
     cell.insertSubview(spotView, atIndex: 0)
@@ -37,7 +38,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   var currentSpots: [Int: Spot] = Dictionary<Int, Spot>() {
     didSet {
-      //renderCurrentSpots()
+      self.gameListView.reloadData()
     }
   }
 
@@ -90,6 +91,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       for currentSpot in currentSpots {
         self.currentSpots[currentSpot.game.id] = currentSpot
       }
+      self.gameListView.contentOffset = CGPoint(x:0, y:0)
+      self.currentSpot = self.currentSpotsArray()[0]
       self.stopLoadingAnimation()
     }
 
@@ -118,34 +121,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     // consider a more sophisticated data structure like this: 
     //      http://timekl.com/blog/2014/06/02/learning-swift-ordered-dictionaries/
     // reverse here to respect the order of the API
-//    return self.currentSpots.values.array.reverse()
-    return [Spot.lucileSpot(), Spot.griffithSpot()]
-  }
-
-  func renderCurrentSpots() {
-    for oldSpotView: UIView in (self.gameListView.subviews as! [UIView]) {
-      oldSpotView.removeFromSuperview()
-    }
-
-    let currentSpotViews = self.currentSpotsArray().map { (spot: Spot) -> SpotView in
-      let spotView = SpotView(frame: self.view.frame, spot: spot)
-      return spotView
-    }
-
-    var yOffset: CGFloat = 0
-    for newSpotView: SpotView in currentSpotViews {
-      newSpotView.frame = CGRect(x: 0, y: yOffset, width: self.view.frame.width, height: self.spotViewHeight())
-      self.gameListView.addSubview(newSpotView)
-      yOffset = self.spotViewHeight() + yOffset
-    }
-    self.gameListView.contentSize = CGSize(width: self.gameListView.frame.width,
-                                           height: self.spotViewHeight() * CGFloat(currentSpots.count))
-
-    // HACK - scroll view is intially offset 30px or so. Not sure why. Future scrolls land it at the right spot.
-    // putting this partial workaround for now. It's kind of jarring in that it resets your position to the top,
-    // but since I'm planning a pulldown to refresh anyway, I think this will be less invasive in the future.
-    self.gameListView.contentOffset = CGPoint(x:0, y:0)
-    self.currentSpot = self.currentSpotsArray()[0]
+    return self.currentSpots.values.array.reverse()
   }
 
   func stopLoadingAnimation() {
