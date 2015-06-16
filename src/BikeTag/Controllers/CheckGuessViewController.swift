@@ -165,7 +165,7 @@ class CheckGuessViewController: ApplicationViewController {
       options: .CurveEaseInOut,
       animations: {
         // slide up clock and sad face
-        self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 3
+        self.countdownClockView.frame.origin.y = self.countdownClockView.frame.origin.y / 2.5
         self.timesUpSadFaceView.center.y = self.countdownContainerView.center.y
 
         // fade in retry actions
@@ -182,10 +182,10 @@ class CheckGuessViewController: ApplicationViewController {
     rotateAnimation.fromValue = 0.0
     //90 degrees
     rotateAnimation.toValue = CGFloat(M_PI * 0.5)
-    rotateAnimation.duration = 3.0
-    rotateAnimation.fillMode = kCAFillModeForwards;
-    rotateAnimation.removedOnCompletion = false;
-    rotateAnimation.beginTime = CACurrentMediaTime() + 2.0
+    rotateAnimation.duration = 2.0
+    rotateAnimation.fillMode = kCAFillModeForwards
+    rotateAnimation.removedOnCompletion = false
+    rotateAnimation.beginTime = CACurrentMediaTime() + 0.5
     sadFaceView.layer.addAnimation(rotateAnimation, forKey: nil)
   }
 
