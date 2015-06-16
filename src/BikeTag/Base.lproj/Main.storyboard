@@ -274,7 +274,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inN-Os-Ndg" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="VhZ-zz-fOD"/>
@@ -406,20 +406,20 @@
                                 <exclude reference="inN-Os-Ndg"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Pka-u6-9M9"/>
-                                <exclude reference="eco-sz-Wgv"/>
-                                <exclude reference="HbY-AD-swB"/>
-                                <exclude reference="gSa-0X-Lkq"/>
                                 <exclude reference="ChW-A4-QB3"/>
                                 <exclude reference="ZTE-Lt-o0K"/>
                                 <exclude reference="nXW-zF-5kp"/>
+                                <exclude reference="HbY-AD-swB"/>
+                                <exclude reference="gSa-0X-Lkq"/>
+                                <exclude reference="Pka-u6-9M9"/>
+                                <exclude reference="eco-sz-Wgv"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
+                                <include reference="ZTE-Lt-o0K"/>
                                 <include reference="Pka-u6-9M9"/>
                                 <include reference="eco-sz-Wgv"/>
-                                <include reference="ZTE-Lt-o0K"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -427,10 +427,10 @@
                                 <include reference="inN-Os-Ndg"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HbY-AD-swB"/>
-                                <include reference="gSa-0X-Lkq"/>
                                 <include reference="ChW-A4-QB3"/>
                                 <exclude reference="nXW-zF-5kp"/>
+                                <include reference="HbY-AD-swB"/>
+                                <include reference="gSa-0X-Lkq"/>
                             </mask>
                         </variation>
                     </view>
@@ -460,6 +460,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
                                 <rect key="frame" x="206" y="40" width="189" height="189"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                </variation>
                             </imageView>
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Correct Overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -996,6 +999,9 @@
                                         <exclude reference="sVE-UK-l9I"/>
                                     </mask>
                                 </variation>
+                                <variation key="heightClass=regular" ambiguous="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="w4R-8C-yyR"/>
@@ -1229,7 +1235,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="150" y="361" width="300" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="MkR-fb-ueF"/>
