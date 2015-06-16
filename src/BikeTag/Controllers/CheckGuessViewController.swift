@@ -112,11 +112,13 @@ class CheckGuessViewController: ApplicationViewController {
 
   @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
     self.guess!.correct = false
+    self.guess!.distance = 0.03
     incorrectGuess()
   }
 
   @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
     self.guess!.correct = true
+    self.guess!.distance = 0.0001
     correctGuess()
   }
 
