@@ -26,6 +26,7 @@ class CheckGuessViewController: ApplicationViewController {
 
   @IBOutlet var timesUpSadFaceView: UILabel!
   @IBOutlet var incorrectSadFaceView: UILabel!
+  @IBOutlet var incorrectDistanceLabel: UILabel!
   var timer: NSTimer? = nil
   var startTime: NSDate? = nil
 
@@ -47,6 +48,7 @@ class CheckGuessViewController: ApplicationViewController {
     self.stylePrimaryButton(self.guessAgainButton)
     self.stylePrimaryButton(self.timesUpGuessAgainButton)
     self.stylePrimaryButton(self.newSpotButton)
+
     self.submitGuessToServer()
     progressView.progress = 0
     updateSubmittedImageView()
@@ -104,6 +106,7 @@ class CheckGuessViewController: ApplicationViewController {
     self.fakeResponseActions.hidden = true
     self.incorrectGuessView.hidden = false
     self.incorrectOverlayView.hidden = false
+    self.incorrectDistanceLabel.text = self.guess!.distanceMessage()
     self.rotateSadFaceView(incorrectSadFaceView)
   }
 
@@ -172,7 +175,7 @@ class CheckGuessViewController: ApplicationViewController {
     )
   }
 
-  func rotateSadFaceView(sadFaceView: UIView) -> () {
+  func rotateSadFaceView(sadFaceView: UILabel) -> () {
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
     rotateAnimation.fromValue = 0.0
     //90 degrees

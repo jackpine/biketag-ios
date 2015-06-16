@@ -448,7 +448,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7Z-f5-vse">
                                         <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="98"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -460,7 +460,7 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                             </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1010,6 +1010,7 @@
                         <outlet property="fakeIncorrectResponseButton" destination="YFZ-sb-Lh5" id="Rce-Ha-8ME"/>
                         <outlet property="fakeResponseActions" destination="w4R-8C-yyR" id="z7T-8g-JCg"/>
                         <outlet property="guessAgainButton" destination="lNy-6P-ZfL" id="G7g-vM-Qkw"/>
+                        <outlet property="incorrectDistanceLabel" destination="aXo-cG-NXF" id="SEk-o3-g6E"/>
                         <outlet property="incorrectGuessView" destination="FeN-hZ-eDe" id="DGt-pa-VJa"/>
                         <outlet property="incorrectOverlayView" destination="Uw4-eH-WZB" id="OwX-Fn-CpN"/>
                         <outlet property="incorrectSadFaceView" destination="u7Z-f5-vse" id="MIB-Z1-0er"/>
