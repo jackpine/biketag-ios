@@ -43,9 +43,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.startLoadingAnimation()
     self.refreshControl = UIRefreshControl()
-    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+    let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: titleAttributes)
+    self.refreshControl.tintColor = UIColor.whiteColor()
+    self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
     self.gameListView.addSubview(refreshControl)
 
     self.stylePrimaryButton(self.guessSpotButtonView)
@@ -53,9 +56,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshCurrentSpotsAfterGettingApiKey()
   }
 
-  func refresh(sender:AnyObject) {
+  func refreshControlPulled(sender:AnyObject) {
     Logger.info("refreshing spots")
-    refreshCurrentSpotsAfterGettingApiKey()
+    refreshCurrentSpots()
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
@@ -79,7 +82,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func refreshCurrentSpots() {
-    self.startLoadingAnimation()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       for currentSpot in currentSpots {
         self.currentSpots[currentSpot.game.id] = currentSpot
@@ -87,6 +89,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       self.gameListView.contentOffset = CGPoint(x:0, y:0)
       self.currentSpot = self.currentSpotsArray()[0]
       self.stopLoadingAnimation()
+      self.refreshControl.endRefreshing()
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
