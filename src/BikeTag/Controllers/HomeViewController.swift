@@ -29,6 +29,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
+  var refreshControl:UIRefreshControl!
+
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
@@ -40,10 +42,20 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.refreshControl = UIRefreshControl()
+    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+    self.gameListView.addSubview(refreshControl)
+
     self.stylePrimaryButton(self.guessSpotButtonView)
-    self.initializeRefreshSwipe()
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     self.refreshCurrentSpotsAfterGettingApiKey()
+  }
+
+  func refresh(sender:AnyObject) {
+    Logger.info("refreshing spots")
+    refreshCurrentSpotsAfterGettingApiKey()
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
@@ -128,16 +140,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         self.mySpotView.hidden = true
       }
     }
-  }
-
-  func handleRefreshSwipe(sender:UISwipeGestureRecognizer) {
-    refreshCurrentSpots()
-  }
-
-  func initializeRefreshSwipe() {
-    var refreshSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleRefreshSwipe:"))
-    refreshSwipe.direction = .Left
-    view.addGestureRecognizer(refreshSwipe)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
