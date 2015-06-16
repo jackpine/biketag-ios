@@ -1,6 +1,29 @@
 import UIKit
 
-class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
+class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
+  ///////////BEGIN TABLE DEMO
+  @IBOutlet
+  var tableView: UITableView!
+  var items: [String] = ["We", "Heart", "Swift"]
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.items.count;
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var cell:UITableViewCell = self.gameListView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+
+    cell.textLabel?.text = self.items[indexPath.row]
+
+    return cell
+  }
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    println("You selected cell #\(indexPath.row)!")
+  }
+
+  ///////////END TABLE DEMO
+
 
   @IBOutlet var guessSpotButtonView: UIButton! {
     didSet {
@@ -19,7 +42,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
 
   var currentSpots: [Int: Spot] = Dictionary<Int, Spot>() {
     didSet {
-      renderCurrentSpots()
+      //renderCurrentSpots()
     }
   }
 
@@ -32,16 +55,17 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate {
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  @IBOutlet var gameListView: UIScrollView!
+  @IBOutlet var gameListView: UITableView!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
   }
 
   override func viewDidLoad() {
+    super.viewDidLoad()
     self.stylePrimaryButton(self.guessSpotButtonView)
     self.initializeRefreshSwipe()
-    self.gameListView.delegate = self
+    self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     self.refreshCurrentSpotsAfterGettingApiKey()
   }
 
