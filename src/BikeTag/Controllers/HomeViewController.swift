@@ -1,27 +1,22 @@
 import UIKit
 
 class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
-  ///////////BEGIN TABLE DEMO
-  @IBOutlet
-  var tableView: UITableView!
-  var items: [String] = ["We", "Heart", "Swift"]
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.items.count;
+    return self.currentSpotsArray().count;
+  }
+
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return self.view.frame.height
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell:UITableViewCell = self.gameListView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-
-    cell.textLabel?.text = self.items[indexPath.row]
-
+    let spot = self.currentSpotsArray()[indexPath.row]
+    let spotView = SpotView(frame: cell.frame, spot: spot)
+    cell.insertSubview(spotView, atIndex: 0)
     return cell
   }
-
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    println("You selected cell #\(indexPath.row)!")
-  }
-
   ///////////END TABLE DEMO
 
 
@@ -123,7 +118,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     // consider a more sophisticated data structure like this: 
     //      http://timekl.com/blog/2014/06/02/learning-swift-ordered-dictionaries/
     // reverse here to respect the order of the API
-    return self.currentSpots.values.array.reverse()
+//    return self.currentSpots.values.array.reverse()
+    return [Spot.lucileSpot(), Spot.griffithSpot()]
   }
 
   func renderCurrentSpots() {
