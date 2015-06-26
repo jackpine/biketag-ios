@@ -29,7 +29,7 @@ class Spot: NSObject {
     } else {
       self.image = UIImage(data: imageData!)!
     }
-    self.user = User(id: parsedSpot.userId)
+    self.user = User(id: parsedSpot.userId, name: parsedSpot.userName)
     self.id = parsedSpot.spotId
     self.game = Game(id: parsedSpot.gameId)
   }
@@ -61,7 +61,7 @@ class Spot: NSObject {
     let lat = 34.086582
     let lon = -118.281633
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, game: Game(id: 2), user: User(id: 2), location: location)
+    return Spot(image: image, game: Game(id: 2), user: User(id: 2, name: "lucile user"), location: location)
   }
 
   // static spot, used to seed game and for testing
@@ -70,7 +70,7 @@ class Spot: NSObject {
     let lat = 34.1186
     let lon = -118.3004
     let location = CLLocation(latitude: lat, longitude: lon)
-    return Spot(image: image, game: Game(id: 1), user: User(id: 1), location: location)
+    return Spot(image: image, game: Game(id: 1), user: User(id: 1, name: "griffith user"), location: location)
   }
 
   func isCurrentUserOwner() -> Bool {
