@@ -56,7 +56,7 @@ class SpotTests: XCTestCase {
 
   func testIsCurrentUserOwner() {
     let me = User.getCurrentUser()
-    let them = User(id: me.id + 1)
+    let them = User(id: me.id + 1, name: "other user")
     let someImage = Spot.lucileSpot().image
     let someLocation = Spot.lucileSpot().location!
     let game = Game(id: 1)

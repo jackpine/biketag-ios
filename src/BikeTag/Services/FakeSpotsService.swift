@@ -19,6 +19,7 @@ class FakeSpotsService: SpotsService {
       ],
       "image_url": firstImageAsbase64Encoded,
       "user_id": firstGameSpot.user.id,
+      "user_name": firstGameSpot.user.name,
       "created_at": "2015-03-20T21:59:40.394Z",
       "game_id": 1,
       "id": 1
@@ -30,6 +31,7 @@ class FakeSpotsService: SpotsService {
         ],
         "image_url": secondImageAsbase64Encoded,
         "user_id": secondGameSpot.user.id,
+        "user_name": secondGameSpot.user.name,
         "created_at": "2015-03-20T21:59:40.394Z",
         "game_id": 2,
         "id": 2
@@ -47,6 +49,7 @@ class FakeSpotsService: SpotsService {
     let mockResponse = [
       "image_url": base64EncodedImageUrlString,
       "user_id": User.getCurrentUser().id,
+      "user_name": "my user",
       "created_at": "2015-03-20T21:59:40.394Z",
       "game_id": 2,
       "id": 2

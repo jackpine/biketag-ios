@@ -138,7 +138,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         self.guessSpotButtonView.hidden = true
         self.mySpotView.hidden = false
       } else {
-        self.title = "Do you know this spot?"
+        self.title = "Where is \(self.currentSpot!.user.name)'s bicycle?"
         self.guessSpotButtonView.hidden = false
         self.mySpotView.hidden = true
       }

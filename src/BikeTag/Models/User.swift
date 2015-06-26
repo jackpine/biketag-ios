@@ -6,15 +6,17 @@ private var currentUser: User?
 class User: Equatable {
 
   let id: Int
+  let name: String
 
-  init(id: Int) {
+  init(id: Int, name: String) {
     self.id = id
+    self.name = name
   }
 
   class func getCurrentUser() -> User {
     if ( currentUser == nil ) {
       let userId = Config.getCurrentUserId()
-      self.setCurrentUser( User(id: userId) )
+      self.setCurrentUser( User(id: userId, name: "you") )
     }
 
     return currentUser!
