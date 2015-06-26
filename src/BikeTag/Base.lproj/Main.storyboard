@@ -100,28 +100,17 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-rZ-KuX">
                                         <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting all the latest spots..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-CX-Rzb">
-                                        <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="IVa-CX-Rzb" firstAttribute="top" secondItem="oRT-rZ-KuX" secondAttribute="bottom" constant="20" id="b7m-xB-vly"/>
                                     <constraint firstAttribute="centerX" secondItem="oRT-rZ-KuX" secondAttribute="centerX" id="jQX-EX-7Mn"/>
-                                    <constraint firstAttribute="centerX" secondItem="IVa-CX-Rzb" secondAttribute="centerX" id="mPP-Qi-IQR"/>
                                     <constraint firstAttribute="centerY" secondItem="oRT-rZ-KuX" secondAttribute="centerY" id="oVR-LO-KbA"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="oRT-rZ-KuX"/>
-                                        <exclude reference="IVa-CX-Rzb"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="b7m-xB-vly"/>
-                                        <exclude reference="mPP-Qi-IQR"/>
                                         <exclude reference="jQX-EX-7Mn"/>
                                         <exclude reference="oVR-LO-KbA"/>
                                     </mask>
@@ -129,11 +118,8 @@
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="oRT-rZ-KuX"/>
-                                        <include reference="IVa-CX-Rzb"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="b7m-xB-vly"/>
-                                        <include reference="mPP-Qi-IQR"/>
                                         <include reference="jQX-EX-7Mn"/>
                                         <include reference="oVR-LO-KbA"/>
                                     </mask>
@@ -224,7 +210,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Do you know this spot?" id="djg-xB-CWe"/>
+                    <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="oRT-rZ-KuX" id="Sgj-0k-btP"/>
                         <outlet property="gameListView" destination="pUs-On-Jlr" id="vZz-Zx-n6q"/>
@@ -467,14 +453,11 @@
                             <view hidden="YES" alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0rs-uX-AcI" userLabel="Correct Overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
                                         <rect key="frame" x="248" y="40" width="104.5" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="73" y="296.5" width="254" height="67"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, you've gotta keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
@@ -487,9 +470,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="20" y="379.5" width="360" height="41"/>
-                                        </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT">
                                         <rect key="frame" x="239" y="247" width="122.5" height="60"/>
@@ -1271,7 +1251,7 @@
                                             <constraint firstAttribute="height" constant="48" id="Yln-Sg-jHJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                        <state key="normal" title="Claim this spot">
+                                        <state key="normal" title="Claim this Spot">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1408,7 +1388,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Claim This" id="TsD-mA-2Af"/>
+                    <navigationItem key="navigationItem" title="Post New Spot" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Ufm-M8-9Ot" id="Wep-c9-28j"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
