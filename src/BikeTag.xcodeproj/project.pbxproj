@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
+		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
 		451E51D11AB3778600849262 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		451E51D31AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
@@ -85,6 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
 		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		451E51D51AB4AB4C00849262 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
@@ -311,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				45DB1F881B27BDCD0001EC8A /* SpotView.swift */,
+				451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -462,6 +466,7 @@
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */,
+				451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				451E51D31AB49AFA00849262 /* User.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				454E11121B19564500FBAAC3 /* ApiService.swift in Sources */,
@@ -480,6 +485,7 @@
 			files = (
 				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				454E110C1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
+				451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				454E11131B19564500FBAAC3 /* ApiService.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,

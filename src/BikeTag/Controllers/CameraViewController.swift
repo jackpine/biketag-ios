@@ -5,7 +5,7 @@ import CoreLocation
 class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
-  @IBOutlet var takePictureButton: UIButton!
+  @IBOutlet var takePictureButton: PrimaryButton!
 
   var previewLayer: AVCaptureVideoPreviewLayer?
   var mostRecentLocation: CLLocation?
@@ -19,7 +19,6 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.stylePrimaryButton(self.takePictureButton)
     if let captureDevice = getCaptureDevice() {
       beginCapturingVideo(captureDevice)
     }

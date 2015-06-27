@@ -2,7 +2,7 @@ import UIKit
 
 class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
 
-  @IBOutlet var guessSpotButtonView: UIButton! {
+  @IBOutlet var guessSpotButtonView: PrimaryButton! {
     didSet {
       updateSpotControls()
     }
@@ -50,8 +50,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
     self.gameListView.addSubview(refreshControl)
-
-    self.stylePrimaryButton(self.guessSpotButtonView)
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     self.refreshCurrentSpotsAfterGettingApiKey()
   }

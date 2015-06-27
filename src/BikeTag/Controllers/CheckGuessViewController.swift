@@ -20,9 +20,9 @@ class CheckGuessViewController: ApplicationViewController {
   }
   @IBOutlet var countdownSubheader: UILabel!
   @IBOutlet var countdownHeader: UILabel!
-  @IBOutlet var newSpotButton: UIButton!
-  @IBOutlet var guessAgainButton: UIButton!
-  @IBOutlet var timesUpGuessAgainButton: UIButton!
+  @IBOutlet var newSpotButton: PrimaryButton!
+  @IBOutlet var guessAgainButton: PrimaryButton!
+  @IBOutlet var timesUpGuessAgainButton: PrimaryButton!
 
   @IBOutlet var timesUpSadFaceView: UILabel!
   @IBOutlet var incorrectSadFaceView: UILabel!
@@ -45,10 +45,6 @@ class CheckGuessViewController: ApplicationViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.stylePrimaryButton(self.guessAgainButton)
-    self.stylePrimaryButton(self.timesUpGuessAgainButton)
-    self.stylePrimaryButton(self.newSpotButton)
-
     self.submitGuessToServer()
     progressView.progress = 0
     updateSubmittedImageView()
