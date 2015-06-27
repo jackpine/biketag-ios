@@ -1,5 +1,4 @@
 import Foundation
-import Alamofire
 
 let apiEndpoint = NSURL(string: Config.apiEndpoint())!
 

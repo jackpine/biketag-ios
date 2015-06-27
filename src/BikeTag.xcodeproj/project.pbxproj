@@ -10,6 +10,7 @@
 		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD261B3EDBA800CCF832 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD251B3EDBA800CCF832 /* XCGLogger.swift */; };
+		451CBD281B3EDC5000CCF832 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD271B3EDC5000CCF832 /* Alamofire.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
 		451E51D11AB3778600849262 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		451E51D31AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
@@ -37,9 +38,6 @@
 		4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
 		4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
-		4581A60C1AB7F7B8004C871F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; };
-		4581A60D1AB7F7B8004C871F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; };
-		4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
@@ -77,7 +75,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +83,7 @@
 /* Begin PBXFileReference section */
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		451CBD251B3EDBA800CCF832 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
+		451CBD271B3EDC5000CCF832 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
 		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		451E51D51AB4AB4C00849262 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
-		4581A60B1AB7F7B8004C871F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
@@ -131,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4581A60C1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
@@ -141,7 +137,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4581A60D1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,10 +217,10 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				451CBD271B3EDC5000CCF832 /* Alamofire.swift */,
 				451CBD251B3EDBA800CCF832 /* XCGLogger.swift */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
 				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
-				4581A60B1AB7F7B8004C871F /* Alamofire.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -467,6 +462,7 @@
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				454E11121B19564500FBAAC3 /* ApiService.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
+				451CBD281B3EDC5000CCF832 /* Alamofire.swift in Sources */,
 				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,

@@ -1,5 +1,4 @@
 import CoreLocation
-import Alamofire
 
 class SpotsService: ApiService {
 
