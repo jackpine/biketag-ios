@@ -6,7 +6,7 @@ class ApiService {
 
   // an authenticated request against our API
   class APIRequest  {
-    class func build(method: Alamofire.Method, path: String, parameters: [String: AnyObject]? = nil) -> NSURLRequest {
+    class func build(method: Method, path: String, parameters: [String: AnyObject]? = nil) -> NSURLRequest {
       let url = apiEndpoint.URLByAppendingPathComponent(path)
       Logger.info("[API] \(method.rawValue): \(url)")
       let mutableRequest = NSMutableURLRequest(URL: url)
@@ -14,7 +14,7 @@ class ApiService {
       mutableRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
 
       if method == Method.POST {
-        return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: parameters!).0
+        return ParameterEncoding.JSON.encode(mutableRequest, parameters: parameters!).0
       } else {
         return mutableRequest as NSURLRequest
       }
@@ -22,7 +22,7 @@ class ApiService {
   }
 
   func request(request: NSURLRequest, handleResponseAttributes: (NSDictionary) -> (), errorCallback: (NSError)->() ) {
-    Alamofire.request(request).responseJSON { (request, response, json, error) in
+    Alamofire.manager.request(request).responseJSON(options: NSJSONReadingOptions.AllowFragments) { (request, response, json, error) -> () in
         // Protocol level errors, e.g. connection timed out
         if( error != nil ) {
           Logger.warning("HTTP Error: \(error)")

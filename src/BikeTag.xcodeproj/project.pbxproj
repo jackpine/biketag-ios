@@ -11,6 +11,8 @@
 		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD261B3EDBA800CCF832 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD251B3EDBA800CCF832 /* XCGLogger.swift */; };
 		451CBD281B3EDC5000CCF832 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD271B3EDC5000CCF832 /* Alamofire.swift */; };
+		451CBD291B3EE21F00CCF832 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD271B3EDC5000CCF832 /* Alamofire.swift */; };
+		451CBD2A1B3EE3A300CCF832 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD251B3EDBA800CCF832 /* XCGLogger.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
 		451E51D11AB3778600849262 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		451E51D31AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
@@ -481,6 +483,7 @@
 				454E11131B19564500FBAAC3 /* ApiService.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,
+				451CBD291B3EE21F00CCF832 /* Alamofire.swift in Sources */,
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
@@ -494,6 +497,7 @@
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,
+				451CBD2A1B3EE3A300CCF832 /* XCGLogger.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
