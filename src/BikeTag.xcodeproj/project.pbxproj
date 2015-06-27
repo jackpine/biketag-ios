@@ -180,6 +180,7 @@
 		45466E971ACA01AD00D7B69A /* Configs */ = {
 			isa = PBXGroup;
 			children = (
+				45C770A91ABE5D9A0036847D /* Config.swift */,
 				45466E981ACA01AD00D7B69A /* AdHoc */,
 				45466E991ACA01AD00D7B69A /* Debug */,
 				45466E9A1ACA01AD00D7B69A /* Release */,
@@ -266,7 +267,6 @@
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
 				45AB7BA91A3A1D8B00E1961E /* Supporting Files */,
-				45C770A91ABE5D9A0036847D /* Config.swift */,
 			);
 			path = BikeTag;
 			sourceTree = "<group>";
