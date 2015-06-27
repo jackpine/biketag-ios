@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
+		451CBD261B3EDBA800CCF832 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD251B3EDBA800CCF832 /* XCGLogger.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
 		451E51D11AB3778600849262 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		451E51D31AB49AFA00849262 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51D21AB49AFA00849262 /* User.swift */; };
@@ -41,11 +42,8 @@
 		4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
-		459B3F8A1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; };
-		459B3F8B1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
-		459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
@@ -79,7 +77,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */,
 				4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		451CBD251B3EDBA800CCF832 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
 		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		451E51D51AB4AB4C00849262 /* UserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTest.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A60B1AB7F7B8004C871F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
-		459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4581A60C1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
-				459B3F8A1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */,
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
@@ -146,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4581A60D1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
-				459B3F8B1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,9 +222,9 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				451CBD251B3EDBA800CCF832 /* XCGLogger.swift */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
 				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
-				459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */,
 				4581A60B1AB7F7B8004C871F /* Alamofire.framework */,
 			);
 			path = Frameworks;
@@ -458,6 +453,7 @@
 				459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
+				451CBD261B3EDBA800CCF832 /* XCGLogger.swift in Sources */,
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
@@ -564,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -643,7 +639,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -679,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
