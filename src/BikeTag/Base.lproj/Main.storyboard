@@ -265,9 +265,6 @@
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="VhZ-zz-fOD"/>
-                                            <constraint firstAttribute="height" constant="120" id="moe-wI-ZJi">
-                                                <variation key="widthClass=compact" constant="80"/>
-                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -280,7 +277,6 @@
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="VhZ-zz-fOD"/>
-                                                <exclude reference="moe-wI-ZJi"/>
                                             </mask>
                                         </variation>
                                     </label>
@@ -386,7 +382,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="inN-Os-Ndg" secondAttribute="trailing" constant="-26" id="gSa-0X-Lkq">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
                             </constraint>
-                            <constraint firstItem="OkI-84-ROU" firstAttribute="top" secondItem="inN-Os-Ndg" secondAttribute="bottom" constant="670" id="nXW-zF-5kp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -395,7 +390,6 @@
                             <mask key="constraints">
                                 <exclude reference="ChW-A4-QB3"/>
                                 <exclude reference="ZTE-Lt-o0K"/>
-                                <exclude reference="nXW-zF-5kp"/>
                                 <exclude reference="HbY-AD-swB"/>
                                 <exclude reference="gSa-0X-Lkq"/>
                                 <exclude reference="Pka-u6-9M9"/>
@@ -415,7 +409,6 @@
                             </mask>
                             <mask key="constraints">
                                 <include reference="ChW-A4-QB3"/>
-                                <exclude reference="nXW-zF-5kp"/>
                                 <include reference="HbY-AD-swB"/>
                                 <include reference="gSa-0X-Lkq"/>
                             </mask>
@@ -1167,7 +1160,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="Ufm-M8-9Ot" secondAttribute="centerY" id="9hd-OP-yTn"/>
                                     <constraint firstAttribute="width" constant="150" id="IWM-5e-KTo">
                                         <variation key="heightClass=regular-widthClass=compact" constant="200"/>
                                     </constraint>
@@ -1197,7 +1189,6 @@
                                         <exclude reference="bh3-PN-Zw8"/>
                                         <exclude reference="dbT-3w-dCa"/>
                                         <exclude reference="k7g-6k-bgf"/>
-                                        <exclude reference="9hd-OP-yTn"/>
                                         <exclude reference="eic-Mk-jYU"/>
                                         <exclude reference="qVB-PC-isI"/>
                                     </mask>
@@ -1213,7 +1204,6 @@
                                         <include reference="bh3-PN-Zw8"/>
                                         <include reference="dbT-3w-dCa"/>
                                         <include reference="k7g-6k-bgf"/>
-                                        <exclude reference="9hd-OP-yTn"/>
                                         <include reference="eic-Mk-jYU"/>
                                         <include reference="qVB-PC-isI"/>
                                     </mask>
@@ -1226,9 +1216,6 @@
                                         <rect key="frame" x="150" y="87" width="300" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="MkR-fb-ueF"/>
-                                            <constraint firstAttribute="height" constant="120" id="Poh-lj-FbL">
-                                                <variation key="widthClass=compact" constant="80"/>
-                                            </constraint>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1241,7 +1228,6 @@
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
                                                 <include reference="MkR-fb-ueF"/>
-                                                <exclude reference="Poh-lj-FbL"/>
                                             </mask>
                                         </variation>
                                     </label>
