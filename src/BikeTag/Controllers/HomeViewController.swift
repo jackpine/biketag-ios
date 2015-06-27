@@ -172,7 +172,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return self.view.frame.height
+    return self.spotViewHeight()
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
