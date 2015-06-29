@@ -1,3 +1,5 @@
+// XXX - This was converted from a framework, interned as source, and modified slightly
+// So as to work with ios7.1 devices.
 //
 //  XCGLogger.swift
 //  XCGLogger: https://github.com/DaveWoodCom/XCGLogger

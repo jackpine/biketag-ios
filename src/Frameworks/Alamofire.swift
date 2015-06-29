@@ -1,3 +1,7 @@
+// XXX - This was converted from a framework, interned as source, and modified slightly
+// So as to work with ios7.1 devices.
+
+
 // Alamofire.swift
 //
 // Copyright (c) 2014–2015 Alamofire (http://alamofire.org)
