@@ -92,7 +92,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     let displayErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
-        title: "Unable to fetch the current Spot.",
+        title: "Darn. Can't fetch spots right now.",
         message: error.localizedDescription,
         preferredStyle: .Alert)
 
