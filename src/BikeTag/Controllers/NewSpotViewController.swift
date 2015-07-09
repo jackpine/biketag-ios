@@ -60,15 +60,29 @@ class NewSpotViewController: CameraViewController {
     let displayErrorAlert = { (error: NSError) -> () in
       self.activityIndicatorView.stopAnimating()
 
-      let alertController = UIAlertController(
-        title: "There was trouble uploading your new Spot.",
-        message: error.localizedDescription,
-        preferredStyle: .Alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.uploadNewSpot(spot)
+      var alertController: UIAlertController
+      if error.code == 133 {
+        alertController = UIAlertController(
+          title: "Try a little harder!",
+          message: "You're too close to the last spot. Go a bit farther and try again.",
+          preferredStyle: .Alert)
+
+        let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .Default) { (action) in
+          self.navigationController!.popViewControllerAnimated(true)
+        }
+        alertController.addAction(retryAction)
+      } else {
+        alertController = UIAlertController(
+          title: "There was trouble uploading your new Spot.",
+          message: error.localizedDescription,
+          preferredStyle: .Alert)
+
+        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+          self.uploadNewSpot(spot)
+        }
+        alertController.addAction(retryAction)
       }
-      alertController.addAction(retryAction)
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
