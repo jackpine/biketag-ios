@@ -7,11 +7,6 @@ class GuessSpotViewController: CameraViewController {
   var currentSpot: Spot?
   var newGuess: Guess?
 
-  required init(coder aDecoder: NSCoder) {
-    super.init(coder:aDecoder)
-    self.takePictureButtonText = "Prove it with a Photo."
-  }
-
   func createGuessFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
     if UIDevice.currentDevice().model == "iPhone Simulator" {

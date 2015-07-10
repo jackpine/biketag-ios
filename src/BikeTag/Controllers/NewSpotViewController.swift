@@ -5,14 +5,9 @@ class NewSpotViewController: CameraViewController {
 
   var newSpot: Spot?
   var game: Game?
-  
+
   @IBOutlet var progressView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
-
-  required init(coder aDecoder: NSCoder) {
-    super.init(coder:aDecoder)
-    self.takePictureButtonText = "Claim this Spot."
-  }
 
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
