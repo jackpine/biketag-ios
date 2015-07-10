@@ -23,12 +23,18 @@ class Spot: NSObject {
   }
 
   init(parsedSpot: ParsedSpot) {
-    let imageData = NSData(contentsOfURL: parsedSpot.imageUrl)
-    if( imageData == nil ) {
-      self.image = UIImage(named: "image-not-found")!
-    } else {
-      self.image = UIImage(data: imageData!)!
+    var image: UIImage?
+
+    if let imageData = NSData(contentsOfURL: parsedSpot.imageUrl) {
+      image = UIImage(data: imageData)
     }
+
+    if image != nil {
+      self.image = image!
+    } else { // because NSData was empty or not convertable to an image
+      self.image = UIImage(named: "image-not-found")!
+    }
+
     self.user = User(id: parsedSpot.userId, name: parsedSpot.userName)
     self.id = parsedSpot.spotId
     self.game = Game(id: parsedSpot.gameId)
