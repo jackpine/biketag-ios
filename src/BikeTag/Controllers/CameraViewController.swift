@@ -23,6 +23,8 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
       beginCapturingVideo(captureDevice)
     }
 
+    self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
+    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
     setUpLocationServices()
   }
 
