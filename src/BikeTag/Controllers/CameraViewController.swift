@@ -11,6 +11,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   var mostRecentLocation: CLLocation?
   let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
+  var takePictureButtonText = ""
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
@@ -23,6 +24,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
       beginCapturingVideo(captureDevice)
     }
 
+    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
     setUpLocationServices()
   }
 
@@ -55,9 +57,11 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         alertController.addAction(retryAction)
 
         self.presentViewController(alertController, animated: true, completion: nil)
+
         return
       } else {
         self.takePictureButton.enabled = true
+        self.takePictureButton.setTitle(self.takePictureButtonText, forState: .Normal)
       }
     }
   }
