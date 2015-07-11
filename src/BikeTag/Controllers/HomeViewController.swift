@@ -43,6 +43,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
+    self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
+
     self.startLoadingAnimation()
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -55,7 +58,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func refreshControlPulled(sender:AnyObject) {
-    Logger.info("refreshing spots")
     refreshCurrentSpots()
   }
 
@@ -80,12 +82,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func refreshCurrentSpots() {
+    Logger.info("refreshing spots list")
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       for currentSpot in currentSpots {
         self.currentSpots[currentSpot.game.id] = currentSpot
       }
       self.gameListView.contentOffset = CGPoint(x:0, y:0)
       self.currentSpot = self.currentSpotsArray()[0]
+      self.guessSpotButtonView.enabled = true;
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
     }
