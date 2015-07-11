@@ -30,6 +30,10 @@ class Guess {
       return "You are like a mile away."
     } else if self.distance < 0.1 {
       return "You're in the wrong neighborhood."
+    } else if self.distance < 1.0 {
+      return "I don't think you're even in the right town."
+    } else if self.distance < 200 { // ~2,500 miles / 4,000km
+      return "You're far. Like REALLY far away."
     } else {
       return "I'm not even sure you're on the right contintent."
     }
