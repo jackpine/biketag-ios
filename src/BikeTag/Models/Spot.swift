@@ -1,8 +1,10 @@
 import UIKit
 import CoreLocation
+import Alamofire
 
 class Spot: NSObject {
-  var image: UIImage
+  var image: UIImage?
+  var imageUrl: NSURL?
   var location: CLLocation?
   var id: Int?
   let game: Game
@@ -23,23 +25,12 @@ class Spot: NSObject {
   }
 
   init(parsedSpot: ParsedSpot) {
-    var image: UIImage?
-
-    if let imageData = NSData(contentsOfURL: parsedSpot.imageUrl) {
-      image = UIImage(data: imageData)
-    }
-
-    if image != nil {
-      self.image = image!
-    } else { // because NSData was empty or not convertable to an image
-      self.image = UIImage(named: "image-not-found")!
-    }
-
     self.user = User(id: parsedSpot.userId, name: parsedSpot.userName)
     self.id = parsedSpot.spotId
     self.game = Game(id: parsedSpot.gameId)
-  }
+    self.imageUrl = parsedSpot.imageUrl
 
+  }
 
   class func fetchCurrentSpots(spotsService: SpotsService, callback:([Spot])->(), errorCallback:(NSError)->()) {
     let callbackWithBuiltSpots = { (parsedSpots: [ParsedSpot]) -> () in

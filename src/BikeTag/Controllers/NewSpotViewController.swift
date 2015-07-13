@@ -88,7 +88,7 @@ class NewSpotViewController: CameraViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.createNewSpot(self.spotsService, image: spot.image, game: spot.game, location: spot.location!, callback: popToHomeViewController, errorCallback: displayErrorAlert)
+    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback: popToHomeViewController, errorCallback: displayErrorAlert)
   }
 
 
