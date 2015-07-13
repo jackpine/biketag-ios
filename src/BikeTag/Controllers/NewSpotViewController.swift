@@ -40,6 +40,7 @@ class NewSpotViewController: CameraViewController {
     let homeViewController = segue.destinationViewController as! HomeViewController
     if self.newSpot != nil {
       homeViewController.currentSpots[self.newSpot!.game.id] = self.newSpot!
+      homeViewController.currentSpot = self.newSpot!
     }
   }
 
