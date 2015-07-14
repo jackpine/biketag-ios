@@ -29,7 +29,15 @@ class Spot: NSObject {
     self.id = parsedSpot.spotId
     self.game = Game(id: parsedSpot.gameId)
     self.imageUrl = parsedSpot.imageUrl
+    super.init()
 
+    //placeholder while image is fetched async
+    self.image = UIImage(named: "sketchy bike")
+
+    Alamofire.request(.GET, parsedSpot.imageUrl).response() {
+      (_, _, data, _) in
+      self.image = UIImage(data: data! as! NSData)
+    }
   }
 
   class func fetchCurrentSpots(spotsService: SpotsService, callback:([Spot])->(), errorCallback:(NSError)->()) {
