@@ -6,6 +6,7 @@ class Spot: NSObject {
   var image: UIImage?
   var imageUrl: NSURL?
   var location: CLLocation?
+  var imageView: UIImageView?
   var id: Int?
   let game: Game
   let user: User
@@ -37,6 +38,9 @@ class Spot: NSObject {
     Alamofire.request(.GET, parsedSpot.imageUrl).response() {
       (_, _, data, _) in
       self.image = UIImage(data: data! as! NSData)
+      if self.imageView != nil {
+        self.imageView!.image = self.image
+      }
     }
   }
 

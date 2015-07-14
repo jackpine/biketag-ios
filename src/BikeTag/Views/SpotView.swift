@@ -2,11 +2,13 @@ import UIKit
 import Alamofire
 
 class SpotView: UIImageView {
+
   required init(frame: CGRect, spot: Spot) {
     super.init(frame: frame)
+    spot.imageView = self
+    self.image = spot.image
     self.contentMode = .ScaleAspectFill
     self.clipsToBounds = true
-    self.image = spot.image
   }
 
   required init(coder: NSCoder) {
