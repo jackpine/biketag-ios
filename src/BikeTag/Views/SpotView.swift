@@ -1,8 +1,6 @@
 import UIKit
-import Alamofire
 
 class SpotView: UIImageView {
-
   required init(frame: CGRect, spot: Spot) {
     super.init(frame: frame)
     spot.imageView = self
