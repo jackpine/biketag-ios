@@ -50,3 +50,6 @@ APP_BUNDLE_PATH="${CAL_BUILD_DIR}/Build/Products/${CAL_BUILD_CONFIG}-iphonesimul
 
 echo "Moving $APP_BUNDLE_PATH to ./"
 mv "${APP_BUNDLE_PATH}" "${PWD}"
+
+echo "INFO: Installing the app on the iOS Simulator"
+bundle exec run-loop simctl install --app "${PWD}/${TARGET_NAME}.app" --debug
