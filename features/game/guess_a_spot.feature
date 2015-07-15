@@ -2,7 +2,7 @@ Feature: Guessing a spot
   As a player
   I should be able to submit a new spot
 
-  @wip
+  @correct_spot
   Scenario: Submitting the correct spot
     Given I'm looking at the list of current spots
     And I guess correctly for the first one
