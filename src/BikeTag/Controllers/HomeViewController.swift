@@ -40,13 +40,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     super.init(coder:aDecoder)
   }
 
+  var timeOfLastReload: NSDate = NSDate()
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
     self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
 
-    self.startLoadingAnimation()
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: titleAttributes)
@@ -55,13 +56,20 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.gameListView.addSubview(refreshControl)
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     self.refreshCurrentSpotsAfterGettingApiKey()
+
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+  }
+
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
   func refreshControlPulled(sender:AnyObject) {
-    refreshCurrentSpots()
+    refreshCurrentSpotsAfterGettingApiKey()
   }
 
   func refreshCurrentSpotsAfterGettingApiKey() {
+    self.startLoadingAnimation()
     let displayAuthenticationErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
         title: "Unable to authenticate you.",
@@ -83,6 +91,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   func refreshCurrentSpots() {
     Logger.info("refreshing spots list")
+    self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       for currentSpot in currentSpots {
         self.currentSpots[currentSpot.game.id] = currentSpot
@@ -186,6 +195,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let spotView = SpotView(frame: self.view.frame, spot: spot)
     cell.insertSubview(spotView, atIndex: 0)
     return cell
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    refreshCurrentSpotsIfStale()
+  }
+
+  func applicationWillEnterForeground(notification: NSNotification) {
+    refreshCurrentSpotsIfStale()
+  }
+
+  func refreshCurrentSpotsIfStale() {
+    let secondsElapsed = Int(NSDate().timeIntervalSinceDate(self.timeOfLastReload))
+    if ( secondsElapsed > 60 * 30 ) {
+      refreshCurrentSpotsAfterGettingApiKey()
+    }
   }
 
 }
