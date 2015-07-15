@@ -3,7 +3,14 @@ import CoreLocation
 import Alamofire
 
 class Spot: NSObject {
-  var image: UIImage
+
+  static let DidSetImageNotification = "SpotDidSetImageNotification"
+
+  var image: UIImage {
+    didSet {
+      NSNotificationCenter.defaultCenter().postNotificationName(Spot.DidSetImageNotification, object: self)
+    }
+  }
   var imageUrl: NSURL?
   var location: CLLocation?
   var imageView: UIImageView?
@@ -39,10 +46,6 @@ class Spot: NSObject {
       let image = UIImage(data: data! as! NSData)
       if image != nil {
         self.image = image!
-
-        if self.imageView != nil {
-          self.imageView!.image = self.image
-        }
       }
     }
   }
