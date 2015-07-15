@@ -49,8 +49,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    self.view.accessibilityIdentifier = "current spots"
+
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
     self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
+    self.guessSpotButtonView.accessibilityIdentifier = "guess spot"
 
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
