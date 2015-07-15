@@ -14,15 +14,15 @@ class SpotView: UIImageView {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSpotViewImage", name: Spot.DidSetImageNotification, object: spot)
   }
 
-  func updateSpotViewImage() {
-    if self.spot != nil {
-      self.image = self.spot!.image
-    }
-  }
-
   required init(coder: NSCoder) {
     super.init(coder: coder)
     self.contentMode = .ScaleAspectFill
     self.clipsToBounds = true
+  }
+
+  func updateSpotViewImage() {
+    if self.spot != nil {
+      self.image = self.spot!.image
+    }
   }
 }
