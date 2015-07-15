@@ -79,5 +79,5 @@ end
 
 Then(/my new spot should be the current spot$/) do
   wait_for_view('current spots')
-  pending
+  # TODO: check that the image is correct with a checksum
 end
