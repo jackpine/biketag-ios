@@ -30,14 +30,6 @@ Then(/^I should be prompted to submit the next spot$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-When(/^I submit the next spot$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^my new spot should be the current spot$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
 When(/^I dilly dally$/) do
   pending # express the regexp above with the code you wish you had
 end
