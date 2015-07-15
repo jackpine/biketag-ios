@@ -11,3 +11,7 @@ app:
 # Builds an ipa for physical devices
 ipa:
 	./script/make-ipa.sh Debug
+
+xct:
+	rm -rf build
+	./script/make-xctest.sh
