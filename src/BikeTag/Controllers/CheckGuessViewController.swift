@@ -46,6 +46,11 @@ class CheckGuessViewController: ApplicationViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.accessibilityIdentifier = "check guess"
+    self.correctGuessView.accessibilityIdentifier = "guessed correct"
+    self.incorrectGuessView.accessibilityIdentifier = "guessed wrong"
+    self.newSpotButton.accessibilityIdentifier = "at new spot button"
+
     self.submitGuessToServer()
     self.updateSubmittedImageView()
   }

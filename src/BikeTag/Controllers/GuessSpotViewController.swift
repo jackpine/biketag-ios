@@ -7,6 +7,13 @@ class GuessSpotViewController: CameraViewController {
   var currentSpot: Spot?
   var newGuess: Guess?
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    self.view.accessibilityIdentifier = "photo evidence"
+    self.takePictureButton.accessibilityIdentifier = "take picture: evidence"
+  }
+
   func createGuessFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
     if UIDevice.currentDevice().model == "iPhone Simulator" {
