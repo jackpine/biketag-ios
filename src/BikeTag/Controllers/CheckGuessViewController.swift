@@ -3,7 +3,6 @@ import UIKit
 private let secondsToCapture = 1800
 
 class CheckGuessViewController: ApplicationViewController {
-  @IBOutlet var progressView: UIProgressView!
   @IBOutlet var fakeResponseActions: UIView!
   @IBOutlet var timesUpResponseActions: UIView!
   @IBOutlet var fakeCorrectResponseButton: UIButton!
@@ -18,6 +17,8 @@ class CheckGuessViewController: ApplicationViewController {
       updateSubmittedImageView()
     }
   }
+  @IBOutlet var progressLabel: UILabel!
+  @IBOutlet var progressOverlay: UIView!
   @IBOutlet var countdownSubheader: UILabel!
   @IBOutlet var countdownHeader: UILabel!
   @IBOutlet var newSpotButton: PrimaryButton!
@@ -46,15 +47,11 @@ class CheckGuessViewController: ApplicationViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.submitGuessToServer()
-    progressView.progress = 0
-    updateSubmittedImageView()
-  }
-
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+    self.updateSubmittedImageView()
   }
 
   func submitGuessToServer() {
+    animateProgress()
 
     let displayErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
@@ -78,7 +75,24 @@ class CheckGuessViewController: ApplicationViewController {
     self.spotsService.postSpotGuess(self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
   }
 
+  func animateProgress() {
+    let progressMessages = ["Hmmm...", "O.K.", "...maybe", "Well, actually...", "Ummmm...", "Hold on."]
+
+
+    UIView.animateWithDuration(1.0, delay: 1.0,
+      options: .CurveEaseInOut | .Repeat | .Autoreverse,
+      animations: {
+        let randomIndex = Int(arc4random_uniform(UInt32(progressMessages.count)))
+        let message = progressMessages[randomIndex]
+        self.progressLabel.alpha = 0
+        self.progressLabel.text = message
+      },
+      completion: nil
+    )
+  }
+
   func handleGuessResponse(guess: Guess) {
+    self.progressOverlay.hidden = true
     if( Config.fakeApiCalls() ) {
       self.fakeResponseActions.hidden = false
     } else {
