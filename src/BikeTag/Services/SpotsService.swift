@@ -44,7 +44,8 @@ class SpotsService: ApiService {
   func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
     let parameters = [ "guess": [
       "spot_id": guess.spot.id!,
-      "location": locationParameters(guess.location)
+      "location": locationParameters(guess.location),
+      "image_data": guess.base64ImageData()
     ]]
 
     let postSpotGuessRequest = APIRequest.build(Method.POST, path: "guesses.json", parameters: parameters)

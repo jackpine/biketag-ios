@@ -38,4 +38,8 @@ class Guess {
       return "I'm not even sure you're on the right contintent."
     }
   }
+
+  func base64ImageData() -> String {
+    return UIImageJPEGRepresentation(self.image, 0.9).base64EncodedStringWithOptions(nil)
+  }
 }
