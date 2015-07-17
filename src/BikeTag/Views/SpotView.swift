@@ -14,6 +14,10 @@ class SpotView: UIImageView {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSpotViewImage", name: Spot.DidSetImageNotification, object: spot)
   }
 
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+
   required init(coder: NSCoder) {
     super.init(coder: coder)
     self.contentMode = .ScaleAspectFill
