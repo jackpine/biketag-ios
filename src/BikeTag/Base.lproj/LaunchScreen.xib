@@ -10,30 +10,16 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BikeTag" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="kId-c2-rCX">
-                    <rect key="frame" x="16" y="64" width="448" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="80" id="aJ4-GY-Rs7"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bike-flag" translatesAutoresizingMaskIntoConstraints="NO" id="lY6-Eq-DGB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bike-flag" translatesAutoresizingMaskIntoConstraints="NO" id="GfQ-L5-ihm">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="kId-c2-rCX" secondAttribute="trailing" constant="16" id="CmR-78-pAF"/>
-                <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
-                <constraint firstAttribute="bottom" secondItem="lY6-Eq-DGB" secondAttribute="bottom" id="KtN-7C-RkP"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="N4k-bh-rYA"/>
-                <constraint firstAttribute="trailing" secondItem="lY6-Eq-DGB" secondAttribute="trailing" id="aws-Pl-g9r"/>
-                <constraint firstItem="lY6-Eq-DGB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="poW-GY-K6A"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="sZw-dN-F9Q"/>
-                <constraint firstItem="lY6-Eq-DGB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="v64-Wq-r4w"/>
-                <constraint firstItem="kId-c2-rCX" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lY6-Eq-DGB" secondAttribute="top" constant="40" id="yet-pV-HJQ"/>
+                <constraint firstAttribute="centerY" secondItem="GfQ-L5-ihm" secondAttribute="centerY" id="A7d-Yk-yt9"/>
+                <constraint firstAttribute="centerX" secondItem="GfQ-L5-ihm" secondAttribute="centerX" id="RLq-d2-43v"/>
+                <constraint firstAttribute="trailing" secondItem="GfQ-L5-ihm" secondAttribute="trailing" id="kM5-r5-5KU"/>
+                <constraint firstItem="GfQ-L5-ihm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ven-wT-qdo"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -41,6 +27,6 @@
         </view>
     </objects>
     <resources>
-        <image name="bike-flag" width="300" height="300"/>
+        <image name="bike-flag" width="800" height="800"/>
     </resources>
 </document>
