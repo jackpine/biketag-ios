@@ -41,7 +41,7 @@ class NewSpotViewController: CameraViewController {
     super.prepareForSegue(segue, sender: sender)
     let homeViewController = segue.destinationViewController as! HomeViewController
     if self.newSpot != nil {
-      homeViewController.currentSpots[self.newSpot!.game.id] = self.newSpot!
+      homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
       homeViewController.currentSpot = self.newSpot!
     }
   }
