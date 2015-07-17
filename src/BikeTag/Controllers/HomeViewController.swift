@@ -178,14 +178,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func spotViewHeight() -> CGFloat {
-    // FIXME - I was expecting to use gameListView.frame.height here, but the gameListView is only 
+    // FIXME: I was expecting to use gameListView.frame.height here, but the gameListView is only
     // something like 300X125 pixels in 'viewDidLoad'.
     // By the time subsequent spot refreshes have happened it is full size.
     //return self.gameListView.frame.height
     return self.view.frame.height
   }
 
-  // MARK UIScrollViewDelegate
+  // MARK: UIScrollViewDelegate
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
@@ -193,8 +193,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
 
-  // MARK UITableViewDataSource
-  // MARK UITableViewDelegate
+  // MARK: UITableViewDataSource
+  // MARK: UITableViewDelegate
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.currentSpots.count;
   }
@@ -238,7 +238,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
-  // MARK CLLocationManagerDelegate
+  // MARK: CLLocationManagerDelegate
   func waitForLocation(success: ()->()) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
 
