@@ -56,7 +56,7 @@ class Spot: NSObject {
       callback(spots)
     }
 
-    spotsService.fetchCurrentSpots(callbackWithBuiltSpots, errorCallback: errorCallback)
+    spotsService.fetchCurrentSpots(location, successCallback: callbackWithBuiltSpots, errorCallback: errorCallback)
   }
 
   class func createNewSpot(spotsService: SpotsService, image: UIImage, game: Game, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
