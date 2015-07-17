@@ -11,18 +11,20 @@ class NewSpotViewController: CameraViewController {
 
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
-    var location: CLLocation?
+    var spotLocation: CLLocation?
+
+    // Fake photo when using the simulator
     if UIDevice.currentDevice().model == "iPhone Simulator" {
       let griffithSpot = Spot.griffithSpot()
       image = griffithSpot.image
-      location = griffithSpot.location
+      spotLocation = griffithSpot.location
     } else {
       image = UIImage(data: imageData)
-      location = self.mostRecentLocation
+      spotLocation = location
     }
 
     if ( image != nil ) {
-      let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location!)
+      let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: spotLocation!)
       self.uploadNewSpot(spot)
     } else {
       Logger.error("New spot image data not captured")
