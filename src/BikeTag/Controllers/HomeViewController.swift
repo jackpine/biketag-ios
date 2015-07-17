@@ -267,11 +267,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         message: "In order to verify your location, please open this app's settings and set location access to 'While Using the App'.",
         preferredStyle: .Alert)
 
-      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-        //TODO can i just do nothing here?
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.setUpLocationServices()
       }
 
-      alertController.addAction(cancelAction)
+      alertController.addAction(retryAction)
 
       let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
         if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
