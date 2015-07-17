@@ -203,12 +203,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     return self.spotViewHeight()
   }
 
+  var spotCellViews: [Int: UITableViewCell] = [Int: UITableViewCell]()
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    // TODO some way to reuse cells that haven't changed?
-    let cell = UITableViewCell()
+
     let spot = self.currentSpots[indexPath.row]
+    if spot.id != nil && spotCellViews[spot.id!] != nil {
+      return spotCellViews[spot.id!]!
+    }
+
+    let cell = UITableViewCell()
     let spotView = SpotView(frame: self.view.frame, spot: spot)
     cell.insertSubview(spotView, atIndex: 0)
+
+    if spot.id != nil { //Can't cache a new spot's cell
+      spotCellViews[spot.id!] = cell
+    }
+
     return cell
   }
 
