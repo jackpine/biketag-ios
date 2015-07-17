@@ -14,8 +14,12 @@ class ApiService {
       mutableRequest.HTTPMethod = method.rawValue
       mutableRequest.setValue("Token \(Config.getApiKey())", forHTTPHeaderField: "Authorization")
 
-      if method == Method.POST {
-        return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: parameters!).0
+      if parameters != nil {
+        if method == Method.POST {
+          return Alamofire.ParameterEncoding.JSON.encode(mutableRequest, parameters: parameters!).0
+        } else { // if method == Method.GET {
+          return Alamofire.ParameterEncoding.URL.encode(mutableRequest, parameters: parameters!).0
+        }
       } else {
         return mutableRequest as NSURLRequest
       }

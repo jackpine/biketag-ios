@@ -3,15 +3,21 @@ import Alamofire
 
 class SpotsService: ApiService {
 
-  func fetchCurrentSpots(callback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
-    let currentSpotRequest = APIRequest.build(Method.GET, path: "games/current_spots.json")
+  func fetchCurrentSpots(location: CLLocation, successCallback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
+    let parameters = [
+      "filter": [
+        "location": locationParameters(location)
+      ]
+    ]
+
+    let currentSpotRequest = APIRequest.build(Method.GET, path: "games/current_spots.json", parameters: parameters)
 
     let handleResponseAttributes = { (responseAttributes: AnyObject) -> () in
       let spotsAttributes = responseAttributes as! NSDictionary
       let parsedSpots = (spotsAttributes["spots"] as! [NSDictionary]).map { (spotAttributes) -> ParsedSpot in
         ParsedSpot(attributes: spotAttributes)
       }
-      callback(parsedSpots)
+      successCallback(parsedSpots)
     }
 
     self.request(currentSpotRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)

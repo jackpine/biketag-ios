@@ -1,8 +1,9 @@
 import Foundation
+import CoreLocation
 
 class FakeSpotsService: SpotsService {
 
-  override func fetchCurrentSpots(callback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
+  override func fetchCurrentSpots(location: CLLocation, successCallback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
     Logger.info("FAKE fetch current spot")
 
     let firstImageAsbase64Encoded = "data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7"
@@ -38,7 +39,7 @@ class FakeSpotsService: SpotsService {
       ]]
 
     let parsedSpots = fakeResponse.map( { ParsedSpot(attributes: $0) })
-    callback(parsedSpots)
+    successCallback(parsedSpots)
   }
 
   override func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {

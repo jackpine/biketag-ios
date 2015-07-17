@@ -1,6 +1,7 @@
 import UIKit
+import CoreLocation
 
-class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource  {
+class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
 
   @IBOutlet var guessSpotButtonView: PrimaryButton! {
     didSet {
@@ -17,7 +18,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
-  var currentSpots: [Int: Spot] = Dictionary<Int, Spot>() {
+  var currentSpots: [Spot] = [] {
     didSet {
       self.gameListView.reloadData()
     }
@@ -38,9 +39,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
+    locationManager.delegate = self
   }
 
   var timeOfLastReload: NSDate = NSDate()
+  var mostRecentLocation: CLLocation?
+  let locationManager = CLLocationManager()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,7 +59,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
     self.gameListView.addSubview(refreshControl)
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    self.refreshCurrentSpotsAfterGettingApiKey()
+
+    setUpLocationServices()
+    self.refresh()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
@@ -64,12 +70,25 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
-  func refreshControlPulled(sender:AnyObject) {
-    refreshCurrentSpotsAfterGettingApiKey()
+  func refresh() {
+    // Getting current spots requires the ApiKey *and* Location.
+    // *Order is important*. We get the APIKey first, meanwhile 
+    // the Location manager fetches the location in the background (started previously)
+    // minimizing the overall wait time.
+    self.startLoadingAnimation()
+    self.ensureApiKey() {
+      self.waitForLocation() {
+        self.fetchCurrentSpots()
+      }
+    }
   }
 
-  func refreshCurrentSpotsAfterGettingApiKey() {
-    self.startLoadingAnimation()
+  func refreshControlPulled(sender:AnyObject) {
+    refresh()
+  }
+
+
+  func ensureApiKey(success:()->()) {
     let displayAuthenticationErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
         title: "Unable to authenticate you.",
@@ -77,7 +96,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.refreshCurrentSpotsAfterGettingApiKey()
+        self.ensureApiKey(success)
       }
       alertController.addAction(retryAction)
 
@@ -85,19 +104,26 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
 
     ApiKey.ensureApiKey({
-      self.refreshCurrentSpots()
+      success()
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  func refreshCurrentSpots() {
+  //Replace a game's current spot in the spot list with a new spot
+  func updateGame(game: Game, newSpot: Spot) {
+    let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
+      spot.game == game
+    }.first!
+    let gameIndex = find(self.currentSpots, oldSpot)!
+    self.currentSpots[gameIndex] = newSpot
+  }
+
+  func fetchCurrentSpots() {
     Logger.info("refreshing spots list")
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
-      for currentSpot in currentSpots {
-        self.currentSpots[currentSpot.game.id] = currentSpot
-      }
+      self.currentSpots = currentSpots
       self.gameListView.contentOffset = CGPoint(x:0, y:0)
-      self.currentSpot = self.currentSpotsArray()[0]
+      self.currentSpot = self.currentSpots[0]
       self.guessSpotButtonView.enabled = true;
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
@@ -110,25 +136,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.refreshCurrentSpots()
+        self.fetchCurrentSpots()
       }
       alertController.addAction(retryAction)
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpots(self.spotsService, callback: setCurrentSpots, errorCallback: displayErrorAlert)
-  }
-
-  func currentSpotsArray() -> [Spot] {
-    // XXX I'm making an (unfounded) assumption that the order of the values 
-    // returned by the dictionary is opposite of that in which they were inserted
-    // and that it is stable. This has been true anecdotally, but I'm leaving this
-    // comment here as a bread crumb for when it inevitably breaks. If it does,
-    // consider a more sophisticated data structure like this: 
-    //      http://timekl.com/blog/2014/06/02/learning-swift-ordered-dictionaries/
-    // reverse here to respect the order of the API
-    return self.currentSpots.values.array.reverse()
+    Spot.fetchCurrentSpots(self.spotsService, location: self.mostRecentLocation!, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
   func stopLoadingAnimation() {
@@ -163,54 +178,134 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func spotViewHeight() -> CGFloat {
-    // FIXME - I was expecting to use gameListView.frame.height here, but the gameListView is only 
+    // FIXME: I was expecting to use gameListView.frame.height here, but the gameListView is only
     // something like 300X125 pixels in 'viewDidLoad'.
     // By the time subsequent spot refreshes have happened it is full size.
     //return self.gameListView.frame.height
     return self.view.frame.height
   }
 
-  // MARK UIScrollViewDelegate
+  // MARK: UIScrollViewDelegate
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    self.currentSpot = self.currentSpotsArray()[cellIndex]
+    self.currentSpot = self.currentSpots[cellIndex]
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
   }
 
-  // MARK UITableViewDataSource
-  // MARK UITableViewDelegate
+  // MARK: UITableViewDataSource
+  // MARK: UITableViewDelegate
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.currentSpotsArray().count;
+    return self.currentSpots.count;
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return self.spotViewHeight()
   }
 
+  var spotCellViews: [Int: UITableViewCell] = [Int: UITableViewCell]()
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    // TODO some way to reuse cells that haven't changed?
+
+    let spot = self.currentSpots[indexPath.row]
+    if spot.id != nil && spotCellViews[spot.id!] != nil {
+      return spotCellViews[spot.id!]!
+    }
+
     let cell = UITableViewCell()
-    let spot = self.currentSpotsArray()[indexPath.row]
     let spotView = SpotView(frame: self.view.frame, spot: spot)
     cell.insertSubview(spotView, atIndex: 0)
+
+    if spot.id != nil { //Can't cache a new spot's cell
+      spotCellViews[spot.id!] = cell
+    }
+
     return cell
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    refreshCurrentSpotsIfStale()
+    refreshIfStale()
   }
 
   func applicationWillEnterForeground(notification: NSNotification) {
-    refreshCurrentSpotsIfStale()
+    refreshIfStale()
   }
 
-  func refreshCurrentSpotsIfStale() {
+  func refreshIfStale() {
     let secondsElapsed = Int(NSDate().timeIntervalSinceDate(self.timeOfLastReload))
     if ( secondsElapsed > 60 * 30 ) {
-      refreshCurrentSpotsAfterGettingApiKey()
+      refresh()
     }
+  }
+
+  // MARK: CLLocationManagerDelegate
+  func waitForLocation(success: ()->()) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+
+      // Don't bomard the user with a redundant warning if they are still reading the location authorization request.
+      if ( CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedAlways && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse ) {
+        return self.waitForLocation(success)
+      }
+
+      if(self.mostRecentLocation == nil) {
+        let alertController = UIAlertController(
+          title: "Hang on a second.",
+          message: "We're having trouble pinpointing your location",
+          preferredStyle: .Alert)
+
+        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+          self.waitForLocation(success)
+        }
+        alertController.addAction(retryAction)
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+        return
+      } else {
+        success()
+      }
+    }
+  }
+
+  func setUpLocationServices() {
+    switch CLLocationManager.authorizationStatus() {
+    case .AuthorizedAlways, .AuthorizedWhenInUse:
+      locationManager.startUpdatingLocation()
+    case .NotDetermined:
+      locationManager.requestWhenInUseAuthorization()
+    case .Restricted, .Denied:
+      let alertController = UIAlertController(
+        title: "Background Location Access Disabled",
+        message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.setUpLocationServices()
+      }
+
+      alertController.addAction(retryAction)
+
+      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+          UIApplication.sharedApplication().openURL(url)
+        }
+      }
+      alertController.addAction(openAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+  }
+
+  func locationManager(manager: CLLocationManager!,
+    didChangeAuthorizationStatus status: CLAuthorizationStatus)
+  {
+    setUpLocationServices()
+  }
+
+  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+    if( self.mostRecentLocation == nil ) {
+      Logger.debug("Initialized location: \(locations.last)")
+    }
+    self.mostRecentLocation = locations.last as? CLLocation
   }
 
 }

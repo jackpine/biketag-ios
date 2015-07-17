@@ -50,13 +50,13 @@ class Spot: NSObject {
     }
   }
 
-  class func fetchCurrentSpots(spotsService: SpotsService, callback:([Spot])->(), errorCallback:(NSError)->()) {
+  class func fetchCurrentSpots(spotsService: SpotsService, location: CLLocation, callback:([Spot])->(), errorCallback:(NSError)->()) {
     let callbackWithBuiltSpots = { (parsedSpots: [ParsedSpot]) -> () in
       let spots = parsedSpots.map { Spot(parsedSpot: $0) }
       callback(spots)
     }
 
-    spotsService.fetchCurrentSpots(callbackWithBuiltSpots, errorCallback: errorCallback)
+    spotsService.fetchCurrentSpots(location, successCallback: callbackWithBuiltSpots, errorCallback: errorCallback)
   }
 
   class func createNewSpot(spotsService: SpotsService, image: UIImage, game: Game, location: CLLocation, callback: (Spot) ->(), errorCallback:(NSError)->()) {
