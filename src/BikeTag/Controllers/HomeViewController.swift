@@ -71,9 +71,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func refresh() {
-    // Getting current spots requires the ApiKey and Location
-    // We get the APIKey first, while the Location manager works in the background
-    // to fetch the location in the background - minimizing the time we wait for it.
+    // Getting current spots requires the ApiKey *and* Location.
+    // *Order is important*. We get the APIKey first, meanwhile 
+    // the Location manager fetches the location in the background (started previously)
+    // minimizing the overall wait time.
     self.ensureApiKey() {
       self.waitForLocation() {
         self.fetchCurrentSpots()
