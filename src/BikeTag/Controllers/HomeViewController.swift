@@ -75,6 +75,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     // *Order is important*. We get the APIKey first, meanwhile 
     // the Location manager fetches the location in the background (started previously)
     // minimizing the overall wait time.
+    self.startLoadingAnimation()
     self.ensureApiKey() {
       self.waitForLocation() {
         self.fetchCurrentSpots()
@@ -88,8 +89,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
 
   func ensureApiKey(success:()->()) {
-    self.startLoadingAnimation()
-
     let displayAuthenticationErrorAlert = { (error: NSError) -> () in
       let alertController = UIAlertController(
         title: "Unable to authenticate you.",
