@@ -63,7 +63,6 @@ class NewSpotViewController: CameraViewController {
     let displayErrorAlert = { (error: NSError) -> () in
       self.activityIndicatorView.stopAnimating()
 
-
       var alertController: UIAlertController
       if error.code == 133 {
         alertController = UIAlertController(

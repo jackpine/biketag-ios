@@ -111,7 +111,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   func updateGame(game: Game, newSpot: Spot) {
     let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
-      newSpot.game == game
+      spot.game == game
     }.first!
     let gameIndex = find(self.currentSpots, oldSpot)!
     self.currentSpots[gameIndex] = newSpot
