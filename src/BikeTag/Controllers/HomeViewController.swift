@@ -241,6 +241,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   // MARK CLLocationManagerDelegate
   func waitForLocation(success: ()->()) {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+
+      // Don't bomard the user with a redundant warning if they are still reading the location authorization request.
+      if ( CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedAlways && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse ) {
+        return self.waitForLocation(success)
+      }
+
       if(self.mostRecentLocation == nil) {
         let alertController = UIAlertController(
           title: "Hang on a second.",
@@ -269,7 +275,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     case .Restricted, .Denied:
       let alertController = UIAlertController(
         title: "Background Location Access Disabled",
-        message: "In order to verify your location, please open this app's settings and set location access to 'While Using the App'.",
+        message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
