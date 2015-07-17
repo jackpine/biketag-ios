@@ -108,6 +108,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
+  //Replace a game's current spot in the spot list with a new spot
   func updateGame(game: Game, newSpot: Spot) {
     let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
       spot.game == game
