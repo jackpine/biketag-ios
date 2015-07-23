@@ -47,7 +47,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
 
       if(self.mostRecentLocation == nil) {
         let alertController = UIAlertController(
-          title: "Hang on a second.",
+          title: "Where you at?",
           message: "We're having trouble pinpointing your location",
           preferredStyle: .Alert)
 
