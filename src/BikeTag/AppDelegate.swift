@@ -12,6 +12,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Override point for customization after application launch.
     Fabric.with([Crashlytics()])
+
+    // TODO this is the current way to log in as an existing user
+    //
+    //    ApiKey.setCurrentApiKey([
+    //      "client_id": "paste-youre-client-id-here",
+    //      "secret": "paste-your-secret-here",
+    //      "user_id": 1
+    //    ])
+
     return true
   }
 
