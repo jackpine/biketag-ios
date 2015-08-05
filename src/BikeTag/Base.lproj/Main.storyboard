@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome-->
         <scene sceneID="Z6c-bJ-Ezr">
             <objects>
-                <viewController id="R0O-1U-gcA" sceneMemberID="viewController">
+                <viewController title="Welcome" id="R0O-1U-gcA" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mCU-pB-gYd"/>
                         <viewControllerLayoutGuide type="bottom" id="1fv-dc-ylJ"/>
@@ -20,7 +20,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bike-flag" translatesAutoresizingMaskIntoConstraints="NO" id="OSc-Yo-edn">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KA-6Z-e3d" userLabel="Welcome Content">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -133,20 +132,20 @@
                                         <exclude reference="mNc-rW-Hal"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="ry6-07-4CO"/>
-                                        <exclude reference="uIT-5x-5ff"/>
-                                        <exclude reference="uKi-BL-l3A"/>
                                         <exclude reference="42k-pT-7wf"/>
                                         <exclude reference="bwK-84-Job"/>
+                                        <exclude reference="yYS-pa-6fs"/>
                                         <exclude reference="SYh-VU-Vyl"/>
                                         <exclude reference="X0r-P8-bw2"/>
                                         <exclude reference="EUp-Sd-9rW"/>
                                         <exclude reference="aUE-uW-bMy"/>
                                         <exclude reference="rBb-h2-uiN"/>
-                                        <exclude reference="yYS-pa-6fs"/>
                                         <exclude reference="TSQ-2A-lUQ"/>
                                         <exclude reference="fB2-fF-eON"/>
                                         <exclude reference="xMF-1y-lAV"/>
+                                        <exclude reference="ry6-07-4CO"/>
+                                        <exclude reference="uIT-5x-5ff"/>
+                                        <exclude reference="uKi-BL-l3A"/>
                                         <exclude reference="FeK-Wb-w3I"/>
                                         <exclude reference="KFS-7I-2mv"/>
                                         <exclude reference="ro2-OE-RZh"/>
@@ -164,20 +163,20 @@
                                         <include reference="mNc-rW-Hal"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="ry6-07-4CO"/>
-                                        <include reference="uIT-5x-5ff"/>
-                                        <include reference="uKi-BL-l3A"/>
                                         <include reference="42k-pT-7wf"/>
                                         <include reference="bwK-84-Job"/>
+                                        <include reference="yYS-pa-6fs"/>
                                         <include reference="SYh-VU-Vyl"/>
                                         <include reference="X0r-P8-bw2"/>
                                         <include reference="EUp-Sd-9rW"/>
                                         <include reference="aUE-uW-bMy"/>
                                         <include reference="rBb-h2-uiN"/>
-                                        <include reference="yYS-pa-6fs"/>
                                         <include reference="TSQ-2A-lUQ"/>
                                         <include reference="fB2-fF-eON"/>
                                         <include reference="xMF-1y-lAV"/>
+                                        <include reference="ry6-07-4CO"/>
+                                        <include reference="uIT-5x-5ff"/>
+                                        <include reference="uKi-BL-l3A"/>
                                         <include reference="FeK-Wb-w3I"/>
                                         <include reference="KFS-7I-2mv"/>
                                         <include reference="ro2-OE-RZh"/>
@@ -211,14 +210,14 @@
                                 <exclude reference="4KA-6Z-e3d"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ZH3-qD-2VY"/>
-                                <exclude reference="sMe-GE-tED"/>
                                 <exclude reference="Nbt-OK-nOt"/>
                                 <exclude reference="VKF-wr-R8A"/>
                                 <exclude reference="Zht-Ih-QRY"/>
                                 <exclude reference="snq-aV-ZuJ"/>
                                 <exclude reference="AWf-tq-eq6"/>
                                 <exclude reference="Te1-QV-2vL"/>
+                                <exclude reference="sMe-GE-tED"/>
+                                <exclude reference="ZH3-qD-2VY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -227,14 +226,14 @@
                                 <include reference="4KA-6Z-e3d"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ZH3-qD-2VY"/>
-                                <include reference="sMe-GE-tED"/>
                                 <include reference="Nbt-OK-nOt"/>
                                 <include reference="VKF-wr-R8A"/>
                                 <include reference="Zht-Ih-QRY"/>
                                 <include reference="snq-aV-ZuJ"/>
                                 <include reference="AWf-tq-eq6"/>
                                 <include reference="Te1-QV-2vL"/>
+                                <include reference="sMe-GE-tED"/>
+                                <include reference="ZH3-qD-2VY"/>
                             </mask>
                         </variation>
                     </view>
@@ -1684,6 +1683,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bike-flag" width="800" height="800"/>
+        <image name="bike-flag" width="1600" height="1600"/>
     </resources>
 </document>
