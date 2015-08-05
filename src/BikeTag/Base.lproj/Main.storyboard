@@ -142,7 +142,7 @@
                                 </connections>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="520" width="600" height="60"/>
+                                <rect key="frame" x="16" y="520" width="568" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
@@ -194,28 +194,24 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="48t-t5-2C3">
-                                <variation key="widthClass=compact" constant="0.0"/>
-                            </constraint>
-                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="4jA-h9-MtL"/>
+                            <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
+                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="4jA-h9-MtL"/>
                             <constraint firstItem="Ia1-K6-d13" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="top" constant="64" id="8zw-Bk-ci5"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" constant="-16" id="N1i-04-DXg"/>
+                            <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstAttribute="trailingMargin" secondItem="TFQ-Dr-h4t" secondAttribute="trailing" constant="-16" id="Oq6-O2-Qm5"/>
+                            <constraint firstAttribute="trailing" secondItem="TFQ-Dr-h4t" secondAttribute="trailing" id="Oq6-O2-Qm5"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" constant="20" id="Qhp-fz-o5e">
                                 <variation key="widthClass=compact" constant="16"/>
                             </constraint>
-                            <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-16" id="gVf-XB-cHS"/>
+                            <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
                             <constraint firstItem="TFQ-Dr-h4t" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="gkQ-07-HzZ"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="bottom" id="gzb-cg-t2H"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="bottom" id="sgb-XJ-lqr"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" constant="-16" id="zC6-Uh-ta4">
-                                <variation key="widthClass=compact" constant="0.0"/>
-                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
@@ -702,17 +698,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" contentMode="TopLeft" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
+                            <view clipsSubviews="YES" contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q58-dZ-it4" userLabel="Progress View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q58-dZ-it4" userLabel="Progress View">
                                 <rect key="frame" x="200" y="240" width="200" height="120"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-M8-9Ot">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-M8-9Ot">
                                         <rect key="frame" x="81.5" y="16" width="37" height="88"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Uploading your Spot..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esu-5R-jaZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading your Spot..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esu-5R-jaZ">
                                         <rect key="frame" x="16" y="120" width="168" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
