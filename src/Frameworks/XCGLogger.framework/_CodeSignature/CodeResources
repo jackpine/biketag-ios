@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/XCGLogger-Swift.h</key>
 		<data>
-		qpNwbc70WqEhHzgL5eH74Svcd5o=
+		JsKtiw/cyhHWQIv/DaTPIDboCIs=
 		</data>
 		<key>Headers/XCGLogger.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		HXfG+BA62c0asniFK8gx73AtaxM=
+		cee24uBEoCyAyykJYxr2ioHyyV8=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftmodule</key>
 		<data>
-		sm0ew95GljuiY16rvq2XRoifVe4=
+		4N6RItbZE5OPAzrgMmM49V8Bpzs=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		sJUdJUo2+i7WzWhGSQmzX908CdI=
+		Ozv7E4MM1oqzVDNaOJSyp0a2Y0k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,7 +41,7 @@
 	<dict>
 		<key>Headers/XCGLogger-Swift.h</key>
 		<data>
-		qpNwbc70WqEhHzgL5eH74Svcd5o=
+		JsKtiw/cyhHWQIv/DaTPIDboCIs=
 		</data>
 		<key>Headers/XCGLogger.h</key>
 		<data>
@@ -53,7 +53,7 @@
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftmodule</key>
 		<data>
-		sm0ew95GljuiY16rvq2XRoifVe4=
+		4N6RItbZE5OPAzrgMmM49V8Bpzs=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -61,7 +61,7 @@
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		sJUdJUo2+i7WzWhGSQmzX908CdI=
+		Ozv7E4MM1oqzVDNaOJSyp0a2Y0k=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
