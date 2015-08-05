@@ -54,10 +54,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: titleAttributes)
+    self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
-    self.gameListView.addSubview(refreshControl)
+    self.gameListView.addSubview(self.refreshControl)
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     setUpLocationServices()
