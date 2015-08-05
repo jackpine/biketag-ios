@@ -589,7 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255b8844-c265-428f-9524-fd1148a12a8b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = AdHoc;
 		};
@@ -729,7 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255b8844-c265-428f-9524-fd1148a12a8b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
