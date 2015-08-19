@@ -46,6 +46,7 @@ class CheckGuessViewController: ApplicationViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     self.submitGuessToServer()
     self.updateSubmittedImageView()
   }

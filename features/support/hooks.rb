@@ -1,92 +1,79 @@
-require 'calabash-cucumber/launcher'
-
-module LaunchControl
-  @@launcher = nil
-
-  def self.launcher
-    @@launcher ||= Calabash::Cucumber::Launcher.new
-  end
-
-  def self.launcher=(launcher)
-    @@launcher = launcher
-  end
-
-  def self.target
-    ENV['DEVICE_TARGET'] || RunLoop::Core.default_simulator
-  end
-
-  def self.target_is_simulator?
-    RunLoop::Core.simulator_target?({:device_target => LaunchControl.target})
-  end
-
-  def self.target_is_physical_device?
-    !self.target_is_simulator?
-  end
-
-  def self.ensure_ipa
-    ipa_path = File.expand_path('./BikeTag.ipa')
-    unless File.exist?(ipa_path)
-      system('make', 'ipa')
-    end
-    ipa_path
-  end
-
-  def self.install_on_physical_device
-    Calabash::IDeviceInstaller.new(LaunchControl.ensure_ipa,
-                                   LaunchControl.target).install_app
-  end
-
-  def self.ensure_app_installed_on_device
-    ideviceinstaller = Calabash::IDeviceInstaller.new(LaunchControl.ensure_ipa,
-                                                      LaunchControl.target)
-    unless ideviceinstaller.app_installed?
-      ideviceinstaller.install_app
-    end
-  end
-end
-
-Before('@reset_app_btw_scenarios') do
-  if xamarin_test_cloud?
-    ENV['RESET_BETWEEN_SCENARIOS'] = '1'
-  elsif LaunchControl.target_is_simulator?
-    target = LaunchControl.target
-    simulator = RunLoop::Device.device_with_identifier(target)
-    bridge = RunLoop::Simctl::Bridge.new(simulator, ENV['APP'])
-    bridge.reset_app_sandbox
-  else
-    LaunchControl.install_on_physical_device
-  end
-end
-
-Before('@reset_device_settings') do
-  if xamarin_test_cloud?
-    ENV['RESET_BETWEEN_SCENARIOS'] = '1'
-  elsif LaunchControl.target_is_simulator?
-    target = LaunchControl.target
-    RunLoop::Core.simulator_target?({:device_target => target})
-    sim_control = RunLoop::SimControl.new
-    sim_control.reset_sim_content_and_settings
-  else
-    LaunchControl.install_on_physical_device
-  end
-end
+require 'calabash'
 
 Before do |scenario|
-  launcher = LaunchControl.launcher
-
-  unless launcher.calabash_no_launch?
-    launcher.relaunch
-    launcher.calabash_notify(self)
+  if scenario.respond_to?(:scenario_outline)
+    scenario = scenario.scenario_outline
   end
 
-  if xamarin_test_cloud?
-    ENV['RESET_BETWEEN_SCENARIOS'] = '0'
+  AppLifeCycle.on_new_scenario(scenario)
+  Cucumber.wants_to_quit = false
+
+  start_app
+end
+
+module AppLifeCycle
+  # Since this is a module, the methods in the Cucumber World are not
+  # available inside the scope of this module. We can safely include Calabash
+  # because we will not affect the scope outside this module. The methods are
+  # loaded as class (static) methods.
+  class << self
+    include Calabash
   end
 
-  # Re-installing the app on a device does not clear the Keychain settings
-  if scenario.source_tag_names.include?('@reset_device_settings')
-    if xamarin_test_cloud? || LaunchControl.target_is_physical_device?
-      keychain_clear
+  DEFAULT_RESET_BETWEEN = :never
+  DEFAULT_RESET_METHOD = :reinstall
+
+  RESET_BETWEEN = if Calabash::Environment.variable('RESET_BETWEEN')
+                    Calabash::Environment.variable('RESET_BETWEEN').downcase.to_sym
+                  else
+                    DEFAULT_RESET_BETWEEN
+                  end
+
+  RESET_METHOD = if Calabash::Environment.variable('RESET_METHOD')
+                   Calabash::Environment.variable('RESET_METHOD').downcase.to_sym
+                 else
+                   DEFAULT_RESET_METHOD
+                 end
+
+  def self.on_new_scenario(scenario)
+    if @last_feature.nil? && RESET_BETWEEN == :never
+      ensure_app_installed
+    end
+
+    if should_reset?(scenario)
+      reset
+    end
+
+    @last_feature = scenario.feature
+  end
+
+  private
+
+  def self.should_reset?(scenario)
+    case RESET_BETWEEN
+      when :scenarios
+        true
+      when :features
+        scenario.feature != @last_feature
+      when :never
+        false
+      else
+        raise "Invalid reset between option '#{RESET_BETWEEN}'"
+    end
+  end
+
+  def self.reset
+    case RESET_METHOD
+      when :reinstall
+        install_app
+      when :clear
+        ensure_app_installed
+        clear_app_data
+      when '', nil
+        raise 'No reset method given'
+      else
+        raise "Invalid reset method '#{RESET_METHOD}'"
     end
   end
 end
+
