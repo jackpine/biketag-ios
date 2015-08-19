@@ -53,7 +53,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
     self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
-    self.guessSpotButtonView.accessibilityIdentifier = "guess spot"
 
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
