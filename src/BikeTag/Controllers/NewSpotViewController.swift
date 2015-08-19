@@ -9,11 +9,6 @@ class NewSpotViewController: CameraViewController {
   @IBOutlet var progressView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
-  override func viewDidLoad() {
-    self.view.accessibilityIdentifier = "new spot"
-    self.takePictureButton.accessibilityIdentifier = "take picture: claim spot"
-  }
-
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
     var spotLocation: CLLocation?

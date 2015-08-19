@@ -9,9 +9,6 @@ class GuessSpotViewController: CameraViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    self.view.accessibilityIdentifier = "photo evidence"
-    self.takePictureButton.accessibilityIdentifier = "take picture: evidence"
   }
 
   func createGuessFromData(imageData: NSData, location: CLLocation) -> () {
