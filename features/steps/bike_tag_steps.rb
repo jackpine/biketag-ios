@@ -4,6 +4,23 @@ Given(/^the game has started$/) do
   end
 end
 
+Given(/^I have dismissed the splash page$/) do
+  query = "view marked:'#{escape_single_quotes("Let's Ride!")}'"
+
+  begin
+    wait_for_view(query, {:timeout => 5.0})
+  rescue Calabash::Wait::ViewNotFoundError => _
+
+  end
+
+  if query(query).empty?
+    # we've cleared the splash screen already
+  else
+    tap(query)
+    wait_for_no_view(query)
+  end
+end
+
 Then(/^I should see a photo of a current spot$/) do
   wait_for do
     query("BikeTag.SpotView").first != nil
