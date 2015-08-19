@@ -5,10 +5,10 @@ Given(/^the game has started$/) do
 end
 
 Given(/^I have dismissed the splash page$/) do
-  query = "view marked:'#{escape_single_quotes("Let's Ride!")}'"
+  query = "view marked:'#{escape_single_quotes("let's ride")}'"
 
   begin
-    wait_for_view(query, {:timeout => 5.0})
+    wait_for_view(query, {:timeout => 2.0})
   rescue Calabash::Wait::ViewNotFoundError => _
 
   end
