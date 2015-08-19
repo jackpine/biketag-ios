@@ -58,6 +58,9 @@
                                         <state key="normal" title="Let's Ride!">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="let's ride"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="89J-R4-vFb" kind="show" id="ed5-kK-neu"/>
                                         </connections>
@@ -265,7 +268,6 @@
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
                                 <rect key="frame" x="230.5" y="550" width="139" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration" label="guess spot"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
                                         <variation key="widthClass=compact" constant="48"/>
@@ -276,6 +278,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guess spot"/>
+                                </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="HA6-Rz-YQu"/>
@@ -393,6 +398,9 @@
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="current spots"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="pUs-On-Jlr"/>
@@ -520,6 +528,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtK-pk-m87" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
                                         <rect key="frame" x="267.5" y="560" width="65" height="20"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <accessibility key="accessibilityConfiguration" label=""/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Xr5-g9-UJe">
                                                 <variation key="widthClass=compact" constant="48"/>
@@ -531,6 +540,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: evidence"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
                                         </connections>
@@ -620,6 +632,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="-16"/>
                             </constraint>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photo evidence"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="inN-Os-Ndg"/>
@@ -1018,6 +1033,9 @@
                                                 <variation key="widthClass=compact" constant="16"/>
                                             </constraint>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guessed wrong"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="SgD-6O-4ph"/>
@@ -1063,6 +1081,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="at new spot button"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="84g-RT-zNt"/>
@@ -1094,6 +1115,9 @@
                                             <constraint firstAttribute="trailing" secondItem="sVr-T3-VXe" secondAttribute="trailing" constant="16" id="wJA-lV-odl"/>
                                             <constraint firstAttribute="bottom" secondItem="sVr-T3-VXe" secondAttribute="bottom" constant="16" id="wk3-d7-Pg6"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guessed correct"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="subviews">
                                                 <exclude reference="sVr-T3-VXe"/>
@@ -1328,6 +1352,9 @@
                             <constraint firstItem="0rs-uX-AcI" firstAttribute="leading" secondItem="zxW-5G-LFt" secondAttribute="leading" id="vCc-rR-N48"/>
                             <constraint firstItem="90v-iu-fVa" firstAttribute="top" secondItem="zxW-5G-LFt" secondAttribute="bottom" id="z1K-ZN-8La"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="check guess"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="0rs-uX-AcI"/>
@@ -1536,6 +1563,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: claim spot"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="Yln-Sg-jHJ"/>
@@ -1630,6 +1660,9 @@
                                 <variation key="widthClass=compact" constant="-16"/>
                             </constraint>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
+                        </userDefinedRuntimeAttributes>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Q58-dZ-it4"/>
