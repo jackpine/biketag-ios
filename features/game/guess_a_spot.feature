@@ -2,6 +2,9 @@ Feature: Guessing a spot
   As a player
   I should be able to submit a new spot
 
+  Background: Get past the splash page
+    Given I have dismissed the splash page
+
   @correct_spot
   Scenario: Submitting the correct spot
     Given I'm looking at the list of current spots
