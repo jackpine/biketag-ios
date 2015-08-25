@@ -28,6 +28,10 @@
 		454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */; };
 		454E11121B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
+		454E8DE71B7276D700BDDE5D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE51B7276D700BDDE5D /* Alamofire.framework */; };
+		454E8DE81B7276D700BDDE5D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE51B7276D700BDDE5D /* Alamofire.framework */; };
+		454E8DE91B7276D700BDDE5D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE61B7276D700BDDE5D /* XCGLogger.framework */; };
+		454E8DEA1B7276D700BDDE5D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE61B7276D700BDDE5D /* XCGLogger.framework */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -36,16 +40,10 @@
 		4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
 		4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
-		4581A60C1AB7F7B8004C871F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; };
-		4581A60D1AB7F7B8004C871F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; };
-		4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4581A60B1AB7F7B8004C871F /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
-		459B3F8A1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; };
-		459B3F8B1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
-		459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
@@ -72,20 +70,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		4581A60E1AB7FA27004C871F /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				459B3F8F1AE1B54D00BFCF79 /* XCGLogger.framework in CopyFiles */,
-				4581A60F1AB7FA36004C871F /* Alamofire.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
@@ -104,14 +88,14 @@
 		454E110A1B1927B200FBAAC3 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		454E8DE51B7276D700BDDE5D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		454E8DE61B7276D700BDDE5D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
-		4581A60B1AB7F7B8004C871F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
-		459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,9 +118,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4581A60C1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
-				459B3F8A1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */,
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
+				454E8DE91B7276D700BDDE5D /* XCGLogger.framework in Frameworks */,
+				454E8DE71B7276D700BDDE5D /* Alamofire.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4581A60D1AB7F7B8004C871F /* Alamofire.framework in Frameworks */,
-				459B3F8B1AE1B2B600BFCF79 /* XCGLogger.framework in Frameworks */,
+				454E8DE81B7276D700BDDE5D /* Alamofire.framework in Frameworks */,
+				454E8DEA1B7276D700BDDE5D /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,10 +211,10 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				454E8DE51B7276D700BDDE5D /* Alamofire.framework */,
+				454E8DE61B7276D700BDDE5D /* XCGLogger.framework */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
 				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
-				459B3F891AE1B2B600BFCF79 /* XCGLogger.framework */,
-				4581A60B1AB7F7B8004C871F /* Alamofire.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -330,8 +314,8 @@
 				45AB7BA31A3A1D8B00E1961E /* Frameworks */,
 				45AB7BA41A3A1D8B00E1961E /* Resources */,
 				45466E9F1ACA0A3B00D7B69A /* Copy Configuration File(s) */,
-				4581A60E1AB7FA27004C871F /* CopyFiles */,
 				4562CC6B1B1F7E86005EF625 /* Fabric (Crashalytics) */,
+				454E8DE21B726D5A00BDDE5D /* Copy Carthage Built Frameworks */,
 			);
 			buildRules = (
 			);
@@ -432,6 +416,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "RESOURCE_PATH=${SRCROOT}/${PRODUCT_NAME}/Configs/${CONFIGURATION}\n\nBUILD_APP_DIR=${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app\n\necho \"Copying all files under ${RESOURCE_PATH} to ${BUILD_APP_DIR}\"\ncp -v \"${RESOURCE_PATH}/\"* \"${BUILD_APP_DIR}/\"";
+		};
+		454E8DE21B726D5A00BDDE5D /* Copy Carthage Built Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/XCGLogger.framework",
+			);
+			name = "Copy Carthage Built Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		4562CC6B1B1F7E86005EF625 /* Fabric (Crashalytics) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -589,7 +589,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255b8844-c265-428f-9524-fd1148a12a8b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = AdHoc;
 		};
@@ -729,7 +729,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "255b8844-c265-428f-9524-fd1148a12a8b";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

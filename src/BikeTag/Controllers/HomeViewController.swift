@@ -54,10 +54,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-    self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: titleAttributes)
+    self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
-    self.gameListView.addSubview(refreshControl)
+    self.gameListView.addSubview(self.refreshControl)
     self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     setUpLocationServices()
@@ -122,7 +122,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       self.currentSpots = currentSpots
-      self.gameListView.contentOffset = CGPoint(x:0, y:0)
       self.currentSpot = self.currentSpots[0]
       self.guessSpotButtonView.enabled = true;
       self.stopLoadingAnimation()
@@ -190,7 +189,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
     self.currentSpot = self.currentSpots[cellIndex]
-    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
+    let heightOfTopBar = CGFloat(64)
+    //Not sure why we need to offset by heightOfTopBar, but experimentally true.
+    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight() - heightOfTopBar
   }
 
   // MARK: UITableViewDataSource

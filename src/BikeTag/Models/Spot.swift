@@ -43,9 +43,11 @@ class Spot: NSObject {
 
     Alamofire.request(.GET, parsedSpot.imageUrl).response() {
       (_, _, data, _) in
-      let image = UIImage(data: data! as! NSData)
-      if image != nil {
-        self.image = image!
+      if data != nil {
+        let image = UIImage(data: data!)
+        if image != nil {
+          self.image = image!
+        }
       }
     }
   }
