@@ -26,3 +26,8 @@ You can get to the spots via foot, bicycle, transit, I suppose a car
 could work as well, but it'll be harder to find interesting spots in one 
 of those!
 
+### Development
+
+1. Follow the instructions in [biketag-api/README.md](https://github.com/jackpine/biketag-api/blob/master/README.md) to stand up the db and api server
+2. Install [carthage](https://github.com/Carthage/Carthage) with homebrew.
+3. `$ carthage bootstrap`
