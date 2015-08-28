@@ -36,7 +36,7 @@ And(/I guess correctly for the first one$/) do
   tap("view marked:'take picture: evidence'")
 
   wait_for_view("view marked:'check guess'")
-  tap("view marked:'(pretend I was right)'")
+  tap("view marked:'pretend I was right'")
 end
 
 Then(/I should see that I was correct$/) do
