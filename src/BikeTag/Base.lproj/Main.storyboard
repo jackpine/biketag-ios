@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R0O-1U-gcA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R0O-1U-gcA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -68,6 +68,9 @@
                                         <state key="normal" title="Let's Ride!">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="let's ride"/>
+                                        </userDefinedRuntimeAttributes>
                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="126" y="140" width="116" height="0.0"/>
                                         </variation>
@@ -80,6 +83,9 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Vfz-vD-bmD"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="proceed"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -136,6 +142,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-On-Jlr" customClass="UITableView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="current spots"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="9pv-A4-QxB" id="xRf-ds-owy"/>
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="afl-OA-s0M"/>
@@ -154,6 +163,9 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guess spot"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BiW-SU-TUN" kind="show" id="DQG-Lq-ZL2"/>
                                 </connections>
@@ -284,6 +296,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: evidence"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
                                         </connections>
@@ -314,6 +329,9 @@
                             <constraint firstAttribute="trailing" secondItem="esg-LR-wYA" secondAttribute="trailing" id="eco-sz-Wgv"/>
                             <constraint firstAttribute="trailing" secondItem="inN-Os-Ndg" secondAttribute="trailing" id="gSa-0X-Lkq"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photo evidence"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Photo Evidence" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
@@ -477,6 +495,9 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="pretend I was right"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="touchedPretendCorrectGuess:" destination="qI7-Ja-Voa" eventType="touchUpInside" id="gRt-6g-id1"/>
                                                 </connections>
@@ -550,6 +571,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="at new spot button"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <segue destination="kB0-aQ-szS" kind="show" id="pdm-a3-rbz"/>
                                                 </connections>
@@ -567,6 +591,9 @@
                                             <constraint firstAttribute="trailing" secondItem="sVr-T3-VXe" secondAttribute="trailing" constant="16" id="wJA-lV-odl"/>
                                             <constraint firstAttribute="bottom" secondItem="sVr-T3-VXe" secondAttribute="bottom" constant="16" id="wk3-d7-Pg6"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guessed correct"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZh-8e-e8v" userLabel="Times Up">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
@@ -656,6 +683,9 @@
                             <constraint firstItem="0rs-uX-AcI" firstAttribute="leading" secondItem="zxW-5G-LFt" secondAttribute="leading" id="vCc-rR-N48"/>
                             <constraint firstItem="90v-iu-fVa" firstAttribute="top" secondItem="zxW-5G-LFt" secondAttribute="bottom" id="z1K-ZN-8La"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="check guess"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Checking" id="DFd-br-DQk"/>
                     <connections>
@@ -750,6 +780,9 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: claim spot"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="takePictureButtonViewTouched:" destination="kB0-aQ-szS" eventType="touchUpInside" id="57J-ju-yRz"/>
                                         </connections>
@@ -779,6 +812,9 @@
                             <constraint firstItem="0zK-ub-zOi" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leading" id="kUR-xO-P8A"/>
                             <constraint firstItem="Z5X-Xm-cwg" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leading" id="rih-4L-KSa"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Post New Spot" id="TsD-mA-2Af"/>
                     <connections>
