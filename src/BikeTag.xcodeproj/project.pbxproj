@@ -19,6 +19,10 @@
 		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
 		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
 		452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
+		453298CD1BB081570002A7B0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453298CB1BB081570002A7B0 /* Alamofire.framework */; settings = {ASSET_TAGS = (); }; };
+		453298CE1BB081570002A7B0 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453298CB1BB081570002A7B0 /* Alamofire.framework */; settings = {ASSET_TAGS = (); }; };
+		453298CF1BB081570002A7B0 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453298CC1BB081570002A7B0 /* XCGLogger.framework */; settings = {ASSET_TAGS = (); }; };
+		453298D01BB081570002A7B0 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 453298CC1BB081570002A7B0 /* XCGLogger.framework */; settings = {ASSET_TAGS = (); }; };
 		454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
@@ -28,10 +32,6 @@
 		454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */; };
 		454E11121B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
-		454E8DE71B7276D700BDDE5D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE51B7276D700BDDE5D /* Alamofire.framework */; };
-		454E8DE81B7276D700BDDE5D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE51B7276D700BDDE5D /* Alamofire.framework */; };
-		454E8DE91B7276D700BDDE5D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE61B7276D700BDDE5D /* XCGLogger.framework */; };
-		454E8DEA1B7276D700BDDE5D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454E8DE61B7276D700BDDE5D /* XCGLogger.framework */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -80,6 +80,8 @@
 		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
 		4528973C1A86827F00AD077E /* GuessSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuessSpotViewController.swift; path = Controllers/GuessSpotViewController.swift; sourceTree = "<group>"; };
+		453298CB1BB081570002A7B0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		453298CC1BB081570002A7B0 /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		45466E9B1ACA01BF00D7B69A /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -88,8 +90,6 @@
 		454E110A1B1927B200FBAAC3 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		454E8DE51B7276D700BDDE5D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
-		454E8DE61B7276D700BDDE5D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
-				454E8DE91B7276D700BDDE5D /* XCGLogger.framework in Frameworks */,
-				454E8DE71B7276D700BDDE5D /* Alamofire.framework in Frameworks */,
+				453298CF1BB081570002A7B0 /* XCGLogger.framework in Frameworks */,
+				453298CD1BB081570002A7B0 /* Alamofire.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,8 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454E8DE81B7276D700BDDE5D /* Alamofire.framework in Frameworks */,
-				454E8DEA1B7276D700BDDE5D /* XCGLogger.framework in Frameworks */,
+				453298CE1BB081570002A7B0 /* Alamofire.framework in Frameworks */,
+				453298D01BB081570002A7B0 /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +211,8 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				454E8DE51B7276D700BDDE5D /* Alamofire.framework */,
-				454E8DE61B7276D700BDDE5D /* XCGLogger.framework */,
+				453298CB1BB081570002A7B0 /* Alamofire.framework */,
+				453298CC1BB081570002A7B0 /* XCGLogger.framework */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
 				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
 			);
