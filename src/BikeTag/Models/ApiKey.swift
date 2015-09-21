@@ -33,7 +33,7 @@ class ApiKey {
   }
 
   class func ensureApiKey(successCallback: ()->(), errorCallback: (NSError)->()) {
-    if let currentApiKey = getCurrentApiKey() {
+    if getCurrentApiKey() != nil {
       return successCallback()
     }
 

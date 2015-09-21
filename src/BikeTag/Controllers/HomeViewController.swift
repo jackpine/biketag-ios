@@ -306,7 +306,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     if( self.mostRecentLocation == nil ) {
       Logger.debug("Initialized location: \(locations.last)")
     }
-    self.mostRecentLocation = locations.last as? CLLocation
+    self.mostRecentLocation = locations.last
   }
 
 }

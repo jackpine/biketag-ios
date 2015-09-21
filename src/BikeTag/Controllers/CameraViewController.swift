@@ -104,7 +104,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     if( self.mostRecentLocation == nil ) {
         Logger.debug("Initialized location: \(locations.last)")
     }
-    self.mostRecentLocation = locations.last as? CLLocation
+    self.mostRecentLocation = locations.last
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
@@ -134,7 +134,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     let captureDeviceInput: AVCaptureDeviceInput!
     do {
       captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
-    } catch var error as NSError {
+    } catch let error as NSError {
       err = error
       captureDeviceInput = nil
     }

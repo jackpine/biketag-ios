@@ -46,7 +46,6 @@ class FakeSpotsService: SpotsService {
     Logger.info("FAKE post new spot")
 
     let base64EncodedImageUrlString = "data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw=="
-    let spot = Spot.griffithSpot()
     let mockResponse = [
       "image_url": base64EncodedImageUrlString,
       "user_id": User.getCurrentUser().id,
