@@ -37,7 +37,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   @IBOutlet var gameListView: UITableView!
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
@@ -113,7 +113,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
       spot.game == game
     }.first!
-    let gameIndex = find(self.currentSpots, oldSpot)!
+    let gameIndex = self.currentSpots.indexOf(oldSpot)!
     self.currentSpots[gameIndex] = newSpot
   }
 
@@ -296,17 +296,17 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
-  func locationManager(manager: CLLocationManager!,
+  func locationManager(manager: CLLocationManager,
     didChangeAuthorizationStatus status: CLAuthorizationStatus)
   {
     setUpLocationServices()
   }
 
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if( self.mostRecentLocation == nil ) {
       Logger.debug("Initialized location: \(locations.last)")
     }
-    self.mostRecentLocation = locations.last as? CLLocation
+    self.mostRecentLocation = locations.last
   }
 
 }

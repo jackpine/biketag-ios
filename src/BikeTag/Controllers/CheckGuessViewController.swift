@@ -81,7 +81,7 @@ class CheckGuessViewController: ApplicationViewController {
 
 
     UIView.animateWithDuration(1.0, delay: 1.0,
-      options: .CurveEaseInOut | .Repeat | .Autoreverse,
+      options: [.CurveEaseInOut, .Repeat, .Autoreverse],
       animations: {
         let randomIndex = Int(arc4random_uniform(UInt32(progressMessages.count)))
         let message = progressMessages[randomIndex]
@@ -209,7 +209,7 @@ class CheckGuessViewController: ApplicationViewController {
     self.clockBlinking = true
     self.countdownClockView.alpha = 1
     UIView.animateWithDuration(0.24, delay: 0,
-      options: .CurveEaseInOut | .Repeat | .Autoreverse,
+      options: [.CurveEaseInOut, .Repeat, .Autoreverse],
       animations: { self.countdownClockView.alpha = 0 },
       completion: nil)
   }

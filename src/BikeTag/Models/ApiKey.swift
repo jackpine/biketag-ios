@@ -8,16 +8,7 @@ class ApiKey {
   let userId: Int
 
   class func getCurrentApiKey() -> ApiKey? {
-    if (Config.fakeApiCalls()) {
-      let fakeApiAttributes = [
-        "client_id": "fake-client-id",
-        "secret": "fake-secret",
-        "user_id": 666
-      ]
-      return ApiKey(attributes: fakeApiAttributes)
-    } else {
-      return currentApiKey
-    }
+    return currentApiKey
   }
 
   required init(attributes: NSDictionary) {
@@ -33,7 +24,7 @@ class ApiKey {
   }
 
   class func ensureApiKey(successCallback: ()->(), errorCallback: (NSError)->()) {
-    if let currentApiKey = getCurrentApiKey() {
+    if getCurrentApiKey() != nil {
       return successCallback()
     }
 

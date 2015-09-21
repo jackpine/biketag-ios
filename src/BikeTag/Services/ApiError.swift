@@ -11,7 +11,7 @@ class APIError: NSError {
     super.init(domain: domain, code: code, userInfo: userInfo)
   }
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
   }
 }
