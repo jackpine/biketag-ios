@@ -27,14 +27,17 @@ class ApiService {
   }
 
   func request(request: NSURLRequest, handleResponseAttributes: (NSDictionary) -> (), errorCallback: (NSError)->() ) {
-    Alamofire.request(request).responseJSON { (request, response, json, error) in
-        // Protocol level errors, e.g. connection timed out
-        if( error != nil ) {
-          Logger.warning("HTTP Error: \(error)")
-          return errorCallback(error!)
-        }
+    Alamofire.request(request).responseJSON { (_, _, result) in
+      // (FORMERLY) request, response, json, error) in
 
-        let responseAttributes = json as! NSDictionary
+      switch result {
+      case .Failure(_, let error):
+        // Protocol level errors, e.g. connection timed out
+        Logger.warning("HTTP Error: \(error)")
+
+        return errorCallback(error as NSError)
+      case .Success:
+        let responseAttributes = result.value as! NSDictionary
 
         Logger.debug("Response: \(responseAttributes)")
 
@@ -45,6 +48,7 @@ class ApiService {
         }
 
         handleResponseAttributes(responseAttributes)
+      }
     }
   }
 }
