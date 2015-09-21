@@ -16,7 +16,7 @@ class SpotTests: XCTestCase {
       if ( !currentSpots[0].isCurrentUserOwner() ) {
         expectation.fulfill()
       } else {
-        println("FAILURE. Current user should not be owner of current spot.")
+        print("FAILURE. Current user should not be owner of current spot.")
       }
     }
 

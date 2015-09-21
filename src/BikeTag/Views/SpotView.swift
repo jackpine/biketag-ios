@@ -18,7 +18,7 @@ class SpotView: UIImageView {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
-  required init(coder: NSCoder) {
+  required init?(coder: NSCoder) {
     super.init(coder: coder)
     self.contentMode = .ScaleAspectFill
     self.clipsToBounds = true

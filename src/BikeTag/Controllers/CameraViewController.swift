@@ -12,7 +12,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
 
-  required init(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
@@ -94,13 +94,13 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     }
   }
 
-  func locationManager(manager: CLLocationManager!,
+  func locationManager(manager: CLLocationManager,
     didChangeAuthorizationStatus status: CLAuthorizationStatus)
   {
     setUpLocationServices()
   }
 
-  func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if( self.mostRecentLocation == nil ) {
         Logger.debug("Initialized location: \(locations.last)")
     }
@@ -131,7 +131,13 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
 
   func beginCapturingVideo(captureDevice: AVCaptureDevice) {
     var err : NSError? = nil
-    let captureDeviceInput = AVCaptureDeviceInput(device: captureDevice, error: &err)
+    let captureDeviceInput: AVCaptureDeviceInput!
+    do {
+      captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
+    } catch var error as NSError {
+      err = error
+      captureDeviceInput = nil
+    }
     if err != nil {
       Logger.error("error initializing camera: \(err?.localizedDescription)")
     }
