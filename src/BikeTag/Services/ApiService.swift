@@ -28,8 +28,6 @@ class ApiService {
 
   func request(request: NSURLRequest, handleResponseAttributes: (NSDictionary) -> (), errorCallback: (NSError)->() ) {
     Alamofire.request(request).responseJSON { (_, _, result) in
-      // (FORMERLY) request, response, json, error) in
-
       switch result {
       case .Failure(_, let error):
         // Protocol level errors, e.g. connection timed out
