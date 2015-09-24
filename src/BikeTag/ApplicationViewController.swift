@@ -12,13 +12,10 @@ class ApplicationViewController: UIViewController {
     }
   }
 
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.scoreButton = UIBarButtonItem(title: "● \(self.currentUserScore)", style: UIBarButtonItemStyle.Plain, target: self, action: "scoreButtonTouched")
+    self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItemStyle.Plain, target: self, action: "scoreButtonTouched")
+    self.renderScore()
 
     self.navigationItem.rightBarButtonItem = scoreButton
   }
