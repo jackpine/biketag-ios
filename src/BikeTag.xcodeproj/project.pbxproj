@@ -44,6 +44,10 @@
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
+		459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96201BB1CF72005D6C65 /* UsersService.swift */; settings = {ASSET_TAGS = (); }; };
+		459F96221BB1CF72005D6C65 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96201BB1CF72005D6C65 /* UsersService.swift */; settings = {ASSET_TAGS = (); }; };
+		459F96241BB1D396005D6C65 /* FakeUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96231BB1D396005D6C65 /* FakeUsersService.swift */; settings = {ASSET_TAGS = (); }; };
+		459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96231BB1D396005D6C65 /* FakeUsersService.swift */; settings = {ASSET_TAGS = (); }; };
 		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
@@ -97,6 +101,8 @@
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
+		459F96201BB1CF72005D6C65 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		459F96231BB1D396005D6C65 /* FakeUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUsersService.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -204,6 +210,8 @@
 				4581A5F91AB7C9BA004C871F /* SpotsService.swift */,
 				45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */,
 				454E11111B19564500FBAAC3 /* ApiService.swift */,
+				459F96201BB1CF72005D6C65 /* UsersService.swift */,
+				459F96231BB1D396005D6C65 /* FakeUsersService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -475,8 +483,10 @@
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
+				459F96241BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
 				45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */,
+				459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */,
 				4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,10 +507,12 @@
 				45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
+				459F96221BB1CF72005D6C65 /* UsersService.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */,
+				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,

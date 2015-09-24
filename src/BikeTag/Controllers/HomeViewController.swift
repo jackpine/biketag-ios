@@ -78,6 +78,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.startLoadingAnimation()
     self.ensureApiKey() {
       self.waitForLocation() {
+        self.fetchCurrentUser()
         self.fetchCurrentSpots()
       }
     }
@@ -86,7 +87,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func refreshControlPulled(sender:AnyObject) {
     refresh()
   }
-
 
   func ensureApiKey(success:()->()) {
     let displayAuthenticationErrorAlert = { (error: NSError) -> () in
@@ -143,6 +143,31 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
 
     Spot.fetchCurrentSpots(self.spotsService, location: self.mostRecentLocation!, callback: setCurrentSpots, errorCallback: displayErrorAlert)
+  }
+
+  func fetchCurrentUser() {
+    Logger.debug("fetching current user")
+
+    let displayErrorAlert = { (error: NSError) -> () in
+      let alertController = UIAlertController(
+        title: "Hrm. Trouble fetching your user data right now.",
+        message: error.localizedDescription,
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.fetchCurrentUser()
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    let updateCurrentUser = { (user: User) -> () in
+      User.setCurrentUser(user)
+      self.currentUserScore = user.score
+    }
+
+    self.usersService.fetchUser(Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
   }
 
   func stopLoadingAnimation() {
