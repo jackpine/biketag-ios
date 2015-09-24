@@ -78,8 +78,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.startLoadingAnimation()
     self.ensureApiKey() {
       self.waitForLocation() {
-        self.fetchCurrentSpots()
         self.fetchCurrentUser()
+        self.fetchCurrentSpots()
       }
     }
   }

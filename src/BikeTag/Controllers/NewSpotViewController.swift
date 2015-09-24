@@ -43,6 +43,7 @@ class NewSpotViewController: CameraViewController {
     if self.newSpot != nil {
       homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
       homeViewController.currentSpot = self.newSpot!
+      homeViewController.refresh()
     }
   }
 
