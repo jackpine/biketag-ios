@@ -1,9 +1,9 @@
 import Foundation
 
 class Game: Equatable {
-  let id: Int
+  let id: Int?
 
-  required init(id: Int) {
+  required init(id: Int?) {
     self.id = id
   }
 }

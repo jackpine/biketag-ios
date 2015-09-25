@@ -24,11 +24,14 @@ class SpotsService: ApiService {
   }
 
   func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
-    let spotParameters = [
-      "game_id": spot.game.id,
+    var spotParameters = [
       "location": locationParameters(spot.location!),
       "image_data": spot.base64ImageData()
     ]
+    
+    if spot.game.id != nil {
+      spotParameters["game_id"] = spot.game.id!
+    }
 
     let parameters = [ "spot": spotParameters ]
 
