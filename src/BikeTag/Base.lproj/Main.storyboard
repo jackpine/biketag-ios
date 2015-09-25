@@ -234,6 +234,7 @@
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
+                        <segue destination="kB0-aQ-szS" kind="show" identifier="pushNewSpotViewController" id="Kyr-oI-MP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -835,4 +836,7 @@
     <resources>
         <image name="bike-flag" width="1536" height="1212"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kyr-oI-MP0"/>
+    </inferredMetricsTieBreakers>
 </document>

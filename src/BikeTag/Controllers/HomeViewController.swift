@@ -112,9 +112,15 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func updateGame(game: Game, newSpot: Spot) {
     let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
       spot.game == game
-    }.first!
-    let gameIndex = self.currentSpots.indexOf(oldSpot)!
-    self.currentSpots[gameIndex] = newSpot
+    }.first
+
+    if oldSpot != nil {
+      let gameIndex = self.currentSpots.indexOf(oldSpot!)!
+      self.currentSpots[gameIndex] = newSpot
+    } else {
+      //started a new game
+      self.currentSpots.append(newSpot)
+    }
   }
 
   func fetchCurrentSpots() {
@@ -197,8 +203,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
-    guessSpotViewController.currentSpot = self.currentSpot
+    if segue.identifier == "pushNewSpotViewController" {
+      let newSpotViewController = segue.destinationViewController as! NewSpotViewController
+      newSpotViewController.game = Game(id: nil)
+      Logger.debug("segue to new spot")
+    } else {
+      let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
+      guessSpotViewController.currentSpot = self.currentSpot
+    }
   }
 
   func spotViewHeight() -> CGFloat {
