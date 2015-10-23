@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/XCGLogger-Swift.h</key>
 		<data>
-		5rKbju6NYpoOkx95zLvq4dg8gTw=
+		WD8wJy8UMVJzEhtFzo28USwikYw=
 		</data>
 		<key>Headers/XCGLogger.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pq7yKQe+31cwmGM8nFVwGGDLiRw=
+		m9Gi5kwB5keULJHhAxG8PEUtR6g=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftdoc</key>
 		<data>
-		G40ZKxZeGbDiufsVP/4VgPLgqGY=
+		RRDNq0tUb7M7c95GGWWFttVIe4s=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftmodule</key>
 		<data>
-		t09RzOjAvgM7CPsRSusUGb0RWsI=
+		YpVE4skpY2Kda1B7H2T65/XtnVc=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		Fq4/GBaJtuC5ZnCk+gF/L2KS1cY=
+		OIL/fl+TK7QMtYsLXTduPlOg4GI=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		D7zVALpDRxqwvSFG/JJwZGrsvfU=
+		ONceI8aOL7neSsnLFWGietPNCJE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -41,7 +41,7 @@
 	<dict>
 		<key>Headers/XCGLogger-Swift.h</key>
 		<data>
-		5rKbju6NYpoOkx95zLvq4dg8gTw=
+		WD8wJy8UMVJzEhtFzo28USwikYw=
 		</data>
 		<key>Headers/XCGLogger.h</key>
 		<data>
@@ -49,19 +49,19 @@
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftdoc</key>
 		<data>
-		G40ZKxZeGbDiufsVP/4VgPLgqGY=
+		RRDNq0tUb7M7c95GGWWFttVIe4s=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm.swiftmodule</key>
 		<data>
-		t09RzOjAvgM7CPsRSusUGb0RWsI=
+		YpVE4skpY2Kda1B7H2T65/XtnVc=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		Fq4/GBaJtuC5ZnCk+gF/L2KS1cY=
+		OIL/fl+TK7QMtYsLXTduPlOg4GI=
 		</data>
 		<key>Modules/XCGLogger.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		D7zVALpDRxqwvSFG/JJwZGrsvfU=
+		ONceI8aOL7neSsnLFWGietPNCJE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
