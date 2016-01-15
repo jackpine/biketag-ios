@@ -19,12 +19,12 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    if let captureDevice = getCaptureDevice() {
-      beginCapturingVideo(captureDevice)
-    }
-
-    self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
-    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
+//    if let captureDevice = getCaptureDevice() {
+//      beginCapturingVideo(captureDevice)
+//    }
+//
+//    self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
+//    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
     setUpLocationServices()
   }
 
