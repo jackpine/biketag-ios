@@ -2,15 +2,13 @@ import UIKit
 import AVFoundation
 import CoreLocation
 
-class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
+class CameraViewController: ApplicationViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
 
   @IBOutlet var photoPreviewView: UIView!
   @IBOutlet var takePictureButton: PrimaryButton!
-
-  var previewLayer: AVCaptureVideoPreviewLayer?
   var mostRecentLocation: CLLocation?
-  let stillImageOutput = AVCaptureStillImageOutput()
   let locationManager = CLLocationManager()
+  let imagePicker = UIImagePickerController()
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
@@ -19,27 +17,28 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if let captureDevice = getCaptureDevice() {
-//      beginCapturingVideo(captureDevice)
-//    }
-//
-//    self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
-//    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
     setUpLocationServices()
-  }
 
-  func getCaptureDevice() -> AVCaptureDevice? {
-    let devices = AVCaptureDevice.devices()
-    for device in devices {
-      // Make sure this particular device supports video
-      if (device.hasMediaType(AVMediaTypeVideo)) {
-        // Finally check the position and confirm we've got the back camera
-        if(device.position == AVCaptureDevicePosition.Back) {
-          return device as? AVCaptureDevice
-        }
-      }
+    imagePicker.delegate = self
+
+    if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+      imagePicker.sourceType = .Camera
     }
-    return nil
+
+    // TODO Custom overlay for system camera controls should saw "Include your bike in the shot" and maybe style to fit the app better.
+    //    imagePicker.cameraOverlayView = cameraControls
+    //    //    imagePicker.showsCameraControls = false
+    //
+    //    let screenBounds = UIScreen.mainScreen().bounds.size
+    //    let cameraAspectRatio = CGFloat(4.0/3.0)
+    //
+    //    let camViewHeight = screenBounds.width * cameraAspectRatio
+    //    let scale = screenBounds.height / camViewHeight;
+    //
+    //    let transform = CGAffineTransformMakeTranslation(0, (screenBounds.height - camViewHeight) / 2.0)
+    //    imagePicker.cameraViewTransform = CGAffineTransformScale(transform, scale, scale);
+
+    presentViewController(imagePicker, animated: true, completion: nil)
   }
 
   func waitForLocation() {
@@ -59,7 +58,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         self.presentViewController(alertController, animated: true, completion: nil)
         return
       } else {
-        self.takePictureButton.enabled = true
+        // TODO self.takePictureButton.enabled = true
       }
     }
   }
@@ -107,65 +106,21 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     self.mostRecentLocation = locations.last
   }
 
-  func captureImage(callback:(NSData, CLLocation)->()) {
-    assert(self.mostRecentLocation != nil )
-    Logger.debug("Location is not nil")
-
-    if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
-      callback(NSData(), self.mostRecentLocation!)
-      return
-    }
-
-    let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
-    if ( videoConnection != nil && self.mostRecentLocation != nil ) {
-      stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
-
-        let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-        Logger.debug("calling callback")
-        callback(image!, self.mostRecentLocation!)
-      }
-    } else {
-      Logger.error("couldn't find video connection")
-    }
+  // MARK - UIImagePickerControllerDelegate
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    Logger.debug("finished picking image")
+    //TODO is this cast safe?
+    let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    handleImage(image, location: self.mostRecentLocation!)
   }
 
-  func beginCapturingVideo(captureDevice: AVCaptureDevice) {
-    var err : NSError? = nil
-    let captureDeviceInput: AVCaptureDeviceInput!
-    do {
-      captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
-    } catch let error as NSError {
-      err = error
-      captureDeviceInput = nil
-    }
-    if err != nil {
-      Logger.error("error initializing camera: \(err?.localizedDescription)")
-    }
-
-    let captureSession = AVCaptureSession()
-    captureSession.sessionPreset = AVCaptureSessionPresetHigh
-
-    if ( captureSession.canAddInput(captureDeviceInput) ) {
-      captureSession.addInput(captureDeviceInput)
-    } else {
-      Logger.error("Couldn't add capture device input.")
-    }
-
-    let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-    self.photoPreviewView.layer.addSublayer(previewLayer)
-
-    // FIXME Preview layer is not being positioned as expected. This is an arbitrary hack to make it "look right" on my iphone6
-    // previewLayer.frame = self.photoPreviewView.frame
-    previewLayer.frame = CGRect(x: 0, y: 0, width: 400, height: 680)
-
-
-    if ( captureSession.canAddOutput(self.stillImageOutput) ) {
-      captureSession.addOutput(self.stillImageOutput)
-    } else {
-      Logger.error("Couldn't add still image output.")
-    }
-
-    captureSession.startRunning()
+  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    Logger.debug("canceled guess spot image picker")
+    imagePicker.dismissViewControllerAnimated(true, completion: nil)
   }
+
+  func handleImage(image: UIImage, location: CLLocation) {
+    preconditionFailure("This method must be overridden")
+  }
+
 }

@@ -9,32 +9,11 @@ class NewSpotViewController: CameraViewController {
   @IBOutlet var progressView: UIView!
   @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 
-  func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
-    var image: UIImage?
-    var spotLocation: CLLocation?
-
-    // Fake photo when using the simulator
-    if UIDevice.currentDevice().model == "iPhone Simulator" {
-      let griffithSpot = Spot.griffithSpot()
-      image = griffithSpot.image
-      spotLocation = griffithSpot.location
-    } else {
-      image = UIImage(data: imageData)
-      spotLocation = location
-    }
-
-    if ( image != nil ) {
-      let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: spotLocation!)
+  override func handleImage(image: UIImage, location: CLLocation) {
+    let spot = Spot(image: image, game: self.game!, user: User.getCurrentUser(), location: location)
+    imagePicker.dismissViewControllerAnimated(true) {
       self.uploadNewSpot(spot)
-    } else {
-      Logger.error("New spot image data not captured")
     }
-  }
-
-  @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
-    Logger.debug("Touched take picture button")
-    self.takePictureButton.userInteractionEnabled = false
-    self.captureImage(createSpotFromData)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
@@ -51,8 +30,9 @@ class NewSpotViewController: CameraViewController {
     self.progressView.hidden = false
     self.activityIndicatorView.startAnimating()
     let capturedImageView = UIImageView(image: spot.image)
-    capturedImageView.frame = self.photoPreviewView.frame
-    self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
+    // TODO
+    // capturedImageView.frame = self.photoPreviewView.frame
+    // self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
 
     let popToHomeViewController = { (newSpot: Spot) -> () in
       self.activityIndicatorView.stopAnimating()
