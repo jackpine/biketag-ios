@@ -23,9 +23,49 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
       beginCapturingVideo(captureDevice)
     }
 
+    let tap = UITapGestureRecognizer(target:self, action:"tappedPhotoPreview:")
+    photoPreviewView.addGestureRecognizer(tap)
+
     self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
     self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
     setUpLocationServices()
+  }
+
+  func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
+    Logger.debug("tapped photoPreviewView: \(recognizer.state)")
+    setFocus(recognizer.locationInView(photoPreviewView))
+    if(recognizer.state == UIGestureRecognizerState.Ended){
+      Logger.debug("photoPreviewView has been tapped by the user.")
+    }
+  }
+
+  func setFocus(viewLocation: CGPoint) {
+    let screenSize = photoPreviewView.bounds.size
+
+    // Lifted from http://stackoverflow.com/questions/28086096/ios-tap-to-focus
+    let projected_x = viewLocation.y / screenSize.height
+    let projected_y = 1.0 - viewLocation.x / screenSize.width
+    let focusPoint = CGPoint(x: projected_x, y: projected_y)
+
+    if let device = getCaptureDevice() {
+      do {
+        try device.lockForConfiguration()
+        if device.focusPointOfInterestSupported {
+          device.focusPointOfInterest = focusPoint
+          Logger.debug("Set focus point of interest")
+          device.focusMode = AVCaptureFocusMode.AutoFocus
+        }
+        if device.exposurePointOfInterestSupported {
+          device.exposurePointOfInterest = focusPoint
+          Logger.debug("Set exposure point of interest")
+          device.exposureMode = AVCaptureExposureMode.AutoExpose
+        }
+
+        device.unlockForConfiguration()
+      } catch {
+        Logger.error("Unable to obtain capture lock")
+      }
+    }
   }
 
   func getCaptureDevice() -> AVCaptureDevice? {
