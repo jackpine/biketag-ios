@@ -34,9 +34,6 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
     Logger.debug("tapped photoPreviewView: \(recognizer.state)")
     setFocus(recognizer.locationInView(photoPreviewView))
-    if(recognizer.state == UIGestureRecognizerState.Ended){
-      Logger.debug("photoPreviewView has been tapped by the user.")
-    }
   }
 
   func setFocus(viewLocation: CGPoint) {
