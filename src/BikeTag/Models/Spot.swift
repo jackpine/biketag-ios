@@ -38,7 +38,8 @@ class Spot: NSObject {
     self.game = Game(id: parsedSpot.gameId)
     self.imageUrl = parsedSpot.imageUrl
     //placeholder while image is fetched async
-    self.image = UIImage(named: "sketchy bike")!
+    self.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
+
     super.init()
 
     Alamofire.request(.GET, parsedSpot.imageUrl).response() {
