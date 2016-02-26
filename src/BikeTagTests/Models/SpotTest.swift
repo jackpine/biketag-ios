@@ -33,7 +33,7 @@ class SpotTests: XCTestCase {
     let expectation = self.expectationWithDescription("created a new spot")
 
     let griffithSpot = Spot.griffithSpot()
-    let image = griffithSpot.image
+    let image = griffithSpot.image!
     let latitude = griffithSpot.location!.coordinate.latitude
     let longitude = griffithSpot.location!.coordinate.longitude
     let location = CLLocation(latitude: latitude, longitude: longitude)
@@ -57,7 +57,7 @@ class SpotTests: XCTestCase {
   func testIsCurrentUserOwner() {
     let me = User.getCurrentUser()
     let them = User(id: me.id + 1, name: "other user")
-    let someImage = Spot.lucileSpot().image
+    let someImage = Spot.lucileSpot().image!
     let someLocation = Spot.lucileSpot().location!
     let game = Game(id: 1)
 

@@ -7,7 +7,7 @@ class Spot: NSObject {
   static let DidSetImageNotification = "SpotDidSetImageNotification"
   static let newSpotCost = 25
 
-  var image: UIImage {
+  var image: UIImage? {
     didSet {
       NSNotificationCenter.defaultCenter().postNotificationName(Spot.DidSetImageNotification, object: self)
     }
@@ -39,7 +39,6 @@ class Spot: NSObject {
     self.game = Game(id: parsedSpot.gameId)
     self.imageUrl = parsedSpot.imageUrl
     //placeholder while image is fetched async
-    self.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
 
     super.init()
 
@@ -101,6 +100,6 @@ class Spot: NSObject {
   }
 
   func base64ImageData() -> String {
-    return UIImageJPEGRepresentation(self.image, 0.9)!.base64EncodedStringWithOptions([])
+    return UIImageJPEGRepresentation(self.image!, 0.9)!.base64EncodedStringWithOptions([])
   }
 }
