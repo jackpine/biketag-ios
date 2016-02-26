@@ -43,6 +43,8 @@ class NewSpotViewController: CameraViewController {
     if self.newSpot != nil {
       homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
       homeViewController.currentSpot = self.newSpot!
+      homeViewController.currentSpots.insert(self.newSpot!, atIndex: 0)
+      homeViewController.gameTableView.contentOffset = CGPoint(x: 0, y: 0)
       homeViewController.refresh()
     }
   }
