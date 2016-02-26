@@ -86,6 +86,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
     self.gameTableView.addSubview(self.refreshControl)
+    self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     setUpLocationServices()
