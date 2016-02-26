@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-private var currentUser = User(id: 0, name: "Your User")
+private var currentUser = User.anonymousUser()
 
 class User: Equatable {
 
@@ -28,6 +28,10 @@ class User: Equatable {
 
   class func setCurrentUser(user: User) {
     currentUser = user
+  }
+
+  class func anonymousUser() -> User {
+    return User(id: 0, name: "Anonymous User")
   }
 }
 
