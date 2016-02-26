@@ -9,6 +9,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
+  // Last Cell / Add Spot Stuff
+  var lastCellInSpotsTableView: UIView!
+  @IBOutlet var newSpotCostLabel: UILabel!
+  @IBOutlet var newSpotButton: PrimaryButton!
+  @IBAction func didTouchUpInsideAddSpotButton(sender: AnyObject) {
+    self.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
+  }
+
   @IBOutlet var mySpotView: UIView! {
     didSet {
       updateSpotControls()
@@ -21,7 +29,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   var currentSpots: [Spot] = [] {
     didSet {
-      self.gameListView.reloadData()
+      self.gameTableView.reloadData()
     }
   }
 
@@ -36,7 +44,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  @IBOutlet var gameListView: UITableView!
+  @IBOutlet var gameTableView: UITableView!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
@@ -47,8 +55,23 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   var mostRecentLocation: CLLocation?
   let locationManager = CLLocationManager()
 
+  override func renderScore() {
+    super.renderScore()
+    if self.newSpotCostLabel != nil {
+      if self.currentUserScore >= Spot.newSpotCost {
+        self.newSpotCostLabel.text = "This costs ●\(Spot.newSpotCost) of your ●\(self.currentUserScore)."
+        self.newSpotButton.enabled = true
+      } else {
+        self.newSpotCostLabel.text = "You need at least ●\(Spot.newSpotCost - self.currentUserScore) more to add a spot."
+        self.newSpotButton.enabled = false
+      }
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.lastCellInSpotsTableView = LastCellInSpotsTableView(frame: self.view.frame, owner: self)
 
     self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
     self.activityIndicatorBackgroundView.layer.cornerRadius = 5;
@@ -62,8 +85,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
-    self.gameListView.addSubview(self.refreshControl)
-    self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    self.gameTableView.addSubview(self.refreshControl)
+    self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     setUpLocationServices()
     self.refresh()
@@ -202,6 +225,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         self.mySpotView.hidden = true
       }
     }
+    if( self.currentSpot == nil && self.guessSpotButtonView != nil) {
+      self.title = "Where is YOUR bicycle?"
+      self.guessSpotButtonView.hidden = true
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
@@ -228,16 +255,31 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    self.currentSpot = self.currentSpots[cellIndex]
     let heightOfTopBar = CGFloat(64)
     //Not sure why we need to offset by heightOfTopBar, but experimentally true.
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight() - heightOfTopBar
+
+    if (cellIndex == self.currentSpots.count) {
+      //not looking at spot, looking at last cell
+      self.currentSpot = nil
+    } else {
+      self.currentSpot = self.currentSpots[cellIndex]
+    }
   }
 
   // MARK: UITableViewDataSource
   // MARK: UITableViewDelegate
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.currentSpots.count;
+    let spotCount =  self.currentSpots.count
+
+    if (spotCount == 0) {
+      // Display nothing
+      // We don't want to display the "Don't know these spots?" message when there are no spots.
+      return 0
+    } else {
+      // Display spots plus a final cell
+      return spotCount + 1;
+    }
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -247,17 +289,24 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   var spotCellViews: [Int: UITableViewCell] = [Int: UITableViewCell]()
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-    let spot = self.currentSpots[indexPath.row]
-    if spot.id != nil && spotCellViews[spot.id!] != nil {
-      return spotCellViews[spot.id!]!
-    }
-
     let cell = UITableViewCell()
-    let spotView = SpotView(frame: self.view.frame, spot: spot)
-    cell.insertSubview(spotView, atIndex: 0)
+    if indexPath.row == self.currentSpots.count {
+      // Not looking at spot, looking at last cell
+      cell.contentView.addSubview(self.lastCellInSpotsTableView)
+    } else {
+      // Spot Cell
 
-    if spot.id != nil { //Can't cache a new spot's cell
-      spotCellViews[spot.id!] = cell
+      let spot = self.currentSpots[indexPath.row]
+      if spot.id != nil && spotCellViews[spot.id!] != nil {
+        return spotCellViews[spot.id!]!
+      }
+
+      let spotView = SpotView(frame: self.view.frame, spot: spot)
+      cell.contentView.addSubview(spotView)
+
+      if spot.id != nil { //Can't cache a new spot's cell
+        spotCellViews[spot.id!] = cell
+      }
     }
 
     return cell

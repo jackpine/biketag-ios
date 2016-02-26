@@ -21,7 +21,7 @@ class ApplicationViewController: UIViewController {
   }
 
   func renderScore() {
-    self.scoreButton!.title = "● \(self.currentUserScore)"
+    self.scoreButton!.title = "●\(self.currentUserScore)"
   }
 
   func scoreButtonTouched() {
@@ -36,11 +36,10 @@ class ApplicationViewController: UIViewController {
     let dismissAction = UIAlertAction(title: "That's it for now.", style: .Cancel, handler: nil)
     alertController.addAction(dismissAction)
 
-    let newSpotCost = 25
-    let newSpotAction = UIAlertAction(title: "●\(newSpotCost) to start a new game", style: .Default) { (action) in
+    let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to start a new game", style: .Default) { (action) in
       self.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
     }
-    newSpotAction.enabled = currentUserScore >= newSpotCost
+    newSpotAction.enabled = currentUserScore >= Spot.newSpotCost
     alertController.addAction(newSpotAction)
 
     self.presentViewController(alertController, animated: true, completion: nil)
