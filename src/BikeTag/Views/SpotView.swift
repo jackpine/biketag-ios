@@ -5,13 +5,18 @@ class SpotView: UIImageView {
   var spot: Spot?
   //TODO make these singletons?
   let loadingImage = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)
-  let loadingView = UIImageView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
-
+  let loadingView = UIImageView()
 
   required init(frame: CGRect, spot: Spot) {
     super.init(frame: frame)
-    loadingView.image = loadingImage
-    self.image = spot.image
+    if (spot.image == nil) {
+      loadingView.frame = CGRect(x: 150, y: 300, width: 100, height: 100)
+      loadingView.center = self.center
+      loadingView.image = loadingImage
+      self.addSubview(loadingView)
+    } else {
+      self.image = spot.image
+    }
     self.contentMode = .ScaleAspectFill
     self.clipsToBounds = true
     self.spot = spot
