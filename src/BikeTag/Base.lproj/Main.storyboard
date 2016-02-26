@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R0O-1U-gcA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R0O-1U-gcA">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -220,14 +220,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-Dr-h4t" userLabel="Loading View">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-rZ-KuX">
-                                        <rect key="frame" x="281.5" y="281" width="37" height="37"/>
-                                    </activityIndicatorView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-ag-ElL" userLabel="Loading view background">
+                                        <rect key="frame" x="225" y="225" width="150" height="150"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="DgC-wP-BEt"/>
+                                            <constraint firstAttribute="height" constant="150" id="yTe-Aa-ofy"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="gkw-Bm-kAS">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="600" id="gM7-wm-jR2"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="oRT-rZ-KuX" secondAttribute="centerX" id="jQX-EX-7Mn"/>
-                                    <constraint firstAttribute="centerY" secondItem="oRT-rZ-KuX" secondAttribute="centerY" id="oVR-LO-KbA"/>
+                                    <constraint firstAttribute="trailing" secondItem="gkw-Bm-kAS" secondAttribute="trailing" id="BxV-no-XSh"/>
+                                    <constraint firstItem="CLi-ag-ElL" firstAttribute="centerY" secondItem="TFQ-Dr-h4t" secondAttribute="centerY" id="Dc5-iQ-qJJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="gkw-Bm-kAS" secondAttribute="bottom" id="Gh5-kg-h3X"/>
+                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="top" id="QwD-wk-gZC"/>
+                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="leading" secondItem="TFQ-Dr-h4t" secondAttribute="leading" id="oUM-ac-ZbG"/>
+                                    <constraint firstItem="CLi-ag-ElL" firstAttribute="centerX" secondItem="TFQ-Dr-h4t" secondAttribute="centerX" id="sQX-fp-YdD"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -255,7 +270,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="oRT-rZ-KuX" id="Sgj-0k-btP"/>
+                        <outlet property="activityIndicatorBackgroundView" destination="CLi-ag-ElL" id="MTX-1C-EcO"/>
+                        <outlet property="activityIndicatorImageView" destination="gkw-Bm-kAS" id="lI4-Tk-fb8"/>
                         <outlet property="gameListView" destination="pUs-On-Jlr" id="vZz-Zx-n6q"/>
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
@@ -861,6 +877,7 @@
     </scenes>
     <resources>
         <image name="bike-flag" width="1536" height="1212"/>
+        <image name="biketag-spinner-1" width="600" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Kyr-oI-MP0"/>

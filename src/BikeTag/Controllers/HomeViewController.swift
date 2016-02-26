@@ -16,7 +16,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   @IBOutlet var loadingView: UIView!
-  @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+  @IBOutlet var activityIndicatorImageView: UIImageView!
+  @IBOutlet var activityIndicatorBackgroundView: UIView!
 
   var currentSpots: [Spot] = [] {
     didSet {
@@ -48,6 +49,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
+    self.activityIndicatorBackgroundView.layer.cornerRadius = 5;
+    self.activityIndicatorBackgroundView.layer.masksToBounds = true;
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
     self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
@@ -177,12 +182,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func stopLoadingAnimation() {
-    self.activityIndicatorView.stopAnimating()
     self.loadingView.hidden = true
   }
 
   func startLoadingAnimation() {
-    self.activityIndicatorView.startAnimating()
     self.loadingView.hidden = false
   }
 
