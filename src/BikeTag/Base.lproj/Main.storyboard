@@ -276,7 +276,6 @@
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
-                        <segue destination="kB0-aQ-szS" kind="show" identifier="pushNewSpotViewController" id="Kyr-oI-MP0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -295,6 +294,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="XyA-Nl-Ivb"/>
+                        <segue destination="kB0-aQ-szS" kind="show" identifier="pushNewSpotViewController" id="6Gt-DJ-E2h"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ag-J8-fws" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -880,6 +880,6 @@
         <image name="biketag-spinner-1" width="600" height="1000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kyr-oI-MP0"/>
+        <segue reference="6Gt-DJ-E2h"/>
     </inferredMetricsTieBreakers>
 </document>
