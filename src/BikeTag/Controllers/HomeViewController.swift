@@ -25,7 +25,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorImageView: UIImageView!
-  @IBOutlet var activityIndicatorBackgroundView: UIView!
 
   var currentSpots: [Spot] = [] {
     didSet {
@@ -74,8 +73,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.lastCellInSpotsTableView = LastCellInSpotsTableView(frame: self.view.frame, owner: self)
 
     self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
-    self.activityIndicatorBackgroundView.layer.cornerRadius = 5;
-    self.activityIndicatorBackgroundView.layer.masksToBounds = true;
+    self.loadingView.layer.cornerRadius = 5;
+    self.loadingView.layer.masksToBounds = true;
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
     self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)

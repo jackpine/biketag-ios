@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>fakeApiCalls</key>
-	<true/>
+	<false/>
 	<key>apiEndpoint</key>
-	<string>http://localhost:3000/api/v1/</string>
+	<string>http://api.biketag-staging.jackpine.me/api/v1/</string>
 </dict>
 </plist>

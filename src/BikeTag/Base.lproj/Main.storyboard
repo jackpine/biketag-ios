@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -217,51 +218,38 @@
                                     <constraint firstAttribute="centerY" secondItem="a9v-9r-GSk" secondAttribute="centerY" id="q5f-i7-cgW"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-Dr-h4t" userLabel="Loading View">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-Dr-h4t" userLabel="Activity Indicator">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLi-ag-ElL" userLabel="Loading view background">
-                                        <rect key="frame" x="225" y="225" width="150" height="150"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="DgC-wP-BEt"/>
-                                            <constraint firstAttribute="height" constant="150" id="yTe-Aa-ofy"/>
-                                        </constraints>
-                                    </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="gkw-Bm-kAS">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="600" id="gM7-wm-jR2"/>
-                                        </constraints>
+                                        <rect key="frame" x="8" y="8" width="84" height="84"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gkw-Bm-kAS" secondAttribute="trailing" id="BxV-no-XSh"/>
-                                    <constraint firstItem="CLi-ag-ElL" firstAttribute="centerY" secondItem="TFQ-Dr-h4t" secondAttribute="centerY" id="Dc5-iQ-qJJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="gkw-Bm-kAS" secondAttribute="bottom" id="Gh5-kg-h3X"/>
-                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="top" id="QwD-wk-gZC"/>
-                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="leading" secondItem="TFQ-Dr-h4t" secondAttribute="leading" id="oUM-ac-ZbG"/>
-                                    <constraint firstItem="CLi-ag-ElL" firstAttribute="centerX" secondItem="TFQ-Dr-h4t" secondAttribute="centerX" id="sQX-fp-YdD"/>
+                                    <constraint firstAttribute="width" constant="100" id="9jJ-xJ-MDG"/>
+                                    <constraint firstAttribute="bottom" secondItem="gkw-Bm-kAS" secondAttribute="bottom" constant="8" id="lGr-H9-Q42"/>
+                                    <constraint firstAttribute="trailing" secondItem="gkw-Bm-kAS" secondAttribute="trailing" constant="8" id="shY-u3-V5a"/>
+                                    <constraint firstAttribute="width" secondItem="TFQ-Dr-h4t" secondAttribute="height" multiplier="1:1" id="vsW-Vw-cLv"/>
+                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="top" constant="8" id="yRP-3r-Jsg"/>
+                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="leading" secondItem="TFQ-Dr-h4t" secondAttribute="leading" constant="8" id="ymU-h4-2Al"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
-                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="4jA-h9-MtL"/>
                             <constraint firstItem="Ia1-K6-d13" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="top" constant="64" id="8zw-Bk-ci5"/>
                             <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="TFQ-Dr-h4t" secondAttribute="trailing" id="Oq6-O2-Qm5"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" constant="20" id="Qhp-fz-o5e">
                                 <variation key="widthClass=compact" constant="16"/>
                             </constraint>
+                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="VoJ-su-W8g"/>
                             <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
-                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="topMargin" id="gkQ-07-HzZ"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="bottom" id="gzb-cg-t2H"/>
+                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hkD-o9-dyn"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="bottom" id="sgb-XJ-lqr"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
@@ -270,7 +258,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
                     <connections>
-                        <outlet property="activityIndicatorBackgroundView" destination="CLi-ag-ElL" id="MTX-1C-EcO"/>
                         <outlet property="activityIndicatorImageView" destination="gkw-Bm-kAS" id="lI4-Tk-fb8"/>
                         <outlet property="gameTableView" destination="pUs-On-Jlr" id="TN1-0M-ASV"/>
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
@@ -877,7 +864,7 @@
     </scenes>
     <resources>
         <image name="bike-flag" width="1536" height="1212"/>
-        <image name="biketag-spinner-1" width="600" height="1000"/>
+        <image name="biketag-spinner-1" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Gt-DJ-E2h"/>
