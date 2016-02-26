@@ -21,7 +21,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   var currentSpots: [Spot] = [] {
     didSet {
-      self.gameListView.reloadData()
+      self.gameTableView.reloadData()
     }
   }
 
@@ -36,7 +36,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
   }
 
-  @IBOutlet var gameListView: UITableView!
+  @IBOutlet var gameTableView: UITableView!
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder:aDecoder)
@@ -62,8 +62,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
     self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
-    self.gameListView.addSubview(self.refreshControl)
-    self.gameListView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    self.gameTableView.addSubview(self.refreshControl)
+    self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     setUpLocationServices()
     self.refresh()
