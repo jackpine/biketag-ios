@@ -21,6 +21,7 @@
 		452897401A86827F00AD077E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
 		452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
 		452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
+		452BC6A01C7FF7A800FC6939 /* LastCellInSpotsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452BC69F1C7FF7A800FC6939 /* LastCellInSpotsTableView.xib */; };
 		454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
@@ -30,6 +31,8 @@
 		454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */; };
 		454E11121B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
+		4552389B1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */; };
+		4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -84,6 +87,7 @@
 		452897391A86827F00AD077E /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
 		4528973A1A86827F00AD077E /* NewSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewSpotViewController.swift; path = Controllers/NewSpotViewController.swift; sourceTree = "<group>"; };
 		4528973C1A86827F00AD077E /* GuessSpotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GuessSpotViewController.swift; path = Controllers/GuessSpotViewController.swift; sourceTree = "<group>"; };
+		452BC69F1C7FF7A800FC6939 /* LastCellInSpotsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LastCellInSpotsTableView.xib; path = Views/LastCellInSpotsTableView.xib; sourceTree = "<group>"; };
 		45466E9B1ACA01BF00D7B69A /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 		454E110A1B1927B200FBAAC3 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastCellInSpotsTableView.swift; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -161,6 +166,14 @@
 				4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		452BC6A11C7FF7C300FC6939 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				452BC69F1C7FF7A800FC6939 /* LastCellInSpotsTableView.xib */,
+			);
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 		45466E971ACA01AD00D7B69A /* Configs */ = {
@@ -255,6 +268,7 @@
 				45AB7BB41A3A1D8B00E1961E /* Images.xcassets */,
 				45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */,
 				45AB7BA91A3A1D8B00E1961E /* Supporting Files */,
+				452BC6A11C7FF7C300FC6939 /* Xibs */,
 			);
 			path = BikeTag;
 			sourceTree = "<group>";
@@ -303,6 +317,7 @@
 			children = (
 				45DB1F881B27BDCD0001EC8A /* SpotView.swift */,
 				451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */,
+				4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */,
+				452BC6A01C7FF7A800FC6939 /* LastCellInSpotsTableView.xib in Resources */,
 				45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */,
 				45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */,
 			);
@@ -460,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4552389B1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */,
 				452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */,
 				459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
@@ -504,6 +521,7 @@
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				459F96221BB1CF72005D6C65 /* UsersService.swift in Sources */,
+				4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,

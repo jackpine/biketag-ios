@@ -5,6 +5,7 @@ import Alamofire
 class Spot: NSObject {
 
   static let DidSetImageNotification = "SpotDidSetImageNotification"
+  static let newSpotCost = 25
 
   var image: UIImage {
     didSet {

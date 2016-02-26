@@ -8,7 +8,7 @@ class FakeUsersService: UsersService {
       "user": [
         "id": userId,
         "name": "User numero \(userId)",
-        "score": 22
+        "score": 120
       ]
     ]
 

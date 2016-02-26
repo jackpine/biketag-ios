@@ -299,7 +299,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ag-J8-fws" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="564" y="-711"/>
+            <point key="canvasLocation" x="556" y="-711"/>
         </scene>
         <!--Guess by Taking Photo-->
         <scene sceneID="4VN-Ne-Qml">
