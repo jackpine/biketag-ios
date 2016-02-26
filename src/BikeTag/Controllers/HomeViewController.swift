@@ -12,7 +12,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   // Last Cell / Add Spot Stuff
   var lastCellInSpotsTableView: UIView!
   @IBOutlet var newSpotCostLabel: UILabel!
-  @IBOutlet var newSpotButton: UIButton!
+  @IBOutlet var newSpotButton: PrimaryButton!
   @IBAction func didTouchUpInsideAddSpotButton(sender: AnyObject) {
     self.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
   }
@@ -59,7 +59,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     super.renderScore()
     if self.newSpotCostLabel != nil {
       if self.currentUserScore >= Spot.newSpotCost {
-        self.newSpotCostLabel.text = "This costs ●\(Spot.newSpotCost) of your ●\(self.currentUserScore)"
+        self.newSpotCostLabel.text = "This costs ●\(Spot.newSpotCost) of your ●\(self.currentUserScore)."
         self.newSpotButton.enabled = true
       } else {
         self.newSpotCostLabel.text = "You need at least ●\(Spot.newSpotCost - self.currentUserScore) more to add a spot."
