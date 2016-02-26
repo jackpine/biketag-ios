@@ -225,6 +225,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         self.mySpotView.hidden = true
       }
     }
+    if( self.currentSpot == nil && self.guessSpotButtonView != nil) {
+      self.title = "Where is YOUR bicycle?"
+      self.guessSpotButtonView.hidden = true
+    }
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
@@ -251,11 +255,16 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    let spotIndex = min(cellIndex, self.currentSpots.count - 1)
-    self.currentSpot = self.currentSpots[spotIndex]
     let heightOfTopBar = CGFloat(64)
     //Not sure why we need to offset by heightOfTopBar, but experimentally true.
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight() - heightOfTopBar
+
+    if (cellIndex == self.currentSpots.count) {
+      //not looking at spot, looking at last cell
+      self.currentSpot = nil
+    } else {
+      self.currentSpot = self.currentSpots[cellIndex]
+    }
   }
 
   // MARK: UITableViewDataSource
@@ -282,6 +291,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     let cell = UITableViewCell()
     if indexPath.row == self.currentSpots.count {
+      // Not looking at spot, looking at last cell
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
       // Spot Cell
