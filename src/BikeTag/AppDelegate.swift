@@ -13,6 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     Fabric.with([Crashlytics()])
 
+    // Load Main App Screen
+
+    if NSUserDefaults.standardUserDefaults().dictionaryForKey("apiKey") == nil {
+      Logger.info("First time user! showing welcome screen")
+      let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+      let welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("welcomeViewController")
+      self.window!.rootViewController = welcomeViewController
+      self.window!.makeKeyAndVisible()
+    } else {
+      Logger.info("Existing user, not doing any manual ViewController setup")
+    }
+
     // TODO this is the current way to log in as an existing user
     //
     //    ApiKey.setCurrentApiKey([
