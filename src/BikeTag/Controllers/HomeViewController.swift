@@ -14,7 +14,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var newSpotCostLabel: UILabel!
   @IBOutlet var newSpotButton: PrimaryButton!
   @IBAction func didTouchUpInsideAddSpotButton(sender: AnyObject) {
-    self.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
+    self.navigationController!.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
   }
 
   @IBOutlet var mySpotView: UIView! {
