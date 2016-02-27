@@ -24,6 +24,10 @@ class NewSpotViewController: CameraViewController {
     }
 
     if ( image != nil ) {
+      if (self.game == nil) {
+        Logger.debug("No existing game, assuming new game.")
+        self.game = Game(id: nil)
+      }
       let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: spotLocation!)
       self.uploadNewSpot(spot)
     } else {

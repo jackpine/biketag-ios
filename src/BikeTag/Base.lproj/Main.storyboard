@@ -195,7 +195,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guess spot"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BiW-SU-TUN" kind="show" id="DQG-Lq-ZL2"/>
+                                    <segue destination="BiW-SU-TUN" kind="show" identifier="showNewGuessScene" id="DQG-Lq-ZL2"/>
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-Uo-dgZ" userLabel="My Spot">

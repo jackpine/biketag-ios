@@ -233,11 +233,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    if segue.identifier == "pushNewSpotViewController" {
-      let newSpotViewController = segue.destinationViewController as! NewSpotViewController
-      newSpotViewController.game = Game(id: nil)
-      Logger.debug("segue to new spot")
-    } else {
+    if (segue.identifier == "showNewGuessScene") {
       let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
       guessSpotViewController.currentSpot = self.currentSpot
     }
