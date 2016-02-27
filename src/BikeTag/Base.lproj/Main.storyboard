@@ -760,7 +760,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q58-dZ-it4" userLabel="Progress View">
@@ -833,11 +833,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" secondItem="mkQ-aY-6Yn" secondAttribute="bottom" id="BKK-2M-yAz"/>
                             <constraint firstItem="Z5X-Xm-cwg" firstAttribute="trailing" secondItem="FPe-7J-yo5" secondAttribute="trailing" id="JIU-hk-x0g"/>
                             <constraint firstAttribute="trailing" secondItem="0zK-ub-zOi" secondAttribute="trailing" id="M3x-DJ-Dqi"/>
                             <constraint firstAttribute="centerY" secondItem="Q58-dZ-it4" secondAttribute="centerY" id="OGa-oJ-jhH"/>
                             <constraint firstAttribute="centerX" secondItem="Q58-dZ-it4" secondAttribute="centerX" id="Rvi-pb-Sfy"/>
+                            <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" secondItem="FPe-7J-yo5" secondAttribute="topMargin" id="Wyn-LL-XDk"/>
                             <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="0zK-ub-zOi" secondAttribute="bottom" id="bdh-c9-koz"/>
                             <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="Z5X-Xm-cwg" secondAttribute="bottom" id="fI0-qw-HkT"/>
                             <constraint firstItem="0zK-ub-zOi" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leading" id="kUR-xO-P8A"/>
