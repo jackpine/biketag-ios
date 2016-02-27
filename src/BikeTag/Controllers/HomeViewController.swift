@@ -144,11 +144,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     if oldSpot != nil {
       let gameIndex = self.currentSpots.indexOf(oldSpot!)!
-      self.currentSpots[gameIndex] = newSpot
-    } else {
-      //started a new game
-      self.currentSpots.append(newSpot)
+      self.currentSpots.removeAtIndex(gameIndex)
     }
+
+    self.currentSpots.insert(newSpot, atIndex: 0)
+    self.gameTableView.contentOffset = CGPoint(x: 0, y: 0)
   }
 
   func fetchCurrentSpots() {
