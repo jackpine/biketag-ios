@@ -16,6 +16,24 @@
             <string>Knewave</string>
             <string>Knewave</string>
         </mutableArray>
+        <mutableArray key="League Spartan.ttf">
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+        </mutableArray>
     </customFonts>
     <scenes>
         <!--Welcome-->
@@ -37,11 +55,11 @@
                                 <rect key="frame" x="20" y="360" width="560" height="240"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-33-XEw" userLabel="top spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="35.5"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Tag is a game to..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S3-op-o0l">
-                                        <rect key="frame" x="153" y="8.5" width="254" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <rect key="frame" x="131" y="9.5" width="298.5" height="39"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -49,8 +67,8 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find secret bike spots near you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQM-1k-de1">
-                                        <rect key="frame" x="158" y="70.5" width="243" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="141" y="74.5" width="277.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -58,8 +76,8 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your spots with others." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFW-DH-TP9">
-                                        <rect key="frame" x="168" y="99.5" width="224" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="149.5" y="101" width="261" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -67,8 +85,8 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride your bike!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-1O-0F4">
-                                        <rect key="frame" x="223" y="128" width="113" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="213" y="127.5" width="133.5" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -76,7 +94,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-N0-Fps">
-                                        <rect key="frame" x="217.5" y="164.5" width="125" height="51"/>
+                                        <rect key="frame" x="217" y="170" width="125" height="51"/>
                                         <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="25"/>
                                         <state key="normal" title="Let's Ride!">
                                             <color key="titleColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-rW-Hal" userLabel="bottom spacer">
-                                        <rect key="frame" x="0.0" y="199.5" width="560" height="40.5"/>
+                                        <rect key="frame" x="0.0" y="205" width="560" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Vfz-vD-bmD"/>
                                         </constraints>
@@ -105,14 +123,14 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="7S3-op-o0l" secondAttribute="centerX" id="42k-pT-7wf"/>
-                                    <constraint firstItem="rFW-DH-TP9" firstAttribute="bottom" secondItem="7SR-1O-0F4" secondAttribute="top" constant="-8" id="EUp-Sd-9rW"/>
+                                    <constraint firstItem="rFW-DH-TP9" firstAttribute="bottom" secondItem="7SR-1O-0F4" secondAttribute="top" id="EUp-Sd-9rW"/>
                                     <constraint firstAttribute="trailing" secondItem="mNc-rW-Hal" secondAttribute="trailing" id="FeK-Wb-w3I"/>
                                     <constraint firstItem="mNc-rW-Hal" firstAttribute="leading" secondItem="4KA-6Z-e3d" secondAttribute="leading" id="KFS-7I-2mv"/>
                                     <constraint firstAttribute="centerX" secondItem="hQM-1k-de1" secondAttribute="centerX" id="SYh-VU-Vyl"/>
                                     <constraint firstAttribute="centerX" secondItem="xUd-N0-Fps" secondAttribute="centerX" id="TSQ-2A-lUQ"/>
-                                    <constraint firstItem="hQM-1k-de1" firstAttribute="top" secondItem="7S3-op-o0l" secondAttribute="bottom" constant="32" id="X0r-P8-bw2"/>
-                                    <constraint firstItem="rFW-DH-TP9" firstAttribute="top" secondItem="hQM-1k-de1" secondAttribute="bottom" constant="8" id="aUE-uW-bMy"/>
-                                    <constraint firstItem="7S3-op-o0l" firstAttribute="top" secondItem="FIn-33-XEw" secondAttribute="bottom" constant="-32" id="bwK-84-Job"/>
+                                    <constraint firstItem="hQM-1k-de1" firstAttribute="top" secondItem="7S3-op-o0l" secondAttribute="bottom" constant="26" id="X0r-P8-bw2"/>
+                                    <constraint firstItem="rFW-DH-TP9" firstAttribute="top" secondItem="hQM-1k-de1" secondAttribute="bottom" id="aUE-uW-bMy"/>
+                                    <constraint firstItem="7S3-op-o0l" firstAttribute="top" secondItem="FIn-33-XEw" secondAttribute="bottom" constant="-26" id="bwK-84-Job"/>
                                     <constraint firstItem="xUd-N0-Fps" firstAttribute="bottom" secondItem="mNc-rW-Hal" secondAttribute="top" constant="16" id="fB2-fF-eON"/>
                                     <constraint firstAttribute="centerX" secondItem="rFW-DH-TP9" secondAttribute="centerX" id="rBb-h2-uiN"/>
                                     <constraint firstItem="mNc-rW-Hal" firstAttribute="height" secondItem="FIn-33-XEw" secondAttribute="height" id="ro2-OE-RZh"/>
@@ -318,12 +336,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inN-Os-Ndg" userLabel="Response Actions">
                                 <rect key="frame" x="0.0" y="480" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
                                         <rect key="frame" x="16" y="16" width="568" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="VhZ-zz-fOD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -408,29 +426,37 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
-                                        <rect key="frame" x="174" y="197" width="252" height="67"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <rect key="frame" x="148" y="176.5" width="304.5" height="87.5"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, you've gotta keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
                                         <rect key="frame" x="20" y="280" width="560" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="nX2-Lt-xQw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT">
-                                        <rect key="frame" x="233" y="336" width="135" height="60"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <rect key="frame" x="220.5" y="336" width="160" height="78"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="50"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride to a new spot before time runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
+                                        <rect key="frame" x="123.5" y="430" width="353" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dBX-4r-MJd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5I-ZL-gsn" userLabel="Sad Face">
-                                        <rect key="frame" x="248.5" y="616" width="103" height="134"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="112"/>
+                                        <rect key="frame" x="242" y="575.5" width="116" height="174.5"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="112"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -441,8 +467,10 @@
                                     <constraint firstAttribute="trailing" secondItem="MSM-pN-Bhb" secondAttribute="trailing" constant="20" id="HMK-oP-NKR"/>
                                     <constraint firstItem="MSM-pN-Bhb" firstAttribute="leading" secondItem="0rs-uX-AcI" secondAttribute="leading" constant="20" id="HTw-Kj-OwV"/>
                                     <constraint firstAttribute="centerX" secondItem="tot-7W-58O" secondAttribute="centerX" id="JMs-g5-iTu"/>
+                                    <constraint firstItem="acX-Hl-pV7" firstAttribute="centerX" secondItem="0rs-uX-AcI" secondAttribute="centerX" id="M8w-Kt-X3G"/>
                                     <constraint firstAttribute="centerX" secondItem="cgP-jT-iPT" secondAttribute="centerX" id="Wbv-gn-m7N"/>
                                     <constraint firstAttribute="centerY" secondItem="MSM-pN-Bhb" secondAttribute="centerY" id="tsu-dj-vJx"/>
+                                    <constraint firstItem="acX-Hl-pV7" firstAttribute="top" secondItem="cgP-jT-iPT" secondAttribute="bottom" constant="16" id="vxw-Qz-cd7"/>
                                     <constraint firstAttribute="bottom" secondItem="O5I-ZL-gsn" secondAttribute="bottom" constant="-150" id="wbA-HD-I6Q"/>
                                     <constraint firstItem="MSM-pN-Bhb" firstAttribute="top" secondItem="tot-7W-58O" secondAttribute="bottom" constant="16" id="xMK-cb-9yT"/>
                                     <constraint firstAttribute="centerX" secondItem="O5I-ZL-gsn" secondAttribute="centerX" id="yiZ-QN-GGP"/>
@@ -452,9 +480,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7Z-f5-vse">
-                                        <rect key="frame" x="255" y="147" width="90" height="117"/>
+                                        <rect key="frame" x="249.5" y="111" width="101.5" height="153"/>
                                         <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="98"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="98"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -463,8 +491,13 @@
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rjA-g4-7ri"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Spot." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WY9-fe-79x">
+                                        <rect key="frame" x="204.5" y="336" width="211" height="50"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -472,10 +505,18 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aXo-cG-NXF" secondAttribute="trailing" id="3Y2-MN-fWw"/>
                                     <constraint firstAttribute="centerX" secondItem="u7Z-f5-vse" secondAttribute="centerX" id="Bcj-ob-skJ"/>
+                                    <constraint firstItem="WY9-fe-79x" firstAttribute="top" secondItem="aXo-cG-NXF" secondAttribute="top" id="YN5-Vh-AZG"/>
+                                    <constraint firstItem="WY9-fe-79x" firstAttribute="top" secondItem="aXo-cG-NXF" secondAttribute="bottom" constant="16" id="gcU-GN-t3M"/>
                                     <constraint firstAttribute="centerY" secondItem="aXo-cG-NXF" secondAttribute="centerY" id="i4P-fq-Chs"/>
+                                    <constraint firstItem="WY9-fe-79x" firstAttribute="centerX" secondItem="aXo-cG-NXF" secondAttribute="centerX" id="lYy-Jm-8gk"/>
                                     <constraint firstItem="aXo-cG-NXF" firstAttribute="top" secondItem="u7Z-f5-vse" secondAttribute="bottom" constant="16" id="uLh-BM-2IA"/>
                                     <constraint firstItem="aXo-cG-NXF" firstAttribute="leading" secondItem="Uw4-eH-WZB" secondAttribute="leading" constant="20" id="vSl-wV-Myv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="YN5-Vh-AZG"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-KY-zwI" userLabel="Progress Overlay">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -488,7 +529,7 @@
                                                 <variation key="heightClass=regular-widthClass=compact" constant="40"/>
                                             </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="24"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -557,12 +598,6 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FeN-hZ-eDe" userLabel="Incorrect Guess">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong Spot." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WY9-fe-79x">
-                                                <rect key="frame" x="212" y="12" width="176.5" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNy-6P-ZfL" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="56" width="568" height="48"/>
                                                 <constraints>
@@ -580,8 +615,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="WY9-fe-79x" secondAttribute="centerX" id="Jqn-SN-dsw"/>
-                                            <constraint firstItem="WY9-fe-79x" firstAttribute="top" secondItem="FeN-hZ-eDe" secondAttribute="top" constant="12" id="SgD-6O-4ph"/>
                                             <constraint firstAttribute="centerX" secondItem="lNy-6P-ZfL" secondAttribute="centerX" id="XmU-3O-OCG"/>
                                             <constraint firstAttribute="bottom" secondItem="lNy-6P-ZfL" secondAttribute="bottom" constant="16" id="YVF-GD-YxO"/>
                                             <constraint firstItem="lNy-6P-ZfL" firstAttribute="leading" secondItem="FeN-hZ-eDe" secondAttribute="leading" constant="16" id="goR-SP-tFC"/>
@@ -591,15 +624,6 @@
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iF1-gU-jPa" userLabel="Correct Guess">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride to a new spot before time runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
-                                                <rect key="frame" x="28" y="16" width="544" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dBX-4r-MJd"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-T3-VXe" userLabel="I'm at my new Spot!" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="56" width="568" height="48"/>
                                                 <constraints>
@@ -620,13 +644,7 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="acX-Hl-pV7" firstAttribute="top" secondItem="iF1-gU-jPa" secondAttribute="top" constant="16" id="cdY-iK-96D">
-                                                <variation key="widthClass=compact" constant="8"/>
-                                            </constraint>
                                             <constraint firstItem="sVr-T3-VXe" firstAttribute="leading" secondItem="iF1-gU-jPa" secondAttribute="leading" constant="16" id="dMe-uR-2om"/>
-                                            <constraint firstItem="acX-Hl-pV7" firstAttribute="leading" secondItem="iF1-gU-jPa" secondAttribute="leading" constant="28" id="dyD-ik-ju1"/>
-                                            <constraint firstAttribute="trailing" secondItem="acX-Hl-pV7" secondAttribute="trailing" constant="28" id="e1W-PR-Ddd"/>
-                                            <constraint firstAttribute="centerX" secondItem="acX-Hl-pV7" secondAttribute="centerX" id="vB6-EK-GOq"/>
                                             <constraint firstAttribute="trailing" secondItem="sVr-T3-VXe" secondAttribute="trailing" constant="16" id="wJA-lV-odl"/>
                                             <constraint firstAttribute="bottom" secondItem="sVr-T3-VXe" secondAttribute="bottom" constant="16" id="wk3-d7-Pg6"/>
                                         </constraints>
@@ -638,12 +656,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot! Times up. You'll have to recapture that last spot." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q5-Nx-Zw1" userLabel="Times Up. You'll have to recapture the last spot to try again.">
-                                                <rect key="frame" x="28" y="8" width="544" height="40"/>
+                                                <rect key="frame" x="28" y="0.0" width="544" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="wtJ-0b-BkK"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40L-Cb-8wZ" userLabel="Try Again?" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
@@ -670,10 +687,15 @@
                                             <constraint firstAttribute="centerX" secondItem="5q5-Nx-Zw1" secondAttribute="centerX" id="abO-6X-75b"/>
                                             <constraint firstItem="5q5-Nx-Zw1" firstAttribute="leading" secondItem="EZh-8e-e8v" secondAttribute="leading" constant="28" id="hAB-kT-pZm"/>
                                             <constraint firstItem="5q5-Nx-Zw1" firstAttribute="top" secondItem="EZh-8e-e8v" secondAttribute="top" constant="8" id="kdC-1p-A89"/>
+                                            <constraint firstItem="40L-Cb-8wZ" firstAttribute="top" secondItem="5q5-Nx-Zw1" secondAttribute="bottom" constant="16" id="tEI-3f-eFI"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="kdC-1p-A89"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="EZh-8e-e8v" firstAttribute="height" secondItem="Z6C-Jt-DAh" secondAttribute="height" id="0p6-Ld-Y6D"/>
                                     <constraint firstAttribute="bottom" secondItem="w4R-8C-yyR" secondAttribute="bottom" id="3gf-P5-0ER"/>
@@ -740,6 +762,7 @@
                         <outlet property="incorrectGuessView" destination="FeN-hZ-eDe" id="DGt-pa-VJa"/>
                         <outlet property="incorrectOverlayView" destination="Uw4-eH-WZB" id="OwX-Fn-CpN"/>
                         <outlet property="incorrectSadFaceView" destination="u7Z-f5-vse" id="MIB-Z1-0er"/>
+                        <outlet property="instructionsLabel" destination="acX-Hl-pV7" id="aXs-Yq-zEM"/>
                         <outlet property="newSpotButton" destination="sVr-T3-VXe" id="N07-Zs-2aU"/>
                         <outlet property="progressLabel" destination="0tb-jg-bZa" id="NPV-12-unv"/>
                         <outlet property="progressOverlay" destination="9PX-KY-zwI" id="ttT-lC-Pno"/>
@@ -798,12 +821,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="0.0" y="480" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
                                         <rect key="frame" x="16" y="16" width="568" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="MkR-fb-ueF"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -853,7 +876,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Post New Spot" id="TsD-mA-2Af"/>
+                    <navigationItem key="navigationItem" title="New Spot" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Ufm-M8-9Ot" id="Wep-c9-28j"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>

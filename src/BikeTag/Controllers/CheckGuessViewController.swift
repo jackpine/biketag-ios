@@ -12,6 +12,7 @@ class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var correctGuessView: UIView!
   @IBOutlet var countdownContainerView: UIView!
   @IBOutlet var countdownClockView: UILabel!
+  @IBOutlet var instructionsLabel: UILabel!
   @IBOutlet var submittedImageView: UIImageView! {
     didSet {
       updateSubmittedImageView()
@@ -93,10 +94,10 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   func handleGuessResponse(guess: Guess) {
-    self.progressOverlay.hidden = true
     if( Config.fakeApiCalls() ) {
       self.fakeResponseActions.hidden = false
     } else {
+      self.progressOverlay.hidden = true
       if guess.correct! {
         correctGuess()
       } else {
@@ -122,12 +123,14 @@ class CheckGuessViewController: ApplicationViewController {
   }
 
   @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
+    self.progressOverlay.hidden = true
     self.guess!.correct = false
     self.guess!.distance = 0.03
     incorrectGuess()
   }
 
   @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
+    self.progressOverlay.hidden = true
     self.guess!.correct = true
     self.guess!.distance = 0.0001
     correctGuess()
@@ -165,6 +168,7 @@ class CheckGuessViewController: ApplicationViewController {
         self.countdownSubheader.alpha = 0
         self.countdownHeader.alpha = 0
         self.correctGuessView.alpha = 0
+        self.instructionsLabel.alpha = 0
       },
       completion: nil)
 
