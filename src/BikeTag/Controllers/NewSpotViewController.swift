@@ -95,7 +95,11 @@ class NewSpotViewController: CameraViewController {
           preferredStyle: .Alert)
 
         let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .Default) { (action) in
-          self.navigationController!.popViewControllerAnimated(true)
+          if let navigationController = self.navigationController {
+            navigationController.popViewControllerAnimated(true)
+          } else { //presented modally
+            self.dismissViewControllerAnimated(true, completion: nil)
+          }
         }
         alertController.addAction(retryAction)
       } else {
