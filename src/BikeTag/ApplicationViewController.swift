@@ -14,7 +14,7 @@ class ApplicationViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItemStyle.Plain, target: self, action: "scoreButtonTouched")
+    self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ApplicationViewController.scoreButtonTouched))
     self.renderScore()
 
     self.navigationItem.rightBarButtonItem = scoreButton

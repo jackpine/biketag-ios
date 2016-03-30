@@ -82,7 +82,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
-    self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
+    self.refreshControl.addTarget(self, action: #selector(HomeViewController.refreshControlPulled(_:)), forControlEvents: UIControlEvents.ValueChanged)
     self.gameTableView.addSubview(self.refreshControl)
     self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -90,7 +90,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     setUpLocationServices()
     self.refresh()
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
 
   deinit {
