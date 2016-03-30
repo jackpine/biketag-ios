@@ -33,6 +33,8 @@
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		4552389B1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */; };
 		4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */; };
+		455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
+		455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -78,6 +80,8 @@
 		45D6B51E1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
 		45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
 		45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
+		45E0ECDD1CAC13E30096C179 /* SadFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */; };
+		45E0ECDE1CAC13E30096C179 /* SadFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,7 @@
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastCellInSpotsTableView.swift; sourceTree = "<group>"; };
+		455526831CAC16D0001694BE /* TimesUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimesUpViewController.swift; path = Controllers/TimesUpViewController.swift; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		45D113001CA8B121004F7D66 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
+		45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SadFaceView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,7 @@
 				4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */,
 				45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */,
 				45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */,
+				455526831CAC16D0001694BE /* TimesUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +368,7 @@
 				45DB1F881B27BDCD0001EC8A /* SpotView.swift */,
 				451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */,
 				4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */,
+				45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -543,6 +551,8 @@
 				45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
+				455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
+				45E0ECDD1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 				459F96241BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
@@ -580,8 +590,10 @@
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				45939FE41CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
+				455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */,
+				45E0ECDE1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,

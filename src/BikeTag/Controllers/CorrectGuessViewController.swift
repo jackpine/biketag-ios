@@ -63,18 +63,6 @@ class CorrectGuessViewController: ApplicationViewController {
 
     self.performSegueWithIdentifier("showTimesUp", sender: self)
   }
-
-  func rotateSadFaceView(sadFaceView: UILabel) -> () {
-    let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-    rotateAnimation.fromValue = 0.0
-    //90 degrees
-    rotateAnimation.toValue = CGFloat(M_PI * 0.5)
-    rotateAnimation.duration = 2.0
-    rotateAnimation.fillMode = kCAFillModeForwards
-    rotateAnimation.removedOnCompletion = false
-    rotateAnimation.beginTime = CACurrentMediaTime() + 0.5
-    sadFaceView.layer.addAnimation(rotateAnimation, forKey: nil)
-  }
   
   var clockBlinking: Bool = false
   func blinkClock() {
