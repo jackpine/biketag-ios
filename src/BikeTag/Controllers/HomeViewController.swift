@@ -269,7 +269,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     if (spotCount == 0) {
       // Display nothing
-      // We don't want to display the "Don't know these spots?" message when there are no spots.
+      // We don't want to display the "Don't know these spots?" message before spots have loaded.
       return 0
     } else {
       // Display spots plus a final cell

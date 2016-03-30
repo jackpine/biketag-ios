@@ -4,6 +4,16 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Knewave.otf">
+            <string>Knewave</string>
+        </mutableArray>
+        <mutableArray key="League Spartan.otf">
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BikeTag" customModuleProvider="target">
             <connections>
@@ -18,35 +28,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't know these spots?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-pf-JIG">
-                    <rect key="frame" x="169" y="285.5" width="263.5" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                    <rect key="frame" x="0.0" y="285" width="600" height="30"/>
+                    <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="24"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-iI-RgT" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                    <rect key="frame" x="16" y="346.5" width="569" height="48"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-iI-RgT" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
+                    <rect key="frame" x="16" y="347" width="568" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="wVY-uI-3rg"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                    <state key="normal" title="Add your own!">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
+                    <state key="normal" title="Add your own! ">
+                        <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="didTouchUpInsideAddSpotButton:" destination="-1" eventType="touchUpInside" id="oVi-cB-njq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This costs ●25 of your ●50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-Wf-3gD">
-                    <rect key="frame" x="197" y="426.5" width="207" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This costs ●25 of your ●50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-Wf-3gD">
+                    <rect key="frame" x="0.0" y="427" width="600" height="21.5"/>
+                    <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find existing spots to earn more!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-H9-gPO">
-                    <rect key="frame" x="175.5" y="447" width="249.5" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find existing spots to earn more!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-H9-gPO">
+                    <rect key="frame" x="0.0" y="448.5" width="600" height="21.5"/>
+                    <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -54,14 +63,20 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rve-pf-JIG" secondAttribute="trailing" id="65P-qj-40r"/>
+                <constraint firstItem="QgP-Wf-3gD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6P1-vy-0mZ"/>
+                <constraint firstItem="RB6-H9-gPO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AOZ-VH-tsv"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="BKQ-pe-XKb"/>
+                <constraint firstAttribute="trailing" secondItem="QgP-Wf-3gD" secondAttribute="trailing" id="GYg-xd-iSV"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="top" secondItem="Rve-pf-JIG" secondAttribute="bottom" constant="32" id="Hov-5h-Gtj"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="top" secondItem="Xcq-iI-RgT" secondAttribute="bottom" constant="32" id="IVY-Jz-T5a"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MK3-fG-vu2"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="My8-Xe-EsZ"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qln-Nv-tOk"/>
                 <constraint firstItem="RB6-H9-gPO" firstAttribute="top" secondItem="QgP-Wf-3gD" secondAttribute="bottom" id="VMU-Rd-jqc"/>
+                <constraint firstAttribute="trailing" secondItem="RB6-H9-gPO" secondAttribute="trailing" id="XaR-9j-GgC"/>
+                <constraint firstAttribute="trailing" secondItem="Rve-pf-JIG" secondAttribute="trailing" id="ZIS-xn-9Tx"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eAk-QU-sWA"/>
+                <constraint firstItem="Rve-pf-JIG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gyA-Ae-oeg"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jw7-ab-kJJ"/>
                 <constraint firstItem="RB6-H9-gPO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oH4-Kj-fD6"/>
                 <constraint firstAttribute="trailing" secondItem="Xcq-iI-RgT" secondAttribute="trailing" constant="16" id="qSM-xn-jOu"/>

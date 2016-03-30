@@ -20,15 +20,17 @@ class PrimaryButton: UIButton {
   }
 
   func applyStyle() {
+    self.backgroundColor = UIColor.clearColor()
     self.layer.cornerRadius = 8.0
     self.layer.masksToBounds = true
     self.layer.borderWidth = 1
     self.titleLabel?.font = Font.titleFont
     self.setTitleColor(Color.grayColor, forState: .Disabled)
+    self.setTitleColor(Color.redColor, forState: .Normal)
     applyStyle(state: self.state)
   }
 
-  func applyStyle(state aState:UIControlState) {
+  func applyStyle(state aState: UIControlState) {
     switch(aState) {
     case UIControlState.Disabled:
       self.layer.borderColor = Color.grayColor.CGColor
