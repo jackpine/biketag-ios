@@ -23,7 +23,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
       beginCapturingVideo(captureDevice)
     }
 
-    let tap = UITapGestureRecognizer(target:self, action:"tappedPhotoPreview:")
+    let tap = UITapGestureRecognizer(target:self, action:#selector(CameraViewController.tappedPhotoPreview(_:)))
     photoPreviewView.addGestureRecognizer(tap)
 
     self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)

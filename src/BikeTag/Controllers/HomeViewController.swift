@@ -73,17 +73,16 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.lastCellInSpotsTableView = LastCellInSpotsTableView(frame: self.view.frame, owner: self)
 
     self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
-    self.loadingView.layer.cornerRadius = 5;
-    self.loadingView.layer.masksToBounds = true;
+    self.loadingView.layer.cornerRadius = 5
+    self.loadingView.layer.masksToBounds = true
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
-    self.guessSpotButtonView.setTitleColor(UIColor.grayColor(), forState: .Disabled)
 
     self.refreshControl = UIRefreshControl()
     let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
     self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
     self.refreshControl.tintColor = UIColor.whiteColor()
-    self.refreshControl.addTarget(self, action: "refreshControlPulled:", forControlEvents: UIControlEvents.ValueChanged)
+    self.refreshControl.addTarget(self, action: #selector(HomeViewController.refreshControlPulled(_:)), forControlEvents: UIControlEvents.ValueChanged)
     self.gameTableView.addSubview(self.refreshControl)
     self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -91,7 +90,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     setUpLocationServices()
     self.refresh()
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "applicationWillEnterForeground:", name: UIApplicationWillEnterForegroundNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
 
   deinit {
@@ -157,7 +156,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       self.currentSpots = currentSpots
       self.currentSpot = self.currentSpots[0]
-      self.guessSpotButtonView.enabled = true;
+      self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
     }
@@ -270,11 +269,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     if (spotCount == 0) {
       // Display nothing
-      // We don't want to display the "Don't know these spots?" message when there are no spots.
+      // We don't want to display the "Don't know these spots?" message before spots have loaded.
       return 0
     } else {
       // Display spots plus a final cell
-      return spotCount + 1;
+      return spotCount + 1
     }
   }
 

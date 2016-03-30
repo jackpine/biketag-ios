@@ -21,7 +21,7 @@ class SpotView: UIImageView {
     self.clipsToBounds = true
     self.spot = spot
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateSpotViewImage", name: Spot.DidSetImageNotification, object: spot)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SpotView.updateSpotViewImage), name: Spot.DidSetImageNotification, object: spot)
   }
 
   deinit {

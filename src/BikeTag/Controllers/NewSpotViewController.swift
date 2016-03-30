@@ -6,8 +6,16 @@ class NewSpotViewController: CameraViewController {
   var newSpot: Spot?
   var game: Game?
 
-  @IBOutlet var progressView: UIView!
-  @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
+  @IBOutlet var loadingView: UIView!
+  @IBOutlet var activityIndicatorImageView: UIImageView!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
+    self.loadingView.layer.cornerRadius = 5
+    self.loadingView.layer.masksToBounds = true
+  }
 
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
@@ -51,22 +59,33 @@ class NewSpotViewController: CameraViewController {
     }
   }
 
+  func stopLoadingAnimation() {
+    self.loadingView.hidden = true
+    self.takePictureButton.enabled = true
+    self.takePictureButton.titleLabel?.text = "Claim this Spot! "
+  }
+
+  func startLoadingAnimation() {
+    self.loadingView.hidden = false
+    self.takePictureButton.setTitle("Uploading...", forState: UIControlState.Disabled)
+    self.takePictureButton.enabled = false
+  }
+
   func uploadNewSpot(spot: Spot) {
-    self.progressView.hidden = false
-    self.activityIndicatorView.startAnimating()
+    self.startLoadingAnimation()
     let capturedImageView = UIImageView(image: spot.image)
     capturedImageView.frame = self.photoPreviewView.frame
     self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
 
     let popToHomeViewController = { (newSpot: Spot) -> () in
-      self.activityIndicatorView.stopAnimating()
+      self.stopLoadingAnimation()
       self.newSpot = newSpot
       self.performSegueWithIdentifier("unwindToHome", sender: nil)
       return
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
-      self.activityIndicatorView.stopAnimating()
+      self.stopLoadingAnimation()
 
       var alertController: UIAlertController
       if error.code == 133 {
@@ -76,7 +95,11 @@ class NewSpotViewController: CameraViewController {
           preferredStyle: .Alert)
 
         let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .Default) { (action) in
-          self.navigationController!.popViewControllerAnimated(true)
+          if let navigationController = self.navigationController {
+            navigationController.popViewControllerAnimated(true)
+          } else { //presented modally
+            self.dismissViewControllerAnimated(true, completion: nil)
+          }
         }
         alertController.addAction(retryAction)
       } else {
