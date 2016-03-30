@@ -565,22 +565,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You Got it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
                                 <rect key="frame" x="20" y="167" width="560" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
-                                <rect key="frame" x="199" y="363.5" width="202" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="to keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
+                                <rect key="frame" x="189" y="331.5" width="223" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="nX2-Lt-xQw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nX2-Lt-xQw"/>
+                                    </mask>
+                                </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT" userLabel="Countdown Clock">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT" userLabel="Countdown Clock">
                                 <rect key="frame" x="220" y="269" width="160" height="62.5"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -603,7 +608,7 @@
                                     <segue destination="kB0-aQ-szS" kind="show" identifier="showNewSpot" id="pdm-a3-rbz"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride to a new spot before time runs out." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride to a new spot before time runs out." textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
                                 <rect key="frame" x="20" y="480.5" width="560" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dBX-4r-MJd"/>
@@ -623,7 +628,7 @@
                             <constraint firstItem="cgP-jT-iPT" firstAttribute="centerX" secondItem="IaD-l2-C1S" secondAttribute="centerX" id="WhE-DF-Xci"/>
                             <constraint firstItem="sVr-T3-VXe" firstAttribute="top" secondItem="acX-Hl-pV7" secondAttribute="bottom" constant="16" id="alq-zI-2zC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tot-7W-58O" secondAttribute="trailing" id="cKa-8R-PXZ"/>
-                            <constraint firstItem="MSM-pN-Bhb" firstAttribute="top" secondItem="cgP-jT-iPT" secondAttribute="bottom" constant="32" id="dVd-tq-80N"/>
+                            <constraint firstItem="MSM-pN-Bhb" firstAttribute="top" secondItem="cgP-jT-iPT" secondAttribute="bottom" id="dVd-tq-80N"/>
                             <constraint firstAttribute="trailingMargin" secondItem="acX-Hl-pV7" secondAttribute="trailing" id="jO0-W5-aS3"/>
                             <constraint firstItem="cgP-jT-iPT" firstAttribute="centerY" secondItem="IaD-l2-C1S" secondAttribute="centerY" id="rLf-Ui-Yll"/>
                             <constraint firstItem="tot-7W-58O" firstAttribute="centerX" secondItem="IaD-l2-C1S" secondAttribute="centerX" id="stV-Th-Ev3"/>
