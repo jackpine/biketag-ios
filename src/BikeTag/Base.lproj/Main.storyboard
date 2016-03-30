@@ -232,8 +232,8 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-Uo-dgZ" userLabel="My Spot">
                                 <rect key="frame" x="0.0" y="436" width="600" height="164"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
-                                        <rect key="frame" x="20" y="70" width="560" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
+                                        <rect key="frame" x="20" y="69.5" width="560" height="25"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -796,31 +796,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q58-dZ-it4" userLabel="Progress View">
-                                <rect key="frame" x="200" y="240" width="200" height="120"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-M8-9Ot">
-                                        <rect key="frame" x="81.5" y="16" width="37" height="88"/>
-                                    </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading your Spot..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esu-5R-jaZ">
-                                        <rect key="frame" x="16" y="120" width="168" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="Ufm-M8-9Ot" secondAttribute="centerY" id="9hd-OP-yTn"/>
-                                    <constraint firstAttribute="width" constant="200" id="IWM-5e-KTo"/>
-                                    <constraint firstAttribute="trailing" secondItem="Esu-5R-jaZ" secondAttribute="trailing" constant="16" id="bh3-PN-Zw8"/>
-                                    <constraint firstItem="Esu-5R-jaZ" firstAttribute="leading" secondItem="Q58-dZ-it4" secondAttribute="leading" constant="16" id="dbT-3w-dCa"/>
-                                    <constraint firstItem="Ufm-M8-9Ot" firstAttribute="top" secondItem="Q58-dZ-it4" secondAttribute="top" constant="16" id="eic-Mk-jYU"/>
-                                    <constraint firstAttribute="height" constant="120" id="gU7-YE-qMV"/>
-                                    <constraint firstItem="Esu-5R-jaZ" firstAttribute="top" secondItem="Ufm-M8-9Ot" secondAttribute="bottom" constant="16" id="k7g-6k-bgf"/>
-                                    <constraint firstAttribute="centerX" secondItem="Ufm-M8-9Ot" secondAttribute="centerX" id="qVB-PC-isI"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
                                 <rect key="frame" x="0.0" y="480" width="600" height="120"/>
                                 <subviews>
@@ -862,18 +837,36 @@
                                     <constraint firstItem="BeB-Ck-C6X" firstAttribute="leading" secondItem="0zK-ub-zOi" secondAttribute="leading" constant="16" id="zk4-z7-z13"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T64-39-yz7" userLabel="Loading View">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qtx-Px-3tK">
+                                        <rect key="frame" x="8" y="8" width="84" height="84"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Qtx-Px-3tK" secondAttribute="trailing" constant="8" id="93n-fI-VdX"/>
+                                    <constraint firstItem="Qtx-Px-3tK" firstAttribute="leading" secondItem="T64-39-yz7" secondAttribute="leading" constant="8" id="9Zd-bQ-KBe"/>
+                                    <constraint firstItem="Qtx-Px-3tK" firstAttribute="top" secondItem="T64-39-yz7" secondAttribute="top" constant="8" id="IVK-zp-Rxs"/>
+                                    <constraint firstAttribute="width" secondItem="T64-39-yz7" secondAttribute="height" multiplier="1:1" id="gZY-V9-L3Q"/>
+                                    <constraint firstAttribute="width" constant="100" id="ktk-rj-UQc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qtx-Px-3tK" secondAttribute="bottom" constant="8" id="sKa-Ow-Cn9"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Z5X-Xm-cwg" firstAttribute="trailing" secondItem="FPe-7J-yo5" secondAttribute="trailing" id="JIU-hk-x0g"/>
                             <constraint firstAttribute="trailing" secondItem="0zK-ub-zOi" secondAttribute="trailing" id="M3x-DJ-Dqi"/>
-                            <constraint firstAttribute="centerY" secondItem="Q58-dZ-it4" secondAttribute="centerY" id="OGa-oJ-jhH"/>
-                            <constraint firstAttribute="centerX" secondItem="Q58-dZ-it4" secondAttribute="centerX" id="Rvi-pb-Sfy"/>
+                            <constraint firstItem="T64-39-yz7" firstAttribute="centerY" secondItem="FPe-7J-yo5" secondAttribute="centerY" id="U7y-w7-fib"/>
                             <constraint firstItem="Z5X-Xm-cwg" firstAttribute="top" secondItem="FPe-7J-yo5" secondAttribute="topMargin" id="Wyn-LL-XDk"/>
                             <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="0zK-ub-zOi" secondAttribute="bottom" id="bdh-c9-koz"/>
+                            <constraint firstItem="T64-39-yz7" firstAttribute="centerX" secondItem="FPe-7J-yo5" secondAttribute="centerX" id="c0r-vY-ZMV"/>
                             <constraint firstItem="5hT-u1-KNe" firstAttribute="top" secondItem="Z5X-Xm-cwg" secondAttribute="bottom" id="fI0-qw-HkT"/>
                             <constraint firstItem="0zK-ub-zOi" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leading" id="kUR-xO-P8A"/>
                             <constraint firstItem="Z5X-Xm-cwg" firstAttribute="leading" secondItem="FPe-7J-yo5" secondAttribute="leading" id="rih-4L-KSa"/>
+                            <constraint firstItem="T64-39-yz7" firstAttribute="width" secondItem="T64-39-yz7" secondAttribute="height" multiplier="1:1" id="rtj-uo-roq"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
@@ -881,9 +874,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Spot" id="TsD-mA-2Af"/>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="Ufm-M8-9Ot" id="Wep-c9-28j"/>
+                        <outlet property="activityIndicatorImageView" destination="Qtx-Px-3tK" id="y0P-17-Ebn"/>
+                        <outlet property="loadingView" destination="T64-39-yz7" id="s1C-xk-DAx"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
-                        <outlet property="progressView" destination="Q58-dZ-it4" id="WG4-oz-z42"/>
                         <outlet property="takePictureButton" destination="b4v-GQ-Q6q" id="FDI-mY-9fm"/>
                         <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="DYr-an-1MF"/>
                     </connections>

@@ -28,13 +28,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't know these spots?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-pf-JIG">
-                    <rect key="frame" x="0.0" y="285" width="600" height="30"/>
+                    <rect key="frame" x="0.0" y="214" width="600" height="30"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="24"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-iI-RgT" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                    <rect key="frame" x="16" y="347" width="568" height="48"/>
+                    <rect key="frame" x="16" y="276" width="568" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="wVY-uI-3rg"/>
                     </constraints>
@@ -48,13 +48,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This costs ●25 of your ●50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-Wf-3gD">
-                    <rect key="frame" x="0.0" y="427" width="600" height="21.5"/>
+                    <rect key="frame" x="0.0" y="356" width="600" height="21.5"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find existing spots to earn more!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-H9-gPO">
-                    <rect key="frame" x="0.0" y="448.5" width="600" height="21.5"/>
+                    <rect key="frame" x="0.0" y="377.5" width="600" height="21.5"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -69,6 +69,7 @@
                 <constraint firstAttribute="trailing" secondItem="QgP-Wf-3gD" secondAttribute="trailing" id="GYg-xd-iSV"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="top" secondItem="Rve-pf-JIG" secondAttribute="bottom" constant="32" id="Hov-5h-Gtj"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="top" secondItem="Xcq-iI-RgT" secondAttribute="bottom" constant="32" id="IVY-Jz-T5a"/>
+                <constraint firstItem="Xcq-iI-RgT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="If8-m5-hGm"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MK3-fG-vu2"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="My8-Xe-EsZ"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qln-Nv-tOk"/>
@@ -81,6 +82,11 @@
                 <constraint firstItem="RB6-H9-gPO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oH4-Kj-fD6"/>
                 <constraint firstAttribute="trailing" secondItem="Xcq-iI-RgT" secondAttribute="trailing" constant="16" id="qSM-xn-jOu"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="jw7-ab-kJJ"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

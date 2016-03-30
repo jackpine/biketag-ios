@@ -73,8 +73,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.lastCellInSpotsTableView = LastCellInSpotsTableView(frame: self.view.frame, owner: self)
 
     self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
-    self.loadingView.layer.cornerRadius = 5;
-    self.loadingView.layer.masksToBounds = true;
+    self.loadingView.layer.cornerRadius = 5
+    self.loadingView.layer.masksToBounds = true
 
     self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
 
@@ -156,7 +156,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let setCurrentSpots = { (currentSpots: [Spot]) -> () in
       self.currentSpots = currentSpots
       self.currentSpot = self.currentSpots[0]
-      self.guessSpotButtonView.enabled = true;
+      self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
     }
@@ -273,7 +273,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       return 0
     } else {
       // Display spots plus a final cell
-      return spotCount + 1;
+      return spotCount + 1
     }
   }
 
