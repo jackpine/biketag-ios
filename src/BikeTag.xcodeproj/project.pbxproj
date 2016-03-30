@@ -45,6 +45,15 @@
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		45939FDA1CAB5AFC00360BE7 /* League Spartan.otf in Resources */ = {isa = PBXBuildFile; fileRef = 45939FD91CAB5AFC00360BE7 /* League Spartan.otf */; };
 		45939FDE1CAB5C7800360BE7 /* Knewave.otf in Resources */ = {isa = PBXBuildFile; fileRef = 45939FDD1CAB5C7800360BE7 /* Knewave.otf */; };
+		45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */; };
+		45939FE11CAB62D800360BE7 /* IncorrectGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */; };
+		45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */; };
+		45939FE41CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */; };
+		45939FE51CAB76BE00360BE7 /* GuessSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973C1A86827F00AD077E /* GuessSpotViewController.swift */; };
+		45939FE61CAB76C300360BE7 /* NewSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4528973A1A86827F00AD077E /* NewSpotViewController.swift */; };
+		45939FE71CAB76C700360BE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897391A86827F00AD077E /* HomeViewController.swift */; };
+		45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897381A86827F00AD077E /* CheckGuessViewController.swift */; };
+		45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452897361A86827F00AD077E /* CameraViewController.swift */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96201BB1CF72005D6C65 /* UsersService.swift */; };
@@ -111,6 +120,8 @@
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
 		45939FD91CAB5AFC00360BE7 /* League Spartan.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "League Spartan.otf"; sourceTree = "<group>"; };
 		45939FDD1CAB5C7800360BE7 /* Knewave.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Knewave.otf; sourceTree = "<group>"; };
+		45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncorrectGuessViewController.swift; path = Controllers/IncorrectGuessViewController.swift; sourceTree = "<group>"; };
+		45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CorrectGuessViewController.swift; path = Controllers/CorrectGuessViewController.swift; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		459F96201BB1CF72005D6C65 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		459F96231BB1D396005D6C65 /* FakeUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUsersService.swift; sourceTree = "<group>"; };
@@ -174,6 +185,8 @@
 				4528973A1A86827F00AD077E /* NewSpotViewController.swift */,
 				4528973C1A86827F00AD077E /* GuessSpotViewController.swift */,
 				4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */,
+				45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */,
+				45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -516,6 +529,8 @@
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
+				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
+				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
@@ -542,16 +557,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45939FE51CAB76BE00360BE7 /* GuessSpotViewController.swift in Sources */,
 				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				454E110C1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
 				451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				454E11131B19564500FBAAC3 /* ApiService.swift in Sources */,
+				45939FE71CAB76C700360BE7 /* HomeViewController.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
+				45939FE61CAB76C300360BE7 /* NewSpotViewController.swift in Sources */,
 				45D6B51E1CA8AE5C0047E7DA /* Color.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				45D113021CA8B121004F7D66 /* Font.swift in Sources */,
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				451E51D11AB3778600849262 /* Spot.swift in Sources */,
+				45939FE11CAB62D800360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
 				45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
@@ -560,11 +579,14 @@
 				4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
+				45939FE41CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
+				45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
