@@ -4,8 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>League Spartan.ttf</string>
-		<string>Knewave.ttf</string>
+		<string>League Spartan.otf</string>
+		<string>Knewave.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

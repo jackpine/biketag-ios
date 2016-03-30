@@ -43,6 +43,8 @@
 		4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
 		4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
 		4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
+		45939FDA1CAB5AFC00360BE7 /* League Spartan.otf in Resources */ = {isa = PBXBuildFile; fileRef = 45939FD91CAB5AFC00360BE7 /* League Spartan.otf */; };
+		45939FDE1CAB5C7800360BE7 /* Knewave.otf in Resources */ = {isa = PBXBuildFile; fileRef = 45939FDD1CAB5C7800360BE7 /* Knewave.otf */; };
 		459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459B3F8C1AE1B32900BFCF79 /* Logger.swift */; };
 		459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96201BB1CF72005D6C65 /* UsersService.swift */; };
@@ -63,8 +65,6 @@
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45D113011CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
 		45D113021CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
-		45D6B51A1CA8A9E90047E7DA /* Knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D6B5181CA8A9E90047E7DA /* Knewave.ttf */; };
-		45D6B51B1CA8A9E90047E7DA /* League Spartan.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 45D6B5191CA8A9E90047E7DA /* League Spartan.ttf */; };
 		45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
 		45D6B51E1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
 		45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
@@ -109,6 +109,8 @@
 		4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
+		45939FD91CAB5AFC00360BE7 /* League Spartan.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "League Spartan.otf"; sourceTree = "<group>"; };
+		45939FDD1CAB5C7800360BE7 /* Knewave.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Knewave.otf; sourceTree = "<group>"; };
 		459B3F8C1AE1B32900BFCF79 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = ../Configs/Logger.swift; sourceTree = "<group>"; };
 		459F96201BB1CF72005D6C65 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		459F96231BB1D396005D6C65 /* FakeUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUsersService.swift; sourceTree = "<group>"; };
@@ -126,8 +128,6 @@
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 		45D113001CA8B121004F7D66 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		45D6B5181CA8A9E90047E7DA /* Knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Knewave.ttf; sourceTree = "<group>"; };
-		45D6B5191CA8A9E90047E7DA /* League Spartan.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "League Spartan.ttf"; sourceTree = "<group>"; };
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -336,8 +336,8 @@
 		45D6B5131CA8A26C0047E7DA /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				45D6B5181CA8A9E90047E7DA /* Knewave.ttf */,
-				45D6B5191CA8A9E90047E7DA /* League Spartan.ttf */,
+				45939FDD1CAB5C7800360BE7 /* Knewave.otf */,
+				45939FD91CAB5AFC00360BE7 /* League Spartan.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -439,10 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */,
+				45939FDE1CAB5C7800360BE7 /* Knewave.otf in Resources */,
 				452BC6A01C7FF7A800FC6939 /* LastCellInSpotsTableView.xib in Resources */,
-				45D6B51B1CA8A9E90047E7DA /* League Spartan.ttf in Resources */,
-				45D6B51A1CA8A9E90047E7DA /* Knewave.ttf in Resources */,
 				45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */,
+				45939FDA1CAB5AFC00360BE7 /* League Spartan.otf in Resources */,
 				45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
