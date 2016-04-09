@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qID-Y3-zZe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,8 +15,12 @@
             <string>Knewave</string>
             <string>Knewave</string>
             <string>Knewave</string>
+            <string>Knewave</string>
         </mutableArray>
         <mutableArray key="League Spartan.otf">
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
@@ -894,6 +898,74 @@
                 <exit id="cf5-sV-66S" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4144" y="-695"/>
+        </scene>
+        <!--First Spot Created View Controller-->
+        <scene sceneID="xNW-OI-qay">
+            <objects>
+                <viewController id="qID-Y3-zZe" customClass="FirstSpotCreatedViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="949-Gd-yrY"/>
+                        <viewControllerLayoutGuide type="bottom" id="jEC-aK-eqG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="brv-BY-bcK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
+                                <rect key="frame" x="20" y="52" width="560" height="40"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
+                                <rect key="frame" x="20" y="124" width="560" height="22"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In a second, we'll ask for your permission to notify you when someone finds your spot." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvp-pb-WYy">
+                                <rect key="frame" x="20" y="455.5" width="560" height="42.5"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycx-Tc-zVV" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
+                                <rect key="frame" x="20" y="530" width="560" height="38"/>
+                                <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
+                                <state key="normal" title="Ask Away.">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedAskButton" destination="qID-Y3-zZe" eventType="touchUpInside" id="0P7-tG-TOn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jEC-aK-eqG" firstAttribute="top" secondItem="ycx-Tc-zVV" secondAttribute="bottom" constant="32" id="0wy-G1-Veu"/>
+                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="top" secondItem="949-Gd-yrY" secondAttribute="bottom" constant="32" id="Q32-uO-1wx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycx-Tc-zVV" secondAttribute="trailing" id="SzB-Oo-rxR"/>
+                            <constraint firstItem="ycx-Tc-zVV" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="TTL-Kw-1ct"/>
+                            <constraint firstItem="rfZ-q8-VVo" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Yd8-bI-VeD"/>
+                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Z0j-J5-N8r"/>
+                            <constraint firstItem="rfZ-q8-VVo" firstAttribute="top" secondItem="KbK-Rz-Egh" secondAttribute="bottom" constant="32" id="ZbC-MD-CDm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KbK-Rz-Egh" secondAttribute="trailing" id="cZH-I3-It5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rfZ-q8-VVo" secondAttribute="trailing" id="fu6-MD-Smb"/>
+                            <constraint firstItem="ycx-Tc-zVV" firstAttribute="top" secondItem="qvp-pb-WYy" secondAttribute="bottom" constant="32" id="hfg-Z3-apk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qvp-pb-WYy" secondAttribute="trailing" id="k04-MS-CbH"/>
+                            <constraint firstItem="qvp-pb-WYy" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="zaQ-1G-GLQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="askForNotificationPermissionButton" destination="ycx-Tc-zVV" id="IU9-eK-HwH"/>
+                        <outlet property="headerLabel" destination="KbK-Rz-Egh" id="Svy-me-ngL"/>
+                        <outlet property="prepareForNotificationLabel" destination="qvp-pb-WYy" id="4ru-aN-zkg"/>
+                        <outlet property="subHeaderLabel" destination="rfZ-q8-VVo" id="QLi-mB-316"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdk-xx-0Z5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4879" y="-1047"/>
         </scene>
     </scenes>
     <resources>

@@ -74,6 +74,8 @@
 		45C770AB1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AD1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
+		45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
+		45CDD4441CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
 		45D113011CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
 		45D113021CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
 		45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
@@ -143,6 +145,7 @@
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
+		45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstSpotCreatedViewController.swift; path = Controllers/FirstSpotCreatedViewController.swift; sourceTree = "<group>"; };
 		45D113001CA8B121004F7D66 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 				45939FDF1CAB62D400360BE7 /* IncorrectGuessViewController.swift */,
 				45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */,
 				455526831CAC16D0001694BE /* TimesUpViewController.swift */,
+				45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -543,6 +547,7 @@
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
+				45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
@@ -592,6 +597,7 @@
 				459F96221BB1CF72005D6C65 /* UsersService.swift in Sources */,
 				4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */,
 				45C770AE1AC081620036847D /* Guess.swift in Sources */,
+				45CDD4441CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */,
 				45C770AB1ABE5D9A0036847D /* Config.swift in Sources */,
 				45939FE41CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
