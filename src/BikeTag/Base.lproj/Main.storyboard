@@ -291,7 +291,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
+                    <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="IUI-aF-AVz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorImageView" destination="gkw-Bm-kAS" id="lI4-Tk-fb8"/>
                         <outlet property="gameTableView" destination="pUs-On-Jlr" id="TN1-0M-ASV"/>
