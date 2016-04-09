@@ -10,7 +10,7 @@ import Foundation
 
 let defaults = NSUserDefaults.standardUserDefaults()
 let KeyForApiKey = "apiKey"
-let KeyForFirstSpotCreated = "FIRST_SPOT_CREATED"
+let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
 
 class UserDefaults {
 
@@ -22,12 +22,12 @@ class UserDefaults {
     return defaults.dictionaryForKey(KeyForApiKey)
   }
 
-  class func setFirstSpotCreated(val: Bool) {
-    defaults.setBool(val, forKey:KeyForFirstSpotCreated)
+  class func setHasPreviouslyCreatedSpot(val: Bool) {
+    defaults.setBool(val, forKey:KeyForHasPreviouslyCreatedSpot)
   }
 
-  class func firstSpotCreated() -> Bool {
-    return defaults.boolForKey(KeyForFirstSpotCreated)
+  class func hasPreviouslyCreatedSpot() -> Bool {
+    return defaults.boolForKey(KeyForHasPreviouslyCreatedSpot)
   }
 
 }

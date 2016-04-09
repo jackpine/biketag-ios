@@ -892,6 +892,7 @@
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
                         <outlet property="takePictureButton" destination="b4v-GQ-Q6q" id="FDI-mY-9fm"/>
                         <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="DYr-an-1MF"/>
+                        <segue destination="qID-Y3-zZe" kind="presentation" identifier="showFirstSpotCreated" id="Sg7-KF-reM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-Dz-Ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -912,13 +913,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
-                                <rect key="frame" x="20" y="52" width="560" height="40"/>
+                                <rect key="frame" x="20" y="84" width="560" height="40"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
-                                <rect key="frame" x="20" y="124" width="560" height="22"/>
+                                <rect key="frame" x="20" y="156" width="560" height="22"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -943,7 +944,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jEC-aK-eqG" firstAttribute="top" secondItem="ycx-Tc-zVV" secondAttribute="bottom" constant="32" id="0wy-G1-Veu"/>
-                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="top" secondItem="949-Gd-yrY" secondAttribute="bottom" constant="32" id="Q32-uO-1wx"/>
+                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="top" secondItem="949-Gd-yrY" secondAttribute="bottom" constant="64" id="B0n-Ak-oou"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ycx-Tc-zVV" secondAttribute="trailing" id="SzB-Oo-rxR"/>
                             <constraint firstItem="ycx-Tc-zVV" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="TTL-Kw-1ct"/>
                             <constraint firstItem="rfZ-q8-VVo" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Yd8-bI-VeD"/>
@@ -961,11 +962,13 @@
                         <outlet property="headerLabel" destination="KbK-Rz-Egh" id="Svy-me-ngL"/>
                         <outlet property="prepareForNotificationLabel" destination="qvp-pb-WYy" id="4ru-aN-zkg"/>
                         <outlet property="subHeaderLabel" destination="rfZ-q8-VVo" id="QLi-mB-316"/>
+                        <segue destination="U5f-mc-has" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="lXU-zC-QzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdk-xx-0Z5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U5f-mc-has" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4879" y="-1047"/>
+            <point key="canvasLocation" x="4879" y="-695"/>
         </scene>
     </scenes>
     <resources>

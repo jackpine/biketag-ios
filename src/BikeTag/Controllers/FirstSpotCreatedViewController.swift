@@ -16,6 +16,7 @@ class FirstSpotCreatedViewController: ApplicationViewController {
 
   @IBAction func pressedAskButton() {
     registerForPushNotifications()
+    self.performSegueWithIdentifier("unwindToHome", sender: nil)
   }
 
   override func viewDidLoad() {
