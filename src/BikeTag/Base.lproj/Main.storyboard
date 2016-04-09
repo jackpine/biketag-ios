@@ -397,7 +397,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photo evidence"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo Evidence" id="vg2-rb-gz0" userLabel="Capture It"/>
+                    <navigationItem key="navigationItem" title="Found it?" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
                         <outlet property="takePictureButton" destination="UtK-pk-m87" id="d7w-tQ-6N0"/>
@@ -792,7 +792,7 @@
         <!--New Spot-->
         <scene sceneID="I8s-JK-wUz">
             <objects>
-                <viewController id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add your own spot!" id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mkQ-aY-6Yn"/>
                         <viewControllerLayoutGuide type="bottom" id="5hT-u1-KNe"/>
@@ -881,7 +881,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="New Spot" id="TsD-mA-2Af"/>
+                    <navigationItem key="navigationItem" title="Add your own!" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="activityIndicatorImageView" destination="Qtx-Px-3tK" id="y0P-17-Ebn"/>
                         <outlet property="loadingView" destination="T64-39-yz7" id="s1C-xk-DAx"/>
