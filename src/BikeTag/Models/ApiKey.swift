@@ -19,8 +19,7 @@ class ApiKey {
 
   class func setCurrentApiKey(apiKeyAttributes: NSDictionary) -> () {
     currentApiKey = ApiKey(attributes: apiKeyAttributes)
-    let defaults = NSUserDefaults.standardUserDefaults()
-    defaults.setObject(apiKeyAttributes, forKey: "apiKey")
+    UserDefaults.setApiKey(apiKeyAttributes)
   }
 
   class func ensureApiKey(successCallback: ()->(), errorCallback: (NSError)->()) {
@@ -28,23 +27,23 @@ class ApiKey {
       return successCallback()
     }
 
-    let defaults = NSUserDefaults.standardUserDefaults()
 
     let sucessWithApiKey = { (apiKeyAttributes: NSDictionary) -> () in
       ApiKey.setCurrentApiKey(apiKeyAttributes)
       successCallback()
     }
 
-    let handleFailure = {(error: NSError) -> () in
-      Logger.error("Error setting API Key: \(error)")
-      errorCallback(error)
-    }
-
-    if let apiKeyAttributes = defaults.dictionaryForKey("apiKey") {
+    if let apiKeyAttributes = UserDefaults.apiKey() {
       Logger.info("Found existing API Key")
       sucessWithApiKey(apiKeyAttributes)
     } else {
       Logger.info("Creating new API Key")
+
+      let handleFailure = {(error: NSError) -> () in
+        Logger.error("Error setting API Key: \(error)")
+        errorCallback(error)
+      }
+
       ApiKeysService().createApiKey(sucessWithApiKey, errorCallback: handleFailure)
     }
   }

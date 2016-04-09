@@ -76,6 +76,8 @@
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
 		45CDD4441CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
+		45CDD4461CB994F300CEC1DD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4451CB994F300CEC1DD /* UserDefaults.swift */; };
+		45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4451CB994F300CEC1DD /* UserDefaults.swift */; };
 		45D113011CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
 		45D113021CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
 		45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
@@ -146,6 +148,7 @@
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 		45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstSpotCreatedViewController.swift; path = Controllers/FirstSpotCreatedViewController.swift; sourceTree = "<group>"; };
+		45CDD4451CB994F300CEC1DD /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		45D113001CA8B121004F7D66 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
@@ -343,6 +346,7 @@
 				4581A6101AB7FC48004C871F /* ParsedSpot.swift */,
 				45C770AC1AC081620036847D /* Guess.swift */,
 				456116C11B2A0C6C00CDAF2A /* Game.swift */,
+				45CDD4451CB994F300CEC1DD /* UserDefaults.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -551,6 +555,7 @@
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45CDD4461CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
@@ -608,6 +613,7 @@
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
+				45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */,
 				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
