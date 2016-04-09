@@ -427,7 +427,11 @@
 				TargetAttributes = {
 					45AB7BA51A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = CSBZ6R9U39;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					45AB7BBC1A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
@@ -687,9 +691,9 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jackpine.biketag-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "efbd2af3-4b4a-414e-81da-72ef8f2d5a36";
 			};
 			name = AdHoc;
 		};
@@ -796,7 +800,7 @@
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Dev";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Kirk (FUDX9B8883)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -808,9 +812,9 @@
 					"-force_load",
 					"\"$(PROJECT_DIR)/Frameworks/calabash.framework/calabash\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jackpine.biketag-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "670b5ba1-1b7b-40ee-90da-23db26ae6fd8";
 			};
 			name = Debug;
 		};
@@ -832,9 +836,9 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
+				PRODUCT_BUNDLE_IDENTIFIER = "me.jackpine.biketag-dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "efbd2af3-4b4a-414e-81da-72ef8f2d5a36";
 			};
 			name = Release;
 		};
