@@ -50,7 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
     }
 
-    Logger.info("Successfully registered for remote notifications with deivce token: \(tokenString)")
+    let logSuccess = {
+      Logger.info("Successfully registered for remote notifications with deivce token: \(tokenString)")
+    }
+
+    let logError = { (error: NSError) -> () in
+      Logger.error("User registered for notifications with device token \(tokenString), but failed to submit to API: \(error)")
+    }
+
+    DevicesService().postNewDevice(tokenString, successCallback: logSuccess, errorCallback: logError)
   }
 
   func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
