@@ -11,6 +11,7 @@ import Foundation
 let defaults = NSUserDefaults.standardUserDefaults()
 let KeyForApiKey = "apiKey"
 let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
+let KeyForPrefersReceivingNotifications = "PREFERS_RECEIVING_NOTIFICATIONS"
 
 class UserDefaults {
 
@@ -28,6 +29,14 @@ class UserDefaults {
 
   class func hasPreviouslyCreatedSpot() -> Bool {
     return defaults.boolForKey(KeyForHasPreviouslyCreatedSpot)
+  }
+
+  class func setPrefersReceivingNotifications(val: Bool) {
+    defaults.setBool(val, forKey: KeyForPrefersReceivingNotifications)
+  }
+
+  class func prefersReceivingNotifications() -> Bool {
+    return defaults.boolForKey(KeyForPrefersReceivingNotifications)
   }
 
 }

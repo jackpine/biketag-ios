@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45021CCA1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */; };
+		45021CCB1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */; };
 		450953D21BDAECBC0092063D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450953D01BDAECBC0092063D /* Alamofire.framework */; };
 		450953D31BDAECBC0092063D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450953D11BDAECBC0092063D /* XCGLogger.framework */; };
 		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
@@ -101,6 +103,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		450953D01BDAECBC0092063D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		450953D11BDAECBC0092063D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -351,6 +354,7 @@
 				45C770AC1AC081620036847D /* Guess.swift */,
 				456116C11B2A0C6C00CDAF2A /* Game.swift */,
 				45CDD4451CB994F300CEC1DD /* UserDefaults.swift */,
+				45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +556,7 @@
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
+				45021CCA1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */,
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
@@ -618,6 +623,7 @@
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,
+				45021CCB1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */,

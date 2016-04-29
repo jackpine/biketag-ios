@@ -13,8 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     Fabric.with([Crashlytics()])
 
-    // Load Main App Screen
+    PushNotificationManager.register()
 
+    // Load Main App Screen
     if UserDefaults.apiKey() == nil {
       Logger.info("First time user! showing welcome screen")
       let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -51,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     let logSuccess = {
-      Logger.info("Successfully registered for remote notifications with deivce token: \(tokenString)")
+      Logger.info("Successfully registered for remote notifications with device token: \(tokenString)")
     }
 
     let logError = { (error: NSError) -> () in

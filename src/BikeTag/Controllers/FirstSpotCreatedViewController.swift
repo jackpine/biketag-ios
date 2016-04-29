@@ -15,7 +15,8 @@ class FirstSpotCreatedViewController: ApplicationViewController {
   @IBOutlet var askForNotificationPermissionButton: PrimaryButton!
 
   @IBAction func pressedAskButton() {
-    registerForPushNotifications()
+    UserDefaults.setPrefersReceivingNotifications(true)
+    PushNotificationManager.register()
     self.performSegueWithIdentifier("unwindToHome", sender: nil)
   }
 
@@ -36,12 +37,6 @@ class FirstSpotCreatedViewController: ApplicationViewController {
         }
       }
     }
-  }
-
-  func registerForPushNotifications() {
-    let application = UIApplication.sharedApplication()
-    let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert], categories: nil)
-    application.registerUserNotificationSettings(notificationSettings)
   }
 
 }
