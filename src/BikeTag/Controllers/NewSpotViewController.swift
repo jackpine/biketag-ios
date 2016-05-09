@@ -51,11 +51,16 @@ class NewSpotViewController: CameraViewController {
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
     super.prepareForSegue(segue, sender: sender)
-    let homeViewController = segue.destinationViewController as! HomeViewController
-    if self.newSpot != nil {
-      homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
-      homeViewController.currentSpot = self.newSpot!
-      homeViewController.refresh()
+
+    if segue.destinationViewController.isKindOfClass(HomeViewController) {
+      let homeViewController = segue.destinationViewController as! HomeViewController
+      if self.newSpot != nil {
+        // Is this broken? Not the end of the world as we refresh the list anyway, 
+        // but would be nice to see the game immediately.
+        homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
+        homeViewController.currentSpot = self.newSpot!
+        homeViewController.refresh()
+      }
     }
   }
 
@@ -76,13 +81,6 @@ class NewSpotViewController: CameraViewController {
     let capturedImageView = UIImageView(image: spot.image)
     capturedImageView.frame = self.photoPreviewView.frame
     self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
-
-    let popToHomeViewController = { (newSpot: Spot) -> () in
-      self.stopLoadingAnimation()
-      self.newSpot = newSpot
-      self.performSegueWithIdentifier("unwindToHome", sender: nil)
-      return
-    }
 
     let displayErrorAlert = { (error: NSError) -> () in
       self.stopLoadingAnimation()
@@ -117,7 +115,19 @@ class NewSpotViewController: CameraViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback: popToHomeViewController, errorCallback: displayErrorAlert)
+    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback:finishedCreatingSpot , errorCallback: displayErrorAlert)
+  }
+
+  func finishedCreatingSpot(newSpot: Spot) {
+    self.stopLoadingAnimation()
+    self.newSpot = newSpot
+
+    if UserDefaults.hasPreviouslyCreatedSpot() {
+      self.performSegueWithIdentifier("unwindToHome", sender: nil)
+    } else {
+      UserDefaults.setHasPreviouslyCreatedSpot(true)
+      self.performSegueWithIdentifier("showFirstSpotCreated", sender: nil)
+    }
   }
 
 

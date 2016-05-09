@@ -36,7 +36,7 @@ class ApplicationViewController: UIViewController {
     let dismissAction = UIAlertAction(title: "That's it for now.", style: .Cancel, handler: nil)
     alertController.addAction(dismissAction)
 
-    let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to start a new game", style: .Default) { (action) in
+    let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to add your own spot", style: .Default) { (action) in
       self.navigationController!.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
     }
     newSpotAction.enabled = currentUserScore >= Spot.newSpotCost

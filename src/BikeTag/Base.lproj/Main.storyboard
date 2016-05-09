@@ -15,8 +15,12 @@
             <string>Knewave</string>
             <string>Knewave</string>
             <string>Knewave</string>
+            <string>Knewave</string>
         </mutableArray>
         <mutableArray key="League Spartan.otf">
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
+            <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
             <string>LeagueSpartan-Bold</string>
@@ -287,7 +291,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe"/>
+                    <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="IUI-aF-AVz"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicatorImageView" destination="gkw-Bm-kAS" id="lI4-Tk-fb8"/>
                         <outlet property="gameTableView" destination="pUs-On-Jlr" id="TN1-0M-ASV"/>
@@ -397,7 +403,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photo evidence"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Photo Evidence" id="vg2-rb-gz0" userLabel="Capture It"/>
+                    <navigationItem key="navigationItem" title="Found it?" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
                         <outlet property="takePictureButton" destination="UtK-pk-m87" id="d7w-tQ-6N0"/>
@@ -792,7 +798,7 @@
         <!--New Spot-->
         <scene sceneID="I8s-JK-wUz">
             <objects>
-                <viewController id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add your own spot!" id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mkQ-aY-6Yn"/>
                         <viewControllerLayoutGuide type="bottom" id="5hT-u1-KNe"/>
@@ -881,13 +887,14 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="New Spot" id="TsD-mA-2Af"/>
+                    <navigationItem key="navigationItem" title="Add your own!" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="activityIndicatorImageView" destination="Qtx-Px-3tK" id="y0P-17-Ebn"/>
                         <outlet property="loadingView" destination="T64-39-yz7" id="s1C-xk-DAx"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
                         <outlet property="takePictureButton" destination="b4v-GQ-Q6q" id="FDI-mY-9fm"/>
                         <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="DYr-an-1MF"/>
+                        <segue destination="qID-Y3-zZe" kind="presentation" identifier="showFirstSpotCreated" id="Sg7-KF-reM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moB-Dz-Ae9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -895,12 +902,82 @@
             </objects>
             <point key="canvasLocation" x="4144" y="-695"/>
         </scene>
+        <!--First Spot Created View Controller-->
+        <scene sceneID="xNW-OI-qay">
+            <objects>
+                <viewController id="qID-Y3-zZe" customClass="FirstSpotCreatedViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="949-Gd-yrY"/>
+                        <viewControllerLayoutGuide type="bottom" id="jEC-aK-eqG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="brv-BY-bcK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
+                                <rect key="frame" x="20" y="84" width="560" height="40"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
+                                <rect key="frame" x="20" y="156" width="560" height="22"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In a second, we'll ask for your permission to notify you when someone finds your spot." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvp-pb-WYy">
+                                <rect key="frame" x="20" y="455.5" width="560" height="42.5"/>
+                                <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycx-Tc-zVV" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
+                                <rect key="frame" x="20" y="530" width="560" height="38"/>
+                                <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
+                                <state key="normal" title="Ask Away.">
+                                    <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedAskButton" destination="qID-Y3-zZe" eventType="touchUpInside" id="0P7-tG-TOn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jEC-aK-eqG" firstAttribute="top" secondItem="ycx-Tc-zVV" secondAttribute="bottom" constant="32" id="0wy-G1-Veu"/>
+                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="top" secondItem="949-Gd-yrY" secondAttribute="bottom" constant="64" id="B0n-Ak-oou"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycx-Tc-zVV" secondAttribute="trailing" id="SzB-Oo-rxR"/>
+                            <constraint firstItem="ycx-Tc-zVV" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="TTL-Kw-1ct"/>
+                            <constraint firstItem="rfZ-q8-VVo" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Yd8-bI-VeD"/>
+                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Z0j-J5-N8r"/>
+                            <constraint firstItem="rfZ-q8-VVo" firstAttribute="top" secondItem="KbK-Rz-Egh" secondAttribute="bottom" constant="32" id="ZbC-MD-CDm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KbK-Rz-Egh" secondAttribute="trailing" id="cZH-I3-It5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rfZ-q8-VVo" secondAttribute="trailing" id="fu6-MD-Smb"/>
+                            <constraint firstItem="ycx-Tc-zVV" firstAttribute="top" secondItem="qvp-pb-WYy" secondAttribute="bottom" constant="32" id="hfg-Z3-apk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qvp-pb-WYy" secondAttribute="trailing" id="k04-MS-CbH"/>
+                            <constraint firstItem="qvp-pb-WYy" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="zaQ-1G-GLQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="askForNotificationPermissionButton" destination="ycx-Tc-zVV" id="IU9-eK-HwH"/>
+                        <outlet property="headerLabel" destination="KbK-Rz-Egh" id="Svy-me-ngL"/>
+                        <outlet property="prepareForNotificationLabel" destination="qvp-pb-WYy" id="4ru-aN-zkg"/>
+                        <outlet property="subHeaderLabel" destination="rfZ-q8-VVo" id="QLi-mB-316"/>
+                        <segue destination="U5f-mc-has" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="lXU-zC-QzP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pdk-xx-0Z5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="U5f-mc-has" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4879" y="-695"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bike-flag" width="1536" height="1212"/>
         <image name="biketag-spinner-1" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdm-a3-rbz"/>
+        <segue reference="6Gt-DJ-E2h"/>
     </inferredMetricsTieBreakers>
 </document>

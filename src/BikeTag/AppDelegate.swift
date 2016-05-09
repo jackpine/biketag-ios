@@ -13,9 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     Fabric.with([Crashlytics()])
 
-    // Load Main App Screen
+    PushNotificationManager.register()
 
-    if NSUserDefaults.standardUserDefaults().dictionaryForKey("apiKey") == nil {
+    // Load Main App Screen
+    if UserDefaults.apiKey() == nil {
       Logger.info("First time user! showing welcome screen")
       let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
       let welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("welcomeViewController")
@@ -34,6 +35,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //    ])
 
     return true
+  }
+
+  func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+    if notificationSettings.types != .None {
+      application.registerForRemoteNotifications()
+    }
+  }
+
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+    var tokenString = ""
+
+    for i in 0..<deviceToken.length {
+      tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+    }
+
+    let logSuccess = {
+      Logger.info("Successfully registered for remote notifications with device token: \(tokenString)")
+    }
+
+    let logError = { (error: NSError) -> () in
+      Logger.error("User registered for notifications with device token \(tokenString), but failed to submit to API: \(error)")
+    }
+
+    DevicesService().postNewDevice(tokenString, successCallback: logSuccess, errorCallback: logError)
+  }
+
+  func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+    Logger.info("Failed to register for remote notifications: \(error)")
   }
 
   func applicationWillResignActive(application: UIApplication) {
