@@ -8,6 +8,7 @@ class User: Equatable {
   let id: Int
   let name: String
   let score: Int
+  let currentSpots = SpotsCollection()
 
   init(id: Int, name: String) {
     self.id = id

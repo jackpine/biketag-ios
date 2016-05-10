@@ -26,11 +26,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorImageView: UIImageView!
 
-  var currentSpots: [Spot] = [] {
-    didSet {
-      self.gameTableView.reloadData()
-    }
-  }
+  var currentSpots: SpotsCollection
 
   var currentSpot: Spot? {
     didSet {
@@ -46,6 +42,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var gameTableView: UITableView!
 
   required init?(coder aDecoder: NSCoder) {
+    currentSpots = User.getCurrentUser().currentSpots
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
@@ -86,6 +83,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.gameTableView.addSubview(self.refreshControl)
     self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    self.currentSpots = User.getCurrentUser().currentSpots
 
     setUpLocationServices()
     self.refresh()
@@ -105,10 +103,19 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.startLoadingAnimation()
     self.ensureApiKey() {
       self.waitForLocation() {
-        self.fetchCurrentUser()
-        self.fetchCurrentSpots()
+        self.fetchCurrentUser() {
+          self.fetchCurrentSpots() {
+            self.gameTableView.reloadData()
+          }
+        }
       }
     }
+  }
+
+  func refreshWithNewSpot(newSpot:Spot) -> () {
+    self.currentSpots.addNewSpot(newSpot)
+    self.currentSpot = newSpot
+    refresh()
   }
 
   func refreshControlPulled(sender:AnyObject) {
@@ -135,27 +142,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  //Replace a game's current spot in the spot list with a new spot
-  func updateGame(game: Game, newSpot: Spot) {
-    let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
-      spot.game == game
-    }.first
-
-    if oldSpot != nil {
-      let gameIndex = self.currentSpots.indexOf(oldSpot!)!
-      self.currentSpots.removeAtIndex(gameIndex)
-    }
-
-    self.currentSpots.insert(newSpot, atIndex: 0)
-    self.gameTableView.contentOffset = CGPoint(x: 0, y: 0)
-  }
-
-  func fetchCurrentSpots() {
+  func fetchCurrentSpots(successCallback: ()->()) {
     Logger.info("refreshing spots list")
     self.timeOfLastReload = NSDate()
-    let setCurrentSpots = { (currentSpots: [Spot]) -> () in
-      self.currentSpots = currentSpots
+    let setCurrentSpots = { (newSpots: [Spot]) -> () in
+      self.currentSpots.replaceSpots(newSpots)
       self.currentSpot = self.currentSpots[0]
+      self.gameTableView.reloadData()
+
       self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
@@ -169,7 +163,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentSpots()
+        self.fetchCurrentSpots(successCallback)
       }
       alertController.addAction(retryAction)
 
@@ -179,7 +173,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     Spot.fetchCurrentSpots(self.spotsService, location: self.mostRecentLocation!, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
-  func fetchCurrentUser() {
+  func fetchCurrentUser(successCallback: ()->()) {
     Logger.debug("fetching current user")
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -189,7 +183,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentUser()
+        self.fetchCurrentUser(successCallback)
       }
       alertController.addAction(retryAction)
 
@@ -199,6 +193,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let updateCurrentUser = { (user: User) -> () in
       User.setCurrentUser(user)
       self.currentUserScore = user.score
+      successCallback()
     }
 
     self.usersService.fetchUser(Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
@@ -253,7 +248,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
     targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
 
-    if (cellIndex == self.currentSpots.count) {
+    if (cellIndex == self.currentSpots.count()) {
       //not looking at spot, looking at last cell
       self.currentSpot = nil
     } else {
@@ -269,7 +264,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       return 0
     }
 
-    let spotCount =  self.currentSpots.count
+    let spotCount = self.currentSpots.count()
 
     if (spotCount == 0) {
       // Display nothing
@@ -289,7 +284,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
     let cell = UITableViewCell()
-    if indexPath.row == self.currentSpots.count {
+    if indexPath.row == self.currentSpots.count() {
       // Not looking at spot, looking at last cell
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
