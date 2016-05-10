@@ -274,7 +274,6 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
-                            <constraint firstItem="Ia1-K6-d13" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="top" constant="64" id="8zw-Bk-ci5"/>
                             <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -286,6 +285,7 @@
                             <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
                             <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hkD-o9-dyn"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
+                            <constraint firstItem="pUs-On-Jlr" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qcL-RU-hqD"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="bottom" id="sgb-XJ-lqr"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>

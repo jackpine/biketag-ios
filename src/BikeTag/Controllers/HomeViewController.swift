@@ -159,6 +159,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
+      self.gameTableView.setContentOffset(CGPointZero, animated: true)
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -250,9 +251,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    let heightOfTopBar = CGFloat(64)
-    //Not sure why we need to offset by heightOfTopBar, but experimentally true.
-    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight() - heightOfTopBar
+    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
 
     if (cellIndex == self.currentSpots.count) {
       //not looking at spot, looking at last cell
