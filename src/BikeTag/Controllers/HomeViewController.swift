@@ -264,6 +264,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   // MARK: UITableViewDataSource
   // MARK: UITableViewDelegate
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    guard section == 0  else {
+      Logger.error("Unknown section: \(section)")
+      return 0
+    }
+
     let spotCount =  self.currentSpots.count
 
     if (spotCount == 0) {
