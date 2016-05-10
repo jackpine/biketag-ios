@@ -148,7 +148,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     assert(self.mostRecentLocation != nil )
     Logger.debug("Location is not nil")
 
-    if ( UIDevice.currentDevice().model == "iPhone Simulator" ) {
+    if Platform.isSimulator {
       callback(NSData(), self.mostRecentLocation!)
       return
     }

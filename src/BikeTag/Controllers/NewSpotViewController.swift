@@ -22,7 +22,7 @@ class NewSpotViewController: CameraViewController {
     var spotLocation: CLLocation?
 
     // Fake photo when using the simulator
-    if UIDevice.currentDevice().model == "iPhone Simulator" {
+    if Platform.isSimulator {
       let griffithSpot = Spot.griffithSpot()
       image = griffithSpot.image
       spotLocation = griffithSpot.location

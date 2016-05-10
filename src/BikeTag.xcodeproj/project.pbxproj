@@ -72,6 +72,8 @@
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45B488851A9AB73B00C7E03F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */; };
+		45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
+		45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C770AA1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AB1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AD1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
@@ -150,6 +152,7 @@
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B488841A9AB73B00C7E03F /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
+		45C757851CE291EB00E9FEE8 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
 		45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstSpotCreatedViewController.swift; path = Controllers/FirstSpotCreatedViewController.swift; sourceTree = "<group>"; };
@@ -355,6 +358,7 @@
 				456116C11B2A0C6C00CDAF2A /* Game.swift */,
 				45CDD4451CB994F300CEC1DD /* UserDefaults.swift */,
 				45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */,
+				45C757851CE291EB00E9FEE8 /* Platform.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -576,6 +580,7 @@
 				45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
 				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
+				45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */,
 				455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
 				45E0ECDD1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
@@ -623,6 +628,7 @@
 				45E0ECDE1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */,
 				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,
 				45021CCB1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,

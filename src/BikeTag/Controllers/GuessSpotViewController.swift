@@ -9,7 +9,7 @@ class GuessSpotViewController: CameraViewController {
 
   func createGuessFromData(imageData: NSData, location: CLLocation) -> () {
     var image: UIImage?
-    if UIDevice.currentDevice().model == "iPhone Simulator" {
+    if Platform.isSimulator {
       image = UIImage(named: "952 lucile")!
     } else {
       image = UIImage(data: imageData)!
