@@ -27,6 +27,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var activityIndicatorImageView: UIImageView!
 
   var currentSpots: SpotsCollection
+  var spotViewCache = NSCache()
 
   var currentSpot: Spot? {
     didSet {
@@ -37,9 +38,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   var refreshControl:UIRefreshControl!
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+    self.gameTableView.setContentOffset(CGPointZero, animated: true)
+    refresh()
   }
 
   @IBOutlet var gameTableView: UITableView!
+
 
   required init?(coder aDecoder: NSCoder) {
     currentSpots = User.getCurrentUser().currentSpots
@@ -280,7 +284,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     return self.spotViewHeight()
   }
 
-  var spotCellViews: [Int: UITableViewCell] = [Int: UITableViewCell]()
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
     let cell = UITableViewCell()
@@ -289,18 +292,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
       // Spot Cell
-
       let spot = self.currentSpots[indexPath.row]
-      if spot.id != nil && spotCellViews[spot.id!] != nil {
-        return spotCellViews[spot.id!]!
-      }
 
-      let spotView = SpotView(frame: self.view.frame, spot: spot)
-      cell.contentView.addSubview(spotView)
-
-      if spot.id != nil { //Can't cache a new spot's cell
-        spotCellViews[spot.id!] = cell
+      var spotView:SpotView? = spotViewCache.objectForKey(spot) as! SpotView?
+      if spotView == nil {
+        spotView = SpotView(frame: self.view.frame, spot: spot)
+        spotViewCache.setObject(spotView!, forKey: spot)
       }
+      cell.contentView.addSubview(spotView!)
     }
 
     return cell
