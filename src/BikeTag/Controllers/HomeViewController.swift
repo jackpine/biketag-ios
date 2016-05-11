@@ -113,12 +113,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
-  func refreshWithNewSpot(newSpot:Spot) -> () {
-    self.currentSpots.addNewSpot(newSpot)
-    self.currentSpot = newSpot
-    refresh()
-  }
-
   func refreshControlPulled(sender:AnyObject) {
     refresh()
   }
