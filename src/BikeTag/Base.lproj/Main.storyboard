@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -274,7 +274,6 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
-                            <constraint firstItem="Ia1-K6-d13" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="top" constant="64" id="8zw-Bk-ci5"/>
                             <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -286,6 +285,7 @@
                             <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
                             <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hkD-o9-dyn"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
+                            <constraint firstItem="pUs-On-Jlr" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qcL-RU-hqD"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="pUs-On-Jlr" secondAttribute="bottom" id="sgb-XJ-lqr"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>
@@ -915,13 +915,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
-                                <rect key="frame" x="20" y="84" width="560" height="40"/>
+                                <rect key="frame" x="20" y="217" width="560" height="40"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
-                                <rect key="frame" x="20" y="156" width="560" height="22"/>
+                                <rect key="frame" x="20" y="289" width="560" height="22"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -946,7 +946,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="jEC-aK-eqG" firstAttribute="top" secondItem="ycx-Tc-zVV" secondAttribute="bottom" constant="32" id="0wy-G1-Veu"/>
-                            <constraint firstItem="KbK-Rz-Egh" firstAttribute="top" secondItem="949-Gd-yrY" secondAttribute="bottom" constant="64" id="B0n-Ak-oou"/>
+                            <constraint firstItem="rfZ-q8-VVo" firstAttribute="centerY" secondItem="brv-BY-bcK" secondAttribute="centerY" id="JIM-FU-1wh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ycx-Tc-zVV" secondAttribute="trailing" id="SzB-Oo-rxR"/>
                             <constraint firstItem="ycx-Tc-zVV" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="TTL-Kw-1ct"/>
                             <constraint firstItem="rfZ-q8-VVo" firstAttribute="leading" secondItem="brv-BY-bcK" secondAttribute="leadingMargin" id="Yd8-bI-VeD"/>

@@ -26,11 +26,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorImageView: UIImageView!
 
-  var currentSpots: [Spot] = [] {
-    didSet {
-      self.gameTableView.reloadData()
-    }
-  }
+  var currentSpots: SpotsCollection
+  var spotViewCache = NSCache()
 
   var currentSpot: Spot? {
     didSet {
@@ -41,11 +38,15 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   var refreshControl:UIRefreshControl!
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+    self.gameTableView.setContentOffset(CGPointZero, animated: true)
+    refresh()
   }
 
   @IBOutlet var gameTableView: UITableView!
 
   required init?(coder aDecoder: NSCoder) {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    self.currentSpots = appDelegate.currentSession.currentSpots
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
@@ -135,27 +136,15 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  //Replace a game's current spot in the spot list with a new spot
-  func updateGame(game: Game, newSpot: Spot) {
-    let oldSpot = self.currentSpots.filter(){ (spot: Spot) -> Bool in
-      spot.game == game
-    }.first
-
-    if oldSpot != nil {
-      let gameIndex = self.currentSpots.indexOf(oldSpot!)!
-      self.currentSpots.removeAtIndex(gameIndex)
-    }
-
-    self.currentSpots.insert(newSpot, atIndex: 0)
-    self.gameTableView.contentOffset = CGPoint(x: 0, y: 0)
-  }
-
   func fetchCurrentSpots() {
     Logger.info("refreshing spots list")
     self.timeOfLastReload = NSDate()
-    let setCurrentSpots = { (currentSpots: [Spot]) -> () in
-      self.currentSpots = currentSpots
+    let setCurrentSpots = { (newSpots: [Spot]) -> () in
+      self.currentSpots.replaceSpots(newSpots)
+      self.gameTableView.setContentOffset(CGPointZero, animated: true)
       self.currentSpot = self.currentSpots[0]
+      self.gameTableView.reloadData()
+
       self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
@@ -250,11 +239,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
     let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    let heightOfTopBar = CGFloat(64)
-    //Not sure why we need to offset by heightOfTopBar, but experimentally true.
-    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight() - heightOfTopBar
+    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
 
-    if (cellIndex == self.currentSpots.count) {
+    if (cellIndex == self.currentSpots.count()) {
       //not looking at spot, looking at last cell
       self.currentSpot = nil
     } else {
@@ -265,7 +252,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   // MARK: UITableViewDataSource
   // MARK: UITableViewDelegate
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let spotCount =  self.currentSpots.count
+    guard section == 0  else {
+      Logger.error("Unknown section: \(section)")
+      return 0
+    }
+
+    let spotCount = self.currentSpots.count()
 
     if (spotCount == 0) {
       // Display nothing
@@ -281,27 +273,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     return self.spotViewHeight()
   }
 
-  var spotCellViews: [Int: UITableViewCell] = [Int: UITableViewCell]()
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
     let cell = UITableViewCell()
-    if indexPath.row == self.currentSpots.count {
+    if indexPath.row == self.currentSpots.count() {
       // Not looking at spot, looking at last cell
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
       // Spot Cell
-
       let spot = self.currentSpots[indexPath.row]
-      if spot.id != nil && spotCellViews[spot.id!] != nil {
-        return spotCellViews[spot.id!]!
-      }
 
-      let spotView = SpotView(frame: self.view.frame, spot: spot)
-      cell.contentView.addSubview(spotView)
-
-      if spot.id != nil { //Can't cache a new spot's cell
-        spotCellViews[spot.id!] = cell
+      var spotView:SpotView? = spotViewCache.objectForKey(spot) as! SpotView?
+      if spotView == nil {
+        spotView = SpotView(frame: self.view.frame, spot: spot)
+        spotViewCache.setObject(spotView!, forKey: spot)
       }
+      cell.contentView.addSubview(spotView!)
     }
 
     return cell

@@ -3,7 +3,6 @@ import CoreLocation
 
 class NewSpotViewController: CameraViewController {
 
-  var newSpot: Spot?
   var game: Game?
 
   @IBOutlet var loadingView: UIView!
@@ -22,7 +21,7 @@ class NewSpotViewController: CameraViewController {
     var spotLocation: CLLocation?
 
     // Fake photo when using the simulator
-    if UIDevice.currentDevice().model == "iPhone Simulator" {
+    if Platform.isSimulator {
       let griffithSpot = Spot.griffithSpot()
       image = griffithSpot.image
       spotLocation = griffithSpot.location
@@ -47,21 +46,6 @@ class NewSpotViewController: CameraViewController {
     Logger.debug("Touched take picture button")
     self.takePictureButton.userInteractionEnabled = false
     self.captureImage(createSpotFromData)
-  }
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
-    super.prepareForSegue(segue, sender: sender)
-
-    if segue.destinationViewController.isKindOfClass(HomeViewController) {
-      let homeViewController = segue.destinationViewController as! HomeViewController
-      if self.newSpot != nil {
-        // Is this broken? Not the end of the world as we refresh the list anyway, 
-        // but would be nice to see the game immediately.
-        homeViewController.updateGame(self.newSpot!.game, newSpot: self.newSpot!)
-        homeViewController.currentSpot = self.newSpot!
-        homeViewController.refresh()
-      }
-    }
   }
 
   func stopLoadingAnimation() {
@@ -115,12 +99,13 @@ class NewSpotViewController: CameraViewController {
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback:finishedCreatingSpot , errorCallback: displayErrorAlert)
+    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback:finishedCreatingSpot, errorCallback: displayErrorAlert)
   }
 
   func finishedCreatingSpot(newSpot: Spot) {
     self.stopLoadingAnimation()
-    self.newSpot = newSpot
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.currentSession.currentSpots.addNewSpot(newSpot)
 
     if UserDefaults.hasPreviouslyCreatedSpot() {
       self.performSegueWithIdentifier("unwindToHome", sender: nil)
