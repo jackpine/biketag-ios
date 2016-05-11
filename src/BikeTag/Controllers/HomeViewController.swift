@@ -44,7 +44,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   @IBOutlet var gameTableView: UITableView!
 
-
   required init?(coder aDecoder: NSCoder) {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     self.currentSpots = appDelegate.currentSession.currentSpots
@@ -142,13 +141,13 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (newSpots: [Spot]) -> () in
       self.currentSpots.replaceSpots(newSpots)
+      self.gameTableView.setContentOffset(CGPointZero, animated: true)
       self.currentSpot = self.currentSpots[0]
       self.gameTableView.reloadData()
 
       self.guessSpotButtonView.enabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
-      self.gameTableView.setContentOffset(CGPointZero, animated: true)
     }
 
     let displayErrorAlert = { (error: NSError) -> () in
