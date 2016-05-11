@@ -104,7 +104,8 @@ class NewSpotViewController: CameraViewController {
 
   func finishedCreatingSpot(newSpot: Spot) {
     self.stopLoadingAnimation()
-    User.getCurrentUser().currentSpots.addNewSpot(newSpot)
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    appDelegate.currentSession.currentSpots.addNewSpot(newSpot)
 
     if UserDefaults.hasPreviouslyCreatedSpot() {
       self.performSegueWithIdentifier("unwindToHome", sender: nil)

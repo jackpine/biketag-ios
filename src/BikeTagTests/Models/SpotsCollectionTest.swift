@@ -3,7 +3,6 @@ import Foundation
 
 class SpotsCollectionTest: XCTestCase {
 
-
   override func setUp() {
     super.setUp()
   }

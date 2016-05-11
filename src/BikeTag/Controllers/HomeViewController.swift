@@ -46,7 +46,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
 
   required init?(coder aDecoder: NSCoder) {
-    currentSpots = User.getCurrentUser().currentSpots
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    self.currentSpots = appDelegate.currentSession.currentSpots
     super.init(coder:aDecoder)
     locationManager.delegate = self
   }
@@ -87,7 +88,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.gameTableView.addSubview(self.refreshControl)
     self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-    self.currentSpots = User.getCurrentUser().currentSpots
 
     setUpLocationServices()
     self.refresh()
@@ -107,11 +107,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.startLoadingAnimation()
     self.ensureApiKey() {
       self.waitForLocation() {
-        self.fetchCurrentUser() {
-          self.fetchCurrentSpots() {
-            self.gameTableView.reloadData()
-          }
-        }
+        self.fetchCurrentUser()
+        self.fetchCurrentSpots()
       }
     }
   }
@@ -146,7 +143,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  func fetchCurrentSpots(successCallback: ()->()) {
+  func fetchCurrentSpots() {
     Logger.info("refreshing spots list")
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (newSpots: [Spot]) -> () in
@@ -167,7 +164,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentSpots(successCallback)
+        self.fetchCurrentSpots()
       }
       alertController.addAction(retryAction)
 
@@ -177,7 +174,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     Spot.fetchCurrentSpots(self.spotsService, location: self.mostRecentLocation!, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
-  func fetchCurrentUser(successCallback: ()->()) {
+  func fetchCurrentUser() {
     Logger.debug("fetching current user")
 
     let displayErrorAlert = { (error: NSError) -> () in
@@ -187,7 +184,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentUser(successCallback)
+        self.fetchCurrentUser()
       }
       alertController.addAction(retryAction)
 
@@ -197,7 +194,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let updateCurrentUser = { (user: User) -> () in
       User.setCurrentUser(user)
       self.currentUserScore = user.score
-      successCallback()
     }
 
     self.usersService.fetchUser(Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)

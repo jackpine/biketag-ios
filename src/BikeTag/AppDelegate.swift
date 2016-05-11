@@ -6,7 +6,7 @@ import Crashlytics
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-
+  var currentSession: Session = Session(currentSpots:SpotsCollection())
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
