@@ -47,8 +47,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   required init?(coder aDecoder: NSCoder) {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    self.currentSpots = appDelegate.currentSession.currentSpots
-    self.locationService = appDelegate.locationService
+    currentSpots = appDelegate.currentSession.currentSpots
+    locationService = appDelegate.locationService
     super.init(coder:aDecoder)
   }
 

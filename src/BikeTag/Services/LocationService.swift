@@ -16,6 +16,11 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    guard (locations.last != nil) else {
+      Logger.error("location did update, but was nil")
+      return
+    }
+
     if( self.mostRecentLocation == nil ) {
       Logger.debug("Initialized location: \(locations.last)")
     }
