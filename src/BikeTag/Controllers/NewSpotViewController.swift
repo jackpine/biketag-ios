@@ -17,29 +17,19 @@ class NewSpotViewController: CameraViewController {
   }
 
   func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
-    var image: UIImage?
-    var spotLocation: CLLocation?
+    let image = Platform.isSimulator ? Spot.griffithSpot().image : UIImage(data: imageData)
 
-    // Fake photo when using the simulator
-    if Platform.isSimulator {
-      let griffithSpot = Spot.griffithSpot()
-      image = griffithSpot.image
-      spotLocation = griffithSpot.location
-    } else {
-      image = UIImage(data: imageData)
-      spotLocation = location
-    }
-
-    if ( image != nil ) {
-      if (self.game == nil) {
-        Logger.debug("No existing game, assuming new game.")
-        self.game = Game(id: nil)
-      }
-      let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: spotLocation!)
-      self.uploadNewSpot(spot)
-    } else {
+    guard ( image != nil ) else {
       Logger.error("New spot image data not captured")
+      return
     }
+
+    if (self.game == nil) {
+      Logger.debug("No existing game, assuming new game.")
+      self.game = Game(id: nil)
+    }
+    let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location)
+    self.uploadNewSpot(spot)
   }
 
   @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
