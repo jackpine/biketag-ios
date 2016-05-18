@@ -12,6 +12,7 @@ let defaults = NSUserDefaults.standardUserDefaults()
 let KeyForApiKey = "apiKey"
 let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
 let KeyForPrefersReceivingNotifications = "PREFERS_RECEIVING_NOTIFICATIONS"
+let KeyForLastKnownAPNToken = "LAST_KNOWN_APN_TOKEN"
 
 class UserDefaults {
 
@@ -37,6 +38,14 @@ class UserDefaults {
 
   class func prefersReceivingNotifications() -> Bool {
     return defaults.boolForKey(KeyForPrefersReceivingNotifications)
+  }
+
+  class func lastKnownAPNToken() -> String? {
+    return defaults.stringForKey(KeyForLastKnownAPNToken)
+  }
+
+  class func setLastKnownAPNToken(val: String) {
+    defaults.setObject(val, forKey:KeyForLastKnownAPNToken)
   }
 
 }
