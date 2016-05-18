@@ -1,7 +1,7 @@
 import UIKit
 import CoreLocation
 
-class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
   @IBOutlet var guessSpotButtonView: PrimaryButton! {
     didSet {
@@ -26,8 +26,9 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   @IBOutlet var loadingView: UIView!
   @IBOutlet var activityIndicatorImageView: UIImageView!
 
-  var currentSpots: SpotsCollection
-  var spotViewCache = NSCache()
+  let currentSpots: SpotsCollection
+  let locationService: LocationService
+  let spotViewCache = NSCache()
 
   var currentSpot: Spot? {
     didSet {
@@ -47,13 +48,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   required init?(coder aDecoder: NSCoder) {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     self.currentSpots = appDelegate.currentSession.currentSpots
+    self.locationService = appDelegate.locationService
     super.init(coder:aDecoder)
-    locationManager.delegate = self
   }
 
   var timeOfLastReload: NSDate = NSDate()
-  var mostRecentLocation: CLLocation?
-  let locationManager = CLLocationManager()
 
   override func renderScore() {
     super.renderScore()
@@ -88,8 +87,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.gameTableView.allowsSelection = false
     self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
-    setUpLocationServices()
-    self.refresh()
+    startTrackingLocation()
+    refresh()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
@@ -98,17 +97,41 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 
+  func startTrackingLocation() {
+    let showLocationServicesDisabledAlert = {
+      let alertController = UIAlertController(
+        title: "Background Location Access Disabled",
+        message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.startTrackingLocation()
+      }
+
+      alertController.addAction(retryAction)
+
+      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+          UIApplication.sharedApplication().openURL(url)
+        }
+      }
+
+      alertController.addAction(openAction)
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    self.locationService.startTrackingLocation(onDenied: showLocationServicesDisabledAlert)
+  }
+
   func refresh() {
     // Getting current spots requires the ApiKey *and* Location.
     // *Order is important*. We get the APIKey first, meanwhile 
     // the Location manager fetches the location in the background (started previously)
     // minimizing the overall wait time.
-    self.startLoadingAnimation()
-    self.ensureApiKey() {
-      self.waitForLocation() {
-        self.fetchCurrentUser()
-        self.fetchCurrentSpots()
-      }
+    startLoadingAnimation()
+    ensureApiKey() {
+      self.fetchCurrentUser()
+      self.ensureLocation(onSuccess: self.fetchCurrentSpots)
     }
   }
 
@@ -136,8 +159,27 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  func fetchCurrentSpots() {
-    Logger.info("refreshing spots list")
+  func ensureLocation(onSuccess successCallback:(CLLocation) -> ()) {
+    let displayRetryAlert = {
+      let alertController = UIAlertController(
+        title: "Hang on a second.",
+        message: "We're having trouble pinpointing your location",
+        preferredStyle: .Alert)
+
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.ensureLocation(onSuccess: successCallback)
+      }
+      alertController.addAction(retryAction)
+
+      self.presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    locationService.waitForLocation(onSuccess: successCallback,
+                                    onTimeout: displayRetryAlert)
+  }
+
+  func fetchCurrentSpots(near: CLLocation) {
+    Logger.info("refreshing spots list near \(near)")
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (newSpots: [Spot]) -> () in
       self.currentSpots.replaceSpots(newSpots)
@@ -157,14 +199,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         preferredStyle: .Alert)
 
       let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentSpots()
+        self.fetchCurrentSpots(near)
       }
       alertController.addAction(retryAction)
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpots(self.spotsService, location: self.mostRecentLocation!, callback: setCurrentSpots, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpots(self.spotsService, location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
   func fetchCurrentUser() {
@@ -308,76 +350,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     if ( secondsElapsed > 60 * 30 ) {
       refresh()
     }
-  }
-
-  // MARK: CLLocationManagerDelegate
-  func waitForLocation(success: ()->()) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-
-      // Don't bomard the user with a redundant warning if they are still reading the location authorization request.
-      if ( CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedAlways && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse ) {
-        return self.waitForLocation(success)
-      }
-
-      if(self.mostRecentLocation == nil) {
-        let alertController = UIAlertController(
-          title: "Hang on a second.",
-          message: "We're having trouble pinpointing your location",
-          preferredStyle: .Alert)
-
-        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-          self.waitForLocation(success)
-        }
-        alertController.addAction(retryAction)
-
-        self.presentViewController(alertController, animated: true, completion: nil)
-        return
-      } else {
-        success()
-      }
-    }
-  }
-
-  func setUpLocationServices() {
-    switch CLLocationManager.authorizationStatus() {
-    case .AuthorizedAlways, .AuthorizedWhenInUse:
-      locationManager.startUpdatingLocation()
-    case .NotDetermined:
-      locationManager.requestWhenInUseAuthorization()
-    case .Restricted, .Denied:
-      let alertController = UIAlertController(
-        title: "Background Location Access Disabled",
-        message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
-        preferredStyle: .Alert)
-
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.setUpLocationServices()
-      }
-
-      alertController.addAction(retryAction)
-
-      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-          UIApplication.sharedApplication().openURL(url)
-        }
-      }
-      alertController.addAction(openAction)
-
-      self.presentViewController(alertController, animated: true, completion: nil)
-    }
-  }
-
-  func locationManager(manager: CLLocationManager,
-    didChangeAuthorizationStatus status: CLAuthorizationStatus)
-  {
-    setUpLocationServices()
-  }
-
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if( self.mostRecentLocation == nil ) {
-      Logger.debug("Initialized location: \(locations.last)")
-    }
-    self.mostRecentLocation = locations.last
   }
 
 }
