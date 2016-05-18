@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="89J-R4-vFb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -61,10 +61,10 @@
                                 <rect key="frame" x="20" y="360" width="560" height="240"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-33-XEw" userLabel="top spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="51"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="50"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Tag is a game to..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S3-op-o0l">
-                                        <rect key="frame" x="131" y="24.5" width="298" height="32"/>
+                                        <rect key="frame" x="131" y="25" width="299" height="32"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your spots with others." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFW-DH-TP9">
-                                        <rect key="frame" x="149" y="104.5" width="261" height="22"/>
+                                        <rect key="frame" x="149" y="105" width="261" height="22"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride your bike!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-1O-0F4">
-                                        <rect key="frame" x="213" y="126.5" width="134" height="22"/>
+                                        <rect key="frame" x="213" y="127" width="134" height="22"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -100,7 +100,7 @@
                                         </variation>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-N0-Fps">
-                                        <rect key="frame" x="212" y="164" width="135" height="41"/>
+                                        <rect key="frame" x="212" y="165" width="135" height="41"/>
                                         <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="25"/>
                                         <state key="normal" title="Let's Ride! ">
                                             <color key="titleColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-rW-Hal" userLabel="bottom spacer">
-                                        <rect key="frame" x="0.0" y="189" width="560" height="51"/>
+                                        <rect key="frame" x="0.0" y="190" width="560" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Vfz-vD-bmD"/>
                                         </constraints>
@@ -128,15 +128,14 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="7S3-op-o0l" secondAttribute="centerX" id="42k-pT-7wf"/>
                                     <constraint firstItem="rFW-DH-TP9" firstAttribute="bottom" secondItem="7SR-1O-0F4" secondAttribute="top" id="EUp-Sd-9rW"/>
                                     <constraint firstAttribute="trailing" secondItem="mNc-rW-Hal" secondAttribute="trailing" id="FeK-Wb-w3I"/>
                                     <constraint firstItem="mNc-rW-Hal" firstAttribute="leading" secondItem="4KA-6Z-e3d" secondAttribute="leading" id="KFS-7I-2mv"/>
                                     <constraint firstAttribute="centerX" secondItem="hQM-1k-de1" secondAttribute="centerX" id="SYh-VU-Vyl"/>
                                     <constraint firstAttribute="centerX" secondItem="xUd-N0-Fps" secondAttribute="centerX" id="TSQ-2A-lUQ"/>
-                                    <constraint firstItem="hQM-1k-de1" firstAttribute="top" secondItem="7S3-op-o0l" secondAttribute="bottom" constant="26" id="X0r-P8-bw2"/>
+                                    <constraint firstItem="7S3-op-o0l" firstAttribute="centerX" secondItem="FIn-33-XEw" secondAttribute="centerX" id="X60-b6-WPE"/>
                                     <constraint firstItem="rFW-DH-TP9" firstAttribute="top" secondItem="hQM-1k-de1" secondAttribute="bottom" id="aUE-uW-bMy"/>
-                                    <constraint firstItem="7S3-op-o0l" firstAttribute="top" secondItem="FIn-33-XEw" secondAttribute="bottom" constant="-26" id="bwK-84-Job"/>
+                                    <constraint firstItem="hQM-1k-de1" firstAttribute="top" secondItem="7S3-op-o0l" secondAttribute="bottom" constant="26" id="cty-vV-J9w"/>
                                     <constraint firstItem="xUd-N0-Fps" firstAttribute="bottom" secondItem="mNc-rW-Hal" secondAttribute="top" constant="16" id="fB2-fF-eON"/>
                                     <constraint firstAttribute="centerX" secondItem="rFW-DH-TP9" secondAttribute="centerX" id="rBb-h2-uiN"/>
                                     <constraint firstItem="mNc-rW-Hal" firstAttribute="height" secondItem="FIn-33-XEw" secondAttribute="height" id="ro2-OE-RZh"/>
@@ -145,6 +144,7 @@
                                     <constraint firstItem="FIn-33-XEw" firstAttribute="top" secondItem="4KA-6Z-e3d" secondAttribute="top" id="uKi-BL-l3A"/>
                                     <constraint firstAttribute="bottom" secondItem="mNc-rW-Hal" secondAttribute="bottom" id="w2Q-hG-ASZ"/>
                                     <constraint firstItem="xUd-N0-Fps" firstAttribute="top" secondItem="7SR-1O-0F4" secondAttribute="bottom" constant="16" id="xMF-1y-lAV"/>
+                                    <constraint firstItem="7S3-op-o0l" firstAttribute="top" secondItem="4KA-6Z-e3d" secondAttribute="top" constant="25" id="yFA-3G-Rkx"/>
                                     <constraint firstAttribute="centerX" secondItem="7SR-1O-0F4" secondAttribute="centerX" id="yYS-pa-6fs"/>
                                 </constraints>
                             </view>
@@ -237,7 +237,7 @@
                                 <rect key="frame" x="0.0" y="436" width="600" height="164"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
-                                        <rect key="frame" x="20" y="69.5" width="560" height="25"/>
+                                        <rect key="frame" x="20" y="70" width="560" height="25"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -463,7 +463,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is just a test..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i52-el-SDC">
-                                                <rect key="frame" x="16" y="12" width="142.5" height="20.5"/>
+                                                <rect key="frame" x="16" y="12" width="143" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -578,7 +578,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
-                                <rect key="frame" x="200.5" y="331.5" width="200" height="21.5"/>
+                                <rect key="frame" x="200" y="332" width="200" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="nX2-Lt-xQw"/>
                                 </constraints>
@@ -592,7 +592,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT" userLabel="Countdown Clock">
-                                <rect key="frame" x="220" y="269" width="160" height="62.5"/>
+                                <rect key="frame" x="220" y="269" width="160" height="63"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -663,7 +663,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nope." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-YK-sze">
-                                <rect key="frame" x="212.5" y="81" width="175" height="70"/>
+                                <rect key="frame" x="213" y="81" width="175" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -678,7 +678,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7Z-f5-vse" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="249" y="239" width="102" height="122.5"/>
+                                <rect key="frame" x="249" y="239" width="102" height="123"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="98"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -737,7 +737,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot! Time's up." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Hn-dN-dFH">
-                                <rect key="frame" x="20" y="102.5" width="560" height="56"/>
+                                <rect key="frame" x="20" y="101" width="560" height="57"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="45"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -751,7 +751,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5I-ZL-gsn" userLabel="Sad Face" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="242" y="230" width="116" height="140"/>
+                                <rect key="frame" x="242" y="230" width="117" height="140"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="112"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -927,7 +927,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In a second, we'll ask for your permission to notify you when someone finds your spot." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvp-pb-WYy">
-                                <rect key="frame" x="20" y="455.5" width="560" height="42.5"/>
+                                <rect key="frame" x="20" y="455" width="560" height="43"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
