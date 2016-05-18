@@ -9,8 +9,13 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
 
   func waitForLocation(onSuccess successCallback: (CLLocation)->(), onTimeout timeoutCallback: ()->()) {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+    // call successCallback immediately if possible.
+    if let location = self.mostRecentLocation {
+      successCallback(location)
+      return
+    }
 
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
       // Don't bombard the user with a redundant warning if they are still reading the location authorization request.
       if ( CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedAlways && CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse ) {
         return self.waitForLocation(onSuccess:successCallback, onTimeout: timeoutCallback)
