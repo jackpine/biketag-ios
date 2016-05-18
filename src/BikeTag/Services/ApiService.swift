@@ -27,16 +27,16 @@ class ApiService {
   }
 
   func request(request: NSURLRequest, handleResponseAttributes: (NSDictionary) -> (), errorCallback: (NSError)->() ) {
-    Alamofire.request(request).responseJSON { (_, _, result) in
-      switch result {
-      case .Failure(_, let error):
+    Alamofire.request(request).responseJSON { response in
+
+      switch response.result {
+      case .Failure(let error):
         // Protocol level errors, e.g. connection timed out
         Logger.warning("HTTP Error: \(error)")
 
         return errorCallback(error as NSError)
       case .Success:
-        let responseAttributes = result.value as! NSDictionary
-
+        let responseAttributes = response.result.value as! NSDictionary
         Logger.debug("Response: \(responseAttributes)")
 
         // Application level errors e.g. missing required attribute

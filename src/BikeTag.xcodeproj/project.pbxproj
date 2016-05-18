@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		45021CCA1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */; };
 		45021CCB1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */; };
-		450953D21BDAECBC0092063D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450953D01BDAECBC0092063D /* Alamofire.framework */; };
-		450953D31BDAECBC0092063D /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450953D11BDAECBC0092063D /* XCGLogger.framework */; };
 		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
@@ -77,6 +75,8 @@
 		45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */; };
 		45C256641CEBFA190098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
 		45C256651CEBFA1A0098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
+		45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C256661CEC2FDB0098E8FF /* Alamofire.framework */; };
+		45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C256671CEC2FDB0098E8FF /* XCGLogger.framework */; };
 		45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757891CE2AAA000E9FEE8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757881CE2AAA000E9FEE8 /* Session.swift */; };
@@ -114,8 +114,6 @@
 
 /* Begin PBXFileReference section */
 		45021CC91CD3D99100FE95D7 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
-		450953D01BDAECBC0092063D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
-		450953D11BDAECBC0092063D /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
 		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -162,6 +160,8 @@
 		45AB7BC21A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B488841A9AB73B00C7E03F /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
+		45C256661CEC2FDB0098E8FF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		45C256671CEC2FDB0098E8FF /* XCGLogger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XCGLogger.framework; sourceTree = "<group>"; };
 		45C757851CE291EB00E9FEE8 /* Platform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 		45C757881CE2AAA000E9FEE8 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -182,8 +182,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
-				450953D31BDAECBC0092063D /* XCGLogger.framework in Frameworks */,
-				450953D21BDAECBC0092063D /* Alamofire.framework in Frameworks */,
+				45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */,
+				45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,8 +289,8 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				450953D01BDAECBC0092063D /* Alamofire.framework */,
-				450953D11BDAECBC0092063D /* XCGLogger.framework */,
+				45C256661CEC2FDB0098E8FF /* Alamofire.framework */,
+				45C256671CEC2FDB0098E8FF /* XCGLogger.framework */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
 				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
 			);
