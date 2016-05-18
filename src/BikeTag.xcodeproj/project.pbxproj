@@ -75,6 +75,8 @@
 		45AB7BB81A3A1D8B00E1961E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB61A3A1D8B00E1961E /* LaunchScreen.xib */; };
 		45B488851A9AB73B00C7E03F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */; };
+		45C256641CEBFA190098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
+		45C256651CEBFA1A0098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
 		45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757891CE2AAA000E9FEE8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757881CE2AAA000E9FEE8 /* Session.swift */; };
@@ -171,6 +173,7 @@
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SadFaceView.swift; sourceTree = "<group>"; };
+		45FC97B81CEBAB5D00F2E642 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +273,7 @@
 		4581A5F81AB7C9BA004C871F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				45FC97B81CEBAB5D00F2E642 /* LocationService.swift */,
 				454E11091B1927B200FBAAC3 /* ApiKeysService.swift */,
 				454E110A1B1927B200FBAAC3 /* ApiError.swift */,
 				4581A5F91AB7C9BA004C871F /* SpotsService.swift */,
@@ -588,6 +592,7 @@
 				45CDD4491CB9DB8E00CEC1DD /* DevicesService.swift in Sources */,
 				451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				451E51D31AB49AFA00849262 /* User.swift in Sources */,
+				45C256651CEBFA1A0098E8FF /* LocationService.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				454E11121B19564500FBAAC3 /* ApiService.swift in Sources */,
 				45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */,
@@ -617,6 +622,7 @@
 				451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				45CDD44A1CB9DB8E00CEC1DD /* DevicesService.swift in Sources */,
 				454E11131B19564500FBAAC3 /* ApiService.swift in Sources */,
+				45C256641CEBFA190098E8FF /* LocationService.swift in Sources */,
 				45939FE71CAB76C700360BE7 /* HomeViewController.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				45939FE61CAB76C300360BE7 /* NewSpotViewController.swift in Sources */,

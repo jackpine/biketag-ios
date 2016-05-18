@@ -8,13 +8,13 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   @IBOutlet var takePictureButton: PrimaryButton!
 
   var previewLayer: AVCaptureVideoPreviewLayer?
-  var mostRecentLocation: CLLocation?
   let stillImageOutput = AVCaptureStillImageOutput()
-  let locationManager = CLLocationManager()
+  let locationService: LocationService
 
   required init?(coder aDecoder: NSCoder) {
-    super.init(coder:aDecoder)
-    locationManager.delegate = self
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    locationService = appDelegate.locationService
+     super.init(coder:aDecoder)
   }
 
   override func viewDidLoad() {
@@ -26,9 +26,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     let tap = UITapGestureRecognizer(target:self, action:#selector(CameraViewController.tappedPhotoPreview(_:)))
     photoPreviewView.addGestureRecognizer(tap)
 
-    self.takePictureButton.setTitle("Pinpointing Location...", forState: .Disabled)
-    self.takePictureButton.setTitleColor(UIColor.grayColor(), forState: .Disabled)
-    setUpLocationServices()
+    takePictureButton.enabled = true
   }
 
   func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
@@ -79,90 +77,46 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     return nil
   }
 
-  func waitForLocation() {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-
-      if(self.mostRecentLocation == nil) {
-        let alertController = UIAlertController(
-          title: "Where you at?",
-          message: "We're having trouble pinpointing your location",
-          preferredStyle: .Alert)
-
-        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-          self.waitForLocation()
-        }
-        alertController.addAction(retryAction)
-
-        self.presentViewController(alertController, animated: true, completion: nil)
-        return
-      } else {
-        self.takePictureButton.enabled = true
-      }
-    }
-  }
-
-  func setUpLocationServices() {
-    switch CLLocationManager.authorizationStatus() {
-    case .AuthorizedAlways, .AuthorizedWhenInUse:
-      locationManager.startUpdatingLocation()
-      self.waitForLocation()
-    case .NotDetermined:
-      locationManager.requestWhenInUseAuthorization()
-    case .Restricted, .Denied:
+  func ensureLocation(onSuccess successCallback:(CLLocation) -> ()) {
+    let displayRetryAlert = {
       let alertController = UIAlertController(
-        title: "Background Location Access Disabled",
-        message: "In order to verify your location, please open this app's settings and set location access to 'While Using the App'.",
-        preferredStyle: .Alert)
+        title: "Where you at?",
+        message: "We need to verify where you took this photo. Did you disable GPS?",
+        preferredStyle: .Alert
+      )
 
-      let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-        self.waitForLocation()
+      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        self.ensureLocation(onSuccess:successCallback)
       }
-
-      alertController.addAction(cancelAction)
-
-      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-          UIApplication.sharedApplication().openURL(url)
-        }
-      }
-      alertController.addAction(openAction)
+      alertController.addAction(retryAction)
 
       self.presentViewController(alertController, animated: true, completion: nil)
     }
-  }
-
-  func locationManager(manager: CLLocationManager,
-    didChangeAuthorizationStatus status: CLAuthorizationStatus)
-  {
-    setUpLocationServices()
-  }
-
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    if( self.mostRecentLocation == nil ) {
-        Logger.debug("Initialized location: \(locations.last)")
-    }
-    self.mostRecentLocation = locations.last
+    locationService.waitForLocation(onSuccess: successCallback, onTimeout: displayRetryAlert)
   }
 
   func captureImage(callback:(NSData, CLLocation)->()) {
-    assert(self.mostRecentLocation != nil )
-    Logger.debug("Location is not nil")
-
-    if Platform.isSimulator {
-      callback(NSData(), self.mostRecentLocation!)
+    guard !Platform.isSimulator else {
+      self.ensureLocation( onSuccess: { (location: CLLocation) in
+        callback(NSData(), location)
+      })
       return
     }
 
-    let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
-    if ( videoConnection != nil && self.mostRecentLocation != nil ) {
-      stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
-
-        let image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-        Logger.debug("calling callback")
-        callback(image!, self.mostRecentLocation!)
-      }
-    } else {
+    guard let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo) else {
       Logger.error("couldn't find video connection")
+      return
+    }
+
+    stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
+      guard let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) else {
+        Logger.error("Unable to create image data from captured buffer")
+        return
+      }
+
+      self.ensureLocation( onSuccess: { (location: CLLocation) in
+        callback(imageData, location)
+      })
     }
   }
 
