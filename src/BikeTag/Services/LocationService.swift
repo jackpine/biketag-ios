@@ -1,12 +1,11 @@
 import CoreLocation
 
 class LocationService: NSObject, CLLocationManagerDelegate {
-  let locationManager = CLLocationManager()
+  var locationManager: CLLocationManager?
   var mostRecentLocation: CLLocation?
 
   required override init() {
     super.init()
-    self.locationManager.delegate = self
   }
 
   func locationManager(manager: CLLocationManager,
@@ -45,11 +44,16 @@ class LocationService: NSObject, CLLocationManagerDelegate {
   }
 
   func startTrackingLocation(onDenied deniedCallback: () -> ()) {
+    if (locationManager == nil) {
+      locationManager = CLLocationManager()
+      locationManager!.delegate = self
+    }
+
     switch CLLocationManager.authorizationStatus() {
     case .AuthorizedAlways, .AuthorizedWhenInUse:
-      locationManager.startUpdatingLocation()
+      locationManager!.startUpdatingLocation()
     case .NotDetermined:
-      locationManager.requestWhenInUseAuthorization()
+      locationManager!.requestWhenInUseAuthorization()
     case .Restricted, .Denied:
       deniedCallback()
     }
