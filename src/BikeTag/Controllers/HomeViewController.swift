@@ -1,5 +1,6 @@
 import UIKit
 import CoreLocation
+import Crashlytics
 
 class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -320,6 +321,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     let cell = UITableViewCell()
     if indexPath.row == self.currentSpots.count() {
       // Not looking at spot, looking at last cell
+      Answers.logContentViewWithName("Last cell", contentType: nil, contentId: "last_cell", customAttributes: ["user_id": User.getCurrentUser().id])
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
       // Spot Cell

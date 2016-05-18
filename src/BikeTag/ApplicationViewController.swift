@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Crashlytics
 
 class ApplicationViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class ApplicationViewController: UIViewController {
 
   func scoreButtonTouched() {
     Logger.debug("score button touched")
+    Answers.logCustomEventWithName("viewed_menu", customAttributes: ["user_id": User.getCurrentUser().id])
 
     let currentUserName = User.getCurrentUser().name
     let alertController = UIAlertController(

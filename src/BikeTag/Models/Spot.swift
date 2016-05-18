@@ -102,4 +102,8 @@ class Spot: NSObject {
   func base64ImageData() -> String {
     return UIImageJPEGRepresentation(self.image!, 0.9)!.base64EncodedStringWithOptions([])
   }
+
+  func name() -> String {
+    return "Spot:\(id)"
+  }
 }

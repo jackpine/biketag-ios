@@ -1,6 +1,6 @@
 import UIKit
 import CoreLocation
-
+import Crashlytics
 class NewSpotViewController: CameraViewController {
 
   var game: Game?
@@ -28,6 +28,8 @@ class NewSpotViewController: CameraViewController {
       Logger.debug("No existing game, assuming new game.")
       self.game = Game(id: nil)
     }
+    Answers.logCustomEventWithName("uploading new spot for game", customAttributes: ["game": self.game!, "user_id": User.getCurrentUser().id])
+
     let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location)
     self.uploadNewSpot(spot)
   }

@@ -1,4 +1,5 @@
 import UIKit
+import Crashlytics
 
 class CheckGuessViewController: ApplicationViewController {
   @IBOutlet var fakeResponseActions: UIView!
@@ -79,18 +80,21 @@ class CheckGuessViewController: ApplicationViewController {
     } else {
       self.progressOverlay.hidden = true
       if guess.correct! {
-        correctGuess()
+        correctGuess(guess)
       } else {
-        incorrectGuess()
+        incorrectGuess(guess)
       }
     }
   }
 
-  func correctGuess() {
+  func correctGuess(guess: Guess) {
+    Answers.logCustomEventWithName("correct_guess", customAttributes: ["spot_id": guess.spot.id!,
+      "user_id": User.getCurrentUser().id])
     self.performSegueWithIdentifier("showCorrectGuess", sender: nil)
   }
 
-  func incorrectGuess() {
+  func incorrectGuess(guess: Guess) {
+    Answers.logCustomEventWithName("incorrect_guess", customAttributes: ["spot_id": guess.spot.id!, "user_id": User.getCurrentUser().id])
     self.performSegueWithIdentifier("showIncorrectGuess", sender: nil)
   }
 
@@ -98,14 +102,14 @@ class CheckGuessViewController: ApplicationViewController {
     self.progressOverlay.hidden = true
     self.guess!.correct = false
     self.guess!.distance = 0.03
-    incorrectGuess()
+    incorrectGuess(self.guess!)
   }
 
   @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
     self.progressOverlay.hidden = true
     self.guess!.correct = true
     self.guess!.distance = 0.0001
-    correctGuess()
+    correctGuess(self.guess!)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
