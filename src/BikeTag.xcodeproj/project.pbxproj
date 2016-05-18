@@ -126,7 +126,6 @@
 		452B83761CE251A400CE1F85 /* SpotsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsCollection.swift; sourceTree = "<group>"; };
 		452B83781CE2646700CE1F85 /* SpotsCollectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsCollectionTest.swift; sourceTree = "<group>"; };
 		452BC69F1C7FF7A800FC6939 /* LastCellInSpotsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LastCellInSpotsTableView.xib; path = Views/LastCellInSpotsTableView.xib; sourceTree = "<group>"; };
-		45466E9B1ACA01BF00D7B69A /* Settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		454E11031B19278F00FBAAC3 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -239,19 +238,10 @@
 			isa = PBXGroup;
 			children = (
 				45C770A91ABE5D9A0036847D /* Config.swift */,
-				45466E981ACA01AD00D7B69A /* AdHoc */,
 				45466E991ACA01AD00D7B69A /* Debug */,
 				45466E9A1ACA01AD00D7B69A /* Release */,
 			);
 			path = Configs;
-			sourceTree = "<group>";
-		};
-		45466E981ACA01AD00D7B69A /* AdHoc */ = {
-			isa = PBXGroup;
-			children = (
-				45466E9B1ACA01BF00D7B69A /* Settings.plist */,
-			);
-			path = AdHoc;
 			sourceTree = "<group>";
 		};
 		45466E991ACA01AD00D7B69A /* Debug */ = {
@@ -463,12 +453,12 @@
 				TargetAttributes = {
 					45AB7BA51A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = CSBZ6R9U39;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
 							};
 						};
-						DevelopmentTeam = CSBZ6R9U39;
 					};
 					45AB7BBC1A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
@@ -693,81 +683,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		45466E441AC9FDAF00D7B69A /* AdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = AdHoc;
-		};
-		45466E451AC9FDAF00D7B69A /* AdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				BuildConfigurationAppBundleId = "";
-				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.AdHoc";
-				BuildConfigurationProductName = "";
-				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Beta";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				INFOPLIST_FILE = BikeTag/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = AdHoc;
-		};
-		45466E461AC9FDAF00D7B69A /* AdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Frameworks",
-				);
-				INFOPLIST_FILE = BikeTagTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "${BuildConfigurationAppBundleId}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeTag.app/BikeTag";
-			};
-			name = AdHoc;
-		};
 		45AB7BC51A3A1D8B00E1961E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -867,7 +782,7 @@
 					"-force_load",
 					"\"$(PROJECT_DIR)/Frameworks/calabash.framework/calabash\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -891,7 +806,7 @@
 				INFOPLIST_FILE = BikeTag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "$(BuildConfigurationAppBundleId)";
+				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -941,7 +856,6 @@
 			buildConfigurations = (
 				45AB7BC51A3A1D8B00E1961E /* Debug */,
 				45AB7BC61A3A1D8B00E1961E /* Release */,
-				45466E441AC9FDAF00D7B69A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -951,7 +865,6 @@
 			buildConfigurations = (
 				45AB7BC81A3A1D8B00E1961E /* Debug */,
 				45AB7BC91A3A1D8B00E1961E /* Release */,
-				45466E451AC9FDAF00D7B69A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -961,7 +874,6 @@
 			buildConfigurations = (
 				45AB7BCB1A3A1D8B00E1961E /* Debug */,
 				45AB7BCC1A3A1D8B00E1961E /* Release */,
-				45466E461AC9FDAF00D7B69A /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

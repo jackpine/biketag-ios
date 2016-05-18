@@ -44,15 +44,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>ngrok.io</key>
+			<key>api.biketag-staging.jackpine.me</key>
 			<dict>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
+			</dict>
+			<key>ngrok.io</key>
+			<dict>
 				<key>NSIncludesSubdomains</key>
 				<true/>
-			</dict>
-			<key>api.biketag-staging.jackpine.me</key>
-			<dict>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
