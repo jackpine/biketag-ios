@@ -17,11 +17,11 @@ class SpotsCollection {
     }.first
 
     if oldSpot != nil {
-      let gameIndex = spots.indexOf(oldSpot!)!
-      spots.removeAtIndex(gameIndex)
+        let gameIndex = spots.index(of: oldSpot!)!
+        spots.remove(at: gameIndex)
     }
 
-    spots.insert(newSpot, atIndex: 0)
+    spots.insert(newSpot, at: 0)
   }
 
   func replaceSpots(spots:[Spot]) -> () {

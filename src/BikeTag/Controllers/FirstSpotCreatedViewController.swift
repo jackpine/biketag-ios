@@ -15,9 +15,9 @@ class FirstSpotCreatedViewController: ApplicationViewController {
   @IBOutlet var askForNotificationPermissionButton: PrimaryButton!
 
   @IBAction func pressedAskButton() {
-    UserDefaults.setPrefersReceivingNotifications(true)
+    UserDefaults.setPrefersReceivingNotifications(val: true)
     PushNotificationManager.register()
-    self.performSegueWithIdentifier("unwindToHome", sender: nil)
+    self.performSegue(withIdentifier: "unwindToHome", sender: nil)
   }
 
   override func viewDidLoad() {
@@ -27,13 +27,13 @@ class FirstSpotCreatedViewController: ApplicationViewController {
     askForNotificationPermissionButton.layer.opacity = 0
   }
 
-  override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
 
-    UIView.animateWithDuration(1, delay: 0, options: UIViewAnimationOptions.CurveEaseIn, animations: { self.headerLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
-      UIView.animateWithDuration(1, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: { self.subHeaderLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
-        UIView.animateWithDuration(1, delay: 0.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { self.prepareForNotificationLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
-          UIView.animateWithDuration(1, delay: 1.5, options: UIViewAnimationOptions.CurveEaseIn, animations: { self.askForNotificationPermissionButton.layer.opacity = 1.0 }, completion: nil)
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { self.headerLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
+            UIView.animate(withDuration: 1, delay: 0.0, options: .curveEaseIn, animations: { self.subHeaderLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
+                UIView.animate(withDuration: 1, delay: 0.5, options: .curveEaseIn, animations: { self.prepareForNotificationLabel.layer.opacity = 1.0 }) { (finished: Bool) -> () in
+                    UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseIn, animations: { self.askForNotificationPermissionButton.layer.opacity = 1.0 }, completion: nil)
         }
       }
     }

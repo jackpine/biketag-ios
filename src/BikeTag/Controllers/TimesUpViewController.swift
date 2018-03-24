@@ -16,7 +16,7 @@ class TimesUpViewController: ApplicationViewController {
     super.viewDidLoad()
   }
 
-  override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     sadFaceView.rotate()
   }

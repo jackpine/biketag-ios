@@ -14,7 +14,7 @@ class GuessSpotViewController: CameraViewController {
                           customAttributes: ["user_id": User.getCurrentUser().id])
   }
 
-  func createGuessFromData(imageData: NSData, location: CLLocation) -> () {
+  func createGuessFromData(imageData: Data, location: CLLocation) -> () {
     var image: UIImage?
     if Platform.isSimulator {
       image = UIImage(named: "952 lucile")!
@@ -23,17 +23,17 @@ class GuessSpotViewController: CameraViewController {
     }
 
     self.newGuess = Guess(spot: self.currentSpot!, user: User.getCurrentUser(), location: location, image:image!)
-    self.performSegueWithIdentifier("showCheckingGuessSegue", sender: nil)
+    self.performSegue(withIdentifier: "showCheckingGuessSegue", sender: nil)
   }
 
   @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
     Logger.debug("capturing image")
-    self.captureImage(createGuessFromData)
+    self.captureImage(callback: createGuessFromData)
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
-    super.prepareForSegue(segue, sender: sender)
-    let checkGuessViewController = segue.destinationViewController as! CheckGuessViewController
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) -> Void {
+    super.prepare(for: segue, sender: sender)
+    let checkGuessViewController = segue.destination as! CheckGuessViewController
     checkGuessViewController.guess = self.newGuess!
   }
 

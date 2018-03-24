@@ -3,17 +3,17 @@ import Alamofire
 
 class UsersService: ApiService {
 
-  func fetchUser(userId: Int, successCallback: (User)->(), errorCallback: (NSError)->()) {
-    let getUserRequest = APIRequest.build(Method.GET, path: "users/\(userId).json")
+    func fetchUser(userId: Int, successCallback: @escaping (User)->(), errorCallback:  @escaping (Error)->()) {
 
-    let handleResponseAttributes = { (responseData: AnyObject) -> () in
-      let responseAttributes = responseData as! NSDictionary
-      let userAttributes = responseAttributes["user"] as! NSDictionary
+        // TODO guard parse
+    let handleResponseAttributes = { (responseData: Any) -> () in
+      let responseAttributes = responseData as! [String: Any]
+      let userAttributes = responseAttributes["user"] as! [String: Any]
       let user = User(attributes: userAttributes)
       successCallback(user)
     }
 
-    self.request(getUserRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
+    self.request(.get, path: "users/\(userId).json", parameters: nil, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
   }
 
 }

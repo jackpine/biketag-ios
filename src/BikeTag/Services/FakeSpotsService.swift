@@ -3,7 +3,7 @@ import CoreLocation
 
 class FakeSpotsService: SpotsService {
 
-  override func fetchCurrentSpots(location: CLLocation, successCallback: ([ParsedSpot])->(), errorCallback: (NSError)->()) {
+    override func fetchCurrentSpots(location: CLLocation, successCallback: @escaping ([ParsedSpot])->(), errorCallback: @escaping  (Error)->()) {
     Logger.info("FAKE fetch current spot")
 
     let firstImageAsbase64Encoded = "data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7"
@@ -42,11 +42,11 @@ class FakeSpotsService: SpotsService {
     successCallback(parsedSpots)
   }
 
-  override func postNewSpot(spot: Spot, callback: (ParsedSpot)->(), errorCallback: (NSError)->()) {
+  override func postNewSpot(spot: Spot, callback: @escaping (ParsedSpot)->(), errorCallback: @escaping (Error)->()) {
     Logger.info("FAKE post new spot")
 
     let base64EncodedImageUrlString = "data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw=="
-    let mockResponse = [
+    let mockResponse: [String: Any] = [
       "image_url": base64EncodedImageUrlString,
       "user_id": User.getCurrentUser().id,
       "user_name": "my user",
@@ -59,7 +59,7 @@ class FakeSpotsService: SpotsService {
     callback(parsedSpot)
   }
 
-  override func postSpotGuess(guess: Guess, callback: (Guess)->(), errorCallback: (NSError)->()) {
+  override func postSpotGuess(guess: Guess, callback: @escaping (Guess)->(), errorCallback: @escaping (Error)->()) {
     Logger.info("FAKE post new guess")
     callback(guess)
   }

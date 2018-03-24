@@ -16,7 +16,7 @@ class User: Equatable {
   }
 
   // e.g. init from API response
-  init(attributes: NSDictionary) {
+  init(attributes: [String: Any]) {
     self.id = attributes["id"] as! Int
     self.name = attributes["name"] as! String
     self.score = attributes["score"] as! Int

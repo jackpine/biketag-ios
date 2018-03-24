@@ -15,7 +15,7 @@ class ApplicationViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(ApplicationViewController.scoreButtonTouched))
+    self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ApplicationViewController.scoreButtonTouched))
     self.renderScore()
 
     self.navigationItem.rightBarButtonItem = scoreButton
@@ -25,26 +25,26 @@ class ApplicationViewController: UIViewController {
     self.scoreButton!.title = "●\(self.currentUserScore)"
   }
 
-  func scoreButtonTouched() {
+    @objc func scoreButtonTouched() {
     Logger.debug("score button touched")
-    Answers.logCustomEventWithName("viewed_menu", customAttributes: ["user_id": User.getCurrentUser().id])
+    Answers.logCustomEvent(withName: "viewed_menu", customAttributes: ["user_id": User.getCurrentUser().id])
 
     let currentUserName = User.getCurrentUser().name
     let alertController = UIAlertController(
       title: "\(currentUserName)'s Store",
       message: "You've got ●\(currentUserScore) to spend.",
-      preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-    let dismissAction = UIAlertAction(title: "That's it for now.", style: .Cancel, handler: nil)
+        let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
     alertController.addAction(dismissAction)
 
-    let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to add your own spot", style: .Default) { (action) in
-      self.navigationController!.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
+    let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to add your own spot", style: .default) { (action) in
+        self.navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
     }
-    newSpotAction.enabled = currentUserScore >= Spot.newSpotCost
+        newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost
     alertController.addAction(newSpotAction)
 
-    self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
   }
 
 }

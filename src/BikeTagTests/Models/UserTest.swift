@@ -18,16 +18,16 @@ class UserTest: XCTestCase {
     let user = User(id: 1, name: "some user")
     let userWithSameId = User(id: 1, name: "same user")
 
-    User.setCurrentUser(user)
+    User.setCurrentUser(user: user)
     XCTAssertEqual(User.getCurrentUser(), userWithSameId)
   }
 
   func testUserInit() {
-    let userAttributes = [
+    let userAttributes: [String : Any] = [
       "id": 100,
       "name": "my user",
       "score": 200
-    ]
+        ]
 
     let user = User(attributes:userAttributes)
     XCTAssertEqual(user.id, 100)

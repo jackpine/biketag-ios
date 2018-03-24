@@ -11,25 +11,25 @@ class ApiKey {
     return currentApiKey
   }
 
-  required init(attributes: NSDictionary) {
+  required init(attributes: [String: Any]) {
     self.clientId = attributes["client_id"] as! String
     self.secret = attributes["secret"] as! String
     self.userId = attributes["user_id"] as! Int
   }
 
-  class func setCurrentApiKey(apiKeyAttributes: NSDictionary) -> () {
+  class func setCurrentApiKey(apiKeyAttributes: [String: Any]) -> () {
     currentApiKey = ApiKey(attributes: apiKeyAttributes)
-    UserDefaults.setApiKey(apiKeyAttributes)
+    UserDefaults.setApiKey(apiKeyAttributes: apiKeyAttributes)
   }
 
-  class func ensureApiKey(successCallback: ()->(), errorCallback: (NSError)->()) {
+    class func ensureApiKey(successCallback: @escaping ()->(), errorCallback: @escaping (Error)->()) {
     if getCurrentApiKey() != nil {
       return successCallback()
     }
 
 
-    let sucessWithApiKey = { (apiKeyAttributes: NSDictionary) -> () in
-      ApiKey.setCurrentApiKey(apiKeyAttributes)
+    let sucessWithApiKey = { (apiKeyAttributes: [String: Any]) -> () in
+        ApiKey.setCurrentApiKey(apiKeyAttributes: apiKeyAttributes)
       successCallback()
     }
 
@@ -39,12 +39,12 @@ class ApiKey {
     } else {
       Logger.info("Creating new API Key")
 
-      let handleFailure = {(error: NSError) -> () in
+      let handleFailure = {(error: Error) -> () in
         Logger.error("Error setting API Key: \(error)")
         errorCallback(error)
       }
 
-      ApiKeysService().createApiKey(sucessWithApiKey, errorCallback: handleFailure)
+        ApiKeysService().createApiKey(callback: sucessWithApiKey, errorCallback: handleFailure)
     }
   }
 

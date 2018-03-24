@@ -6,11 +6,11 @@ class SpotTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    User.setCurrentUser(Spot.griffithSpot().user)
+    User.setCurrentUser(user: Spot.griffithSpot().user)
   }
 
   func testFetchCurrentSpot(){
-    let expectation = self.expectationWithDescription("fetched current spot")
+    let expectation = self.expectation(description: "fetched current spot")
 
     let fulfillExpectation = { (currentSpots: [Spot]) -> () in
       if ( !currentSpots[0].isCurrentUserOwner() ) {
@@ -20,17 +20,17 @@ class SpotTests: XCTestCase {
       }
     }
 
-    let failExpectation = { (error: NSError) -> () in
+    let failExpectation = { (error: Error) -> () in
       // This will eventually fail, since we're not calling fulfill,
       // but is there a way to fail fast?
     }
 
-    Spot.fetchCurrentSpots(FakeSpotsService(), location: Spot.lucileSpot().location!, callback: fulfillExpectation, errorCallback: failExpectation)
-    self.waitForExpectationsWithTimeout(5.0, handler:nil)
+    Spot.fetchCurrentSpots(spotsService: FakeSpotsService(), location: Spot.lucileSpot().location!, callback: fulfillExpectation, errorCallback: failExpectation)
+    self.waitForExpectations(timeout: 5.0, handler:nil)
   }
 
   func testCreateNewSpot(){
-    let expectation = self.expectationWithDescription("created a new spot")
+    let expectation = self.expectation(description: "created a new spot")
 
     let griffithSpot = Spot.griffithSpot()
     let image = griffithSpot.image!
@@ -44,14 +44,14 @@ class SpotTests: XCTestCase {
       }
     }
 
-    let failExpectation = { (error: NSError) -> () in
+    let failExpectation = { (error: Error) -> () in
       // This will eventually fail, since we're not calling fulfill,
       // but is there a way to fail fast?
     }
 
-    Spot.createNewSpot(FakeSpotsService(), image: image, game: Game(id: 1), location: location, callback: fulfillExpectation, errorCallback: failExpectation)
+    Spot.createNewSpot(spotsService: FakeSpotsService(), image: image, game: Game(id: 1), location: location, callback: fulfillExpectation, errorCallback: failExpectation)
 
-    self.waitForExpectationsWithTimeout(5.0, handler:nil)
+    self.waitForExpectations(timeout: 5.0, handler:nil)
   }
 
   func testIsCurrentUserOwner() {

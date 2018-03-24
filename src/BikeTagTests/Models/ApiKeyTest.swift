@@ -3,7 +3,7 @@ import XCTest
 
 class ApiKeyTest: XCTestCase {
   func testInitWithAttributes() {
-    let apiKeyAttributes: NSDictionary = [
+    let apiKeyAttributes: [String: Any] = [
       "client_id": "fake-client-id",
       "secret": "fake-secret",
       "user_id": 666
@@ -16,13 +16,13 @@ class ApiKeyTest: XCTestCase {
   }
 
   func testSetCurrentApiKey() {
-    let apiKeyAttributes: NSDictionary = [
+    let apiKeyAttributes: [String: Any] = [
       "client_id": "my-client-id",
       "secret": "my-secret",
       "user_id": 777
     ]
 
-    ApiKey.setCurrentApiKey(apiKeyAttributes)
+    ApiKey.setCurrentApiKey(apiKeyAttributes: apiKeyAttributes)
     XCTAssert(ApiKey.getCurrentApiKey() != nil)
     XCTAssertEqual(ApiKey.getCurrentApiKey()!.clientId, "my-client-id")
   }

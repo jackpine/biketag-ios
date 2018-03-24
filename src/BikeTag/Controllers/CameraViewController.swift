@@ -12,7 +12,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   let locationService: LocationService
 
   required init?(coder aDecoder: NSCoder) {
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     locationService = appDelegate.locationService
      super.init(coder:aDecoder)
   }
@@ -20,18 +20,18 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   override func viewDidLoad() {
     super.viewDidLoad()
     if let captureDevice = getCaptureDevice() {
-      beginCapturingVideo(captureDevice)
+        beginCapturingVideo(captureDevice: captureDevice)
     }
 
-    let tap = UITapGestureRecognizer(target:self, action:#selector(CameraViewController.tappedPhotoPreview(_:)))
+    let tap = UITapGestureRecognizer(target:self, action:#selector(tappedPhotoPreview(recognizer:)))
     photoPreviewView.addGestureRecognizer(tap)
 
-    takePictureButton.enabled = true
+    takePictureButton.isEnabled = true
   }
 
-  func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
+    @objc func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
     Logger.debug("tapped photoPreviewView: \(recognizer.state)")
-    setFocus(recognizer.locationInView(photoPreviewView))
+    setFocus(viewLocation: recognizer.location(in: photoPreviewView))
   }
 
   func setFocus(viewLocation: CGPoint) {
@@ -45,15 +45,15 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     if let device = getCaptureDevice() {
       do {
         try device.lockForConfiguration()
-        if device.focusPointOfInterestSupported {
+        if device.isFocusPointOfInterestSupported {
           device.focusPointOfInterest = focusPoint
           Logger.debug("Set focus point of interest")
-          device.focusMode = AVCaptureFocusMode.AutoFocus
+            device.focusMode = .autoFocus
         }
-        if device.exposurePointOfInterestSupported {
+        if device.isExposurePointOfInterestSupported {
           device.exposurePointOfInterest = focusPoint
           Logger.debug("Set exposure point of interest")
-          device.exposureMode = AVCaptureExposureMode.AutoExpose
+            device.exposureMode = .autoExpose
         }
 
         device.unlockForConfiguration()
@@ -67,48 +67,54 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     let devices = AVCaptureDevice.devices()
     for device in devices {
       // Make sure this particular device supports video
-      if (device.hasMediaType(AVMediaTypeVideo)) {
+      if (device.hasMediaType(.video)) {
         // Finally check the position and confirm we've got the back camera
-        if(device.position == AVCaptureDevicePosition.Back) {
-          return device as? AVCaptureDevice
+        if(device.position == .back) {
+          return device
         }
       }
     }
     return nil
   }
 
-  func ensureLocation(onSuccess successCallback:(CLLocation) -> ()) {
+    func ensureLocation(onSuccess successCallback:@escaping (CLLocation) -> ()) {
     let displayRetryAlert = {
       let alertController = UIAlertController(
         title: "Where you at?",
         message: "We need to verify where you took this photo. Did you disable GPS?",
-        preferredStyle: .Alert
+        preferredStyle: .alert
       )
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
         self.ensureLocation(onSuccess:successCallback)
       }
       alertController.addAction(retryAction)
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     locationService.waitForLocation(onSuccess: successCallback, onTimeout: displayRetryAlert)
   }
 
-  func captureImage(callback:(NSData, CLLocation)->()) {
+    func captureImage(callback:@escaping (Data, CLLocation)->()) {
     guard !Platform.isSimulator else {
       self.ensureLocation( onSuccess: { (location: CLLocation) in
-        callback(NSData(), location)
+        callback(Data(), location)
       })
       return
     }
 
-    guard let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo) else {
+        guard let videoConnection = self.stillImageOutput.connection(with: .video) else {
       Logger.error("couldn't find video connection")
       return
     }
 
-    stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageDataSampleBuffer, error) -> Void in
+        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { (imageDataSampleBuffer, error) -> Void in
+            
+            guard let imageDataSampleBuffer = imageDataSampleBuffer else {
+                Logger.error("ImageDataSampleBuffer was unexpectedly nil")
+                return
+            }
+
       guard let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer) else {
         Logger.error("Unable to create image data from captured buffer")
         return
@@ -121,20 +127,20 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
   }
 
   func beginCapturingVideo(captureDevice: AVCaptureDevice) {
-    var err : NSError? = nil
+    var err : Error? = nil
     let captureDeviceInput: AVCaptureDeviceInput!
     do {
       captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
-    } catch let error as NSError {
+    } catch {
       err = error
       captureDeviceInput = nil
     }
-    if err != nil {
-      Logger.error("error initializing camera: \(err?.localizedDescription)")
+    if let err = err {
+        Logger.error("error initializing camera: \(err.localizedDescription)")
     }
 
     let captureSession = AVCaptureSession()
-    captureSession.sessionPreset = AVCaptureSessionPresetHigh
+    captureSession.sessionPreset = .high
 
     if ( captureSession.canAddInput(captureDeviceInput) ) {
       captureSession.addInput(captureDeviceInput)
@@ -143,7 +149,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     }
 
     let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+    previewLayer.videoGravity = .resizeAspectFill
 
     self.photoPreviewView.layer.addSublayer(previewLayer)
 

@@ -22,17 +22,17 @@ class CorrectGuessViewController: ApplicationViewController {
 
   var guess: Guess?
   var startTime: NSDate?
-  var timer: NSTimer?
+    var timer: Timer?
 
   override func viewDidLoad() {
     self.startTime = NSDate()
-    self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(CorrectGuessViewController.updateSecondsLeft), userInfo: nil, repeats: true)
+    self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CorrectGuessViewController.updateSecondsLeft), userInfo: nil, repeats: true)
   }
 
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.destinationViewController is NewSpotViewController {
-      let newSpotViewController = segue.destinationViewController as! NewSpotViewController
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // TODO make guard or comment as to when this is expected to fail
+    if let newSpotViewController = segue.destination as? NewSpotViewController {
       newSpotViewController.game = self.guess!.game
     }
   }
@@ -45,8 +45,8 @@ class CorrectGuessViewController: ApplicationViewController {
     }
   }
 
-  func updateSecondsLeft() {
-    self.secondsLeft = secondsToCapture - Int(NSDate().timeIntervalSinceDate(self.startTime!))
+    @objc func updateSecondsLeft() {
+    self.secondsLeft = secondsToCapture - Int(self.startTime!.timeIntervalSinceNow)
     //Potentially way passed time if the app was backgrounded for a while.
     if(self.secondsLeft < 11) {
       self.blinkClock()
@@ -61,7 +61,7 @@ class CorrectGuessViewController: ApplicationViewController {
     self.timer?.invalidate()
     self.secondsLeft = 0
 
-    self.performSegueWithIdentifier("showTimesUp", sender: self)
+    self.performSegue(withIdentifier: "showTimesUp", sender: self)
   }
   
   var clockBlinking: Bool = false
@@ -72,8 +72,8 @@ class CorrectGuessViewController: ApplicationViewController {
     
     self.clockBlinking = true
     self.countdownClockLabel.alpha = 1
-    UIView.animateWithDuration(0.24, delay: 0,
-                               options: [.CurveEaseInOut, .Repeat, .Autoreverse],
+    UIView.animate(withDuration: 0.24, delay: 0,
+                               options: [.curveEaseInOut, .repeat, .autoreverse],
                                animations: { self.countdownClockLabel.alpha = 0 },
                                completion: nil)
   }

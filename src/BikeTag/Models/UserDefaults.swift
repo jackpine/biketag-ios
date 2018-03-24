@@ -8,44 +8,45 @@
 
 import Foundation
 
-let defaults = NSUserDefaults.standardUserDefaults()
-let KeyForApiKey = "apiKey"
-let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
-let KeyForPrefersReceivingNotifications = "PREFERS_RECEIVING_NOTIFICATIONS"
-let KeyForLastKnownAPNToken = "LAST_KNOWN_APN_TOKEN"
-
-class UserDefaults {
-
-  class func setApiKey(apiKeyAttributes: NSDictionary) {
-    defaults.setObject(apiKeyAttributes, forKey: KeyForApiKey)
-  }
-
-  class func apiKey() -> NSDictionary? {
-    return defaults.dictionaryForKey(KeyForApiKey)
-  }
-
-  class func setHasPreviouslyCreatedSpot(val: Bool) {
-    defaults.setBool(val, forKey:KeyForHasPreviouslyCreatedSpot)
-  }
-
-  class func hasPreviouslyCreatedSpot() -> Bool {
-    return defaults.boolForKey(KeyForHasPreviouslyCreatedSpot)
-  }
-
-  class func setPrefersReceivingNotifications(val: Bool) {
-    defaults.setBool(val, forKey: KeyForPrefersReceivingNotifications)
-  }
-
-  class func prefersReceivingNotifications() -> Bool {
-    return defaults.boolForKey(KeyForPrefersReceivingNotifications)
-  }
-
-  class func lastKnownAPNToken() -> String? {
-    return defaults.stringForKey(KeyForLastKnownAPNToken)
-  }
-
-  class func setLastKnownAPNToken(val: String) {
-    defaults.setObject(val, forKey:KeyForLastKnownAPNToken)
-  }
-
+// TODO do we *really* want to extend UserDefaults? Convert class funcs to static getters
+extension UserDefaults {
+    
+    static let defaults = UserDefaults.standard
+    static let KeyForApiKey = "apiKey"
+    static let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
+    static let KeyForPrefersReceivingNotifications = "PREFERS_RECEIVING_NOTIFICATIONS"
+    static let KeyForLastKnownAPNToken = "LAST_KNOWN_APN_TOKEN"
+    
+    class func setApiKey(apiKeyAttributes: [String: Any]) {
+        defaults.set(apiKeyAttributes, forKey: KeyForApiKey)
+    }
+    
+    class func apiKey() -> [String: Any]? {
+        return defaults.dictionary(forKey: KeyForApiKey)
+    }
+    
+    class func setHasPreviouslyCreatedSpot(val: Bool) {
+        defaults.set(val, forKey:KeyForHasPreviouslyCreatedSpot)
+    }
+    
+    class func hasPreviouslyCreatedSpot() -> Bool {
+        return defaults.bool(forKey: KeyForHasPreviouslyCreatedSpot)
+    }
+    
+    class func setPrefersReceivingNotifications(val: Bool) {
+        defaults.set(val, forKey: KeyForPrefersReceivingNotifications)
+    }
+    
+    class func prefersReceivingNotifications() -> Bool {
+        return defaults.bool(forKey: KeyForPrefersReceivingNotifications)
+    }
+    
+    class func lastKnownAPNToken() -> String? {
+        return defaults.string(forKey: KeyForLastKnownAPNToken)
+    }
+    
+    class func setLastKnownAPNToken(val: String) {
+        defaults.set(val, forKey:KeyForLastKnownAPNToken)
+    }
+    
 }

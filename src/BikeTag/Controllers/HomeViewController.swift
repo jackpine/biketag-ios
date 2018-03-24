@@ -11,11 +11,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   // Last Cell / Add Spot Stuff
-  var lastCellInSpotsTableView: UIView!
+  @IBOutlet var lastCellInSpotsTableView: UIView!
   @IBOutlet var newSpotCostLabel: UILabel!
   @IBOutlet var newSpotButton: PrimaryButton!
   @IBAction func didTouchUpInsideAddSpotButton(sender: AnyObject) {
-    self.navigationController!.performSegueWithIdentifier("pushNewSpotViewController", sender: nil)
+    self.navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
   }
 
   @IBOutlet var mySpotView: UIView! {
@@ -29,7 +29,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   let currentSpots: SpotsCollection
   let locationService: LocationService
-  let spotViewCache = NSCache()
+    let spotViewCache: NSCache<Spot, SpotView> = NSCache()
 
   var currentSpot: Spot? {
     didSet {
@@ -40,14 +40,14 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   var refreshControl:UIRefreshControl!
 
   @IBAction func unwindToHome(segue: UIStoryboardSegue) {
-    self.gameTableView.setContentOffset(CGPointZero, animated: true)
+    self.gameTableView.setContentOffset(.zero, animated: true)
     refresh()
   }
 
   @IBOutlet var gameTableView: UITableView!
 
   required init?(coder aDecoder: NSCoder) {
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     currentSpots = appDelegate.currentSession.currentSpots
     locationService = appDelegate.locationService
     super.init(coder:aDecoder)
@@ -60,10 +60,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     if self.newSpotCostLabel != nil {
       if self.currentUserScore >= Spot.newSpotCost {
         self.newSpotCostLabel.text = "This costs ●\(Spot.newSpotCost) of your ●\(self.currentUserScore)."
-        self.newSpotButton.enabled = true
+        self.newSpotButton.isEnabled = true
       } else {
         self.newSpotCostLabel.text = "You need at least ●\(Spot.newSpotCost - self.currentUserScore) more to add a spot."
-        self.newSpotButton.enabled = false
+        self.newSpotButton.isEnabled = false
       }
     }
   }
@@ -77,25 +77,26 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     self.loadingView.layer.cornerRadius = 5
     self.loadingView.layer.masksToBounds = true
 
-    self.guessSpotButtonView.setTitle("Fetching Spots...", forState: .Disabled)
+    self.guessSpotButtonView.setTitle("Fetching Spots...", for: .disabled)
 
     self.refreshControl = UIRefreshControl()
-    let titleAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+    let titleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.white]
+    
     self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
-    self.refreshControl.tintColor = UIColor.whiteColor()
-    self.refreshControl.addTarget(self, action: #selector(HomeViewController.refreshControlPulled(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    self.refreshControl.tintColor = UIColor.white
+    self.refreshControl.addTarget(self, action: #selector(refreshControlPulled(sender:)), for: UIControlEvents.valueChanged)
     self.gameTableView.addSubview(self.refreshControl)
     self.gameTableView.allowsSelection = false
-    self.gameTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    self.gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
     startTrackingLocation()
     refresh()
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplicationWillEnterForegroundNotification, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
   }
 
   deinit {
-    NSNotificationCenter.defaultCenter().removeObserver(self)
+    NotificationCenter.default.removeObserver(self)
   }
 
   func startTrackingLocation() {
@@ -103,22 +104,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
       let alertController = UIAlertController(
         title: "Background Location Access Disabled",
         message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
-        preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
         self.startTrackingLocation()
       }
 
       alertController.addAction(retryAction)
 
-      let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-        if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
-          UIApplication.sharedApplication().openURL(url)
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+        if let url = URL(string:UIApplicationOpenSettingsURLString) {
+            UIApplication.shared.openURL(url)
         }
       }
 
       alertController.addAction(openAction)
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     self.locationService.startTrackingLocation(onDenied: showLocationServicesDisabledAlert)
@@ -136,43 +137,43 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
-  func refreshControlPulled(sender:AnyObject) {
+    @objc func refreshControlPulled(sender:AnyObject) {
     refresh()
   }
 
-  func ensureApiKey(success:()->()) {
-    let displayAuthenticationErrorAlert = { (error: NSError) -> () in
+    func ensureApiKey(success:@escaping ()->()) {
+    let displayAuthenticationErrorAlert = { (error: Error) -> () in
       let alertController = UIAlertController(
         title: "Unable to authenticate you.",
         message: error.localizedDescription,
-        preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.ensureApiKey(success)
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
+        self.ensureApiKey(success: success)
       }
       alertController.addAction(retryAction)
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
-    ApiKey.ensureApiKey({
+        ApiKey.ensureApiKey(successCallback: {
       success()
     }, errorCallback: displayAuthenticationErrorAlert)
   }
 
-  func ensureLocation(onSuccess successCallback:(CLLocation) -> ()) {
+    func ensureLocation(onSuccess successCallback: @escaping (CLLocation) -> ()) {
     let displayRetryAlert = {
       let alertController = UIAlertController(
         title: "Hang on a second.",
         message: "We're having trouble pinpointing your location",
-        preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
         self.ensureLocation(onSuccess: successCallback)
       }
       alertController.addAction(retryAction)
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     locationService.waitForLocation(onSuccess: successCallback,
@@ -183,64 +184,64 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     Logger.info("refreshing spots list near \(near)")
     self.timeOfLastReload = NSDate()
     let setCurrentSpots = { (newSpots: [Spot]) -> () in
-      self.currentSpots.replaceSpots(newSpots)
-      self.gameTableView.setContentOffset(CGPointZero, animated: true)
+        self.currentSpots.replaceSpots(spots: newSpots)
+      self.gameTableView.setContentOffset(.zero, animated: true)
       self.currentSpot = self.currentSpots[0]
       self.gameTableView.reloadData()
 
-      self.guessSpotButtonView.enabled = true
+        self.guessSpotButtonView.isEnabled = true
       self.stopLoadingAnimation()
       self.refreshControl.endRefreshing()
     }
 
-    let displayErrorAlert = { (error: NSError) -> () in
+    let displayErrorAlert = { (error: Error) -> () in
       let alertController = UIAlertController(
         title: "Darn. Can't fetch spots right now.",
         message: error.localizedDescription,
-        preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-        self.fetchCurrentSpots(near)
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
+        self.fetchCurrentSpots(near: near)
       }
       alertController.addAction(retryAction)
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
-    Spot.fetchCurrentSpots(self.spotsService, location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
+    Spot.fetchCurrentSpots(spotsService: self.spotsService, location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
   }
 
   func fetchCurrentUser() {
     Logger.debug("fetching current user")
 
-    let displayErrorAlert = { (error: NSError) -> () in
+    let displayErrorAlert = { (error: Error) -> () in
       let alertController = UIAlertController(
         title: "Hrm. Trouble fetching your user data right now.",
         message: error.localizedDescription,
-        preferredStyle: .Alert)
+        preferredStyle: .alert)
 
-      let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
+        let retryAction = UIAlertAction(title: "Retry", style: .default) { (action) in
         self.fetchCurrentUser()
       }
       alertController.addAction(retryAction)
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 
     let updateCurrentUser = { (user: User) -> () in
-      User.setCurrentUser(user)
+        User.setCurrentUser(user: user)
       self.currentUserScore = user.score
     }
 
-    self.usersService.fetchUser(Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
+    self.usersService.fetchUser(userId: Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
   }
 
   func stopLoadingAnimation() {
-    self.loadingView.hidden = true
+    self.loadingView.isHidden = true
   }
 
   func startLoadingAnimation() {
-    self.loadingView.hidden = false
+    self.loadingView.isHidden = false
   }
 
   func updateSpotControls() {
@@ -248,24 +249,24 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
       if ( self.currentSpot!.isCurrentUserOwner() ) {
         self.title = "This is YOUR Spot!"
-        self.guessSpotButtonView.hidden = true
-        self.mySpotView.hidden = false
+        self.guessSpotButtonView.isHidden = true
+        self.mySpotView.isHidden = false
       } else {
         self.title = "Where is \(self.currentSpot!.user.name)'s bicycle?"
-        self.guessSpotButtonView.hidden = false
-        self.mySpotView.hidden = true
+        self.guessSpotButtonView.isHidden = false
+        self.mySpotView.isHidden = true
       }
     }
     if( self.currentSpot == nil && self.guessSpotButtonView != nil) {
       self.title = "Where is YOUR bicycle?"
-      self.guessSpotButtonView.hidden = true
+        self.guessSpotButtonView.isHidden = true
     }
   }
 
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) -> Void {
-    super.prepareForSegue(segue, sender: sender)
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) -> Void {
+    super.prepare(for: segue, sender: sender)
     if (segue.identifier == "showNewGuessScene") {
-      let guessSpotViewController = segue.destinationViewController as! GuessSpotViewController
+        let guessSpotViewController = segue.destination as! GuessSpotViewController
       guessSpotViewController.currentSpot = self.currentSpot
     }
   }
@@ -279,10 +280,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   // MARK: UIScrollViewDelegate
-  func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
-    let cellIndex = Int(round(targetContentOffset.memory.y / self.spotViewHeight()))
-    targetContentOffset.memory.y = CGFloat(cellIndex) * self.spotViewHeight()
+    let cellIndex = Int(round(targetContentOffset.pointee.y / self.spotViewHeight()))
+    targetContentOffset.pointee.y = CGFloat(cellIndex) * self.spotViewHeight()
 
     if (cellIndex == self.currentSpots.count()) {
       //not looking at spot, looking at last cell
@@ -294,7 +295,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
   // MARK: UITableViewDataSource
   // MARK: UITableViewDelegate
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     guard section == 0  else {
       Logger.error("Unknown section: \(section)")
       return 0
@@ -312,22 +313,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
   }
 
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return self.spotViewHeight()
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
     let cell = UITableViewCell()
     if indexPath.row == self.currentSpots.count() {
       // Not looking at spot, looking at last cell
-      Answers.logContentViewWithName("Last cell", contentType: nil, contentId: "last_cell", customAttributes: ["user_id": User.getCurrentUser().id])
+        Answers.logContentView(withName: "Last cell", contentType: nil, contentId: "last_cell", customAttributes: ["user_id": User.getCurrentUser().id])
       cell.contentView.addSubview(self.lastCellInSpotsTableView)
     } else {
       // Spot Cell
       let spot = self.currentSpots[indexPath.row]
 
-      var spotView:SpotView? = spotViewCache.objectForKey(spot) as! SpotView?
+        var spotView:SpotView? = spotViewCache.object(forKey: spot)
       if spotView == nil {
         spotView = SpotView(frame: self.view.frame, spot: spot)
         spotViewCache.setObject(spotView!, forKey: spot)
@@ -338,7 +339,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     return cell
   }
 
-  override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     refreshIfStale()
   }
@@ -348,7 +349,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
   }
 
   func refreshIfStale() {
-    let secondsElapsed = Int(NSDate().timeIntervalSinceDate(self.timeOfLastReload))
+    let secondsElapsed = Int(NSDate().timeIntervalSince(self.timeOfLastReload as Date))
     if ( secondsElapsed > 60 * 30 ) {
       refresh()
     }
