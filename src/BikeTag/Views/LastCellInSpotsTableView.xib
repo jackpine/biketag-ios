@@ -1,18 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="Knewave.otf">
+        <array key="Knewave.otf">
             <string>Knewave</string>
-        </mutableArray>
-        <mutableArray key="League Spartan.otf">
+        </array>
+        <array key="League Spartan.otf">
             <string>LeagueSpartan-Bold</string>
-            <string>LeagueSpartan-Bold</string>
-            <string>LeagueSpartan-Bold</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="BikeTag" customModuleProvider="target">
@@ -24,57 +27,58 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't know these spots?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rve-pf-JIG">
-                    <rect key="frame" x="0.0" y="214" width="600" height="30"/>
+                    <rect key="frame" x="0.0" y="247.5" width="375" height="30"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="24"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcq-iI-RgT" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                    <rect key="frame" x="16" y="276" width="568" height="48"/>
+                    <rect key="frame" x="16" y="309.5" width="343" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="wVY-uI-3rg"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
                     <state key="normal" title="Add your own! ">
-                        <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="didTouchUpInsideAddSpotButton:" destination="-1" eventType="touchUpInside" id="oVi-cB-njq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This costs ●25 of your ●50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-Wf-3gD">
-                    <rect key="frame" x="0.0" y="356" width="600" height="21.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This costs ●25 of your ●50" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgP-Wf-3gD">
+                    <rect key="frame" x="16" y="389.5" width="343" height="21.5"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
+                    <size key="shadowOffset" width="0.0" height="2"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find existing spots to earn more!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-H9-gPO">
-                    <rect key="frame" x="0.0" y="377.5" width="600" height="21.5"/>
+                    <rect key="frame" x="16" y="427" width="343" height="21.5"/>
                     <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Rve-pf-JIG" secondAttribute="trailing" id="65P-qj-40r"/>
-                <constraint firstItem="QgP-Wf-3gD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6P1-vy-0mZ"/>
-                <constraint firstItem="RB6-H9-gPO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AOZ-VH-tsv"/>
+                <constraint firstItem="QgP-Wf-3gD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="6P1-vy-0mZ"/>
+                <constraint firstItem="RB6-H9-gPO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="AOZ-VH-tsv"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="BKQ-pe-XKb"/>
-                <constraint firstAttribute="trailing" secondItem="QgP-Wf-3gD" secondAttribute="trailing" id="GYg-xd-iSV"/>
+                <constraint firstAttribute="trailingMargin" secondItem="QgP-Wf-3gD" secondAttribute="trailing" id="GYg-xd-iSV"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="top" secondItem="Rve-pf-JIG" secondAttribute="bottom" constant="32" id="Hov-5h-Gtj"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="top" secondItem="Xcq-iI-RgT" secondAttribute="bottom" constant="32" id="IVY-Jz-T5a"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="If8-m5-hGm"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="MK3-fG-vu2"/>
                 <constraint firstItem="QgP-Wf-3gD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="My8-Xe-EsZ"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qln-Nv-tOk"/>
-                <constraint firstItem="RB6-H9-gPO" firstAttribute="top" secondItem="QgP-Wf-3gD" secondAttribute="bottom" id="VMU-Rd-jqc"/>
-                <constraint firstAttribute="trailing" secondItem="RB6-H9-gPO" secondAttribute="trailing" id="XaR-9j-GgC"/>
+                <constraint firstItem="RB6-H9-gPO" firstAttribute="top" secondItem="QgP-Wf-3gD" secondAttribute="bottom" constant="16" id="VMU-Rd-jqc"/>
+                <constraint firstAttribute="trailingMargin" secondItem="RB6-H9-gPO" secondAttribute="trailing" id="XaR-9j-GgC"/>
                 <constraint firstAttribute="trailing" secondItem="Rve-pf-JIG" secondAttribute="trailing" id="ZIS-xn-9Tx"/>
                 <constraint firstItem="Xcq-iI-RgT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eAk-QU-sWA"/>
                 <constraint firstItem="Rve-pf-JIG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gyA-Ae-oeg"/>
