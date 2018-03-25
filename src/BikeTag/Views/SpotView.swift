@@ -1,25 +1,39 @@
 import UIKit
 
-class SpotView: UIImageView {
+class SpotView: UIView {
 
-    var spot: Spot?
-    //TODO make these singletons?
-    let loadingImage = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)
-    let loadingView = UIImageView()
+    static let loadingImage = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)
+
+    var spot: Spot
+    let loadingView: UIImageView
+    let imageView: UIImageView
 
     required init(frame: CGRect, spot: Spot) {
-        super.init(frame: frame)
-        if (spot.image == nil) {
-            loadingView.frame = CGRect(x: 150, y: 300, width: 100, height: 100)
-            loadingView.center = self.center
-            loadingView.image = loadingImage
-            self.addSubview(loadingView)
-        } else {
-            self.image = spot.image
-        }
-        self.contentMode = .scaleAspectFill
-        self.clipsToBounds = true
         self.spot = spot
+
+        self.imageView = UIImageView(image: spot.image)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+
+        self.loadingView = UIImageView(image: SpotView.loadingImage)
+        loadingView.isHidden = spot.image != nil
+
+        super.init(frame: frame)
+
+        self.addSubview(loadingView)
+        self.addSubview(imageView)
+
+        // Layout
+
+        loadingView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        loadingView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        loadingView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        loadingView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+
+        imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(SpotView.updateSpotViewImage), name: Spot.didSetImageNotification, object: spot)
     }
@@ -28,19 +42,18 @@ class SpotView: UIImageView {
         NotificationCenter.default.removeObserver(self)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        self.contentMode = .scaleAspectFill
-        self.clipsToBounds = true
+        fatalError("unimplemented")
     }
 
     @objc func updateSpotViewImage() {
-        if self.spot == nil {
-            self.loadingView.isHidden = false
-            self.image = nil
-        } else {
+        if let image = self.spot.image {
             self.loadingView.isHidden = true
-            self.image = self.spot!.image
+            self.imageView.image = image
+        } else {
+            self.loadingView.isHidden = false
+            self.imageView.image = nil
         }
     }
 }
