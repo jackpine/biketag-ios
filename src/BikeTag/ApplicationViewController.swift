@@ -3,8 +3,8 @@ import UIKit
 
 class ApplicationViewController: UIViewController {
 
-    let spotsService = Config.fakeApiCalls() ? FakeSpotsService() : SpotsService()
-    let usersService = Config.fakeApiCalls() ? FakeUsersService() : UsersService()
+    let spotsService = Config.shouldFakeAPICalls ? FakeSpotsService() : SpotsService()
+    let usersService = Config.shouldFakeAPICalls ? FakeUsersService() : UsersService()
     var scoreButton: UIBarButtonItem?
     var currentUserScore = User.getCurrentUser().score {
         didSet {

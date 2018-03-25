@@ -5,7 +5,7 @@ class ApiKeysService: ApiService {
 
     func createApiKey(callback: @escaping ([String: Any]) -> Void, errorCallback: @escaping (Error) -> Void) {
 
-        if (Config.fakeApiCalls()) {
+        if Config.shouldFakeAPICalls {
             let fakeApiKeyAttributes: [String: Any] = [
                 "client_id": "fake-client-id",
                 "secret": "fake-secret",

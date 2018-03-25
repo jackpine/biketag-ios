@@ -1,7 +1,7 @@
 import Alamofire
 import Foundation
 
-let apiEndpoint = URL(string: Config.apiEndpoint())!
+let apiEndpoint = URL(string: Config.apiEndpoint)!
 
 class ApiService {
 
@@ -26,7 +26,7 @@ class ApiService {
             }
         }()
 
-        let headers: HTTPHeaders? = isAuthenticated ? ["Authorization": "Token \(Config.getApiKey())"] : nil
+        let headers: HTTPHeaders? = isAuthenticated ? ["Authorization": "Token \(Config.apiKey)"] : nil
 
         Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             switch response.result {

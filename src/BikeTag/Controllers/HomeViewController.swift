@@ -232,7 +232,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
             self.currentUserScore = user.score
         }
 
-        self.usersService.fetchUser(userId: Config.getCurrentUserId(), successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
+        self.usersService.fetchUser(userId: Config.currentUserId, successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
     }
 
     func stopLoadingAnimation() {

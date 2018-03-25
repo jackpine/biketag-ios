@@ -73,7 +73,7 @@ class CheckGuessViewController: ApplicationViewController {
     }
 
     func handleGuessResponse(guess: Guess) {
-        if( Config.fakeApiCalls() ) {
+        if Config.shouldFakeAPICalls {
             self.fakeResponseActions.isHidden = false
         } else {
             self.progressOverlay.isHidden = true

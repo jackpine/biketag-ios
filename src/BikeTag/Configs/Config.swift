@@ -1,37 +1,34 @@
 import Foundation
 import UIKit
 
-private let sharedInstance = Config.Instance()
-
 class Config {
-    class Instance {
-        let fakeApiCalls: Bool
-        let apiEndpoint: String
+    static let shared = Config()
 
-        init() {
-            let settingsPath = Bundle.main.path(forResource: "Settings", ofType: "plist")!
-            let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
-            Logger.info("Loaded Config: \(settingsFromFile)")
+    let shouldFakeAPICalls: Bool
+    let apiEndpoint: String
 
-            self.apiEndpoint = settingsFromFile["apiEndpoint"] as! String
-            self.fakeApiCalls = settingsFromFile["fakeApiCalls"] as! Bool
-        }
+    private init() {
+        let settingsPath = Bundle.main.path(forResource: "Settings", ofType: "plist")!
+        let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
+        Logger.info("Loaded Config: \(settingsFromFile)")
+
+        self.apiEndpoint = settingsFromFile["apiEndpoint"] as! String
+        self.shouldFakeAPICalls = settingsFromFile["shouldFakeAPICalls"] as! Bool
     }
 
-    class func fakeApiCalls() -> Bool {
-        return sharedInstance.fakeApiCalls
+    class var shouldFakeAPICalls: Bool {
+        return shared.shouldFakeAPICalls
     }
 
-    class func apiEndpoint() -> String {
-        return sharedInstance.apiEndpoint
+    class var apiEndpoint: String {
+        return shared.apiEndpoint
     }
 
-    class func getApiKey() -> String {
+    class var apiKey: String {
         return ApiKey.getCurrentApiKey()!.clientId
     }
 
-    class func getCurrentUserId() -> Int {
+    class var currentUserId: Int {
         return ApiKey.getCurrentApiKey()!.userId
     }
-
 }
