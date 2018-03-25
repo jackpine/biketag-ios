@@ -4,24 +4,32 @@ class SpotView: UIView {
 
     static let loadingImage = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)
 
-    var spot: Spot
+    var spot: Spot? {
+        didSet {
+            updateSpotViewImage()
+        }
+    }
+
     let loadingView: UIImageView
     let imageView: UIImageView
 
-    required init(frame: CGRect, spot: Spot) {
-        self.spot = spot
-
-        self.imageView = UIImageView(image: spot.image)
+    required init() {
+        self.imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        imageView.tag = 1234
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         self.loadingView = UIImageView(image: SpotView.loadingImage)
-        loadingView.isHidden = spot.image != nil
+        loadingView.tag = 6666
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
 
-        super.init(frame: frame)
+        super.init(frame: .zero)
 
-        self.addSubview(loadingView)
+        self.translatesAutoresizingMaskIntoConstraints = false
+
         self.addSubview(imageView)
+        self.addSubview(loadingView)
 
         // Layout
 
@@ -47,8 +55,9 @@ class SpotView: UIView {
         fatalError("unimplemented")
     }
 
-    @objc func updateSpotViewImage() {
-        if let image = self.spot.image {
+    @objc
+    func updateSpotViewImage() {
+        if let image = self.spot?.image {
             self.loadingView.isHidden = true
             self.imageView.image = image
         } else {

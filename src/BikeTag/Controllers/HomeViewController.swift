@@ -83,10 +83,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
         self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
         self.refreshControl.tintColor = UIColor.white
-        self.refreshControl.addTarget(self, action: #selector(refreshControlPulled(sender:)), for: UIControlEvents.valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(refreshControlPulled(sender:)), for: .valueChanged)
         self.gameTableView.addSubview(self.refreshControl)
         self.gameTableView.allowsSelection = false
-        self.gameTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.gameTableView.register(SpotViewCell.self, forCellReuseIdentifier: SpotViewCell.reuseIdentifier)
 
         startTrackingLocation()
         refresh()
@@ -244,21 +244,22 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
 
     func updateSpotControls() {
-        // There are set async, and we can't proceed until all are set.
-        if( self.currentSpot != nil && self.guessSpotButtonView != nil && self.mySpotView != nil ) {
-            if ( self.currentSpot!.isCurrentUserOwner() ) {
+        // These are set async, and we can't proceed until all are set.
+        if let currentSpot = self.currentSpot, let guessSpotButtonView = self.guessSpotButtonView, let mySpotView = self.mySpotView {
+            if currentSpot.isCurrentUserOwner {
                 self.title = "This is YOUR Spot!"
-                self.guessSpotButtonView.isHidden = true
-                self.mySpotView.isHidden = false
+                guessSpotButtonView.isHidden = true
+                mySpotView.isHidden = false
             } else {
                 self.title = "Where is \(self.currentSpot!.user.name)'s bicycle?"
-                self.guessSpotButtonView.isHidden = false
-                self.mySpotView.isHidden = true
+                guessSpotButtonView.isHidden = false
+                mySpotView.isHidden = true
             }
         }
-        if( self.currentSpot == nil && self.guessSpotButtonView != nil) {
+
+        if self.currentSpot == nil, let guessSpotButtonView = self.guessSpotButtonView {
             self.title = "Where is YOUR bicycle?"
-            self.guessSpotButtonView.isHidden = true
+            guessSpotButtonView.isHidden = true
         }
     }
 
@@ -270,7 +271,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         }
     }
 
-    func spotViewHeight() -> CGFloat {
+    var spotViewHeight: CGFloat {
         // FIXME: I was expecting to use gameListView.frame.height here, but the gameListView is only
         // something like 300X125 pixels in 'viewDidLoad'.
         // By the time subsequent spot refreshes have happened it is full size.
@@ -281,8 +282,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     // MARK: UIScrollViewDelegate
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
-        let cellIndex = Int(round(targetContentOffset.pointee.y / self.spotViewHeight()))
-        targetContentOffset.pointee.y = CGFloat(cellIndex) * self.spotViewHeight()
+        let cellIndex = Int(round(targetContentOffset.pointee.y / self.spotViewHeight))
+        targetContentOffset.pointee.y = CGFloat(cellIndex) * self.spotViewHeight
 
         if (cellIndex == self.currentSpots.count()) {
             //not looking at spot, looking at last cell
@@ -312,27 +313,59 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         }
     }
 
+    class SpotViewCell: UITableViewCell {
+        static let reuseIdentifier = "SpotViewCell"
+
+        let spotView: SpotView
+
+        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+            self.spotView = SpotView()
+
+            super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+            self.contentView.addSubview(spotView)
+
+            spotView.leadingAnchor.constraint(equalTo: spotView.superview!.leadingAnchor).isActive = true
+            spotView.topAnchor.constraint(equalTo: spotView.superview!.topAnchor).isActive = true
+            spotView.trailingAnchor.constraint(equalTo: spotView.superview!.trailingAnchor).isActive = true
+            spotView.bottomAnchor.constraint(equalTo: spotView.superview!.bottomAnchor).isActive = true
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            self.spotView = SpotView()
+            super.init(coder: aDecoder)
+        }
+
+        func configure(spot: Spot) {
+            self.spotView.spot = spot
+        }
+
+        override func prepareForReuse() {
+            self.spotView.spot = nil
+        }
+    }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.spotViewHeight()
+        return self.spotViewHeight
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = UITableViewCell()
-        if indexPath.row == self.currentSpots.count() {
+        guard indexPath.row < self.currentSpots.count() else {
             // Not looking at spot, looking at last cell
+            let cell = UITableViewCell()
             cell.contentView.addSubview(self.lastCellInSpotsTableView)
-        } else {
-            // Spot Cell
-            let spot = self.currentSpots[indexPath.row]
 
-            var spotView: SpotView? = spotViewCache.object(forKey: spot)
-            if spotView == nil {
-                spotView = SpotView(frame: self.view.frame, spot: spot)
-                spotViewCache.setObject(spotView!, forKey: spot)
-            }
-            cell.contentView.addSubview(spotView!)
+            return cell
         }
+
+        // Spot Cell
+        let spot = self.currentSpots[indexPath.row]
+        guard let cell: SpotViewCell = tableView.dequeueReusableCell(withIdentifier: SpotViewCell.reuseIdentifier) as? SpotViewCell else {
+            fatalError("unknown cell")
+        }
+
+        cell.configure(spot: spot)
 
         return cell
     }

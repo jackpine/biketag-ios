@@ -13,7 +13,7 @@ class SpotTests: XCTestCase {
         let expectation = self.expectation(description: "fetched current spot")
 
         let fulfillExpectation = { (currentSpots: [Spot]) -> Void in
-            if ( !currentSpots[0].isCurrentUserOwner() ) {
+            if !currentSpots[0].isCurrentUserOwner {
                 expectation.fulfill()
             } else {
                 print("FAILURE. Current user should not be owner of current spot.")
@@ -64,7 +64,7 @@ class SpotTests: XCTestCase {
         let mySpot = Spot(image: someImage, game: game, user: me, location: someLocation)
         let theirSpot = Spot(image: someImage, game: game, user: them, location: someLocation)
 
-        XCTAssert(mySpot.isCurrentUserOwner())
-        XCTAssertFalse(theirSpot.isCurrentUserOwner())
+        XCTAssert(mySpot.isCurrentUserOwner)
+        XCTAssertFalse(theirSpot.isCurrentUserOwner)
     }
 }

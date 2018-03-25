@@ -95,7 +95,7 @@ class Spot: NSObject {
         return Spot(image: image, game: Game(id: 1), user: User(id: 1, name: "griffith user"), location: location)
     }
 
-    func isCurrentUserOwner() -> Bool {
+    var isCurrentUserOwner: Bool {
         if User.getCurrentUser() == self.user {
             return true
         } else {
@@ -107,7 +107,7 @@ class Spot: NSObject {
         return UIImageJPEGRepresentation(self.image!, 0.9)!.base64EncodedString()
     }
 
-    func name() -> String {
+    var name: String {
         return "Spot:\(id ?? 0)"
     }
 }
