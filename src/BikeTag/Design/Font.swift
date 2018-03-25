@@ -11,4 +11,3 @@ import UIKit
 class Font {
     static let titleFont = UIFont(name: "Knewave", size: 22.0)
 }
-

@@ -9,24 +9,24 @@
 import UIKit
 
 class SadFaceView: UILabel {
-    
+
     required override init(frame: CGRect) {
         super.init(frame: frame)
         configureTapGesture()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureTapGesture()
     }
-    
-    func configureTapGesture() -> () {
+
+    func configureTapGesture() {
         self.isUserInteractionEnabled = true
-        let tapGesture = UITapGestureRecognizer(target:self, action:#selector(openMouth))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMouth))
         self.addGestureRecognizer(tapGesture)
     }
-    
-    func rotate() -> () {
+
+    func rotate() {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0
         //90 degrees
@@ -37,9 +37,9 @@ class SadFaceView: UILabel {
         rotateAnimation.beginTime = CACurrentMediaTime()
         self.layer.add(rotateAnimation, forKey: nil)
     }
-    
+
     @objc
-    func openMouth() -> () {
+    func openMouth() {
         if self.text == "=(" {
             self.text = "=0"
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
