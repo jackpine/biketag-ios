@@ -64,6 +64,7 @@
 		459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459F96231BB1D396005D6C65 /* FakeUsersService.swift */; };
 		45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
 		45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */; };
+		45A40107206841B40081C4D5 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A40106206841B40081C4D5 /* PureLayout.framework */; };
 		45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */; };
 		45AB7BB31A3A1D8B00E1961E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB11A3A1D8B00E1961E /* Main.storyboard */; };
 		45AB7BB51A3A1D8B00E1961E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45AB7BB41A3A1D8B00E1961E /* Images.xcassets */; };
@@ -134,8 +135,6 @@
 		455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjcExceptionBridging.framework; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4581A5F91AB7C9BA004C871F /* SpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsService.swift; sourceTree = "<group>"; };
 		4581A6101AB7FC48004C871F /* ParsedSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpot.swift; sourceTree = "<group>"; };
 		45939FD91CAB5AFC00360BE7 /* League Spartan.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "League Spartan.otf"; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		459F96201BB1CF72005D6C65 /* UsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		459F96231BB1D396005D6C65 /* FakeUsersService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeUsersService.swift; sourceTree = "<group>"; };
 		45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FakeSpotsService.swift; sourceTree = "<group>"; };
+		45A40106206841B40081C4D5 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PureLayout.framework; sourceTree = "<group>"; };
 		45AB7BA61A3A1D8B00E1961E /* BikeTag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeTag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45AB7BAA1A3A1D8B00E1961E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +179,7 @@
 			files = (
 				45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */,
 				45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */,
+				45A40107206841B40081C4D5 /* PureLayout.framework in Frameworks */,
 				455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,11 +275,10 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45A40106206841B40081C4D5 /* PureLayout.framework */,
 				455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */,
 				45C256661CEC2FDB0098E8FF /* Alamofire.framework */,
 				45C256671CEC2FDB0098E8FF /* XCGLogger.framework */,
-				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
-				4562CC6C1B1F7F49005EF625 /* Fabric.framework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -527,6 +527,7 @@
 				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/XCGLogger.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/ObjcExceptionBridging.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/PureLayout.framework",
 			);
 			name = "Copy Carthage Built Frameworks";
 			outputPaths = (

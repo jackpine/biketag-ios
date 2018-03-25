@@ -15,3 +15,7 @@ ipa:
 xct:
 	rm -rf build
 	./script/make-xctest.sh
+
+dependencies:
+	carthage build --platform iOS
+

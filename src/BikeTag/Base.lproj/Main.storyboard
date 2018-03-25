@@ -131,7 +131,7 @@
         <!--Game List-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" userLabel="Game List" customClass="HomeViewController" customModule="BikeTag" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="9pv-A4-QxB" userLabel="Game List" customClass="HomeViewController" customModule="BikeTag" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -176,6 +176,28 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="afl-OA-s0M"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOC-9H-Mla" userLabel="Spot Date">
+                                <rect key="frame" x="253.5" y="94" width="121.5" height="36"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/13/18 6PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt6-Pc-na5">
+                                        <rect key="frame" x="16" y="4" width="89.5" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="yVD-ph-jGL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wt6-Pc-na5" firstAttribute="top" secondItem="yOC-9H-Mla" secondAttribute="top" constant="4" id="6Qu-am-PGU"/>
+                                    <constraint firstItem="wt6-Pc-na5" firstAttribute="leading" secondItem="yOC-9H-Mla" secondAttribute="leading" constant="16" id="9j3-bM-Zcm"/>
+                                    <constraint firstAttribute="trailing" secondItem="wt6-Pc-na5" secondAttribute="trailing" constant="16" id="Or5-K6-DVj"/>
+                                    <constraint firstAttribute="bottom" secondItem="wt6-Pc-na5" secondAttribute="bottom" constant="2" id="hjD-6l-jRT"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
                                 <rect key="frame" x="16" y="603" width="343" height="48"/>
                                 <constraints>
@@ -235,6 +257,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yOC-9H-Mla" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="94" id="3cA-un-GZ2"/>
                             <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
                             <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="Ohc-uD-m7A">
@@ -244,6 +267,7 @@
                                 <variation key="widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="VoJ-su-W8g"/>
+                            <constraint firstItem="yOC-9H-Mla" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="Yyk-88-Rn3"/>
                             <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
                             <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hkD-o9-dyn"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
@@ -262,6 +286,8 @@
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
                         <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
+                        <outlet property="spotDateContainer" destination="yOC-9H-Mla" id="Wtb-Ry-PXz"/>
+                        <outlet property="spotDateLabel" destination="wt6-Pc-na5" id="scv-Ac-UaI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

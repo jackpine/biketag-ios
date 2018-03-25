@@ -18,12 +18,14 @@ class Spot: NSObject {
     var id: Int?
     let game: Game
     let user: User
+    let createdAt: Date
 
     init(image: UIImage, game: Game, user: User, id: Int) {
         self.user = user
         self.image = image
         self.id = id
         self.game = game
+        self.createdAt = Date()
     }
 
     init(image: UIImage, game: Game, user: User, location: CLLocation) {
@@ -31,6 +33,7 @@ class Spot: NSObject {
         self.image = image
         self.location = location
         self.game = game
+        self.createdAt = Date()
     }
 
     init(parsedSpot: ParsedSpot) {
@@ -38,7 +41,7 @@ class Spot: NSObject {
         self.id = parsedSpot.spotId
         self.game = Game(id: parsedSpot.gameId)
         self.imageUrl = parsedSpot.imageUrl
-        //placeholder while image is fetched async
+        self.createdAt = parsedSpot.createdAt
 
         super.init()
 

@@ -33,15 +33,9 @@ class SpotView: UIView {
 
         // Layout
 
-        loadingView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        loadingView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        loadingView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        loadingView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-
-        imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        imageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        loadingView.autoSetDimensions(to: CGSize(width: 100, height: 100))
+        loadingView.autoCenterInSuperview()
+        imageView.autoPinEdgesToSuperviewEdges()
 
         NotificationCenter.default.addObserver(self, selector: #selector(SpotView.updateSpotViewImage), name: Spot.didSetImageNotification, object: spot)
     }
