@@ -1,4 +1,3 @@
-import Crashlytics
 import UIKit
 
 class CheckGuessViewController: ApplicationViewController {
@@ -87,13 +86,10 @@ class CheckGuessViewController: ApplicationViewController {
     }
 
     func correctGuess(guess: Guess) {
-        Answers.logCustomEvent(withName: "correct_guess", customAttributes: ["spot_id": guess.spot.id!,
-                                                                             "user_id": User.getCurrentUser().id])
         self.performSegue(withIdentifier: "showCorrectGuess", sender: nil)
     }
 
     func incorrectGuess(guess: Guess) {
-        Answers.logCustomEvent(withName: "incorrect_guess", customAttributes: ["spot_id": guess.spot.id!, "user_id": User.getCurrentUser().id])
         self.performSegue(withIdentifier: "showIncorrectGuess", sender: nil)
     }
 

@@ -41,8 +41,6 @@
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
 		456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
-		4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6C1B1F7F49005EF625 /* Fabric.framework */; };
-		4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */; };
 		4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
 		4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A5F91AB7C9BA004C871F /* SpotsService.swift */; };
 		4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4581A6101AB7FC48004C871F /* ParsedSpot.swift */; };
@@ -179,11 +177,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
 				45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */,
 				45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */,
 				455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */,
-				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +406,6 @@
 				45AB7BA31A3A1D8B00E1961E /* Frameworks */,
 				45AB7BA41A3A1D8B00E1961E /* Resources */,
 				45466E9F1ACA0A3B00D7B69A /* Copy Configuration File(s) */,
-				4562CC6B1B1F7E86005EF625 /* Fabric (Crashalytics) */,
 				454E8DE21B726D5A00BDDE5D /* Copy Carthage Built Frameworks */,
 			);
 			buildRules = (
@@ -539,20 +534,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		4562CC6B1B1F7E86005EF625 /* Fabric (Crashalytics) */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Fabric (Crashalytics)";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Frameworks/Fabric.framework/run e1262e56a471344a7330c726c2dbb7965c29983b de7ee2dc47d5b3feebc04d723f9739d667037f9cfdebb9489c9dcc54d06231a2";
 		};
 /* End PBXShellScriptBuildPhase section */
 

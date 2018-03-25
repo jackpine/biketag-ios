@@ -1,5 +1,3 @@
-import Crashlytics
-import Fabric
 import UIKit
 
 @UIApplicationMain
@@ -11,7 +9,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         // Override point for customization after application launch.
-        Fabric.with([Crashlytics(), Answers()])
 
         if UserDefaults.prefersReceivingNotifications() {
             PushNotificationManager.register()

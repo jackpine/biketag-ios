@@ -1,6 +1,5 @@
 import AVFoundation
 import CoreLocation
-import Crashlytics
 import UIKit
 
 class GuessSpotViewController: CameraViewController {
@@ -10,8 +9,6 @@ class GuessSpotViewController: CameraViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Answers.logLevelStart(currentSpot!.name(),
-                              customAttributes: ["user_id": User.getCurrentUser().id])
     }
 
     func createGuessFromData(imageData: Data, location: CLLocation) {
