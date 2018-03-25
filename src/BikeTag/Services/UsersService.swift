@@ -1,19 +1,19 @@
-import Foundation
 import Alamofire
+import Foundation
 
 class UsersService: ApiService {
 
-  func fetchUser(userId: Int, successCallback: (User)->(), errorCallback: (NSError)->()) {
-    let getUserRequest = APIRequest.build(Method.GET, path: "users/\(userId).json")
+    func fetchUser(userId: Int, successCallback: @escaping (User) -> Void, errorCallback:  @escaping (Error) -> Void) {
 
-    let handleResponseAttributes = { (responseData: AnyObject) -> () in
-      let responseAttributes = responseData as! NSDictionary
-      let userAttributes = responseAttributes["user"] as! NSDictionary
-      let user = User(attributes: userAttributes)
-      successCallback(user)
+        // TODO guard parse
+        let handleResponseAttributes = { (responseData: Any) -> Void in
+            let responseAttributes = responseData as! [String: Any]
+            let userAttributes = responseAttributes["user"] as! [String: Any]
+            let user = User(attributes: userAttributes)
+            successCallback(user)
+        }
+
+        self.request(.get, path: "users/\(userId).json", parameters: nil, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
     }
-
-    self.request(getUserRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
-  }
 
 }

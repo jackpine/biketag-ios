@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 class Color {
-    static let redColor = UIColor(red:0xFC/255.0, green:0x0D/255.0, blue:0x1B/255.0, alpha: 1)
-    static let grayColor = UIColor.grayColor()
+    static let redColor: UIColor = UIColor(red: 0xFC / 255.0, green: 0x0D / 255.0, blue: 0x1B / 255.0, alpha: 1)
+    static let grayColor: UIColor = .gray
 }

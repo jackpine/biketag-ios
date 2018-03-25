@@ -29,8 +29,6 @@
 		454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11031B19278F00FBAAC3 /* ApiKey.swift */; };
 		454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
 		454E110C1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11091B1927B200FBAAC3 /* ApiKeysService.swift */; };
-		454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110A1B1927B200FBAAC3 /* ApiError.swift */; };
-		454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110A1B1927B200FBAAC3 /* ApiError.swift */; };
 		454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */; };
 		454E11121B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
@@ -38,6 +36,7 @@
 		4552389C1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */; };
 		455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
 		455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
+		455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */; };
 		4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -130,11 +129,11 @@
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		454E11031B19278F00FBAAC3 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		454E11091B1927B200FBAAC3 /* ApiKeysService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeysService.swift; sourceTree = "<group>"; };
-		454E110A1B1927B200FBAAC3 /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		454E110F1B19501400FBAAC3 /* ApiKeyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeyTest.swift; sourceTree = "<group>"; };
 		454E11111B19564500FBAAC3 /* ApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastCellInSpotsTableView.swift; sourceTree = "<group>"; };
 		455526831CAC16D0001694BE /* TimesUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimesUpViewController.swift; path = Controllers/TimesUpViewController.swift; sourceTree = "<group>"; };
+		455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjcExceptionBridging.framework; sourceTree = "<group>"; };
 		4560C4E11AFE813E003FDD3A /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		456116C11B2A0C6C00CDAF2A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		4562CC6C1B1F7F49005EF625 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 				4562CC6F1B1F7FEE005EF625 /* Crashlytics.framework in Frameworks */,
 				45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */,
 				45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */,
+				455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */,
 				4562CC6D1B1F7F49005EF625 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +265,6 @@
 			children = (
 				45FC97B81CEBAB5D00F2E642 /* LocationService.swift */,
 				454E11091B1927B200FBAAC3 /* ApiKeysService.swift */,
-				454E110A1B1927B200FBAAC3 /* ApiError.swift */,
 				4581A5F91AB7C9BA004C871F /* SpotsService.swift */,
 				45A3847C1B16B12300A286C9 /* FakeSpotsService.swift */,
 				454E11111B19564500FBAAC3 /* ApiService.swift */,
@@ -279,6 +278,7 @@
 		4581A60A1AB7F791004C871F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */,
 				45C256661CEC2FDB0098E8FF /* Alamofire.framework */,
 				45C256671CEC2FDB0098E8FF /* XCGLogger.framework */,
 				4562CC6E1B1F7FEE005EF625 /* Crashlytics.framework */,
@@ -448,7 +448,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Jackpine;
 				TargetAttributes = {
 					45AB7BA51A3A1D8B00E1961E = {
@@ -531,6 +531,7 @@
 			inputPaths = (
 				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/XCGLogger.framework",
+				"$(SRCROOT)/../Carthage/Build/iOS/ObjcExceptionBridging.framework",
 			);
 			name = "Copy Carthage Built Frameworks";
 			outputPaths = (
@@ -578,7 +579,6 @@
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45CDD4461CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */,
-				454E110D1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				45CDD4491CB9DB8E00CEC1DD /* DevicesService.swift in Sources */,
 				451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				451E51D31AB49AFA00849262 /* User.swift in Sources */,
@@ -648,7 +648,6 @@
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
 				45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */,
-				454E110E1B1927B200FBAAC3 /* ApiError.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,13 +690,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -706,6 +715,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -734,13 +744,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -748,6 +768,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -757,6 +778,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -785,6 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -809,6 +832,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -828,6 +852,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BuildConfigurationAppBundleId}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeTag.app/BikeTag";
 			};
 			name = Debug;
@@ -844,6 +869,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BuildConfigurationAppBundleId}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeTag.app/BikeTag";
 			};
 			name = Release;

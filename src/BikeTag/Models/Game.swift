@@ -1,14 +1,14 @@
 import Foundation
 
 class Game: Equatable {
-  let id: Int?
+    let id: Int?
 
-  required init(id: Int?) {
-    self.id = id
-  }
+    required init(id: Int?) {
+        self.id = id
+    }
 }
 
 // MARK: Equatable
 func ==(lhs: Game, rhs: Game) -> Bool {
-  return lhs.id == rhs.id
+    return lhs.id == rhs.id
 }

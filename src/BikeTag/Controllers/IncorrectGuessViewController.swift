@@ -10,20 +10,19 @@ import UIKit
 
 class IncorrectGuessViewController: ApplicationViewController {
 
-  var guess: Guess?
-  
-  @IBOutlet var distanceLabel: UILabel!
-  @IBOutlet var sadFaceView: SadFaceView!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.distanceLabel.text = guess!.distanceMessage()
-  }
+    var guess: Guess?
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    sadFaceView.rotate()
-  }
+    @IBOutlet var distanceLabel: UILabel!
+    @IBOutlet var sadFaceView: SadFaceView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.distanceLabel.text = guess!.distanceMessage()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sadFaceView.rotate()
+    }
 
 }
-

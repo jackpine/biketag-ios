@@ -10,18 +10,16 @@ import Alamofire
 
 class DevicesService: ApiService {
 
-  func postNewDevice(deviceNotificationToken: String, successCallback: ()->(), errorCallback: (NSError)->()) {
+    func postNewDevice(deviceNotificationToken: String, successCallback: @escaping () -> Void, errorCallback: @escaping (Error) -> Void) {
 
-    let deviceParameters = [ "notification_token": deviceNotificationToken ]
-    let parameters = [ "device": deviceParameters ]
+        let deviceParameters = [ "notification_token": deviceNotificationToken ]
+        let parameters = [ "device": deviceParameters ]
 
-    let postDeviceRequest = APIRequest.build(Method.POST, path: "devices.json", parameters: parameters)
+        let handleResponseAttributes = { (responseData: [String: Any]) -> Void in
+            successCallback()
+        }
 
-    let handleResponseAttributes = { (responseData: AnyObject) -> () in
-      successCallback()
+        self.request(.post, path: "devices.json", parameters: parameters, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
     }
-
-    self.request(postDeviceRequest, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback)
-  }
 
 }

@@ -1,111 +1,115 @@
-import UIKit
 import CoreLocation
 import Crashlytics
+import UIKit
 class NewSpotViewController: CameraViewController {
 
-  var game: Game?
+    var game: Game?
 
-  @IBOutlet var loadingView: UIView!
-  @IBOutlet var activityIndicatorImageView: UIImageView!
+    @IBOutlet var loadingView: UIView!
+    @IBOutlet var activityIndicatorImageView: UIImageView!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
-    self.loadingView.layer.cornerRadius = 5
-    self.loadingView.layer.masksToBounds = true
-  }
-
-  func createSpotFromData(imageData: NSData, location: CLLocation) -> () {
-    let image = Platform.isSimulator ? Spot.griffithSpot().image : UIImage(data: imageData)
-
-    guard ( image != nil ) else {
-      Logger.error("New spot image data not captured")
-      return
+        self.activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
+        self.loadingView.layer.cornerRadius = 5
+        self.loadingView.layer.masksToBounds = true
     }
 
-    if (self.game == nil) {
-      Logger.debug("No existing game, assuming new game.")
-      self.game = Game(id: nil)
-    }
-    Answers.logCustomEventWithName("uploading new spot for game", customAttributes: ["game": self.game!, "user_id": User.getCurrentUser().id])
+    func createSpotFromData(imageData: Data, location: CLLocation) {
+        let image = Platform.isSimulator ? Spot.griffithSpot().image : UIImage(data: imageData)
 
-    let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location)
-    self.uploadNewSpot(spot)
-  }
-
-  @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
-    Logger.debug("Touched take picture button")
-    self.takePictureButton.userInteractionEnabled = false
-    self.captureImage(createSpotFromData)
-  }
-
-  func stopLoadingAnimation() {
-    self.loadingView.hidden = true
-    self.takePictureButton.enabled = true
-    self.takePictureButton.titleLabel?.text = "Claim this Spot! "
-  }
-
-  func startLoadingAnimation() {
-    self.loadingView.hidden = false
-    self.takePictureButton.setTitle("Uploading...", forState: UIControlState.Disabled)
-    self.takePictureButton.enabled = false
-  }
-
-  func uploadNewSpot(spot: Spot) {
-    self.startLoadingAnimation()
-    let capturedImageView = UIImageView(image: spot.image)
-    capturedImageView.frame = self.photoPreviewView.frame
-    self.view.insertSubview(capturedImageView, aboveSubview:self.photoPreviewView)
-
-    let displayErrorAlert = { (error: NSError) -> () in
-      self.stopLoadingAnimation()
-
-      var alertController: UIAlertController
-      if error.code == 133 {
-        alertController = UIAlertController(
-          title: "Try a little harder!",
-          message: "You're too close to the last spot. Go a bit farther and try again.",
-          preferredStyle: .Alert)
-
-        let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .Default) { (action) in
-          if let navigationController = self.navigationController {
-            navigationController.popViewControllerAnimated(true)
-          } else { //presented modally
-            self.dismissViewControllerAnimated(true, completion: nil)
-          }
+        guard ( image != nil ) else {
+            Logger.error("New spot image data not captured")
+            return
         }
-        alertController.addAction(retryAction)
-      } else {
-        alertController = UIAlertController(
-          title: "There was trouble uploading your new Spot.",
-          message: error.localizedDescription,
-          preferredStyle: .Alert)
 
-        let retryAction = UIAlertAction(title: "Retry", style: .Default) { (action) in
-          self.uploadNewSpot(spot)
+        if (self.game == nil) {
+            Logger.debug("No existing game, assuming new game.")
+            self.game = Game(id: nil)
         }
-        alertController.addAction(retryAction)
-      }
+        Answers.logCustomEvent(withName: "uploading new spot for game", customAttributes: ["game": self.game!, "user_id": User.getCurrentUser().id])
 
-      self.presentViewController(alertController, animated: true, completion: nil)
+        let spot = Spot(image: image!, game: self.game!, user: User.getCurrentUser(), location: location)
+        self.uploadNewSpot(spot: spot)
     }
 
-    Spot.createNewSpot(self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback:finishedCreatingSpot, errorCallback: displayErrorAlert)
-  }
-
-  func finishedCreatingSpot(newSpot: Spot) {
-    self.stopLoadingAnimation()
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    appDelegate.currentSession.currentSpots.addNewSpot(newSpot)
-
-    if UserDefaults.hasPreviouslyCreatedSpot() {
-      self.performSegueWithIdentifier("unwindToHome", sender: nil)
-    } else {
-      UserDefaults.setHasPreviouslyCreatedSpot(true)
-      self.performSegueWithIdentifier("showFirstSpotCreated", sender: nil)
+    @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
+        Logger.debug("Touched take picture button")
+        self.takePictureButton.isUserInteractionEnabled = false
+        self.captureImage(callback: createSpotFromData)
     }
-  }
 
+    func stopLoadingAnimation() {
+        self.loadingView.isHidden = true
+        self.takePictureButton.isEnabled = true
+        self.takePictureButton.titleLabel?.text = "Claim this Spot! "
+    }
+
+    func startLoadingAnimation() {
+        self.loadingView.isHidden = false
+        self.takePictureButton.setTitle("Uploading...", for: UIControlState.disabled)
+        self.takePictureButton.isEnabled = false
+    }
+
+    func uploadNewSpot(spot: Spot) {
+        self.startLoadingAnimation()
+        let capturedImageView = UIImageView(image: spot.image)
+        capturedImageView.frame = self.photoPreviewView.frame
+        self.view.insertSubview(capturedImageView, aboveSubview: self.photoPreviewView)
+
+        let displayErrorAlert = { (error: Error) -> Void in
+            self.stopLoadingAnimation()
+
+            guard case let ApiService.APIError.serviceError(errorCode, _) = error else {
+                assertionFailure("Unhandleable error: \(error)")
+                return
+            }
+
+            var alertController: UIAlertController
+            if errorCode == 133 {
+                alertController = UIAlertController(
+                    title: "Try a little harder!",
+                    message: "You're too close to the last spot. Go a bit farther and try again.",
+                    preferredStyle: .alert)
+
+                let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .default) { action in
+                    if let navigationController = self.navigationController {
+                        navigationController.popViewController(animated: true)
+                    } else { //presented modally
+                        self.dismiss(animated: true, completion: nil)
+                    }
+                }
+                alertController.addAction(retryAction)
+            } else {
+                alertController = UIAlertController(
+                    title: "There was trouble uploading your new Spot.",
+                    message: error.localizedDescription,
+                    preferredStyle: .alert)
+
+                let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+                    self.uploadNewSpot(spot: spot)
+                }
+                alertController.addAction(retryAction)
+            }
+
+            self.present(alertController, animated: true, completion: nil)
+        }
+
+        Spot.createNewSpot(spotsService: self.spotsService, image: spot.image!, game: spot.game, location: spot.location!, callback: finishedCreatingSpot, errorCallback: displayErrorAlert)
+    }
+
+    func finishedCreatingSpot(newSpot: Spot) {
+        self.stopLoadingAnimation()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.currentSession.currentSpots.addNewSpot(newSpot: newSpot)
+
+        if UserDefaults.hasPreviouslyCreatedSpot() {
+            self.performSegue(withIdentifier: "unwindToHome", sender: nil)
+        } else {
+            UserDefaults.setHasPreviouslyCreatedSpot(val: true)
+            self.performSegue(withIdentifier: "showFirstSpotCreated", sender: nil)
+        }
+    }
 
 }
