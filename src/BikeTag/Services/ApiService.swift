@@ -32,23 +32,23 @@ class ApiService {
             switch response.result {
             case .failure(let error):
                 // Protocol level errors, e.g. connection timed out
-                Logger.warning("HTTP Error: \(error)")
+                Logger.warning("\(method) \(url) HTTP Error: \(error)")
 
                 return errorCallback(error as Error)
             case .success:
                 let responseAttributes = response.result.value as! [String: Any]
-                Logger.debug("Response: \(responseAttributes)")
 
                 // Application level errors e.g. missing required attribute
                 if let errorDict = responseAttributes["error"] as? [String: Any] {
                     let code = errorDict["code"] as! Int
                     let message = errorDict["message"] as! String
 
-                    Logger.error("API Error: \(errorDict)")
+                    Logger.error("\(method) \(url) API Error: \(errorDict)")
                     errorCallback(APIError.serviceError(code: code, message: message))
                     return
                 }
 
+                Logger.debug("\(method) \(url) success: \(responseAttributes)")
                 handleResponseAttributes(responseAttributes)
             }
         }

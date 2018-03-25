@@ -5,10 +5,11 @@ class SpotsService: ApiService {
 
     func fetchCurrentSpots(location: CLLocation, successCallback: @escaping ([ParsedSpot]) -> Void, errorCallback:  @escaping (Error) -> Void) {
         // TODO use param struct
-        let parameters = [
+        let parameters: [String: Any] = [
             "filter": [
                 "location": locationParameters(location: location)
-            ]
+            ],
+            "limit": 200
         ]
 
         // TODO parse with guard
