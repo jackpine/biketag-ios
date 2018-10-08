@@ -103,7 +103,7 @@ class NewSpotViewController: CameraViewController {
         appDelegate.currentSession.currentSpots.addNewSpot(newSpot: newSpot)
 
         if UserDefaults.hasPreviouslyCreatedSpot() {
-            self.performSegue(withIdentifier: "unwindToHome", sender: nil)
+            self.performSegue(withIdentifier: "unwindToHomeWithSegue", sender: nil)
         } else {
             UserDefaults.setHasPreviouslyCreatedSpot(val: true)
             self.performSegue(withIdentifier: "showFirstSpotCreated", sender: nil)

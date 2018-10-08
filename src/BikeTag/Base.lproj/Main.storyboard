@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14105" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="89J-R4-vFb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="89J-R4-vFb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -38,34 +36,34 @@
                                 <rect key="frame" x="16" y="393.5" width="343" height="273.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-33-XEw" userLabel="top spacer">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="83.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="85.5"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bike Tag is a game to..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7S3-op-o0l">
-                                        <rect key="frame" x="22.5" y="25" width="299" height="32"/>
+                                        <rect key="frame" x="22.5" y="25" width="298.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="25"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find secret bike spots near you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQM-1k-de1">
-                                        <rect key="frame" x="32.5" y="83" width="278" height="22"/>
+                                        <rect key="frame" x="33" y="82.5" width="277.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share your spots with others." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFW-DH-TP9">
-                                        <rect key="frame" x="40.5" y="105" width="261" height="22"/>
+                                        <rect key="frame" x="41" y="104" width="261" height="21.5"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride your bike!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SR-1O-0F4">
-                                        <rect key="frame" x="104.5" y="127" width="134" height="22"/>
+                                        <rect key="frame" x="105" y="125.5" width="133.5" height="21.5"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUd-N0-Fps">
-                                        <rect key="frame" x="103.5" y="165" width="135" height="41"/>
+                                        <rect key="frame" x="104" y="163" width="135" height="41"/>
                                         <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="25"/>
                                         <state key="normal" title="Let's Ride! ">
                                             <color key="titleColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +77,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNc-rW-Hal" userLabel="bottom spacer">
-                                        <rect key="frame" x="0.0" y="190" width="343" height="83.5"/>
+                                        <rect key="frame" x="0.0" y="188" width="343" height="85.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Vfz-vD-bmD"/>
                                         </constraints>
@@ -143,7 +141,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-On-Jlr" userLabel="Game Table View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RLm-dt-xza">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RLm-dt-xza">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RLm-dt-xza" id="bxd-vS-mqa">
@@ -151,7 +149,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8aV-JD-ej7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8aV-JD-ej7">
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8aV-JD-ej7" id="Sj9-IF-oeh">
@@ -159,7 +157,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v1H-mq-Ipg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="v1H-mq-Ipg">
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v1H-mq-Ipg" id="kmd-QP-RwA">
@@ -221,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
-                                        <rect key="frame" x="20" y="18" width="335" height="25"/>
+                                        <rect key="frame" x="20" y="17.5" width="335" height="25"/>
                                         <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -358,7 +356,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: evidence"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="takePictureButtonViewTouched:" destination="BiW-SU-TUN" eventType="touchUpInside" id="KS6-np-mpO"/>
+                                            <action selector="takePictureButtonViewTouchedWithSender:" destination="BiW-SU-TUN" eventType="touchUpInside" id="lCB-oW-N7h"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -552,7 +550,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
-                                <rect key="frame" x="16" y="200" width="343" height="70"/>
+                                <rect key="frame" x="16" y="200.5" width="343" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -572,7 +570,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT" userLabel="Countdown Clock">
-                                <rect key="frame" x="107.5" y="302" width="160" height="63"/>
+                                <rect key="frame" x="107.5" y="302.5" width="160" height="62.5"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -643,13 +641,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nope." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-YK-sze">
-                                <rect key="frame" x="100" y="114" width="175" height="70"/>
+                                <rect key="frame" x="100" y="114.5" width="175" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are like a mile away. Literally" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-cG-NXF">
-                                <rect key="frame" x="32" y="200" width="311" height="40"/>
+                                <rect key="frame" x="32" y="200.5" width="311" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rjA-g4-7ri"/>
                                 </constraints>
@@ -658,7 +656,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7Z-f5-vse" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="136.5" y="272" width="102" height="123"/>
+                                <rect key="frame" x="136.5" y="272.5" width="102" height="122.5"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="98"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -675,7 +673,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="iFp-6Z-Pv0" kind="unwind" unwindAction="unwindToHome:" id="tV0-aa-lfz"/>
+                                    <segue destination="iFp-6Z-Pv0" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="tV0-aa-lfz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -717,7 +715,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot! Time's up." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Hn-dN-dFH">
-                                <rect key="frame" x="16" y="134.5" width="343" height="57"/>
+                                <rect key="frame" x="16" y="135" width="343" height="56.5"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="45"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -731,7 +729,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5I-ZL-gsn" userLabel="Sad Face" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="129" y="263.5" width="117" height="140"/>
+                                <rect key="frame" x="129.5" y="263.5" width="116.5" height="140"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="112"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -747,7 +745,7 @@
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="agj-4X-pwi" kind="unwind" unwindAction="unwindToHome:" id="6BT-x1-dYV"/>
+                                    <segue destination="agj-4X-pwi" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="6BT-x1-dYV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -872,7 +870,7 @@
                         <outlet property="loadingView" destination="T64-39-yz7" id="s1C-xk-DAx"/>
                         <outlet property="photoPreviewView" destination="Z5X-Xm-cwg" id="EIb-LC-Rzd"/>
                         <outlet property="takePictureButton" destination="b4v-GQ-Q6q" id="FDI-mY-9fm"/>
-                        <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="DYr-an-1MF"/>
+                        <segue destination="cf5-sV-66S" kind="unwind" identifier="unwindToHomeWithSegue" unwindAction="unwindToHomeWithSegue:" id="DYr-an-1MF"/>
                         <segue destination="qID-Y3-zZe" kind="presentation" identifier="showFirstSpotCreated" id="Sg7-KF-reM"/>
                     </connections>
                 </viewController>
@@ -894,13 +892,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
-                                <rect key="frame" x="16" y="250.5" width="343" height="40"/>
+                                <rect key="frame" x="16" y="251" width="343" height="40"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
-                                <rect key="frame" x="16" y="322.5" width="343" height="22"/>
+                                <rect key="frame" x="16" y="323" width="343" height="21.5"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -943,7 +941,7 @@
                         <outlet property="headerLabel" destination="KbK-Rz-Egh" id="Svy-me-ngL"/>
                         <outlet property="prepareForNotificationLabel" destination="qvp-pb-WYy" id="4ru-aN-zkg"/>
                         <outlet property="subHeaderLabel" destination="rfZ-q8-VVo" id="QLi-mB-316"/>
-                        <segue destination="U5f-mc-has" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="lXU-zC-QzP"/>
+                        <segue destination="U5f-mc-has" kind="unwind" identifier="unwindToHomeWithSegue" unwindAction="unwindToHomeWithSegue:" id="lXU-zC-QzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdk-xx-0Z5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -953,8 +951,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bike-flag" width="1536" height="1212"/>
-        <image name="biketag-spinner-1" width="200" height="200"/>
+        <image name="bike-flag" width="368.6400146484375" height="290.8800048828125"/>
+        <image name="biketag-spinner-1" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6Gt-DJ-E2h"/>

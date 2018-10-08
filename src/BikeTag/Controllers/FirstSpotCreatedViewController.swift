@@ -17,7 +17,7 @@ class FirstSpotCreatedViewController: ApplicationViewController {
     @IBAction func pressedAskButton() {
         UserDefaults.setPrefersReceivingNotifications(val: true)
         PushNotificationManager.register()
-        self.performSegue(withIdentifier: "unwindToHome", sender: nil)
+        self.performSegue(withIdentifier: "unwindToHomeWithSegue", sender: nil)
     }
 
     override func viewDidLoad() {
