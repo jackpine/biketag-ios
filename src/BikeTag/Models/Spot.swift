@@ -107,7 +107,7 @@ class Spot: NSObject {
     }
 
     func base64ImageData() -> String {
-        return UIImageJPEGRepresentation(self.image!, 0.9)!.base64EncodedString()
+        return self.image!.jpegData(compressionQuality: 0.9)!.base64EncodedString()
     }
 
     var name: String {

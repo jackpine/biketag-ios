@@ -32,7 +32,7 @@ class SadFaceView: UILabel {
         //90 degrees
         rotateAnimation.toValue = CGFloat(.pi * 0.5)
         rotateAnimation.duration = 0.0
-        rotateAnimation.fillMode = kCAFillModeForwards
+        rotateAnimation.fillMode = CAMediaTimingFillMode.forwards
         rotateAnimation.isRemovedOnCompletion = false
         rotateAnimation.beginTime = CACurrentMediaTime()
         self.layer.add(rotateAnimation, forKey: nil)

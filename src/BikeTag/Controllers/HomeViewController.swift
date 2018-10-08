@@ -85,7 +85,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         self.guessSpotButtonView.setTitle("Fetching Spots...", for: .disabled)
 
         self.refreshControl = UIRefreshControl()
-        let titleAttributes: [NSAttributedStringKey: Any] = [.foregroundColor: UIColor.white]
+        let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
 
         self.refreshControl.attributedTitle = NSAttributedString(string: "", attributes: titleAttributes)
         self.refreshControl.tintColor = UIColor.white
@@ -108,7 +108,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         startTrackingLocation()
         refresh()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +139,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
             alertController.addAction(retryAction)
 
             let openAction = UIAlertAction(title: "Open Settings", style: .default) { action in
-                if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.openURL(url)
                 }
             }
@@ -364,7 +364,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
         let spotView: SpotView
 
-        override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             self.spotView = SpotView()
 
             super.init(style: style, reuseIdentifier: reuseIdentifier)

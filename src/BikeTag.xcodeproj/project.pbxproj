@@ -449,6 +449,7 @@
 					45AB7BA51A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = CSBZ6R9U39;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -457,6 +458,7 @@
 					};
 					45AB7BBC1A3A1D8B00E1961E = {
 						CreatedOnToolsVersion = 6.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 45AB7BA51A3A1D8B00E1961E;
 					};
 				};
@@ -790,7 +792,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -816,7 +818,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.jackpine.BikeTag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -837,7 +839,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BuildConfigurationAppBundleId}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeTag.app/BikeTag";
 			};
 			name = Debug;
@@ -855,7 +857,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "${BuildConfigurationAppBundleId}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BikeTag.app/BikeTag";
 			};
 			name = Release;

@@ -46,7 +46,7 @@ class NewSpotViewController: CameraViewController {
 
     func startLoadingAnimation() {
         self.loadingView.isHidden = false
-        self.takePictureButton.setTitle("Uploading...", for: UIControlState.disabled)
+        self.takePictureButton.setTitle("Uploading...", for: UIControl.State.disabled)
         self.takePictureButton.isEnabled = false
     }
 
