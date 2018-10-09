@@ -124,6 +124,7 @@
 		452B83761CE251A400CE1F85 /* SpotsCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsCollection.swift; sourceTree = "<group>"; };
 		452B83781CE2646700CE1F85 /* SpotsCollectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotsCollectionTest.swift; sourceTree = "<group>"; };
 		452BC69F1C7FF7A800FC6939 /* LastCellInSpotsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LastCellInSpotsTableView.xib; path = Views/LastCellInSpotsTableView.xib; sourceTree = "<group>"; };
+		45434787216C6613009A9375 /* BikeTag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BikeTag.entitlements; sourceTree = "<group>"; };
 		45466E9D1ACA01D900D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		45466E9E1ACA01E800D7B69A /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		454E11031B19278F00FBAAC3 /* ApiKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
@@ -305,6 +306,7 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
+				45434787216C6613009A9375 /* BikeTag.entitlements */,
 				45D6B5121CA8A26C0047E7DA /* Design */,
 				45DB1F871B27BDCD0001EC8A /* Views */,
 				45466E971ACA01AD00D7B69A /* Configs */,
@@ -775,6 +777,7 @@
 				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}.Debug";
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME) Dev";
+				CODE_SIGN_ENTITLEMENTS = BikeTag/BikeTag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
@@ -804,6 +807,7 @@
 				"BuildConfigurationAppBundleId[arch=*]" = "me.jackpine.${PRODUCT_NAME:rfc1034identifier}";
 				BuildConfigurationProductName = "";
 				"BuildConfigurationProductName[arch=*]" = "$(PRODUCT_NAME)";
+				CODE_SIGN_ENTITLEMENTS = BikeTag/BikeTag.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
