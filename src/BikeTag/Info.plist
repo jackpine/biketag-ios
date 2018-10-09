@@ -42,6 +42,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Use your camera to showcase your bike in exotic situations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>So you can play with nearby bicyclists.</string>
 	<key>UIAppFonts</key>
