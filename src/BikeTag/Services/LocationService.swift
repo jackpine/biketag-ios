@@ -19,7 +19,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             // Don't bombard the user with a redundant warning if they are still reading the location authorization request.
 
             // TODO refactor with switch
-            if ( CLLocationManager.authorizationStatus() != .authorizedAlways && CLLocationManager.authorizationStatus() != .authorizedWhenInUse ) {
+            if  CLLocationManager.authorizationStatus() != .authorizedAlways && CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
                 return self.waitForLocation(onSuccess: successCallback, onTimeout: timeoutCallback)
             }
 
@@ -32,7 +32,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
 
     func startTrackingLocation(onDenied deniedCallback: () -> Void) {
-        if (locationManager == nil) {
+        if locationManager == nil {
             locationManager = CLLocationManager()
             locationManager!.delegate = self
         }
@@ -44,6 +44,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             locationManager!.requestWhenInUseAuthorization()
         case .restricted, .denied:
             deniedCallback()
+        @unknown default:
+            assertionFailure("unknown CLLocationManager.authorizationStatus: \(CLLocationManager.authorizationStatus().rawValue)")
         }
     }
 
@@ -55,12 +57,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard (locations.last != nil) else {
+        guard locations.last != nil else {
             Logger.error("location did update, but was nil")
             return
         }
 
-        if( self.mostRecentLocation == nil ) {
+        if  self.mostRecentLocation == nil {
             Logger.debug("Initialized location: \(String(describing: locations.last))")
         }
         self.mostRecentLocation = locations.last

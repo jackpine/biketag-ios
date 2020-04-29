@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Load Main App Screen
         if UserDefaults.apiKey() == nil {
             Logger.info("First time user! showing welcome screen")
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let welcomeViewController = storyboard.instantiateViewController(withIdentifier: "welcomeViewController")
             self.window!.rootViewController = welcomeViewController
             self.window!.makeKeyAndVisible()

@@ -57,7 +57,7 @@ class SpotsService: ApiService {
             "spot_id": guess.spot.id!,
             "location": locationParameters(location: guess.location),
             "image_data": guess.base64ImageData()
-            ]]
+        ]]
 
         // TODO parse with guard
         let handleResponseAttributes = { (responseAttributes: [String: Any]) -> Void in

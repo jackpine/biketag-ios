@@ -12,12 +12,12 @@ class SpotsCollection {
     }
 
     func addNewSpot(newSpot: Spot) {
-        let oldSpot = spots.filter() { (existingSpot: Spot) -> Bool in
+        let oldSpot = spots.filter { (existingSpot: Spot) -> Bool in
             existingSpot.game == newSpot.game
-            }.first
+        }.first
 
         if oldSpot != nil {
-            let gameIndex = spots.index(of: oldSpot!)!
+            let gameIndex = spots.firstIndex(of: oldSpot!)!
             spots.remove(at: gameIndex)
         }
 

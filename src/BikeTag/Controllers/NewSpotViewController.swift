@@ -18,12 +18,12 @@ class NewSpotViewController: CameraViewController {
     func createSpotFromData(imageData: Data, location: CLLocation) {
         let image = Platform.isSimulator ? Spot.griffithSpot().image : UIImage(data: imageData)
 
-        guard ( image != nil ) else {
+        guard  image != nil  else {
             Logger.error("New spot image data not captured")
             return
         }
 
-        if (self.game == nil) {
+        if self.game == nil {
             Logger.debug("No existing game, assuming new game.")
             self.game = Game(id: nil)
         }
@@ -71,7 +71,7 @@ class NewSpotViewController: CameraViewController {
                     message: "You're too close to the last spot. Go a bit farther and try again.",
                     preferredStyle: .alert)
 
-                let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .default) { action in
+                let retryAction = UIAlertAction(title: "OK, I'm Sorry.", style: .default) { _ in
                     if let navigationController = self.navigationController {
                         navigationController.popViewController(animated: true)
                     } else { //presented modally
@@ -85,7 +85,7 @@ class NewSpotViewController: CameraViewController {
                     message: error.localizedDescription,
                     preferredStyle: .alert)
 
-                let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+                let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                     self.uploadNewSpot(spot: spot)
                 }
                 alertController.addAction(retryAction)

@@ -32,7 +32,7 @@ class PushNotificationManager {
         }
 
         Logger.debug("Successfully registered for remote notifications with APN token: \(tokenString)")
-        if(tokenString == UserDefaults.lastKnownAPNToken()) {
+        if tokenString == UserDefaults.lastKnownAPNToken() {
             Logger.debug("Ignoring unchanged APN token.")
         } else {
             DevicesService().postNewDevice(deviceNotificationToken: tokenString, successCallback: logSuccess, errorCallback: logError)

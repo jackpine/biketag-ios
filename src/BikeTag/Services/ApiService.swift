@@ -28,15 +28,19 @@ class ApiService {
 
         let headers: HTTPHeaders? = isAuthenticated ? ["Authorization": "Token \(Config.apiKey)"] : nil
 
-        Alamofire.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
+        AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             switch response.result {
             case .failure(let error):
                 // Protocol level errors, e.g. connection timed out
                 Logger.warning("\(method) \(url) HTTP Error: \(error)")
 
                 return errorCallback(error as Error)
-            case .success:
-                let responseAttributes = response.result.value as! [String: Any]
+            case .success(let result):
+                guard let responseAttributes = result as? [String: Any] else {
+                    // Protocol level errors, e.g. connection timed out
+                    Logger.error("\(method) \(url) unexpected result: \(result)")
+                    return errorCallback(APIError.clientError(description: "unprocessable service response"))
+                }
 
                 // Application level errors e.g. missing required attribute
                 if let errorDict = responseAttributes["error"] as? [String: Any] {

@@ -132,13 +132,13 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 message: "In order to get spots near you, please open this app's settings and set location access to 'While Using the App'.",
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.startTrackingLocation()
             }
 
             alertController.addAction(retryAction)
 
-            let openAction = UIAlertAction(title: "Open Settings", style: .default) { action in
+            let openAction = UIAlertAction(title: "Open Settings", style: .default) { _ in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                     UIApplication.shared.openURL(url)
                 }
@@ -157,7 +157,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         // the Location manager fetches the location in the background (started previously)
         // minimizing the overall wait time.
         startLoadingAnimation()
-        ensureApiKey() {
+        ensureApiKey {
             self.fetchCurrentUser()
             self.ensureLocation(onSuccess: self.fetchCurrentSpots)
         }
@@ -174,7 +174,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 message: error.localizedDescription,
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.ensureApiKey(success: success)
             }
             alertController.addAction(retryAction)
@@ -194,7 +194,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 message: "We're having trouble pinpointing your location",
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.ensureLocation(onSuccess: successCallback)
             }
             alertController.addAction(retryAction)
@@ -227,7 +227,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 message: error.localizedDescription,
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.fetchCurrentSpots(near: near)
             }
             alertController.addAction(retryAction)
@@ -247,7 +247,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 message: error.localizedDescription,
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.fetchCurrentUser()
             }
             alertController.addAction(retryAction)
@@ -311,7 +311,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        if (segue.identifier == "showNewGuessScene") {
+        if segue.identifier == "showNewGuessScene" {
             let guessSpotViewController = segue.destination as! GuessSpotViewController
             guessSpotViewController.currentSpot = self.currentSpot
         }
@@ -331,7 +331,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         let cellIndex = Int(round(targetContentOffset.pointee.y / self.spotViewHeight))
         targetContentOffset.pointee.y = CGFloat(cellIndex) * self.spotViewHeight
 
-        if (cellIndex == self.currentSpots.count()) {
+        if cellIndex == self.currentSpots.count() {
             //not looking at spot, looking at last cell
             self.currentSpot = nil
         } else {
@@ -349,7 +349,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
         let spotCount = self.currentSpots.count()
 
-        if (spotCount == 0) {
+        if spotCount == 0 {
             // Display nothing
             // We don't want to display the "Don't know these spots?" message before spots have loaded.
             return 0
@@ -418,7 +418,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     func refreshIfStale() {
         let secondsElapsed = Int(NSDate().timeIntervalSince(self.timeOfLastReload as Date))
-        if ( secondsElapsed > 60 * 30 ) {
+        if  secondsElapsed > 60 * 30 {
             refresh()
         }
     }
