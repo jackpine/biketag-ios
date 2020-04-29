@@ -140,7 +140,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
             let openAction = UIAlertAction(title: "Open Settings", style: .default) { _ in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.openURL(url)
+                    UIApplication.shared.open(url) { success in
+                        guard success else {
+                            Logger.error("unable to open settings.")
+                            return
+                        }
+                    }
                 }
             }
 
