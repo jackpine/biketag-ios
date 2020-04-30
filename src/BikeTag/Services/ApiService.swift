@@ -32,13 +32,13 @@ class ApiService {
             switch response.result {
             case .failure(let error):
                 // Protocol level errors, e.g. connection timed out
-                Logger.warning("\(method) \(url) HTTP Error: \(error)")
+                Logger.warning("\(method.rawValue) \(url) HTTP Error: \(error)")
 
                 return errorCallback(error as Error)
             case .success(let result):
                 guard let responseAttributes = result as? [String: Any] else {
                     // Protocol level errors, e.g. connection timed out
-                    Logger.error("\(method) \(url) unexpected result: \(result)")
+                    Logger.error("\(method.rawValue) \(url) unexpected result: \(result)")
                     return errorCallback(APIError.clientError(description: "unprocessable service response"))
                 }
 
@@ -47,12 +47,12 @@ class ApiService {
                     let code = errorDict["code"] as! Int
                     let message = errorDict["message"] as! String
 
-                    Logger.error("\(method) \(url) API Error: \(errorDict)")
+                    Logger.error("\(method.rawValue) \(url) API Error: \(errorDict)")
                     errorCallback(APIError.serviceError(code: code, message: message))
                     return
                 }
 
-                Logger.debug("\(method) \(url) success: \(responseAttributes)")
+                Logger.debug("\(method.rawValue) \(url) success: \(responseAttributes)")
                 handleResponseAttributes(responseAttributes)
             }
         }
