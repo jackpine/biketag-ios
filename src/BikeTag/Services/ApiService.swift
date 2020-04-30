@@ -18,13 +18,16 @@ class ApiService {
 
         let url = apiEndpoint.appendingPathComponent(path)
 
-        let encoding: ParameterEncoding = {
-            if method == .post {
-                return JSONEncoding.default
-            } else { // if method == Method.GET {
-                return URLEncoding.default
-            }
-        }()
+        let encoding: ParameterEncoding
+        switch method {
+        case .post:
+            encoding = JSONEncoding.default
+        case .get:
+            encoding = URLEncoding.default
+        default:
+            assertionFailure("unexpected method: \(method)")
+            encoding = URLEncoding.default
+        }
 
         let headers: HTTPHeaders? = isAuthenticated ? ["Authorization": "Token \(Config.apiKey)"] : nil
 
