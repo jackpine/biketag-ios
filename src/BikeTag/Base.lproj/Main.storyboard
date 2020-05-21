@@ -806,7 +806,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: claim spot"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="takePictureButtonViewTouched:" destination="kB0-aQ-szS" eventType="touchUpInside" id="57J-ju-yRz"/>
+                                            <action selector="takePictureButtonViewTouchedWithSender:" destination="kB0-aQ-szS" eventType="touchUpInside" id="a8c-oy-5MQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
