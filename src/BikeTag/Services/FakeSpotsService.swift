@@ -24,7 +24,7 @@ class FakeSpotsService: SpotsService {
             "created_at": "2015-03-20T21:59:40.394Z",
             "game_id": 1,
             "id": 1
-            ],
+        ],
                             [
                                 "location": [
                                     "type": "Point",
@@ -36,7 +36,7 @@ class FakeSpotsService: SpotsService {
                                 "created_at": "2015-03-20T21:59:40.394Z",
                                 "game_id": 2,
                                 "id": 2
-            ]]
+                            ]]
 
         let parsedSpots = fakeResponse.map({ ParsedSpot(attributes: $0) })
         successCallback(parsedSpots)

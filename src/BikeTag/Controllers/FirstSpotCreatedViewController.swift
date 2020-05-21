@@ -30,9 +30,9 @@ class FirstSpotCreatedViewController: ApplicationViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { self.headerLabel.layer.opacity = 1.0 }) { (finished: Bool) -> Void in
-            UIView.animate(withDuration: 1, delay: 0.0, options: .curveEaseIn, animations: { self.subHeaderLabel.layer.opacity = 1.0 }) { (finished: Bool) -> Void in
-                UIView.animate(withDuration: 1, delay: 0.5, options: .curveEaseIn, animations: { self.prepareForNotificationLabel.layer.opacity = 1.0 }) { (finished: Bool) -> Void in
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: { self.headerLabel.layer.opacity = 1.0 }) { (_: Bool) -> Void in
+            UIView.animate(withDuration: 1, delay: 0.0, options: .curveEaseIn, animations: { self.subHeaderLabel.layer.opacity = 1.0 }) { (_: Bool) -> Void in
+                UIView.animate(withDuration: 1, delay: 0.5, options: .curveEaseIn, animations: { self.prepareForNotificationLabel.layer.opacity = 1.0 }) { (_: Bool) -> Void in
                     UIView.animate(withDuration: 1, delay: 1.5, options: .curveEaseIn, animations: { self.askForNotificationPermissionButton.layer.opacity = 1.0 }, completion: nil)
                 }
             }

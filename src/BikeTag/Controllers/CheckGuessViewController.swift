@@ -20,7 +20,7 @@ class CheckGuessViewController: ApplicationViewController {
 
     func updateSubmittedImageView() {
         // Wait until both are set before updating - since they are set async
-        if ( self.guess != nil && self.submittedImageView != nil ) {
+        if  self.guess != nil && self.submittedImageView != nil {
             submittedImageView.image = guess!.image
         }
     }
@@ -41,12 +41,12 @@ class CheckGuessViewController: ApplicationViewController {
                 message: error.localizedDescription,
                 preferredStyle: .alert)
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.submitGuessToServer()
             }
             alertController.addAction(retryAction)
 
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
                 let navigationController: UINavigationController = self.navigationController!
                 navigationController.popToRootViewController(animated: true)
             }

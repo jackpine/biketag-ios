@@ -39,7 +39,7 @@ class SpotTests: XCTestCase {
         let location = CLLocation(latitude: latitude, longitude: longitude)
 
         let fulfillExpectation = { (newSpot: Spot) -> Void in
-            if (newSpot.id == 2) {
+            if newSpot.id == 2 {
                 expectation.fulfill()
             }
         }

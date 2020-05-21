@@ -67,9 +67,9 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         let devices = AVCaptureDevice.devices()
         for device in devices {
             // Make sure this particular device supports video
-            if (device.hasMediaType(.video)) {
+            if device.hasMediaType(.video) {
                 // Finally check the position and confirm we've got the back camera
-                if(device.position == .back) {
+                if device.position == .back {
                     return device
                 }
             }
@@ -85,7 +85,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
                 preferredStyle: .alert
             )
 
-            let retryAction = UIAlertAction(title: "Retry", style: .default) { action in
+            let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.ensureLocation(onSuccess: successCallback)
             }
             alertController.addAction(retryAction)
@@ -127,7 +127,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
     }
 
     func beginCapturingVideo(captureDevice: AVCaptureDevice) {
-        var err: Error? = nil
+        var err: Error?
         let captureDeviceInput: AVCaptureDeviceInput!
         do {
             captureDeviceInput = try AVCaptureDeviceInput(device: captureDevice)
@@ -142,7 +142,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .high
 
-        if ( captureSession.canAddInput(captureDeviceInput) ) {
+        if  captureSession.canAddInput(captureDeviceInput) {
             captureSession.addInput(captureDeviceInput)
         } else {
             Logger.error("Couldn't add capture device input.")
@@ -160,7 +160,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         self.photoPreviewView.frame = self.view.frame
         previewLayer.frame = self.photoPreviewView.frame
 
-        if ( captureSession.canAddOutput(self.stillImageOutput) ) {
+        if  captureSession.canAddOutput(self.stillImageOutput) {
             captureSession.addOutput(self.stillImageOutput)
         } else {
             Logger.error("Couldn't add still image output.")

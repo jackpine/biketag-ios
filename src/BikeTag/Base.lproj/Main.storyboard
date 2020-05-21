@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="89J-R4-vFb">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="89J-R4-vFb">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -135,11 +133,11 @@
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-On-Jlr" userLabel="Game Table View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RLm-dt-xza">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -197,7 +195,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="16" y="730" width="343" height="48"/>
+                                <rect key="frame" x="16" y="676" width="343" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
                                         <variation key="widthClass=compact" constant="48"/>
@@ -216,7 +214,7 @@
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-Uo-dgZ" userLabel="My Spot View">
-                                <rect key="frame" x="0.0" y="737" width="375" height="75"/>
+                                <rect key="frame" x="0.0" y="683" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
                                         <rect key="frame" x="20" y="16" width="335" height="25"/>
@@ -233,7 +231,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-Dr-h4t" userLabel="Activity Indicator">
-                                <rect key="frame" x="137.66666666666666" y="356" width="100" height="100"/>
+                                <rect key="frame" x="137.66666666666666" y="329" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="gkw-Bm-kAS">
                                         <rect key="frame" x="8" y="8" width="84" height="84"/>
@@ -289,7 +287,7 @@
         <!--Item-->
         <scene sceneID="1Bz-zF-iAb">
             <objects>
-                <navigationController id="89J-R4-vFb" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" id="89J-R4-vFb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Tlo-Y9-srY"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" id="amq-2V-zg3">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -317,15 +315,15 @@
                         <viewControllerLayoutGuide type="bottom" id="OkI-84-ROU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v6M-UC-jWP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
                                 <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inN-Os-Ndg" userLabel="Response Actions">
-                                <rect key="frame" x="0.0" y="681" width="375" height="131"/>
+                                <rect key="frame" x="0.0" y="627" width="375" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
                                         <rect key="frame" x="16" y="16" width="343" height="25"/>
@@ -403,18 +401,18 @@
                         <viewControllerLayoutGuide type="bottom" id="90v-iu-fVa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bWU-iX-0kH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
                                 <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-KY-zwI" userLabel="Progress Overlay">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's see..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-jg-bZa">
-                                        <rect key="frame" x="8" y="342" width="359" height="40"/>
+                                        <rect key="frame" x="8" y="331" width="359" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="TVH-Ga-1fy">
                                                 <variation key="widthClass=compact" constant="20"/>
@@ -434,7 +432,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-Jt-DAh" userLabel="Response Actions">
-                                <rect key="frame" x="0.0" y="658" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="604" width="375" height="120"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4R-8C-yyR" userLabel="Pretend Responses">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -540,17 +538,17 @@
                         <viewControllerLayoutGuide type="bottom" id="EYG-fn-BPd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IaD-l2-C1S">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Got it!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tot-7W-58O">
-                                <rect key="frame" x="16" y="272.66666666666669" width="343" height="70"/>
+                                <rect key="frame" x="16" y="245.66666666666663" width="343" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="keep this game going. " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MSM-pN-Bhb">
-                                <rect key="frame" x="87.666666666666686" y="437.33333333333331" width="200" height="21.333333333333314"/>
+                                <rect key="frame" x="87.666666666666686" y="410.33333333333331" width="200" height="21.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="nX2-Lt-xQw"/>
                                 </constraints>
@@ -564,13 +562,13 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-jT-iPT" userLabel="Countdown Clock">
-                                <rect key="frame" x="107.66666666666669" y="374.66666666666669" width="160" height="62.666666666666686"/>
+                                <rect key="frame" x="107.66666666666669" y="347.66666666666669" width="160" height="62.666666666666686"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVr-T3-VXe" userLabel="I'm at my new Spot!" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="32" y="730" width="311" height="48"/>
+                                <rect key="frame" x="32" y="676" width="311" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="84g-RT-zNt"/>
                                 </constraints>
@@ -587,7 +585,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ride to a new spot before time runs out." textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="acX-Hl-pV7">
-                                <rect key="frame" x="16" y="674" width="343" height="40"/>
+                                <rect key="frame" x="16" y="620" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="dBX-4r-MJd"/>
                                 </constraints>
@@ -631,17 +629,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wzf-Zs-eSX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VVg-Jy-DpT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nope." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2W-YK-sze">
-                                <rect key="frame" x="100" y="186.66666666666666" width="175" height="69.999999999999972"/>
+                                <rect key="frame" x="100" y="159.66666666666666" width="175" height="70"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="56"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are like a mile away. Literally" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXo-cG-NXF">
-                                <rect key="frame" x="32" y="272.66666666666669" width="311" height="40"/>
+                                <rect key="frame" x="32" y="245.66666666666663" width="311" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="rjA-g4-7ri"/>
                                 </constraints>
@@ -650,14 +648,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7Z-f5-vse" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="136.66666666666666" y="344.66666666666669" width="102" height="122.66666666666669"/>
+                                <rect key="frame" x="136.66666666666666" y="317.66666666666669" width="102" height="122.66666666666669"/>
                                 <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="98"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNy-6P-ZfL" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="32" y="730" width="311" height="48"/>
+                                <rect key="frame" x="32" y="676" width="311" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="2PQ-fG-4Ar"/>
                                 </constraints>
@@ -705,17 +703,17 @@
                         <viewControllerLayoutGuide type="bottom" id="ExB-ww-lTI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="foT-JQ-puQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoot! Time's up." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Hn-dN-dFH">
-                                <rect key="frame" x="16" y="207.66666666666666" width="343" height="56.333333333333343"/>
+                                <rect key="frame" x="16" y="180.66666666666666" width="343" height="56.333333333333343"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="45"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'll have to recapture that last spot." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5q5-Nx-Zw1" userLabel="Times Up. You'll have to recapture the last spot to try again.">
-                                <rect key="frame" x="16" y="280" width="343" height="40"/>
+                                <rect key="frame" x="16" y="253" width="343" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="wtJ-0b-BkK"/>
                                 </constraints>
@@ -723,13 +721,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=(" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5I-ZL-gsn" userLabel="Sad Face" customClass="SadFaceView" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="129.33333333333334" y="336" width="116.33333333333334" height="140"/>
+                                <rect key="frame" x="129.33333333333334" y="309" width="116.33333333333334" height="140"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="112"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40L-Cb-8wZ" userLabel="Try Again?" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="32" y="730" width="311" height="48"/>
+                                <rect key="frame" x="32" y="676" width="311" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="vt7-5C-vCl"/>
                                 </constraints>
@@ -775,15 +773,15 @@
                         <viewControllerLayoutGuide type="bottom" id="5hT-u1-KNe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FPe-7J-yo5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="TopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="Z5X-Xm-cwg" userLabel="Photo Preview">
-                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                                 <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zK-ub-zOi" userLabel="Response Actions">
-                                <rect key="frame" x="0.0" y="673" width="375" height="139"/>
+                                <rect key="frame" x="0.0" y="619" width="375" height="139"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BeB-Ck-C6X">
                                         <rect key="frame" x="16" y="16" width="343" height="25"/>
@@ -808,7 +806,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="take picture: claim spot"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="takePictureButtonViewTouched:" destination="kB0-aQ-szS" eventType="touchUpInside" id="57J-ju-yRz"/>
+                                            <action selector="takePictureButtonViewTouchedWithSender:" destination="kB0-aQ-szS" eventType="touchUpInside" id="a8c-oy-5MQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -823,7 +821,7 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T64-39-yz7" userLabel="Loading View">
-                                <rect key="frame" x="137.66666666666666" y="356" width="100" height="100"/>
+                                <rect key="frame" x="137.66666666666666" y="329" width="100" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="Qtx-Px-3tK">
                                         <rect key="frame" x="8" y="8" width="84" height="84"/>
@@ -882,29 +880,29 @@
                         <viewControllerLayoutGuide type="bottom" id="jEC-aK-eqG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="brv-BY-bcK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbK-Rz-Egh">
-                                <rect key="frame" x="16" y="323.33333333333331" width="343" height="40"/>
+                                <rect key="frame" x="16" y="296.33333333333331" width="343" height="40"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you think anyone will find it?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfZ-q8-VVo">
-                                <rect key="frame" x="16" y="395.33333333333331" width="343" height="21.333333333333314"/>
+                                <rect key="frame" x="16" y="368.33333333333331" width="343" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In a second, we'll ask for your permission to notify you when someone finds your spot." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvp-pb-WYy">
-                                <rect key="frame" x="16" y="644" width="343" height="64"/>
+                                <rect key="frame" x="16" y="590" width="343" height="64"/>
                                 <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycx-Tc-zVV" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="16" y="740" width="343" height="38"/>
+                                <rect key="frame" x="16" y="686" width="343" height="38"/>
                                 <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
                                 <state key="normal" title="Ask Away.">
                                     <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -944,11 +942,11 @@
             <point key="canvasLocation" x="4879" y="-695"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bike-flag" width="368.6400146484375" height="290.8800048828125"/>
-        <image name="biketag-spinner-1" width="144" height="144"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pdm-a3-rbz"/>
+        <segue reference="6Gt-DJ-E2h"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="bike-flag" width="1536" height="1212"/>
+        <image name="biketag-spinner-1" width="200" height="200"/>
+    </resources>
 </document>

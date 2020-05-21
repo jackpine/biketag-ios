@@ -46,7 +46,7 @@ class Spot: NSObject {
         super.init()
 
         // TODO pretty weird to make a network request in init.
-        Alamofire.request(parsedSpot.imageUrl, method: .get).response() { response in
+        AF.request(parsedSpot.imageUrl, method: .get).response { response in
             guard let data = response.data else {
                 Logger.error("Empty image data for spot: \(parsedSpot)")
                 return

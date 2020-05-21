@@ -41,6 +41,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "45AB7BA51A3A1D8B00E1961E"
+            BuildableName = "BikeTag.app"
+            BlueprintName = "BikeTag"
+            ReferencedContainer = "container:BikeTag.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -53,17 +62,6 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "45AB7BA51A3A1D8B00E1961E"
-            BuildableName = "BikeTag.app"
-            BlueprintName = "BikeTag"
-            ReferencedContainer = "container:BikeTag.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -85,10 +83,8 @@
             ReferencedContainer = "container:BikeTag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
       <LocationScenarioReference
-         identifier = "San Francisco, CA, USA"
+         identifier = "Rio de Janeiro, Brazil"
          referenceType = "1">
       </LocationScenarioReference>
    </LaunchAction>
