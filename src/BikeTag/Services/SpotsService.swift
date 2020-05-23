@@ -41,9 +41,11 @@ class SpotsService: ApiService {
         spotParametersForLogging["image_data"] = "\(spot.base64ImageData().lengthOfBytes(using: .utf8)) bytes"
         Logger.debug("BODY: { spot: \(spotParametersForLogging) }")
 
-        // TODO parse with guard
         let handleResponseAttributes = { (responseAttributes: [String: Any]) -> Void in
-            let spotAttributes = responseAttributes["spot"] as! [String: Any]
+            guard let spotAttributes = responseAttributes["spot"] as? [String: Any] else {
+                errorCallback(APIError.clientError(description: "response is missing 'spot' params"))
+                return
+            }
             let parsedSpot = ParsedSpot(attributes: spotAttributes)
             callback(parsedSpot)
         }
@@ -59,9 +61,11 @@ class SpotsService: ApiService {
             "image_data": guess.base64ImageData()
         ]]
 
-        // TODO parse with guard
         let handleResponseAttributes = { (responseAttributes: [String: Any]) -> Void in
-            let guessAttributes = responseAttributes["guess"] as! [String: Any]
+            guard let guessAttributes = responseAttributes["guess"] as? [String: Any] else {
+                errorCallback(APIError.clientError(description: "response is missing 'guess' params"))
+                return
+            }
             guess.correct = guessAttributes["correct"] as? Bool
             guess.distance = guessAttributes["distance"] as? Double
             callback(guess)

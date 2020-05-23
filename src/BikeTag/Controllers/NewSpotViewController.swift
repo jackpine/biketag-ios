@@ -59,13 +59,9 @@ class NewSpotViewController: CameraViewController {
         let displayErrorAlert = { (error: Error) -> Void in
             self.stopLoadingAnimation()
 
-            guard case let ApiService.APIError.serviceError(errorCode, _) = error else {
-                assertionFailure("Unhandleable error: \(error)")
-                return
-            }
-
-            var alertController: UIAlertController
-            if errorCode == 133 {
+            let alertController: UIAlertController
+            if case let ApiService.APIError.serviceError(errorCode, _) = error,
+                errorCode == 133 {
                 alertController = UIAlertController(
                     title: "Try a little harder!",
                     message: "You're too close to the last spot. Go a bit farther and try again.",
@@ -80,6 +76,7 @@ class NewSpotViewController: CameraViewController {
                 }
                 alertController.addAction(retryAction)
             } else {
+                Logger.error("unexpected error: \(error)")
                 alertController = UIAlertController(
                     title: "There was trouble uploading your new Spot.",
                     message: error.localizedDescription,
