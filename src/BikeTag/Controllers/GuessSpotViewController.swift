@@ -3,7 +3,6 @@ import CoreLocation
 import UIKit
 
 class GuessSpotViewController: CameraViewController {
-
     var currentSpot: Spot?
     var newGuess: Guess?
 
@@ -19,19 +18,18 @@ class GuessSpotViewController: CameraViewController {
             image = UIImage(data: imageData)!
         }
 
-        self.newGuess = Guess(spot: self.currentSpot!, user: User.getCurrentUser(), location: location, image: image!)
-        self.performSegue(withIdentifier: "showCheckingGuessSegue", sender: nil)
+        newGuess = Guess(spot: currentSpot!, user: User.getCurrentUser(), location: location, image: image!)
+        performSegue(withIdentifier: "showCheckingGuessSegue", sender: nil)
     }
 
-    @IBAction func takePictureButtonViewTouched(sender: AnyObject) {
+    @IBAction func takePictureButtonViewTouched(sender _: AnyObject) {
         Logger.debug("capturing image")
-        self.captureImage(callback: createGuessFromData)
+        captureImage(callback: createGuessFromData)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         let checkGuessViewController = segue.destination as! CheckGuessViewController
-        checkGuessViewController.guess = self.newGuess!
+        checkGuessViewController.guess = newGuess!
     }
-
 }

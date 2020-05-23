@@ -9,6 +9,7 @@ class Game: Equatable {
 }
 
 // MARK: Equatable
-func ==(lhs: Game, rhs: Game) -> Bool {
+
+func == (lhs: Game, rhs: Game) -> Bool {
     return lhs.id == rhs.id
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 class TimesUpViewController: ApplicationViewController {
-
     @IBOutlet var sadFaceView: SadFaceView!
 
     override func viewDidLoad() {
@@ -20,5 +19,4 @@ class TimesUpViewController: ApplicationViewController {
         super.viewDidAppear(animated)
         sadFaceView.rotate()
     }
-
 }

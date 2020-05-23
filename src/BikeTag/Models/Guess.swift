@@ -16,7 +16,7 @@ class Guess {
         self.user = user
         self.location = location
         self.image = image
-        self.game = spot.game
+        game = spot.game
     }
 
     func distanceMessage() -> String {
@@ -24,7 +24,7 @@ class Guess {
             return "I can't tell how far away you are."
         }
 
-        // TODO localize
+        // TODO: localize
         if distance < 0.002 {
             return "Shoot! You're super close."
         } else if distance < 0.005 {
@@ -43,6 +43,6 @@ class Guess {
     }
 
     func base64ImageData() -> String {
-        return self.image.jpegData(compressionQuality: 0.9)!.base64EncodedString()
+        return image.jpegData(compressionQuality: 0.9)!.base64EncodedString()
     }
 }

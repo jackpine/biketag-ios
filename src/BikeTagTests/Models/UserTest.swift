@@ -2,7 +2,6 @@ import Foundation
 import XCTest
 
 class UserTest: XCTestCase {
-
     func testUserEquality() {
         let user1 = User(id: 1, name: "some user")
         XCTAssertEqual(user1, user1)
@@ -26,7 +25,7 @@ class UserTest: XCTestCase {
         let userAttributes: [String: Any] = [
             "id": 100,
             "name": "my user",
-            "score": 200
+            "score": 200,
         ]
 
         let user = User(attributes: userAttributes)
@@ -34,5 +33,4 @@ class UserTest: XCTestCase {
         XCTAssertEqual(user.name, "my user")
         XCTAssertEqual(user.score, 200)
     }
-
 }

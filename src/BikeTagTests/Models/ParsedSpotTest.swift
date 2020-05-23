@@ -2,7 +2,6 @@ import Foundation
 import XCTest
 
 class ParsedSpotTest: XCTestCase {
-
     let mockAttributes: [String: Any] = [
         "id": 1,
         "url": "http://www.example.com/api/v1/games/1/spot/1.json",
@@ -10,7 +9,7 @@ class ParsedSpotTest: XCTestCase {
         "user_name": "michael",
         "game_id": 1,
         "image_url": "https://example.com/image.jpg",
-        "created_at": "2015-03-20T21:59:40.000Z"
+        "created_at": "2015-03-20T21:59:40.000Z",
     ]
 
     func testInit() {

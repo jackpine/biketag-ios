@@ -6,7 +6,7 @@ class ApiKeyTest: XCTestCase {
         let apiKeyAttributes: [String: Any] = [
             "client_id": "fake-client-id",
             "secret": "fake-secret",
-            "user_id": 666
+            "user_id": 666,
         ]
 
         let apiKey = ApiKey(attributes: apiKeyAttributes)
@@ -19,7 +19,7 @@ class ApiKeyTest: XCTestCase {
         let apiKeyAttributes: [String: Any] = [
             "client_id": "my-client-id",
             "secret": "my-secret",
-            "user_id": 777
+            "user_id": 777,
         ]
 
         ApiKey.setCurrentApiKey(apiKeyAttributes: apiKeyAttributes)

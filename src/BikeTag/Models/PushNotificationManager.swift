@@ -9,7 +9,6 @@
 import UIKit
 
 class PushNotificationManager {
-
     class func register() {
         Logger.debug("Registering for push notifications")
         let application = UIApplication.shared
@@ -18,8 +17,7 @@ class PushNotificationManager {
     }
 
     class func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
-
-        // TODO verify token format
+        // TODO: verify token format
         let tokenString = deviceToken.base64EncodedString()
 
         let logSuccess = {

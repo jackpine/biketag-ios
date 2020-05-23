@@ -1,28 +1,26 @@
 import UIKit
 
 class PrimaryButton: UIButton {
-
     override var isEnabled: Bool {
         didSet {
             applyStyle()
         }
     }
 
-    required override init(frame: CGRect) {
+    override required init(frame: CGRect) {
         super.init(frame: frame)
-        self.applyStyle()
+        applyStyle()
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.applyStyle()
+        applyStyle()
     }
 
     func applyStyle() {
-        self.backgroundColor = UIColor.clear
-        self.titleLabel?.font = Font.titleFont
-        self.setTitleColor(.gray, for: .disabled)
-        self.setTitleColor(.red, for: .normal)
+        backgroundColor = UIColor.clear
+        titleLabel?.font = Font.titleFont
+        setTitleColor(.gray, for: .disabled)
+        setTitleColor(.red, for: .normal)
     }
-
 }

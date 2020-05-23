@@ -3,7 +3,6 @@ import CoreLocation
 import UIKit
 
 class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
-
     @IBOutlet var photoPreviewView: UIView!
     @IBOutlet var takePictureButton: PrimaryButton!
 
@@ -77,7 +76,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         return nil
     }
 
-    func ensureLocation(onSuccess successCallback:@escaping (CLLocation) -> Void) {
+    func ensureLocation(onSuccess successCallback: @escaping (CLLocation) -> Void) {
         let displayRetryAlert = {
             let alertController = UIAlertController(
                 title: "Where you at?",
@@ -95,20 +94,20 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         locationService.waitForLocation(onSuccess: successCallback, onTimeout: displayRetryAlert)
     }
 
-    func captureImage(callback:@escaping (Data, CLLocation) -> Void) {
+    func captureImage(callback: @escaping (Data, CLLocation) -> Void) {
         guard !Platform.isSimulator else {
-            self.ensureLocation( onSuccess: { (location: CLLocation) in
+            ensureLocation(onSuccess: { (location: CLLocation) in
                 callback(Data(), location)
             })
             return
         }
 
-        guard let videoConnection = self.stillImageOutput.connection(with: .video) else {
+        guard let videoConnection = stillImageOutput.connection(with: .video) else {
             Logger.error("couldn't find video connection")
             return
         }
 
-        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { imageDataSampleBuffer, error -> Void in
+        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { imageDataSampleBuffer, _ -> Void in
 
             guard let imageDataSampleBuffer = imageDataSampleBuffer else {
                 Logger.error("ImageDataSampleBuffer was unexpectedly nil")
@@ -120,7 +119,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
                 return
             }
 
-            self.ensureLocation( onSuccess: { (location: CLLocation) in
+            self.ensureLocation(onSuccess: { (location: CLLocation) in
                 callback(imageData, location)
             })
         }
@@ -142,7 +141,7 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         let captureSession = AVCaptureSession()
         captureSession.sessionPreset = .high
 
-        if  captureSession.canAddInput(captureDeviceInput) {
+        if captureSession.canAddInput(captureDeviceInput) {
             captureSession.addInput(captureDeviceInput)
         } else {
             Logger.error("Couldn't add capture device input.")
@@ -151,17 +150,17 @@ class CameraViewController: ApplicationViewController, CLLocationManagerDelegate
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.videoGravity = .resizeAspectFill
 
-        self.photoPreviewView.layer.addSublayer(previewLayer)
+        photoPreviewView.layer.addSublayer(previewLayer)
 
         // HACK photo preview was not representative of captured photo.
         // Debugging showed that at this point photoPreview frame was still 600x600,
         // which is the storyboard generic size.
         // Manually overriding frame to be fullscreen here seems to work.
-        self.photoPreviewView.frame = self.view.frame
-        previewLayer.frame = self.photoPreviewView.frame
+        photoPreviewView.frame = view.frame
+        previewLayer.frame = photoPreviewView.frame
 
-        if  captureSession.canAddOutput(self.stillImageOutput) {
-            captureSession.addOutput(self.stillImageOutput)
+        if captureSession.canAddOutput(stillImageOutput) {
+            captureSession.addOutput(stillImageOutput)
         } else {
             Logger.error("Couldn't add still image output.")
         }

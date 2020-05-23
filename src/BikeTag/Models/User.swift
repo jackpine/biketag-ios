@@ -4,7 +4,6 @@ import UIKit
 private var currentUser = User.anonymousUser()
 
 class User: Equatable {
-
     let id: Int
     let name: String
     let score: Int
@@ -12,14 +11,14 @@ class User: Equatable {
     init(id: Int, name: String) {
         self.id = id
         self.name = name
-        self.score = 0
+        score = 0
     }
 
     // e.g. init from API response
     init(attributes: [String: Any]) {
-        self.id = attributes["id"] as! Int
-        self.name = attributes["name"] as! String
-        self.score = attributes["score"] as! Int
+        id = attributes["id"] as! Int
+        name = attributes["name"] as! String
+        score = attributes["score"] as! Int
     }
 
     class func getCurrentUser() -> User {
@@ -37,6 +36,6 @@ class User: Equatable {
 
 // MARK: Equatable
 
-func ==(lhs: User, rhs: User) -> Bool {
+func == (lhs: User, rhs: User) -> Bool {
     return lhs.id == rhs.id
 }

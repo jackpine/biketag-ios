@@ -8,9 +8,8 @@
 
 import Foundation
 
-// TODO do we *really* want to extend UserDefaults? Convert class funcs to static getters
+// TODO: do we *really* want to extend UserDefaults? Convert class funcs to static getters
 extension UserDefaults {
-
     static let defaults = UserDefaults.standard
     static let KeyForApiKey = "apiKey"
     static let KeyForHasPreviouslyCreatedSpot = "HAS_PREVIOUSLY_CREATED_SPOT"
@@ -48,5 +47,4 @@ extension UserDefaults {
     class func setLastKnownAPNToken(val: String) {
         defaults.set(val, forKey: KeyForLastKnownAPNToken)
     }
-
 }

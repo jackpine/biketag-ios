@@ -4,18 +4,16 @@ import Foundation
 let apiEndpoint = URL(string: Config.apiEndpoint)!
 
 class ApiService {
-
     enum APIError: Error {
         case clientError(description: String)
         case serviceError(code: Int, message: String)
     }
 
-    func unauthenticatedRequest(_ method: HTTPMethod, path: String, parameters: Parameters?, handleResponseAttributes: @escaping ([String: Any]) -> Void, errorCallback: @escaping (Error) -> Void ) {
-        self.request(method, path: path, parameters: parameters, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback, isAuthenticated: false)
+    func unauthenticatedRequest(_ method: HTTPMethod, path: String, parameters: Parameters?, handleResponseAttributes: @escaping ([String: Any]) -> Void, errorCallback: @escaping (Error) -> Void) {
+        request(method, path: path, parameters: parameters, handleResponseAttributes: handleResponseAttributes, errorCallback: errorCallback, isAuthenticated: false)
     }
 
     func request(_ method: HTTPMethod, path: String, parameters: Parameters?, handleResponseAttributes: @escaping ([String: Any]) -> Void, errorCallback: @escaping (Error) -> Void, isAuthenticated: Bool = true) {
-
         let url = apiEndpoint.appendingPathComponent(path)
 
         let encoding: ParameterEncoding
@@ -33,12 +31,12 @@ class ApiService {
 
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             switch response.result {
-            case .failure(let error):
+            case let .failure(error):
                 // Protocol level errors, e.g. connection timed out
                 Logger.warning("\(method.rawValue) \(url) HTTP Error: \(error)")
 
                 return errorCallback(error as Error)
-            case .success(let result):
+            case let .success(result):
                 guard let responseAttributes = result as? [String: Any] else {
                     // Protocol level errors, e.g. connection timed out
                     Logger.error("\(method.rawValue) \(url) unexpected result: \(result)")

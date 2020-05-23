@@ -3,7 +3,6 @@ import UIKit
 import XCTest
 
 class SpotTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         User.setCurrentUser(user: Spot.griffithSpot().user)
@@ -20,13 +19,13 @@ class SpotTests: XCTestCase {
             }
         }
 
-        let failExpectation = { (error: Error) -> Void in
+        let failExpectation = { (_: Error) -> Void in
             // This will eventually fail, since we're not calling fulfill,
             // but is there a way to fail fast?
         }
 
         Spot.fetchCurrentSpots(spotsService: FakeSpotsService(), location: Spot.lucileSpot().location!, callback: fulfillExpectation, errorCallback: failExpectation)
-        self.waitForExpectations(timeout: 5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     func testCreateNewSpot() {
@@ -44,14 +43,14 @@ class SpotTests: XCTestCase {
             }
         }
 
-        let failExpectation = { (error: Error) -> Void in
+        let failExpectation = { (_: Error) -> Void in
             // This will eventually fail, since we're not calling fulfill,
             // but is there a way to fail fast?
         }
 
         Spot.createNewSpot(spotsService: FakeSpotsService(), image: image, game: Game(id: 1), location: location, callback: fulfillExpectation, errorCallback: failExpectation)
 
-        self.waitForExpectations(timeout: 5.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     func testIsCurrentUserOwner() {

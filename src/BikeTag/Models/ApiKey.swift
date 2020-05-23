@@ -12,9 +12,9 @@ class ApiKey {
     }
 
     required init(attributes: [String: Any]) {
-        self.clientId = attributes["client_id"] as! String
-        self.secret = attributes["secret"] as! String
-        self.userId = attributes["user_id"] as! Int
+        clientId = attributes["client_id"] as! String
+        secret = attributes["secret"] as! String
+        userId = attributes["user_id"] as! Int
     }
 
     class func setCurrentApiKey(apiKeyAttributes: [String: Any]) {
@@ -38,7 +38,7 @@ class ApiKey {
         } else {
             Logger.info("Creating new API Key")
 
-            let handleFailure = {(error: Error) -> Void in
+            let handleFailure = { (error: Error) -> Void in
                 Logger.error("Error setting API Key: \(error)")
                 errorCallback(error)
             }
@@ -46,5 +46,4 @@ class ApiKey {
             ApiKeysService().createApiKey(callback: sucessWithApiKey, errorCallback: handleFailure)
         }
     }
-
 }

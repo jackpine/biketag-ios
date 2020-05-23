@@ -2,7 +2,6 @@ import Foundation
 import XCTest
 
 class SpotsCollectionTest: XCTestCase {
-
     override func setUp() {
         super.setUp()
     }
@@ -42,5 +41,4 @@ class SpotsCollectionTest: XCTestCase {
         XCTAssertEqual(spot, spotsCollection[0])
         XCTAssertEqual(anotherSpot, spotsCollection[1])
     }
-
 }

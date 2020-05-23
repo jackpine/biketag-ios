@@ -3,7 +3,6 @@ import CoreLocation
 import UIKit
 
 class Spot: NSObject {
-
     static let didSetImageNotification: NSNotification.Name = NSNotification.Name("SpotDidSetImageNotification")
     static let newSpotCost = 25
 
@@ -12,6 +11,7 @@ class Spot: NSObject {
             NotificationCenter.default.post(name: Spot.didSetImageNotification, object: self)
         }
     }
+
     var imageUrl: URL?
     var location: CLLocation?
     var imageView: UIImageView?
@@ -25,7 +25,7 @@ class Spot: NSObject {
         self.image = image
         self.id = id
         self.game = game
-        self.createdAt = Date()
+        createdAt = Date()
     }
 
     init(image: UIImage, game: Game, user: User, location: CLLocation) {
@@ -33,19 +33,19 @@ class Spot: NSObject {
         self.image = image
         self.location = location
         self.game = game
-        self.createdAt = Date()
+        createdAt = Date()
     }
 
     init(parsedSpot: ParsedSpot) {
-        self.user = User(id: parsedSpot.userId, name: parsedSpot.userName)
-        self.id = parsedSpot.spotId
-        self.game = Game(id: parsedSpot.gameId)
-        self.imageUrl = parsedSpot.imageUrl
-        self.createdAt = parsedSpot.createdAt
+        user = User(id: parsedSpot.userId, name: parsedSpot.userName)
+        id = parsedSpot.spotId
+        game = Game(id: parsedSpot.gameId)
+        imageUrl = parsedSpot.imageUrl
+        createdAt = parsedSpot.createdAt
 
         super.init()
 
-        // TODO pretty weird to make a network request in init.
+        // TODO: pretty weird to make a network request in init.
         AF.request(parsedSpot.imageUrl, method: .get).response { response in
             guard let data = response.data else {
                 Logger.error("Empty image data for spot: \(parsedSpot)")
@@ -60,7 +60,7 @@ class Spot: NSObject {
         }
     }
 
-    class func fetchCurrentSpots(spotsService: SpotsService, location: CLLocation, callback:@escaping ([Spot]) -> Void, errorCallback:@escaping (Error) -> Void) {
+    class func fetchCurrentSpots(spotsService: SpotsService, location: CLLocation, callback: @escaping ([Spot]) -> Void, errorCallback: @escaping (Error) -> Void) {
         let callbackWithBuiltSpots = { (parsedSpots: [ParsedSpot]) -> Void in
             let spots = parsedSpots.map { Spot(parsedSpot: $0) }
             callback(spots)
@@ -69,9 +69,9 @@ class Spot: NSObject {
         spotsService.fetchCurrentSpots(location: location, successCallback: callbackWithBuiltSpots, errorCallback: errorCallback)
     }
 
-    class func createNewSpot(spotsService: SpotsService, image: UIImage, game: Game, location: CLLocation, callback: @escaping (Spot) -> Void, errorCallback:@escaping (Error) -> Void) {
+    class func createNewSpot(spotsService: SpotsService, image: UIImage, game: Game, location: CLLocation, callback: @escaping (Spot) -> Void, errorCallback: @escaping (Error) -> Void) {
         let callbackWithBuiltSpot = { (parsedSpot: ParsedSpot) -> Void in
-            //hydrate spot with server response - should be more-or-less identical to newSpot
+            // hydrate spot with server response - should be more-or-less identical to newSpot
             let spot = Spot(parsedSpot: parsedSpot)
             callback(spot)
         }
@@ -82,7 +82,7 @@ class Spot: NSObject {
 
     // static spot, used to seed game and for testing
     class func lucileSpot() -> Spot {
-        let image = UIImage( named: "952 lucile" )!
+        let image = UIImage(named: "952 lucile")!
         let lat = 34.086_582
         let lon = -118.281_633
         let location = CLLocation(latitude: lat, longitude: lon)
@@ -99,7 +99,7 @@ class Spot: NSObject {
     }
 
     var isCurrentUserOwner: Bool {
-        if User.getCurrentUser() == self.user {
+        if User.getCurrentUser() == user {
             return true
         } else {
             return false
@@ -107,7 +107,7 @@ class Spot: NSObject {
     }
 
     func base64ImageData() -> String {
-        return self.image!.jpegData(compressionQuality: 0.9)!.base64EncodedString()
+        return image!.jpegData(compressionQuality: 0.9)!.base64EncodedString()
     }
 
     var name: String {

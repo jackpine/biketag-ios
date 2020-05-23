@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 class ApplicationViewController: UIViewController {
-
     let spotsService = Config.shouldFakeAPICalls ? FakeSpotsService() : SpotsService()
     let usersService = Config.shouldFakeAPICalls ? FakeUsersService() : UsersService()
     var scoreButton: UIBarButtonItem?
@@ -14,14 +13,14 @@ class ApplicationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ApplicationViewController.scoreButtonTouched))
-        self.renderScore()
+        scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItem.Style.plain, target: self, action: #selector(ApplicationViewController.scoreButtonTouched))
+        renderScore()
 
-        self.navigationItem.rightBarButtonItem = scoreButton
+        navigationItem.rightBarButtonItem = scoreButton
     }
 
     func renderScore() {
-        self.scoreButton!.title = "●\(self.currentUserScore)"
+        scoreButton!.title = "●\(currentUserScore)"
     }
 
     @objc func scoreButtonTouched() {
@@ -31,7 +30,8 @@ class ApplicationViewController: UIViewController {
         let alertController = UIAlertController(
             title: "\(currentUserName)'s Store",
             message: "You've got ●\(currentUserScore) to spend.",
-            preferredStyle: .alert)
+            preferredStyle: .alert
+        )
 
         let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
@@ -42,7 +42,6 @@ class ApplicationViewController: UIViewController {
         newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost
         alertController.addAction(newSpotAction)
 
-        self.present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
-
 }

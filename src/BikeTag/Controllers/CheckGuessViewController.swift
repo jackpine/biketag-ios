@@ -9,6 +9,7 @@ class CheckGuessViewController: ApplicationViewController {
             updateSubmittedImageView()
         }
     }
+
     @IBOutlet var progressLabel: UILabel!
     @IBOutlet var progressOverlay: UIView!
 
@@ -20,7 +21,7 @@ class CheckGuessViewController: ApplicationViewController {
 
     func updateSubmittedImageView() {
         // Wait until both are set before updating - since they are set async
-        if  self.guess != nil && self.submittedImageView != nil {
+        if guess != nil, submittedImageView != nil {
             submittedImageView.image = guess!.image
         }
     }
@@ -28,8 +29,8 @@ class CheckGuessViewController: ApplicationViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.submitGuessToServer()
-        self.updateSubmittedImageView()
+        submitGuessToServer()
+        updateSubmittedImageView()
     }
 
     func submitGuessToServer() {
@@ -39,7 +40,8 @@ class CheckGuessViewController: ApplicationViewController {
             let alertController = UIAlertController(
                 title: "Unable to submit your guess.",
                 message: error.localizedDescription,
-                preferredStyle: .alert)
+                preferredStyle: .alert
+            )
 
             let retryAction = UIAlertAction(title: "Retry", style: .default) { _ in
                 self.submitGuessToServer()
@@ -54,7 +56,7 @@ class CheckGuessViewController: ApplicationViewController {
 
             self.present(alertController, animated: true, completion: nil)
         }
-        self.spotsService.postSpotGuess(guess: self.guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
+        spotsService.postSpotGuess(guess: guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
     }
 
     func animateProgress() {
@@ -63,20 +65,19 @@ class CheckGuessViewController: ApplicationViewController {
         UIView.animate(withDuration: 1.0, delay: 1.0,
                        options: [.curveEaseInOut, .repeat, .autoreverse],
                        animations: {
-                        let randomIndex = Int(arc4random_uniform(UInt32(progressMessages.count)))
-                        let message = progressMessages[randomIndex]
-                        self.progressLabel.alpha = 0
-                        self.progressLabel.text = message
-        },
-                       completion: nil
-        )
+                           let randomIndex = Int(arc4random_uniform(UInt32(progressMessages.count)))
+                           let message = progressMessages[randomIndex]
+                           self.progressLabel.alpha = 0
+                           self.progressLabel.text = message
+                       },
+                       completion: nil)
     }
 
     func handleGuessResponse(guess: Guess) {
         if Config.shouldFakeAPICalls {
-            self.fakeResponseActions.isHidden = false
+            fakeResponseActions.isHidden = false
         } else {
-            self.progressOverlay.isHidden = true
+            progressOverlay.isHidden = true
             if guess.correct! {
                 correctGuess(guess: guess)
             } else {
@@ -85,37 +86,36 @@ class CheckGuessViewController: ApplicationViewController {
         }
     }
 
-    func correctGuess(guess: Guess) {
-        self.performSegue(withIdentifier: "showCorrectGuess", sender: nil)
+    func correctGuess(guess _: Guess) {
+        performSegue(withIdentifier: "showCorrectGuess", sender: nil)
     }
 
-    func incorrectGuess(guess: Guess) {
-        self.performSegue(withIdentifier: "showIncorrectGuess", sender: nil)
+    func incorrectGuess(guess _: Guess) {
+        performSegue(withIdentifier: "showIncorrectGuess", sender: nil)
     }
 
-    @IBAction func touchedPretendIncorrectGuess(sender: AnyObject) {
-        self.progressOverlay.isHidden = true
-        self.guess!.correct = false
-        self.guess!.distance = 0.03
-        incorrectGuess(guess: self.guess!)
+    @IBAction func touchedPretendIncorrectGuess(sender _: AnyObject) {
+        progressOverlay.isHidden = true
+        guess!.correct = false
+        guess!.distance = 0.03
+        incorrectGuess(guess: guess!)
     }
 
-    @IBAction func touchedPretendCorrectGuess(sender: AnyObject) {
-        self.progressOverlay.isHidden = true
-        self.guess!.correct = true
-        self.guess!.distance = 0.0001
-        correctGuess(guess: self.guess!)
+    @IBAction func touchedPretendCorrectGuess(sender _: AnyObject) {
+        progressOverlay.isHidden = true
+        guess!.correct = true
+        guess!.distance = 0.0001
+        correctGuess(guess: guess!)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.destination is IncorrectGuessViewController {
             let incorrectGuessViewController = segue.destination as! IncorrectGuessViewController
-            incorrectGuessViewController.guess = self.guess!
+            incorrectGuessViewController.guess = guess!
         } else if segue.destination is CorrectGuessViewController {
             let correctGuessViewController = segue.destination as! CorrectGuessViewController
-            correctGuessViewController.guess = self.guess!
+            correctGuessViewController.guess = guess!
         }
     }
-
 }

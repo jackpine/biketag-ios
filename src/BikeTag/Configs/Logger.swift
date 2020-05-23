@@ -1,6 +1,4 @@
 import Foundation
 import XCGLogger
 
-class Logger: XCGLogger {
-
-}
+class Logger: XCGLogger {}

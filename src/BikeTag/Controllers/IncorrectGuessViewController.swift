@@ -9,7 +9,6 @@
 import UIKit
 
 class IncorrectGuessViewController: ApplicationViewController {
-
     var guess: Guess?
 
     @IBOutlet var distanceLabel: UILabel!
@@ -17,12 +16,11 @@ class IncorrectGuessViewController: ApplicationViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.distanceLabel.text = guess!.distanceMessage()
+        distanceLabel.text = guess!.distanceMessage()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         sadFaceView.rotate()
     }
-
 }

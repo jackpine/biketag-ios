@@ -12,8 +12,8 @@ class Config {
         let settingsFromFile = NSDictionary(contentsOfFile: settingsPath)!
         Logger.info("Loaded Config: \(settingsFromFile)")
 
-        self.apiEndpoint = settingsFromFile["apiEndpoint"] as! String
-        self.shouldFakeAPICalls = settingsFromFile["shouldFakeAPICalls"] as! Bool
+        apiEndpoint = settingsFromFile["apiEndpoint"] as! String
+        shouldFakeAPICalls = settingsFromFile["shouldFakeAPICalls"] as! Bool
     }
 
     class var shouldFakeAPICalls: Bool {
