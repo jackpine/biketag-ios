@@ -29,6 +29,7 @@ class ApiService {
 
         let headers: HTTPHeaders? = isAuthenticated ? ["Authorization": "Token \(Config.apiKey)"] : nil
 
+        Logger.info("\(method.rawValue) \(url) starting")
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseJSON { response in
             switch response.result {
             case let .failure(error):
