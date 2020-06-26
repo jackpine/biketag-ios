@@ -25,10 +25,10 @@ class FakeSpotsService: SpotsService {
             "id": 1,
         ],
                             [
-            "location": [
-                "type": "Point",
-                "coordinates": [secondGameSpot.location!.coordinate.longitude, secondGameSpot.location!.coordinate.latitude],
-            ],
+                                "location": [
+                                    "type": "Point",
+                                    "coordinates": [secondGameSpot.location!.coordinate.longitude, secondGameSpot.location!.coordinate.latitude],
+                                ],
                                 "image_url": secondImageAsbase64Encoded,
                                 "user_id": secondGameSpot.user.id,
                                 "user_name": secondGameSpot.user.name,
