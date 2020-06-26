@@ -43,7 +43,7 @@ class CorrectGuessViewController: ApplicationViewController {
     }
 
     @objc func updateSecondsLeft() {
-        secondsLeft = secondsToCapture - Int(startTime!.timeIntervalSinceNow)
+        secondsLeft = secondsToCapture + Int(startTime!.timeIntervalSinceNow)
         // Potentially way passed time if the app was backgrounded for a while.
         if secondsLeft < 11 {
             blinkClock()
