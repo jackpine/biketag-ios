@@ -107,7 +107,11 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         startTrackingLocation()
         refresh()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(UIApplicationDelegate.applicationWillEnterForeground(_:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification,
+                                               object: self,
+                                               queue: .main) { [weak self] _ in
+            self?.refreshIfStale()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -421,10 +425,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         cell.configure(spot: spot)
 
         return cell
-    }
-
-    func applicationWillEnterForeground(notification _: NSNotification) {
-        refreshIfStale()
     }
 
     func refreshIfStale() {
