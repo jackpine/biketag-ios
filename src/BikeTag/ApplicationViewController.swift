@@ -20,7 +20,7 @@ class ApplicationViewController: UIViewController {
     }
 
     func renderScore() {
-        scoreButton!.title = "●\(currentUserScore)"
+        scoreButton!.title = "💎\(currentUserScore)"
     }
 
     @objc func scoreButtonTouched() {
@@ -29,14 +29,14 @@ class ApplicationViewController: UIViewController {
         let currentUserName = User.getCurrentUser().name
         let alertController = UIAlertController(
             title: "\(currentUserName)'s Store",
-            message: "You've got ●\(currentUserScore) to spend.",
+            message: "You've got 💎\(currentUserScore) to spend.",
             preferredStyle: .alert
         )
 
         let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
 
-        let newSpotAction = UIAlertAction(title: "●\(Spot.newSpotCost) to add your own spot", style: .default) { _ in
+        let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to add your own spot", style: .default) { _ in
             self.navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
         }
         newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost

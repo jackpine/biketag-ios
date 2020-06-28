@@ -58,10 +58,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         super.renderScore()
         if newSpotCostLabel != nil {
             if currentUserScore >= Spot.newSpotCost {
-                newSpotCostLabel.text = "This costs ●\(Spot.newSpotCost) of your ●\(currentUserScore)."
+                newSpotCostLabel.text = "This costs 💎\(Spot.newSpotCost) of your 💎\(currentUserScore)."
                 newSpotButton.isEnabled = true
             } else {
-                newSpotCostLabel.text = "You need at least ●\(Spot.newSpotCost - currentUserScore) more to add a spot."
+                newSpotCostLabel.text = "You need at least 💎\(Spot.newSpotCost - currentUserScore) more to add a spot."
                 newSpotButton.isEnabled = false
             }
         }
