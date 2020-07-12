@@ -325,6 +325,12 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "showNewGuessScene" {
+            if !prefersDateVisible {
+                prefersDateVisible = true
+                ensureSpotDateVisibility()
+                navigationController?.setNavigationBarHidden(!prefersDateVisible, animated: true)
+            }
+
             let guessSpotViewController = segue.destination as! GuessSpotViewController
             guessSpotViewController.currentSpot = currentSpot
         }
