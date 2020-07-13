@@ -84,14 +84,16 @@
 		45C770AB1ABE5D9A0036847D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770A91ABE5D9A0036847D /* Config.swift */; };
 		45C770AD1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
 		45C770AE1AC081620036847D /* Guess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C770AC1AC081620036847D /* Guess.swift */; };
+		45CB948424BD1842005240DF /* LoadingActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CB948324BD1842005240DF /* LoadingActivityView.swift */; };
+		45CB948524BD1B01005240DF /* LoadingActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CB948324BD1842005240DF /* LoadingActivityView.swift */; };
 		45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
 		45CDD4441CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */; };
 		45CDD4461CB994F300CEC1DD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4451CB994F300CEC1DD /* UserDefaults.swift */; };
 		45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4451CB994F300CEC1DD /* UserDefaults.swift */; };
 		45CDD4491CB9DB8E00CEC1DD /* DevicesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4481CB9DB8E00CEC1DD /* DevicesService.swift */; };
 		45CDD44A1CB9DB8E00CEC1DD /* DevicesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CDD4481CB9DB8E00CEC1DD /* DevicesService.swift */; };
-		45D113011CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
-		45D113021CA8B121004F7D66 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* Font.swift */; };
+		45D113011CA8B121004F7D66 /* UIFont+BT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* UIFont+BT.swift */; };
+		45D113021CA8B121004F7D66 /* UIFont+BT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D113001CA8B121004F7D66 /* UIFont+BT.swift */; };
 		45D6B51D1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
 		45D6B51E1CA8AE5C0047E7DA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D6B51C1CA8AE5C0047E7DA /* Color.swift */; };
 		45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DB1F881B27BDCD0001EC8A /* SpotView.swift */; };
@@ -163,10 +165,11 @@
 		45C757881CE2AAA000E9FEE8 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		45C770A91ABE5D9A0036847D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		45C770AC1AC081620036847D /* Guess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guess.swift; sourceTree = "<group>"; };
+		45CB948324BD1842005240DF /* LoadingActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingActivityView.swift; sourceTree = "<group>"; };
 		45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstSpotCreatedViewController.swift; path = Controllers/FirstSpotCreatedViewController.swift; sourceTree = "<group>"; };
 		45CDD4451CB994F300CEC1DD /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		45CDD4481CB9DB8E00CEC1DD /* DevicesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesService.swift; sourceTree = "<group>"; };
-		45D113001CA8B121004F7D66 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		45D113001CA8B121004F7D66 /* UIFont+BT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+BT.swift"; sourceTree = "<group>"; };
 		45D6B51C1CA8AE5C0047E7DA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45DB1F881B27BDCD0001EC8A /* SpotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotView.swift; sourceTree = "<group>"; };
 		45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SadFaceView.swift; sourceTree = "<group>"; };
@@ -372,7 +375,7 @@
 			children = (
 				45D6B5131CA8A26C0047E7DA /* Fonts */,
 				45D6B51C1CA8AE5C0047E7DA /* Color.swift */,
-				45D113001CA8B121004F7D66 /* Font.swift */,
+				45D113001CA8B121004F7D66 /* UIFont+BT.swift */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */,
 				4552389A1C7FFBEA000A1A51 /* LastCellInSpotsTableView.swift */,
 				45E0ECDC1CAC13E30096C179 /* SadFaceView.swift */,
+				45CB948324BD1842005240DF /* LoadingActivityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -559,6 +563,7 @@
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
+				45CB948424BD1842005240DF /* LoadingActivityView.swift in Sources */,
 				45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				452B83771CE251A400CE1F85 /* SpotsCollection.swift in Sources */,
@@ -582,7 +587,7 @@
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
 				459F96241BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
-				45D113011CA8B121004F7D66 /* Font.swift in Sources */,
+				45D113011CA8B121004F7D66 /* UIFont+BT.swift in Sources */,
 				45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */,
 				4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
@@ -606,7 +611,8 @@
 				45D6B51E1CA8AE5C0047E7DA /* Color.swift in Sources */,
 				452B83791CE2646700CE1F85 /* SpotsCollectionTest.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,
-				45D113021CA8B121004F7D66 /* Font.swift in Sources */,
+				45D113021CA8B121004F7D66 /* UIFont+BT.swift in Sources */,
+				45CB948524BD1B01005240DF /* LoadingActivityView.swift in Sources */,
 				452B837A1CE266C500CE1F85 /* SpotsCollection.swift in Sources */,
 				45C7578A1CE2AAA000E9FEE8 /* Session.swift in Sources */,
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,

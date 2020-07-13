@@ -230,23 +230,6 @@
                                     <constraint firstAttribute="trailing" secondItem="a9v-9r-GSk" secondAttribute="trailing" constant="20" id="ZAR-OF-yl9"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFQ-Dr-h4t" userLabel="Activity Indicator">
-                                <rect key="frame" x="137.66666666666666" y="329" width="100" height="100"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biketag-spinner-1" translatesAutoresizingMaskIntoConstraints="NO" id="gkw-Bm-kAS">
-                                        <rect key="frame" x="8" y="8" width="84" height="84"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9jJ-xJ-MDG"/>
-                                    <constraint firstAttribute="bottom" secondItem="gkw-Bm-kAS" secondAttribute="bottom" constant="8" id="lGr-H9-Q42"/>
-                                    <constraint firstAttribute="trailing" secondItem="gkw-Bm-kAS" secondAttribute="trailing" constant="8" id="shY-u3-V5a"/>
-                                    <constraint firstAttribute="width" secondItem="TFQ-Dr-h4t" secondAttribute="height" multiplier="1:1" id="vsW-Vw-cLv"/>
-                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="top" secondItem="TFQ-Dr-h4t" secondAttribute="top" constant="8" id="yRP-3r-Jsg"/>
-                                    <constraint firstItem="gkw-Bm-kAS" firstAttribute="leading" secondItem="TFQ-Dr-h4t" secondAttribute="leading" constant="8" id="ymU-h4-2Al"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -256,11 +239,9 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="a9v-9r-GSk" secondAttribute="bottom" id="CkT-3V-qEg"/>
                             <constraint firstAttribute="bottom" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="M6X-H2-MLj"/>
                             <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
-                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="VoJ-su-W8g"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" id="Wnf-vJ-c8P"/>
                             <constraint firstItem="yOC-9H-Mla" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="Yyk-88-Rn3"/>
                             <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
-                            <constraint firstItem="TFQ-Dr-h4t" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="hkD-o9-dyn"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qcL-RU-hqD"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
@@ -271,10 +252,8 @@
                         <barButtonItem key="backBarButtonItem" title="Home" id="IUI-aF-AVz"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicatorImageView" destination="gkw-Bm-kAS" id="lI4-Tk-fb8"/>
                         <outlet property="gameTableView" destination="pUs-On-Jlr" id="TN1-0M-ASV"/>
                         <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
-                        <outlet property="loadingView" destination="TFQ-Dr-h4t" id="Px1-Of-8ku"/>
                         <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
                         <outlet property="spotDateContainer" destination="yOC-9H-Mla" id="Wtb-Ry-PXz"/>
                         <outlet property="spotDateLabel" destination="wt6-Pc-na5" id="scv-Ac-UaI"/>

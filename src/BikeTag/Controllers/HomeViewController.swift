@@ -16,8 +16,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     }
 
     @IBOutlet var mySpotView: UIView!
-    @IBOutlet var loadingView: UIView!
-    @IBOutlet var activityIndicatorImageView: UIImageView!
+    lazy var loadingView: LoadingActivityView = LoadingActivityView()
 
     let currentSpots: SpotsCollection
     let locationService: LocationService
@@ -69,17 +68,28 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     // MARK: View Life Cycle
 
+    var loadingViewCenterXConstraint: NSLayoutConstraint?
+    func setupSubviews() {
+        view.addSubview(loadingView)
+
+        let loadingViewCenterXConstraint = loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+
+        NSLayoutConstraint.activate([
+            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingViewCenterXConstraint,
+        ])
+
+        self.loadingViewCenterXConstraint = loadingViewCenterXConstraint
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubviews()
 
         automaticallyAdjustsScrollViewInsets = false
         gameTableView.translatesAutoresizingMaskIntoConstraints = false
 
         lastCellInSpotsTableView = LastCellInSpotsTableView(frame: view.frame, owner: self)
-
-        activityIndicatorImageView.image = UIImage.animatedImageNamed("biketag-spinner-", duration: 0.5)!
-        loadingView.layer.cornerRadius = 5
-        loadingView.layer.masksToBounds = true
 
         guessSpotButtonView.setTitle("Fetching Spots...", for: .disabled)
 
@@ -228,7 +238,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
             self.gameTableView.setContentOffset(.zero, animated: true)
 
             self.guessSpotButtonView.isEnabled = true
-            self.stopLoadingAnimation()
+            self.completeLoadingAnimation()
             self.refreshControl.endRefreshing()
         }
 
@@ -276,12 +286,45 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         usersService.fetchUser(userId: Config.currentUserId, successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
     }
 
-    func stopLoadingAnimation() {
-        loadingView.isHidden = true
+    func completeLoadingAnimation() {
+        guard let loadingViewCenterXConstraint = loadingViewCenterXConstraint else {
+            assertionFailure("loadingViewCenterXConstraint was unexpectedly nil")
+            return
+        }
+
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.0,
+                       options: .curveEaseIn,
+                       animations: {
+                           loadingViewCenterXConstraint.constant = self.view.frame.width
+                           self.loadingView.superview?.layoutIfNeeded()
+                       },
+                       completion: { _ in
+                           self.loadingView.isHidden = true
+        })
     }
 
     func startLoadingAnimation() {
         loadingView.isHidden = false
+
+        guard let loadingViewCenterXConstraint = loadingViewCenterXConstraint else {
+            assertionFailure("loadingViewCenterXConstraint was unexpectedly nil")
+            return
+        }
+
+        loadingViewCenterXConstraint.constant = -view.frame.width
+        loadingView.superview?.layoutIfNeeded()
+
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.0,
+                       options: .curveEaseOut,
+                       animations: {
+                           loadingViewCenterXConstraint.constant = 0
+                           self.loadingView.superview?.layoutIfNeeded()
+                       },
+                       completion: { _ in
+
+        })
     }
 
     func updateSpotControls() {
