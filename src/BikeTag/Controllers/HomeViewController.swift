@@ -53,9 +53,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     var timeOfLastReload: NSDate = NSDate()
 
-    override func renderScore() {
-        super.renderScore()
-        if newSpotCostLabel != nil {
+    func renderScore() {
+        scoreButton!.title = "💎\(currentUserScore)"
+
+        if let newSpotCostLabel = newSpotCostLabel {
             if currentUserScore >= Spot.newSpotCost {
                 newSpotCostLabel.text = "This costs 💎\(Spot.newSpotCost) of your 💎\(currentUserScore)."
                 newSpotButton.isEnabled = true
@@ -64,6 +65,37 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
                 newSpotButton.isEnabled = false
             }
         }
+    }
+
+    // MARK: Score Button
+
+    var scoreButton: UIBarButtonItem?
+    var currentUserScore = User.getCurrentUser().score {
+        didSet {
+            renderScore()
+        }
+    }
+
+    @objc func didTapScoreButton() {
+        Logger.debug("score button touched")
+
+        let currentUserName = User.getCurrentUser().name
+        let alertController = UIAlertController(
+            title: "\(currentUserName)'s Store",
+            message: "You've got 💎\(currentUserScore) to spend.",
+            preferredStyle: .alert
+        )
+
+        let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+
+        let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to add your own spot", style: .default) { _ in
+            self.navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
+        }
+        newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost
+        alertController.addAction(newSpotAction)
+
+        present(alertController, animated: true, completion: nil)
     }
 
     // MARK: View Life Cycle
@@ -84,7 +116,13 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupSubviews()
+
+        scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItem.Style.plain, target: self, action: #selector(didTapScoreButton))
+
+        renderScore()
+        navigationItem.rightBarButtonItem = scoreButton
 
         automaticallyAdjustsScrollViewInsets = false
         gameTableView.translatesAutoresizingMaskIntoConstraints = false
