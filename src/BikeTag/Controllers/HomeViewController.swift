@@ -12,7 +12,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
         view.autoSetDimensions(to: CGSize(width: diameter, height: diameter))
         view.layer.cornerRadius = diameter / 2
         view.backgroundColor = .white
-        view.setDropShadow()
+        view.addDropShadow()
 
         let button = UIButton()
         let image = #imageLiteral(resourceName: "bike-flag")
@@ -63,8 +63,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     var timeOfLastReload: NSDate = NSDate()
 
     func renderScore() {
-        scoreButton!.title = "💎\(currentUserScore)"
-
+        scoreButton.setTitle("💎\(currentUserScore)", for: .normal)
         if let newSpotCostLabel = newSpotCostLabel {
             if currentUserScore >= Spot.newSpotCost {
                 newSpotCostLabel.text = "This costs 💎\(Spot.newSpotCost) of your 💎\(currentUserScore)."
@@ -78,14 +77,44 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
 
     // MARK: Score Button
 
-    var scoreButton: UIBarButtonItem?
+    class PillView: UIView {
+        override var bounds: CGRect {
+            didSet {
+                layer.cornerRadius = bounds.size.height / 2
+            }
+        }
+    }
+
+    lazy var scoreButtonContainer: UIView = {
+        let container = PillView()
+        container.layer.cornerRadius = 16
+        container.backgroundColor = .white
+        container.addDropShadow()
+        container.clipsToBounds = false
+        container.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+
+        container.addSubview(scoreButton)
+        scoreButton.autoPinEdgesToSuperviewMargins()
+
+        return container
+    }()
+
+    lazy var scoreButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(didTapScoreButton), for: .touchUpInside)
+        button.setTitleColor(.bt_primaryText, for: .normal)
+        button.titleLabel?.font = UIFont.bt_bold_label.withSize(12)
+        return button
+    }()
+
     var currentUserScore = User.getCurrentUser().score {
         didSet {
             renderScore()
         }
     }
 
-    @objc func didTapScoreButton() {
+    @objc
+    func didTapScoreButton() {
         Logger.debug("score button touched")
 
         let currentUserName = User.getCurrentUser().name
@@ -95,7 +124,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             preferredStyle: .alert
         )
 
-        let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
+        let dismissAction = UIAlertAction(title: "No Thanks", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
 
         let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to post your own spot", style: .default) { [weak self] _ in
@@ -124,6 +153,10 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             postButton.autoPinEdge(toSuperviewEdge: .top, withInset: 32)
         }
         postButton.autoPinEdge(toSuperviewMargin: .trailing)
+
+        view.addSubview(scoreButtonContainer)
+        scoreButtonContainer.autoPinEdge(.top, to: .bottom, of: postButton, withOffset: 8)
+        scoreButtonContainer.autoAlignAxis(.vertical, toSameAxisOf: postButton)
     }
 
     override func viewDidLoad() {
@@ -134,10 +167,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
 
         navigationItem.title = NSLocalizedString("Nearby Tags", comment: "navigation title")
 
-        scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItem.Style.plain, target: self, action: #selector(didTapScoreButton))
-
         renderScore()
-        navigationItem.rightBarButtonItem = scoreButton
 
         if #available(iOS 11.0, *) {
             self.gameTableView.contentInsetAdjustmentBehavior = .never

@@ -18,7 +18,7 @@ public extension UIView {
         return spacer
     }
 
-    func setDropShadow() {
+    func addDropShadow() {
         clipsToBounds = false
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 2

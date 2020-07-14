@@ -160,7 +160,7 @@ class SpotView: UIView {
 
         container.layoutMargins = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 8)
         container.backgroundColor = .white
-        container.setDropShadow()
+        container.addDropShadow()
 
         container.addSubview(nameLabel)
         nameLabel.autoPinEdgesToSuperviewMargins()
@@ -172,7 +172,7 @@ class SpotView: UIView {
         let container = UIView()
         container.layoutMargins = UIEdgeInsets(top: 4, left: 16, bottom: 4, right: 16)
         container.backgroundColor = .bt_background
-        container.setDropShadow()
+        container.addDropShadow()
 
         let spacer = UIView.hStretchingSpacer()
         let stack = UIStackView(arrangedSubviews: [guessSpotButtonView, spacer, rewardLabel])
