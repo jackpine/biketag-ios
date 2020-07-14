@@ -26,6 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Logger.info("Existing user, not doing any manual ViewController setup")
         }
 
+        // Style
+        UINavigationBar.appearance().barTintColor = .bt_red
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.bt_navbar_title,
+        ]
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = .black
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+
         // TODO: this is the current way to log in as an existing user
         //
         //    ApiKey.setCurrentApiKey([

@@ -19,6 +19,8 @@ class Spot: NSObject {
     let game: Game
     let user: User
     let createdAt: Date
+    // TODO: pull down from service
+    let reward: UInt = 50
 
     init(image: UIImage, game: Game, user: User, id: Int) {
         self.user = user

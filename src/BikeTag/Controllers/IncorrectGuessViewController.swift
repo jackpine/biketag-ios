@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IncorrectGuessViewController: ApplicationViewController {
+class IncorrectGuessViewController: BaseViewController {
     var guess: Guess?
 
     @IBOutlet var distanceLabel: UILabel!

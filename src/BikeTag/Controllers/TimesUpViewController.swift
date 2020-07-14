@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimesUpViewController: ApplicationViewController {
+class TimesUpViewController: BaseViewController {
     @IBOutlet var sadFaceView: SadFaceView!
 
     override func viewDidLoad() {

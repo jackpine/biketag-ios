@@ -10,7 +10,7 @@ import UIKit
 
 private let secondsToCapture = 30 * 60
 
-class CorrectGuessViewController: ApplicationViewController {
+class CorrectGuessViewController: BaseViewController {
     deinit {
         // Run loops create a strong reference to the timer,
         // make sure we explicitly invalidate it.

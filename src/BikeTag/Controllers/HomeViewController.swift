@@ -2,38 +2,47 @@ import CoreLocation
 import PureLayout
 import UIKit
 
-class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var guessSpotButtonView: PrimaryButton!
-    @IBOutlet var spotDateContainer: UIView!
-    @IBOutlet var spotDateLabel: UILabel!
+class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    // MARK: - Subviews
+
+    lazy var postButton: UIView = {
+        let view = UIView()
+
+        let diameter: CGFloat = 60
+        view.autoSetDimensions(to: CGSize(width: diameter, height: diameter))
+        view.layer.cornerRadius = diameter / 2
+        view.backgroundColor = .white
+        view.setDropShadow()
+
+        let button = UIButton()
+        let image = #imageLiteral(resourceName: "bike-flag")
+        button.setImage(image, for: .normal)
+        view.addSubview(button)
+        button.autoPinEdgesToSuperviewMargins()
+        button.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        view.layoutMargins = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+
+        return view
+    }()
 
     // Last Cell / Add Spot Stuff
-    @IBOutlet var lastCellInSpotsTableView: UIView!
+    lazy var postYourOwnView: PostYourOwnView = {
+        let view = PostYourOwnView()
+        view.delegate = self
+        return view
+    }()
+
     @IBOutlet var newSpotCostLabel: UILabel!
     @IBOutlet var newSpotButton: PrimaryButton!
     @IBAction func didTouchUpInsideAddSpotButton(sender _: AnyObject) {
-        navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
+        presentNewSpotVC()
     }
 
-    @IBOutlet var mySpotView: UIView!
     lazy var loadingView: LoadingActivityView = LoadingActivityView()
 
     let currentSpots: SpotsCollection
     let locationService: LocationService
     let spotViewCache: NSCache<Spot, SpotView> = NSCache()
-    lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-
-        return formatter
-    }()
-
-    var currentSpot: Spot? {
-        didSet {
-            updateSpotControls()
-        }
-    }
 
     var refreshControl: UIRefreshControl!
 
@@ -89,8 +98,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         let dismissAction = UIAlertAction(title: "That's it for now.", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
 
-        let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to add your own spot", style: .default) { _ in
-            self.navigationController!.performSegue(withIdentifier: "pushNewSpotViewController", sender: nil)
+        let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to post your own spot", style: .default) { [weak self] _ in
+            self?.presentNewSpotVC()
         }
         newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost
         alertController.addAction(newSpotAction)
@@ -103,33 +112,40 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
     var loadingViewCenterXConstraint: NSLayoutConstraint?
     func setupSubviews() {
         view.addSubview(loadingView)
+        loadingViewCenterXConstraint = loadingView.autoAlignAxis(toSuperviewAxis: .vertical)
+        loadingView.autoAlignAxis(toSuperviewAxis: .horizontal)
 
-        let loadingViewCenterXConstraint = loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-
-        NSLayoutConstraint.activate([
-            loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            loadingViewCenterXConstraint,
-        ])
-
-        self.loadingViewCenterXConstraint = loadingViewCenterXConstraint
+        view.addSubview(postButton)
+        if #available(iOS 11.0, *) {
+            postButton.autoPinEdge(toSuperviewMargin: .top, withInset: 12)
+        } else {
+            // on iOS10 we're clobbering the status bar. This probably doesn't work
+            // right when there's a call baner, but 🤷‍♂️
+            postButton.autoPinEdge(toSuperviewEdge: .top, withInset: 32)
+        }
+        postButton.autoPinEdge(toSuperviewMargin: .trailing)
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        addShadowBehindStatusBar()
 
+        super.viewDidLoad()
         setupSubviews()
+
+        navigationItem.title = NSLocalizedString("Nearby Tags", comment: "navigation title")
 
         scoreButton = UIBarButtonItem(title: "score", style: UIBarButtonItem.Style.plain, target: self, action: #selector(didTapScoreButton))
 
         renderScore()
         navigationItem.rightBarButtonItem = scoreButton
 
-        automaticallyAdjustsScrollViewInsets = false
+        if #available(iOS 11.0, *) {
+            self.gameTableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+
         gameTableView.translatesAutoresizingMaskIntoConstraints = false
-
-        lastCellInSpotsTableView = LastCellInSpotsTableView(frame: view.frame, owner: self)
-
-        guessSpotButtonView.setTitle("Fetching Spots...", for: .disabled)
 
         refreshControl = UIRefreshControl()
         let titleAttributes: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white]
@@ -140,14 +156,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         gameTableView.addSubview(refreshControl)
         gameTableView.allowsSelection = false
         gameTableView.register(SpotViewCell.self, forCellReuseIdentifier: SpotViewCell.reuseIdentifier)
-
-        spotDateContainer.clipsToBounds = false
-        spotDateContainer.layer.shadowColor = UIColor.black.cgColor
-        spotDateContainer.layer.shadowRadius = 2
-        spotDateContainer.layer.shadowOffset = CGSize(width: 0, height: 1)
-        spotDateContainer.layer.shadowOpacity = 0.5
-
-        updateSpotControls()
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
         view.addGestureRecognizer(tapGesture)
@@ -167,13 +175,35 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         refreshIfStale()
     }
 
-    var prefersDateVisible = true
+    var hideControls = false
     @objc
     func didTapView(_: UITapGestureRecognizer) {
-        prefersDateVisible = !prefersDateVisible
-        ensureSpotDateVisibility()
+        let newValue = !hideControls
+        hideControls = newValue
+        UIView.animate(withDuration: 0.3) {
+            for cell in self.gameTableView.visibleCells {
+                guard let spotCell = cell as? SpotViewCell else {
+                    Logger.info("unexpected cell: \(cell)")
+                    continue
+                }
+                spotCell.spotView.hideControls = newValue
+                spotCell.layoutIfNeeded()
+            }
+        }
+    }
 
-        navigationController?.setNavigationBarHidden(!prefersDateVisible, animated: true)
+    func addShadowBehindStatusBar() {
+        guard let keyWindow = UIApplication.shared.keyWindow else {
+            assertionFailure("missing key window... cannot add shadow behind status")
+            return
+        }
+
+        let topShadow = GradientView(from: UIColor.black.withAlphaComponent(0.3),
+                                     to: .clear)
+        keyWindow.addSubview(topShadow)
+        topShadow.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+        topShadow.autoSetDimension(.height, toSize: 30)
+        topShadow.layer.zPosition = 100
     }
 
     func startTrackingLocation() {
@@ -270,12 +300,10 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         timeOfLastReload = NSDate()
         let setCurrentSpots = { (newSpots: [Spot]) -> Void in
             self.currentSpots.replaceSpots(spots: newSpots)
-            self.currentSpot = self.currentSpots[0]
             self.gameTableView.reloadData()
             self.gameTableView.layoutIfNeeded()
             self.gameTableView.setContentOffset(.zero, animated: true)
 
-            self.guessSpotButtonView.isEnabled = true
             self.completeLoadingAnimation()
             self.refreshControl.endRefreshing()
         }
@@ -365,58 +393,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         })
     }
 
-    func updateSpotControls() {
-        if let currentSpot = self.currentSpot {
-            if currentSpot.isCurrentUserOwner {
-                title = "This is YOUR Spot!"
-                guessSpotButtonView.isHidden = true
-                mySpotView.isHidden = false
-            } else {
-                title = "Where is \(self.currentSpot!.user.name)'s bicycle?"
-                guessSpotButtonView.isHidden = false
-                mySpotView.isHidden = true
-            }
-
-            ensureSpotDateVisibility()
-            spotDateLabel.text = dateFormatter.string(for: currentSpot.createdAt)
-        } else {
-            spotDateLabel.text = nil
-            ensureSpotDateVisibility()
-            title = "Where is YOUR bicycle?"
-            guessSpotButtonView.isHidden = true
-        }
-    }
-
-    var spotDateContainerLeadingConstraint: NSLayoutConstraint?
-
-    func ensureSpotDateVisibility() {
-        if let existingConstraint = spotDateContainerLeadingConstraint {
-            NSLayoutConstraint.deactivate([existingConstraint])
-        }
-
-        if currentSpot == nil || !prefersDateVisible {
-            spotDateContainerLeadingConstraint = spotDateContainer.autoPinEdge(.leading, to: .trailing, of: view)
-        }
-
-        UIView.animate(withDuration: 0.2) {
-            self.spotDateContainer.superview!.layoutIfNeeded()
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "showNewGuessScene" {
-            if !prefersDateVisible {
-                prefersDateVisible = true
-                ensureSpotDateVisibility()
-                navigationController?.setNavigationBarHidden(!prefersDateVisible, animated: true)
-            }
-
-            let guessSpotViewController = segue.destination as! GuessSpotViewController
-            guessSpotViewController.currentSpot = currentSpot
-        }
-    }
-
     var spotViewHeight: CGFloat {
         // FIXME: I was expecting to use gameListView.frame.height here, but the gameListView is only
         // something like 300X125 pixels in 'viewDidLoad'.
@@ -431,13 +407,6 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         // Snap SpotView to fill frame - we don't want to stop scrolling between two SpotViews.
         let cellIndex = Int(round(targetContentOffset.pointee.y / spotViewHeight))
         targetContentOffset.pointee.y = CGFloat(cellIndex) * spotViewHeight
-
-        if cellIndex == currentSpots.count() {
-            // not looking at spot, looking at last cell
-            currentSpot = nil
-        } else {
-            currentSpot = currentSpots[cellIndex]
-        }
     }
 
     // MARK: UITableViewDataSource
@@ -481,12 +450,15 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
             fatalError("init(coder:) has not been implemented")
         }
 
-        func configure(spot: Spot) {
+        func configure(spot: Spot, delegate: SpotViewDelegate) {
             spotView.spot = spot
+            spotView.delegate = delegate
         }
 
         override func prepareForReuse() {
             spotView.spot = nil
+            spotView.delegate = nil
+            spotView.hideControls = false
         }
     }
 
@@ -498,8 +470,8 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         guard indexPath.row < currentSpots.count() else {
             // Not looking at spot, looking at last cell
             let cell = UITableViewCell()
-            cell.contentView.addSubview(lastCellInSpotsTableView)
-
+            cell.contentView.addSubview(postYourOwnView)
+            postYourOwnView.autoPinEdgesToSuperviewEdges()
             return cell
         }
 
@@ -509,7 +481,7 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
             fatalError("unknown cell")
         }
 
-        cell.configure(spot: spot)
+        cell.configure(spot: spot, delegate: self)
 
         return cell
     }
@@ -519,5 +491,45 @@ class HomeViewController: ApplicationViewController, UIScrollViewDelegate, UITab
         if secondsElapsed > 60 * 30 {
             refresh()
         }
+    }
+
+    func presentNewSpotVC() {
+        let vc = NewSpotViewController.fromStoryboard()
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
+                                                              target: self,
+                                                              action: #selector(didTapDismissNewSpot))
+        let modal = BaseNavController(rootViewController: vc)
+        present(modal, animated: true)
+    }
+
+    @objc
+    func didTapDismissNewSpot() {
+        dismiss(animated: true)
+    }
+
+    @objc
+    func didTapPostButton() {
+        presentNewSpotVC()
+    }
+}
+
+extension HomeViewController: SpotViewDelegate {
+    func spotViewDidTapGuessSpot(_ spot: Spot) {
+        let guessSpotViewController = GuessSpotViewController.fromStoryboard(spot: spot)
+        guessSpotViewController.guessSpotDelegate = self
+        let modal = BaseNavController(rootViewController: guessSpotViewController)
+        present(modal, animated: true)
+    }
+}
+
+extension HomeViewController: GuessSpotDelegate {
+    func guessSpotDidCancel(_: GuessSpotViewController) {
+        dismiss(animated: true)
+    }
+}
+
+extension HomeViewController: PostYourOwnViewDelegate {
+    func didTapPostYourOwn(_: PostYourOwnView) {
+        presentNewSpotVC()
     }
 }

@@ -2,7 +2,7 @@ import AVFoundation
 import CoreLocation
 import UIKit
 
-class CameraViewController: ApplicationViewController, CLLocationManagerDelegate {
+class CameraViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet var photoPreviewView: UIView!
     @IBOutlet var takePictureButton: PrimaryButton!
 

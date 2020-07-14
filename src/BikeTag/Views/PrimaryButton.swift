@@ -19,7 +19,8 @@ class PrimaryButton: UIButton {
 
     func applyStyle() {
         backgroundColor = UIColor.clear
-        titleLabel?.font = .bt_title
+        titleLabel!.font = .bt_primary_button
+        titleLabel!.clipsToBounds = false
         setTitleColor(.gray, for: .disabled)
         setTitleColor(.red, for: .normal)
     }

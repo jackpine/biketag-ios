@@ -172,80 +172,13 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="afl-OA-s0M"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yOC-9H-Mla" userLabel="Spot Date">
-                                <rect key="frame" x="253.66666666666666" y="94" width="121.33333333333334" height="36"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/13/18 6PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wt6-Pc-na5">
-                                        <rect key="frame" x="16.000000000000028" y="4" width="89.333333333333329" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="yVD-ph-jGL"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="wt6-Pc-na5" firstAttribute="top" secondItem="yOC-9H-Mla" secondAttribute="top" constant="4" id="6Qu-am-PGU"/>
-                                    <constraint firstItem="wt6-Pc-na5" firstAttribute="leading" secondItem="yOC-9H-Mla" secondAttribute="leading" constant="16" id="9j3-bM-Zcm"/>
-                                    <constraint firstAttribute="trailing" secondItem="wt6-Pc-na5" secondAttribute="trailing" constant="16" id="Or5-K6-DVj"/>
-                                    <constraint firstAttribute="bottom" secondItem="wt6-Pc-na5" secondAttribute="bottom" constant="2" id="hjD-6l-jRT"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFH-Ki-tZ3" customClass="PrimaryButton" customModule="BikeTag" customModuleProvider="target">
-                                <rect key="frame" x="16" y="676" width="343" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="HA6-Rz-YQu">
-                                        <variation key="widthClass=compact" constant="48"/>
-                                    </constraint>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
-                                <state key="normal" title="I know where it is! ">
-                                    <color key="titleColor" red="0.9882352941176471" green="0.050980392156862744" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="guess spot"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="BiW-SU-TUN" kind="show" identifier="showNewGuessScene" id="DQG-Lq-ZL2"/>
-                                </connections>
-                            </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gl7-Uo-dgZ" userLabel="My Spot View">
-                                <rect key="frame" x="0.0" y="683" width="375" height="75"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Will your friends find it?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9v-9r-GSk">
-                                        <rect key="frame" x="20" y="16" width="335" height="25"/>
-                                        <fontDescription key="fontDescription" name="LeagueSpartan-Bold" family="League Spartan" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="top" secondItem="gl7-Uo-dgZ" secondAttribute="top" constant="16" id="QbF-EO-6UD"/>
-                                    <constraint firstItem="a9v-9r-GSk" firstAttribute="leading" secondItem="gl7-Uo-dgZ" secondAttribute="leading" constant="20" id="Y0r-8u-NdV"/>
-                                    <constraint firstAttribute="trailing" secondItem="a9v-9r-GSk" secondAttribute="trailing" constant="20" id="ZAR-OF-yl9"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pUs-On-Jlr" secondAttribute="bottom" id="0JZ-66-b5q"/>
-                            <constraint firstItem="yOC-9H-Mla" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" constant="94" id="3cA-un-GZ2"/>
-                            <constraint firstItem="VFH-Ki-tZ3" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="48t-t5-2C3"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="a9v-9r-GSk" secondAttribute="bottom" id="CkT-3V-qEg"/>
-                            <constraint firstAttribute="bottom" secondItem="gl7-Uo-dgZ" secondAttribute="bottom" id="M6X-H2-MLj"/>
-                            <constraint firstAttribute="trailing" secondItem="gl7-Uo-dgZ" secondAttribute="trailing" id="N1i-04-DXg"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="VFH-Ki-tZ3" secondAttribute="bottom" id="Wnf-vJ-c8P"/>
-                            <constraint firstItem="yOC-9H-Mla" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="Yyk-88-Rn3"/>
-                            <constraint firstItem="gl7-Uo-dgZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gVf-XB-cHS"/>
                             <constraint firstAttribute="trailing" secondItem="pUs-On-Jlr" secondAttribute="trailing" id="mjh-0J-ZPO"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="qcL-RU-hqD"/>
                             <constraint firstItem="pUs-On-Jlr" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="wHM-fD-Ebn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VFH-Ki-tZ3" secondAttribute="trailing" id="zC6-Uh-ta4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Getting all the latest spots..." id="djg-xB-CWe">
@@ -253,10 +186,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gameTableView" destination="pUs-On-Jlr" id="TN1-0M-ASV"/>
-                        <outlet property="guessSpotButtonView" destination="VFH-Ki-tZ3" id="mFB-KW-oB1"/>
-                        <outlet property="mySpotView" destination="gl7-Uo-dgZ" id="hE9-oT-Jb4"/>
-                        <outlet property="spotDateContainer" destination="yOC-9H-Mla" id="Wtb-Ry-PXz"/>
-                        <outlet property="spotDateLabel" destination="wt6-Pc-na5" id="scv-Ac-UaI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -266,10 +195,9 @@
         <!--Item-->
         <scene sceneID="1Bz-zF-iAb">
             <objects>
-                <navigationController modalPresentationStyle="fullScreen" id="89J-R4-vFb" sceneMemberID="viewController">
+                <navigationController modalPresentationStyle="fullScreen" navigationBarHidden="YES" id="89J-R4-vFb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Tlo-Y9-srY"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" id="amq-2V-zg3">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -278,7 +206,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="rootViewController" id="XyA-Nl-Ivb"/>
-                        <segue destination="kB0-aQ-szS" kind="show" identifier="pushNewSpotViewController" id="6Gt-DJ-E2h"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ag-J8-fws" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -288,21 +215,21 @@
         <!--Guess by Taking Photo-->
         <scene sceneID="4VN-Ne-Qml">
             <objects>
-                <viewController id="BiW-SU-TUN" userLabel="Guess by Taking Photo" customClass="GuessSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="guessSpotViewController" id="BiW-SU-TUN" userLabel="Guess by Taking Photo" customClass="GuessSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ze0-lz-seT"/>
                         <viewControllerLayoutGuide type="bottom" id="OkI-84-ROU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="v6M-UC-jWP">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="esg-LR-wYA" userLabel="Photo Preview">
-                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inN-Os-Ndg" userLabel="Response Actions">
-                                <rect key="frame" x="0.0" y="627" width="375" height="131"/>
+                                <rect key="frame" x="0.0" y="681" width="375" height="131"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't forget to include your bike in the shot!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EC8-42-NAR">
                                         <rect key="frame" x="16" y="16" width="343" height="25"/>
@@ -319,7 +246,7 @@
                                             <constraint firstAttribute="height" constant="48" id="Xr5-g9-UJe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="22"/>
-                                        <state key="normal" title="Prove it with a Photo.">
+                                        <state key="normal" title="Take Photo">
                                             <color key="titleColor" red="0.98823529409999999" green="0.050980392159999999" blue="0.1058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -360,7 +287,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photo evidence"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Found it?" id="vg2-rb-gz0" userLabel="Capture It"/>
+                    <navigationItem key="navigationItem" title="Snap your Bike at the Spot" id="vg2-rb-gz0" userLabel="Capture It"/>
                     <connections>
                         <outlet property="photoPreviewView" destination="esg-LR-wYA" id="CeP-8n-4uz"/>
                         <outlet property="takePictureButton" destination="UtK-pk-m87" id="d7w-tQ-6N0"/>
@@ -380,18 +307,18 @@
                         <viewControllerLayoutGuide type="bottom" id="90v-iu-fVa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bWU-iX-0kH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zxW-5G-LFt" userLabel="Submitted Image">
-                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <color key="backgroundColor" red="0.66666668653488159" green="0.66666668653488159" blue="0.66666668653488159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9PX-KY-zwI" userLabel="Progress Overlay">
-                                <rect key="frame" x="0.0" y="56" width="375" height="702"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's see..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tb-jg-bZa">
-                                        <rect key="frame" x="8" y="331" width="359" height="40"/>
+                                        <rect key="frame" x="8" y="364" width="359" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="TVH-Ga-1fy">
                                                 <variation key="widthClass=compact" constant="20"/>
@@ -411,7 +338,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z6C-Jt-DAh" userLabel="Response Actions">
-                                <rect key="frame" x="0.0" y="604" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="658" width="375" height="120"/>
                                 <subviews>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4R-8C-yyR" userLabel="Pretend Responses">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -746,7 +673,7 @@
         <!--New Spot-->
         <scene sceneID="I8s-JK-wUz">
             <objects>
-                <viewController title="Add your own spot!" id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newSpotViewController" title="Post your own spot!" id="kB0-aQ-szS" userLabel="New Spot" customClass="NewSpotViewController" customModule="BikeTag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mkQ-aY-6Yn"/>
                         <viewControllerLayoutGuide type="bottom" id="5hT-u1-KNe"/>
@@ -835,7 +762,7 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="new spot"/>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <navigationItem key="navigationItem" title="Add your own!" id="TsD-mA-2Af"/>
+                    <navigationItem key="navigationItem" title="Post your own!" id="TsD-mA-2Af"/>
                     <connections>
                         <outlet property="activityIndicatorImageView" destination="Qtx-Px-3tK" id="y0P-17-Ebn"/>
                         <outlet property="loadingView" destination="T64-39-yz7" id="s1C-xk-DAx"/>
@@ -921,9 +848,6 @@
             <point key="canvasLocation" x="4879" y="-695"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6Gt-DJ-E2h"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="bike-flag" width="1536" height="1212"/>
         <image name="biketag-spinner-1" width="200" height="200"/>

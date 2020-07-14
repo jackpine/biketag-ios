@@ -47,7 +47,7 @@ public class LoadingActivityView: UIView {
 
     lazy var label: UILabel = {
         let label = UILabel()
-        label.font = .bt_label
+        label.font = .bt_bold_label
         label.text = NSLocalizedString("Finding spots near you...", comment: "loading indicator label")
         return label
     }()

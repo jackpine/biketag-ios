@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstSpotCreatedViewController: ApplicationViewController {
+class FirstSpotCreatedViewController: BaseViewController {
     @IBOutlet var headerLabel: UILabel!
     @IBOutlet var subHeaderLabel: UILabel!
     @IBOutlet var prepareForNotificationLabel: UILabel!

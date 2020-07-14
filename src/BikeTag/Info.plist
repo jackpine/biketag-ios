@@ -50,7 +50,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Use your camera to showcase your bike in exotic situations.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>So you can play with nearby bicyclists.</string>
+	<string>Show the spots nearest you.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>League Spartan.otf</string>

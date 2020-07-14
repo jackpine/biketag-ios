@@ -14,6 +14,14 @@ class NewSpotViewController: CameraViewController {
         loadingView.layer.masksToBounds = true
     }
 
+    class func fromStoryboard() -> NewSpotViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "newSpotViewController") as? NewSpotViewController else {
+            preconditionFailure("unexpected vc")
+        }
+        return vc
+    }
+
     func createSpotFromData(imageData: Data, location: CLLocation) {
         let image = Platform.isSimulator ? Spot.griffithSpot().image : UIImage(data: imageData)
 
@@ -40,7 +48,7 @@ class NewSpotViewController: CameraViewController {
     func stopLoadingAnimation() {
         loadingView.isHidden = true
         takePictureButton.isEnabled = true
-        takePictureButton.titleLabel?.text = "Claim this Spot! "
+        takePictureButton.titleLabel?.text = NSLocalizedString("Post this Spot! ", comment: "primary button text")
     }
 
     func startLoadingAnimation() {

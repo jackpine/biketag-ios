@@ -3,11 +3,23 @@ import CoreLocation
 import UIKit
 
 class GuessSpotViewController: CameraViewController {
-    var currentSpot: Spot?
+    var currentSpot: Spot!
     var newGuess: Guess?
+
+    weak var guessSpotDelegate: GuessSpotDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapDismiss))
+    }
+
+    public class func fromStoryboard(spot: Spot) -> GuessSpotViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "guessSpotViewController") as? GuessSpotViewController else {
+            preconditionFailure("unexpected vc")
+        }
+        vc.currentSpot = spot
+        return vc
     }
 
     func createGuessFromData(imageData: Data, location: CLLocation) {
@@ -18,7 +30,7 @@ class GuessSpotViewController: CameraViewController {
             image = UIImage(data: imageData)!
         }
 
-        newGuess = Guess(spot: currentSpot!, user: User.getCurrentUser(), location: location, image: image!)
+        newGuess = Guess(spot: currentSpot, user: User.getCurrentUser(), location: location, image: image!)
         performSegue(withIdentifier: "showCheckingGuessSegue", sender: nil)
     }
 
@@ -32,4 +44,17 @@ class GuessSpotViewController: CameraViewController {
         let checkGuessViewController = segue.destination as! CheckGuessViewController
         checkGuessViewController.guess = newGuess!
     }
+
+    @objc
+    func didTapDismiss() {
+        guard let guessSpotDelegate = guessSpotDelegate else {
+            assertionFailure("guessSpotDelegate was unexpectedly nil")
+            return
+        }
+        guessSpotDelegate.guessSpotDidCancel(self)
+    }
+}
+
+protocol GuessSpotDelegate: AnyObject {
+    func guessSpotDidCancel(_ guessSpotViewController: GuessSpotViewController)
 }

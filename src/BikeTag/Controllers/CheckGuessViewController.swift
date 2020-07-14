@@ -1,6 +1,6 @@
 import UIKit
 
-class CheckGuessViewController: ApplicationViewController {
+class CheckGuessViewController: BaseViewController {
     @IBOutlet var fakeResponseActions: UIView!
     @IBOutlet var fakeCorrectResponseButton: UIButton!
     @IBOutlet var fakeIncorrectResponseButton: UIButton!
@@ -49,8 +49,7 @@ class CheckGuessViewController: ApplicationViewController {
             alertController.addAction(retryAction)
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                let navigationController: UINavigationController = self.navigationController!
-                navigationController.popToRootViewController(animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             }
             alertController.addAction(cancelAction)
 
@@ -94,14 +93,14 @@ class CheckGuessViewController: ApplicationViewController {
         performSegue(withIdentifier: "showIncorrectGuess", sender: nil)
     }
 
-    @IBAction func touchedPretendIncorrectGuess(sender _: AnyObject) {
+    @IBAction func touchedPretendIncorrectGuess(_: AnyObject) {
         progressOverlay.isHidden = true
         guess!.correct = false
         guess!.distance = 0.03
         incorrectGuess(guess: guess!)
     }
 
-    @IBAction func touchedPretendCorrectGuess(sender _: AnyObject) {
+    @IBAction func touchedPretendCorrectGuess(_: AnyObject) {
         progressOverlay.isHidden = true
         guess!.correct = true
         guess!.distance = 0.0001
