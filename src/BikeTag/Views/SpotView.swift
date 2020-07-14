@@ -32,8 +32,9 @@ class SpotView: UIView {
 
         // Layout
 
-        loadingView.autoSetDimensions(to: CGSize(width: 100, height: 100))
+        loadingView.autoSetDimensions(to: CGSize(width: 50, height: 50))
         loadingView.autoCenterInSuperview()
+        loadingView.alpha = 0.5
         imageView.autoPinEdgesToSuperviewEdges()
 
         NotificationCenter.default.addObserver(self, selector: #selector(SpotView.updateSpotViewImage), name: Spot.didSetImageNotification, object: spot)
