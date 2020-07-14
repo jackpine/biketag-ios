@@ -14,6 +14,8 @@ public class LoadingActivityView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
 
+        backgroundColor = .bt_background
+
         addSubview(rows)
 
         _ = {
@@ -29,7 +31,7 @@ public class LoadingActivityView: UIView {
             ])
         }()
 
-        layer.cornerRadius = 5
+        layer.cornerRadius = 16
         layer.masksToBounds = true
     }
 
