@@ -32,6 +32,8 @@ class User: Equatable {
     class func anonymousUser() -> User {
         return User(id: 0, name: "Anonymous User")
     }
+
+    static let currencyUnit: String = String("💎🍕🌮🌭🍔🍓🥨".randomElement()!)
 }
 
 // MARK: Equatable

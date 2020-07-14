@@ -63,13 +63,13 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     var timeOfLastReload: NSDate = NSDate()
 
     func renderScore() {
-        scoreButton.setTitle("💎\(currentUserScore)", for: .normal)
+        scoreButton.setTitle("\(User.currencyUnit)\(currentUserScore)", for: .normal)
         if let newSpotCostLabel = newSpotCostLabel {
             if currentUserScore >= Spot.newSpotCost {
-                newSpotCostLabel.text = "This costs 💎\(Spot.newSpotCost) of your 💎\(currentUserScore)."
+                newSpotCostLabel.text = "This costs \(User.currencyUnit)\(Spot.newSpotCost) of your \(User.currencyUnit)\(currentUserScore)."
                 newSpotButton.isEnabled = true
             } else {
-                newSpotCostLabel.text = "You need at least 💎\(Spot.newSpotCost - currentUserScore) more to add a spot."
+                newSpotCostLabel.text = "You need at least \(User.currencyUnit)\(Spot.newSpotCost - currentUserScore) more to add a spot."
                 newSpotButton.isEnabled = false
             }
         }
@@ -117,17 +117,16 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     func didTapScoreButton() {
         Logger.debug("score button touched")
 
-        let currentUserName = User.getCurrentUser().name
         let alertController = UIAlertController(
-            title: "\(currentUserName)'s Store",
-            message: "You've got 💎\(currentUserScore) to spend.",
+            title: "\(User.currencyUnit)\(currentUserScore) in the bank",
+            message: nil,
             preferredStyle: .alert
         )
 
         let dismissAction = UIAlertAction(title: "No Thanks", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
 
-        let newSpotAction = UIAlertAction(title: "💎\(Spot.newSpotCost) to post your own spot", style: .default) { [weak self] _ in
+        let newSpotAction = UIAlertAction(title: "\(User.currencyUnit)\(Spot.newSpotCost) to post your own spot", style: .default) { [weak self] _ in
             self?.presentNewSpotVC()
         }
         newSpotAction.isEnabled = currentUserScore >= Spot.newSpotCost

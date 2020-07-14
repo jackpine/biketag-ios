@@ -29,7 +29,7 @@ class SpotView: UIView {
                 nameLabel.text = String(format: nameFormat, nameText, timeString)
 
                 let numberString = rewardFormatter.string(for: spot.reward) ?? "?"
-                let rewardformat = NSLocalizedString("💎%@ reward", comment: "label affixed to a spot image. Embeds the reward amount earned if captured.")
+                let rewardformat = NSLocalizedString("\(User.currencyUnit)%@ reward", comment: "label affixed to a spot image. Embeds the reward amount earned if captured.")
 
                 rewardLabel.text = String(format: rewardformat, numberString)
 
