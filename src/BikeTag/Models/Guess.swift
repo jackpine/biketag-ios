@@ -25,20 +25,20 @@ class Guess {
         }
 
         // TODO: localize
-        if distance < 0.002 {
-            return "Shoot! You're super close."
-        } else if distance < 0.005 {
-            return "You're close though."
-        } else if distance < 0.015 {
-            return "You are like a mile away."
-        } else if distance < 0.1 {
-            return "You're in the wrong neighborhood."
-        } else if distance < 1.0 {
-            return "I don't think you're even in the right town."
-        } else if distance < 200 { // ~2,500 miles / 4,000km
-            return "You're far. Like REALLY far away."
+        if distance < 200 {
+            return "Shoot! You're super close.\n🤏"
+        } else if distance < 800 {
+            return "You're in the neighborhood.\n👋"
+        } else if distance < 2000 {
+            return "You are like a mile away.\n🙃"
+        } else if distance < 10000 {
+            return "You're on the wrong side of town.\n😜"
+        } else if distance < 50000 {
+            return "I don't think you're even in the right town.\n🤷‍♀️"
+        } else if distance < 3_000_000 {
+            return "You're far. Like REALLY far. Like across the country far. \n🥺🏳"
         } else {
-            return "I'm not even sure you're on the right contintent."
+            return "I'm not even sure you're on the right contintent.\n😝"
         }
     }
 
