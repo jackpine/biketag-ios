@@ -6,9 +6,14 @@
 //  Copyright © 2016 Jackpine. All rights reserved.
 //
 
+import CoreLocation
 import UIKit
 
 private let secondsToCapture = 30 * 60
+
+protocol CorrectGuessDelegate: AnyObject {
+    func correctGuessAtNewSpot(_ correctGuessVC: CorrectGuessViewController, game: Game)
+}
 
 class CorrectGuessViewController: BaseViewController {
     deinit {
@@ -19,20 +24,29 @@ class CorrectGuessViewController: BaseViewController {
 
     @IBOutlet var countdownClockLabel: UILabel!
 
-    var guess: Guess?
-    var startTime: NSDate?
-    var timer: Timer?
+    var guess: Guess!
+    weak var correctGuessDelegate: CorrectGuessDelegate?
 
-    override func viewDidLoad() {
-        startTime = NSDate()
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CorrectGuessViewController.updateSecondsLeft), userInfo: nil, repeats: true)
+    private var startTime: NSDate?
+    private var timer: Timer?
+
+    class func fromStoryboard() -> Self {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "CorrectGuessViewController") as? Self else {
+            preconditionFailure("unexpected vc")
+        }
+        return vc
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
-        // TODO: make guard or comment as to when this is expected to fail
-        if let newSpotViewController = segue.destination as? NewSpotViewController {
-            newSpotViewController.game = guess!.game
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        startTime = NSDate()
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(CorrectGuessViewController.updateSecondsLeft), userInfo: nil, repeats: true)
+    }
+
+    @IBAction
+    func didPressAtNextSpot(_: AnyObject) {
+        correctGuessDelegate?.correctGuessAtNewSpot(self, game: guess.game)
     }
 
     var secondsLeft: Int = secondsToCapture {

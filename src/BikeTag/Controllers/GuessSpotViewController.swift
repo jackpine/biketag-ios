@@ -2,59 +2,45 @@ import AVFoundation
 import CoreLocation
 import UIKit
 
+protocol GuessCreationDelegate: AnyObject {
+    func guessCreation(_ newGuessVC: GuessSpotViewController, didCaptureImageData imageData: Data, location: CLLocation)
+    func guessCreation(_ newGuessVC: GuessSpotViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback: @escaping (Error) -> Void)
+}
+
 class GuessSpotViewController: CameraViewController {
-    var currentSpot: Spot!
-    var newGuess: Guess?
+    weak var guessCreationDelegate: GuessCreationDelegate?
 
-    weak var guessSpotDelegate: GuessSpotDelegate?
+    // MARK: Init
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapDismiss))
-    }
-
-    public class func fromStoryboard(spot: Spot) -> GuessSpotViewController {
+    public class func fromStoryboard(spot _: Spot) -> GuessSpotViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "guessSpotViewController") as? GuessSpotViewController else {
             preconditionFailure("unexpected vc")
         }
-        vc.currentSpot = spot
         return vc
     }
 
-    func createGuessFromData(imageData: Data, location: CLLocation) {
-        var image: UIImage?
-        if Platform.isSimulator {
-            image = UIImage(named: "952 lucile")!
-        } else {
-            image = UIImage(data: imageData)!
-        }
-
-        newGuess = Guess(spot: currentSpot, user: User.getCurrentUser(), location: location, image: image!)
-        performSegue(withIdentifier: "showCheckingGuessSegue", sender: nil)
-    }
+    // MARK: -
 
     @IBAction func takePictureButtonViewTouched(sender _: AnyObject) {
         Logger.debug("capturing image")
-        captureImage(callback: createGuessFromData)
-    }
+        captureImage { [weak self] capturedImageData, location in
+            guard let self = self else { return }
+            let imageData = Platform.isSimulator
+                ? Spot.lucileSpot.image!.jpegData(compressionQuality: 0.9)!
+                : capturedImageData
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        let checkGuessViewController = segue.destination as! CheckGuessViewController
-        checkGuessViewController.guess = newGuess!
-    }
-
-    @objc
-    func didTapDismiss() {
-        guard let guessSpotDelegate = guessSpotDelegate else {
-            assertionFailure("guessSpotDelegate was unexpectedly nil")
-            return
+            self.guessCreationDelegate?.guessCreation(self, didCaptureImageData: imageData, location: location)
         }
-        guessSpotDelegate.guessSpotDidCancel(self)
     }
 }
 
-protocol GuessSpotDelegate: AnyObject {
-    func guessSpotDidCancel(_ guessSpotViewController: GuessSpotViewController)
+extension GuessSpotViewController: ApprovalDelegate {
+    var approvalButtonText: String {
+        NSLocalizedString("Claim this Spot! ", comment: "primary button, confirm to upload snapped photo")
+    }
+
+    func approvalView(_: ApprovalViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback: @escaping (Error) -> Void) {
+        guessCreationDelegate?.guessCreation(self, didApproveImageData: imageData, location: location, errorCallback: errorCallback)
+    }
 }

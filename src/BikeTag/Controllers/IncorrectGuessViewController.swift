@@ -14,6 +14,14 @@ class IncorrectGuessViewController: BaseViewController {
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var sadFaceView: SadFaceView!
 
+    class func fromStoryboard() -> Self {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "IncorrectGuessViewController") as? Self else {
+            preconditionFailure("unexpected vc")
+        }
+        return vc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         distanceLabel.text = guess!.distanceMessage()

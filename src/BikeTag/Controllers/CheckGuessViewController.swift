@@ -1,6 +1,13 @@
 import UIKit
 
+protocol CheckGuessDelegate: AnyObject {
+    func checkedGuess(_ checkGuessViewController: CheckGuessViewController, didGuessCorrect guess: Guess)
+    func checkedGuess(_ checkGuessViewController: CheckGuessViewController, didGuessWrong guess: Guess)
+}
+
 class CheckGuessViewController: BaseViewController {
+    weak var checkGuessDelegate: CheckGuessDelegate?
+
     @IBOutlet var fakeResponseActions: UIView!
     @IBOutlet var fakeCorrectResponseButton: UIButton!
     @IBOutlet var fakeIncorrectResponseButton: UIButton!
@@ -12,6 +19,14 @@ class CheckGuessViewController: BaseViewController {
 
     @IBOutlet var progressLabel: UILabel!
     @IBOutlet var progressOverlay: UIView!
+
+    class func fromStoryboard() -> Self {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "CheckGuessViewController") as? Self else {
+            preconditionFailure("unexpected vc")
+        }
+        return vc
+    }
 
     var guess: Guess? {
         didSet {
@@ -55,7 +70,7 @@ class CheckGuessViewController: BaseViewController {
 
             self.present(alertController, animated: true, completion: nil)
         }
-        spotsService.postSpotGuess(guess: guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
+        Config.spotsService.postSpotGuess(guess: guess!, callback: handleGuessResponse, errorCallback: displayErrorAlert)
     }
 
     func animateProgress() {
@@ -78,33 +93,33 @@ class CheckGuessViewController: BaseViewController {
         } else {
             progressOverlay.isHidden = true
             if guess.correct! {
-                correctGuess(guess: guess)
+                checkGuessDelegate?.checkedGuess(self, didGuessCorrect: guess)
             } else {
-                incorrectGuess(guess: guess)
+                checkGuessDelegate?.checkedGuess(self, didGuessWrong: guess)
             }
         }
     }
 
-    func correctGuess(guess _: Guess) {
-        performSegue(withIdentifier: "showCorrectGuess", sender: nil)
-    }
-
-    func incorrectGuess(guess _: Guess) {
-        performSegue(withIdentifier: "showIncorrectGuess", sender: nil)
-    }
-
     @IBAction func touchedPretendIncorrectGuess(_: AnyObject) {
+        guard let guess = guess else {
+            assertionFailure("guess was unexpectedly nil")
+            return
+        }
         progressOverlay.isHidden = true
-        guess!.correct = false
-        guess!.distance = 0.03
-        incorrectGuess(guess: guess!)
+        guess.correct = false
+        guess.distance = 5000
+        checkGuessDelegate?.checkedGuess(self, didGuessWrong: guess)
     }
 
     @IBAction func touchedPretendCorrectGuess(_: AnyObject) {
+        guard let guess = guess else {
+            assertionFailure("guess was unexpectedly nil")
+            return
+        }
         progressOverlay.isHidden = true
-        guess!.correct = true
-        guess!.distance = 0.0001
-        correctGuess(guess: guess!)
+        guess.correct = true
+        guess.distance = 10
+        checkGuessDelegate?.checkedGuess(self, didGuessCorrect: guess)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

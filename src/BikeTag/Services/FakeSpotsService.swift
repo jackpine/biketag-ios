@@ -9,8 +9,8 @@ class FakeSpotsService: SpotsService {
 
         let secondImageAsbase64Encoded = "data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7"
 
-        let firstGameSpot = Spot.lucileSpot()
-        let secondGameSpot = Spot.griffithSpot()
+        let firstGameSpot = Spot.lucileSpot
+        let secondGameSpot = Spot.griffithSpot
 
         let fakeResponse = [[
             "location": [

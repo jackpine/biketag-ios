@@ -3,6 +3,18 @@ import PureLayout
 import UIKit
 
 class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
+    // MARK: - Dependencies
+
+    var currentSpots: SpotsCollection {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.currentSession.currentSpots
+    }
+
+    var locationService: LocationService {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.locationService
+    }
+
     // MARK: - Subviews
 
     lazy var postButton: UIView = {
@@ -40,8 +52,6 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
 
     lazy var loadingView: LoadingActivityView = LoadingActivityView()
 
-    let currentSpots: SpotsCollection
-    let locationService: LocationService
     let spotViewCache: NSCache<Spot, SpotView> = NSCache()
 
     var refreshControl: UIRefreshControl!
@@ -54,9 +64,6 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     @IBOutlet var gameTableView: UITableView!
 
     required init?(coder aDecoder: NSCoder) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        currentSpots = appDelegate.currentSession.currentSpots
-        locationService = appDelegate.locationService
         super.init(coder: aDecoder)
     }
 
@@ -324,15 +331,22 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
                                         onTimeout: displayRetryAlert)
     }
 
+    func snapToCell(animated: Bool) {
+        guard let path = gameTableView.indexPathForRow(at: gameTableView.bounds.center) else {
+            return
+        }
+        gameTableView.scrollToRow(at: path, at: .middle, animated: animated)
+    }
+
     func fetchCurrentSpots(near: CLLocation) {
         Logger.info("refreshing spots list near \(near)")
         timeOfLastReload = NSDate()
-        let setCurrentSpots = { (newSpots: [Spot]) -> Void in
+        let setCurrentSpots = { [weak self] (newSpots: [Spot]) -> Void in
+            guard let self = self else { return }
             self.currentSpots.replaceSpots(spots: newSpots)
             self.gameTableView.reloadData()
             self.gameTableView.layoutIfNeeded()
-            self.gameTableView.setContentOffset(.zero, animated: true)
-
+            self.snapToCell(animated: true)
             self.completeLoadingAnimation()
             self.refreshControl.endRefreshing()
         }
@@ -352,7 +366,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             self.present(alertController, animated: true, completion: nil)
         }
 
-        Spot.fetchCurrentSpots(spotsService: spotsService, location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
+        Spot.fetchCurrentSpots(location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
     }
 
     func fetchCurrentUser() {
@@ -378,7 +392,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             self.currentUserScore = user.score
         }
 
-        usersService.fetchUser(userId: Config.currentUserId, successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
+        Config.usersService.fetchUser(userId: Config.currentUserId, successCallback: updateCurrentUser, errorCallback: displayErrorAlert)
     }
 
     func completeLoadingAnimation() {
@@ -527,12 +541,21 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
                                                               target: self,
                                                               action: #selector(didTapDismissNewSpot))
-        let modal = BaseNavController(rootViewController: vc)
+
+        let modal = NewSpotNavController(rootViewController: vc)
+        vc.spotCreationDelegate = modal
+        modal.newSpotDelegate = self
+
         present(modal, animated: true)
     }
 
     @objc
     func didTapDismissNewSpot() {
+        dismiss(animated: true)
+    }
+
+    @objc
+    func didTapDismissNewGuess() {
         dismiss(animated: true)
     }
 
@@ -544,15 +567,30 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
 
 extension HomeViewController: SpotViewDelegate {
     func spotViewDidTapGuessSpot(_ spot: Spot) {
-        let guessSpotViewController = GuessSpotViewController.fromStoryboard(spot: spot)
-        guessSpotViewController.guessSpotDelegate = self
-        let modal = BaseNavController(rootViewController: guessSpotViewController)
+        let guessSpotVC = GuessSpotViewController.fromStoryboard(spot: spot)
+
+        guessSpotVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
+                                                                       target: self,
+                                                                       action: #selector(didTapDismissNewGuess))
+
+        let modal = GuessNavController(rootViewController: guessSpotVC)
+        modal.guessNavDelegate = self
+        modal.existingSpot = spot
+        guessSpotVC.guessCreationDelegate = modal
+
         present(modal, animated: true)
     }
 }
 
-extension HomeViewController: GuessSpotDelegate {
-    func guessSpotDidCancel(_: GuessSpotViewController) {
+extension HomeViewController: GuessNavDelegate {
+    func guessNav(_: GuessNavController, didPostNewSpot newSpot: Spot) {
+        currentSpots.addNewSpot(newSpot: newSpot)
+        gameTableView.reloadData()
+        gameTableView.setContentOffset(.zero, animated: true)
+        dismiss(animated: true)
+    }
+
+    func guessNavRequestedStop(_: GuessNavController) {
         dismiss(animated: true)
     }
 }
@@ -560,5 +598,25 @@ extension HomeViewController: GuessSpotDelegate {
 extension HomeViewController: PostYourOwnViewDelegate {
     func didTapPostYourOwn(_: PostYourOwnView) {
         presentNewSpotVC()
+    }
+}
+
+extension HomeViewController: NewSpotNavDelegate {
+    func newSpotNav(_: NewSpotNavController, didFinishCreatingSpot newSpot: Spot) {
+        currentSpots.addNewSpot(newSpot: newSpot)
+        gameTableView.reloadData()
+        gameTableView.setContentOffset(.zero, animated: true)
+        if UserDefaults.hasPreviouslyCreatedSpot() {
+            dismiss(animated: true)
+        } else {
+            showFirstSpotCreated()
+        }
+    }
+
+    func showFirstSpotCreated() {
+        dismiss(animated: true)
+        // TODO: - Instead, show first spot created / APN request screen
+        // once we have APN set up.
+        // UserDefaults.setHasPreviouslyCreatedSpot(val: true)
     }
 }

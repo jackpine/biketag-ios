@@ -22,7 +22,7 @@ class SpotView: UIView {
         didSet {
             updateSpotViewImage()
             if let spot = spot {
-                let nameFormat = NSLocalizedString("posted by %1@ on %2@", comment: "label affixed to a spot image. Embeds (1) the name of the user who posted the spot and (2) the date/time they posted.")
+                let nameFormat = NSLocalizedString("posted by %1@\non %2@", comment: "label affixed to a spot image. Embeds (1) the name of the user who posted the spot and (2) the date/time they posted.")
                 let timeString = dateFormatter.string(for: spot.createdAt) ?? "?"
 
                 let nameText = spot.isCurrentUserOwner ? NSLocalizedString("you", comment: "embedded in place of username for your own spots") : spot.user.name
@@ -80,6 +80,8 @@ class SpotView: UIView {
         imageView.autoPinEdgesToSuperviewEdges()
 
         nameViewHEdgeConstraint = nameView.autoPinEdge(toSuperviewEdge: .leading)
+        nameView.autoPinEdge(toSuperviewMargin: .trailing, relation: .greaterThanOrEqual)
+        nameView.setContentHuggingHorizontalHigh()
 
         rewardView.autoPinEdge(.top, to: .bottom, of: nameView, withOffset: 8)
         rewardViewHEdgeConstraint = rewardView.autoPinEdge(toSuperviewEdge: .trailing)
@@ -117,7 +119,7 @@ class SpotView: UIView {
         didSet {
             if hideControls {
                 nameViewHEdgeConstraint.constant = -nameView.frame.width
-                rewardViewHEdgeConstraint.constant = nameView.frame.width
+                rewardViewHEdgeConstraint.constant = rewardView.frame.width
                 guessSpotButtonViewVCenterConstraint.isActive = false
             } else {
                 nameViewHEdgeConstraint.constant = 0
@@ -133,11 +135,8 @@ class SpotView: UIView {
         let label = UILabel()
         label.font = .bt_bold_label
         label.textColor = .black
-
-        NSLayoutConstraint.autoSetPriority(.defaultHigh) {
-            label.autoSetContentCompressionResistancePriority(for: .horizontal)
-            label.autoSetContentCompressionResistancePriority(for: .vertical)
-        }
+        label.numberOfLines = 0
+        label.setCompressionResistanceHigh()
 
         return label
     }()

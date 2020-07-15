@@ -10,7 +10,7 @@ class SpotsCollectionTest: XCTestCase {
         let spotsCollection = SpotsCollection()
         XCTAssertEqual(0, spotsCollection.count())
 
-        let spot = Spot.lucileSpot()
+        let spot = Spot.lucileSpot
         spotsCollection.addNewSpot(newSpot: spot)
         XCTAssertEqual(1, spotsCollection.count())
     }
@@ -19,7 +19,7 @@ class SpotsCollectionTest: XCTestCase {
         let spotsCollection = SpotsCollection()
         XCTAssertEqual(0, spotsCollection.count())
 
-        let oldSpot = Spot.lucileSpot()
+        let oldSpot = Spot.lucileSpot
         let newSpot = Spot(image: oldSpot.image!, game: oldSpot.game, user: oldSpot.user, location: oldSpot.location!)
 
         spotsCollection.addNewSpot(newSpot: oldSpot)
@@ -33,8 +33,8 @@ class SpotsCollectionTest: XCTestCase {
 
     func testReplaceAndFetchSpots() {
         let spotsCollection = SpotsCollection()
-        let spot = Spot.lucileSpot()
-        let anotherSpot = Spot.griffithSpot()
+        let spot = Spot.lucileSpot
+        let anotherSpot = Spot.griffithSpot
 
         spotsCollection.replaceSpots(spots: [spot, anotherSpot])
 
