@@ -1,16 +1,16 @@
 import Foundation
 import UIKit
 
-class BaseViewController: UIViewController {
+public class BaseViewController: UIViewController {
     let spotsService = Config.shouldFakeAPICalls ? FakeSpotsService() : SpotsService()
     let usersService = Config.shouldFakeAPICalls ? FakeUsersService() : UsersService()
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
 }
 
-class BaseNavController: UINavigationController {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+public class BaseNavController: UINavigationController {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
 }

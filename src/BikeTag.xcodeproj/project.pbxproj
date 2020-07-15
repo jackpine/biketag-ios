@@ -15,6 +15,52 @@
 		450549B024BE441600E229A5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549AE24BE441600E229A5 /* GradientView.swift */; };
 		450549B224BE507300E229A5 /* PostYourOwnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B124BE507300E229A5 /* PostYourOwnView.swift */; };
 		450549B324BE507300E229A5 /* PostYourOwnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B124BE507300E229A5 /* PostYourOwnView.swift */; };
+		450549B524BF7D6800E229A5 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B424BF7D6800E229A5 /* ImageEditorViewController.swift */; };
+		450549B624BF7D6800E229A5 /* ImageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B424BF7D6800E229A5 /* ImageEditorViewController.swift */; };
+		450549CB24BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B924BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift */; };
+		450549CC24BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549B924BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift */; };
+		450549CD24BF7ED000E229A5 /* ImageEditorTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BA24BF7ED000E229A5 /* ImageEditorTextItem.swift */; };
+		450549CE24BF7ED000E229A5 /* ImageEditorTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BA24BF7ED000E229A5 /* ImageEditorTextItem.swift */; };
+		450549CF24BF7ED000E229A5 /* ImageEditorBrushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BB24BF7ED000E229A5 /* ImageEditorBrushViewController.swift */; };
+		450549D024BF7ED000E229A5 /* ImageEditorBrushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BB24BF7ED000E229A5 /* ImageEditorBrushViewController.swift */; };
+		450549D124BF7ED000E229A5 /* ImageEditorTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BC24BF7ED000E229A5 /* ImageEditorTextViewController.swift */; };
+		450549D224BF7ED000E229A5 /* ImageEditorTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BC24BF7ED000E229A5 /* ImageEditorTextViewController.swift */; };
+		450549D324BF7ED000E229A5 /* ImageEditorCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BD24BF7ED000E229A5 /* ImageEditorCropViewController.swift */; };
+		450549D424BF7ED000E229A5 /* ImageEditorCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BD24BF7ED000E229A5 /* ImageEditorCropViewController.swift */; };
+		450549D524BF7ED000E229A5 /* PermissiveGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BE24BF7ED000E229A5 /* PermissiveGestureRecognizer.swift */; };
+		450549D624BF7ED000E229A5 /* PermissiveGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BE24BF7ED000E229A5 /* PermissiveGestureRecognizer.swift */; };
+		450549D724BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BF24BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift */; };
+		450549D824BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549BF24BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift */; };
+		450549D924BF7ED000E229A5 /* ImageEditorStrokeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C024BF7ED000E229A5 /* ImageEditorStrokeItem.swift */; };
+		450549DA24BF7ED000E229A5 /* ImageEditorStrokeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C024BF7ED000E229A5 /* ImageEditorStrokeItem.swift */; };
+		450549DB24BF7ED000E229A5 /* ImageEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C124BF7ED000E229A5 /* ImageEditorModel.swift */; };
+		450549DC24BF7ED000E229A5 /* ImageEditorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C124BF7ED000E229A5 /* ImageEditorModel.swift */; };
+		450549DD24BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C224BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift */; };
+		450549DE24BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C224BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift */; };
+		450549DF24BF7ED000E229A5 /* OWSViewController+ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C324BF7ED000E229A5 /* OWSViewController+ImageEditor.swift */; };
+		450549E024BF7ED000E229A5 /* OWSViewController+ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C324BF7ED000E229A5 /* OWSViewController+ImageEditor.swift */; };
+		450549E124BF7ED000E229A5 /* ImageEditorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C424BF7ED000E229A5 /* ImageEditorCanvasView.swift */; };
+		450549E224BF7ED000E229A5 /* ImageEditorCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C424BF7ED000E229A5 /* ImageEditorCanvasView.swift */; };
+		450549E324BF7ED000E229A5 /* ImageEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C524BF7ED000E229A5 /* ImageEditorItem.swift */; };
+		450549E424BF7ED000E229A5 /* ImageEditorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C524BF7ED000E229A5 /* ImageEditorItem.swift */; };
+		450549E524BF7ED000E229A5 /* ImageEditorContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C624BF7ED000E229A5 /* ImageEditorContents.swift */; };
+		450549E624BF7ED000E229A5 /* ImageEditorContents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C624BF7ED000E229A5 /* ImageEditorContents.swift */; };
+		450549E924BF7ED000E229A5 /* ImageEditorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C824BF7ED000E229A5 /* ImageEditorPaletteView.swift */; };
+		450549EA24BF7ED000E229A5 /* ImageEditorPaletteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C824BF7ED000E229A5 /* ImageEditorPaletteView.swift */; };
+		450549EB24BF7ED000E229A5 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C924BF7ED000E229A5 /* ImageEditorView.swift */; };
+		450549EC24BF7ED000E229A5 /* ImageEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549C924BF7ED000E229A5 /* ImageEditorView.swift */; };
+		450549ED24BF7ED000E229A5 /* ImageEditorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549CA24BF7ED000E229A5 /* ImageEditorTransform.swift */; };
+		450549EE24BF7ED000E229A5 /* ImageEditorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549CA24BF7ED000E229A5 /* ImageEditorTransform.swift */; };
+		450549F024BF8BE700E229A5 /* CGPoint+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549EF24BF8BE700E229A5 /* CGPoint+Helpers.swift */; };
+		450549F124BF8BE700E229A5 /* CGPoint+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549EF24BF8BE700E229A5 /* CGPoint+Helpers.swift */; };
+		450549F324BF959800E229A5 /* ImageEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F224BF959800E229A5 /* ImageEditorButton.swift */; };
+		450549F424BF959800E229A5 /* ImageEditorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F224BF959800E229A5 /* ImageEditorButton.swift */; };
+		450549F624BF964600E229A5 /* ImageEditorLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F524BF964600E229A5 /* ImageEditorLayerView.swift */; };
+		450549F724BF964600E229A5 /* ImageEditorLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F524BF964600E229A5 /* ImageEditorLayerView.swift */; };
+		450549F924BF9D7300E229A5 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F824BF9D7300E229A5 /* Weak.swift */; };
+		450549FA24BF9D7300E229A5 /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549F824BF9D7300E229A5 /* Weak.swift */; };
+		450549FC24BFA04700E229A5 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549FB24BFA04700E229A5 /* OrderedDictionary.swift */; };
+		450549FD24BFA04700E229A5 /* OrderedDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450549FB24BFA04700E229A5 /* OrderedDictionary.swift */; };
 		451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */; };
 		451E51D01AB3743C00849262 /* SpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E51CF1AB3743C00849262 /* SpotTest.swift */; };
@@ -120,6 +166,29 @@
 		450549AB24BE2E0C00E229A5 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		450549AE24BE441600E229A5 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		450549B124BE507300E229A5 /* PostYourOwnView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostYourOwnView.swift; sourceTree = "<group>"; };
+		450549B424BF7D6800E229A5 /* ImageEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorViewController.swift; sourceTree = "<group>"; };
+		450549B924BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		450549BA24BF7ED000E229A5 /* ImageEditorTextItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorTextItem.swift; sourceTree = "<group>"; };
+		450549BB24BF7ED000E229A5 /* ImageEditorBrushViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorBrushViewController.swift; sourceTree = "<group>"; };
+		450549BC24BF7ED000E229A5 /* ImageEditorTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorTextViewController.swift; sourceTree = "<group>"; };
+		450549BD24BF7ED000E229A5 /* ImageEditorCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorCropViewController.swift; sourceTree = "<group>"; };
+		450549BE24BF7ED000E229A5 /* PermissiveGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissiveGestureRecognizer.swift; sourceTree = "<group>"; };
+		450549BF24BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorPinchGestureRecognizer.swift; sourceTree = "<group>"; };
+		450549C024BF7ED000E229A5 /* ImageEditorStrokeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorStrokeItem.swift; sourceTree = "<group>"; };
+		450549C124BF7ED000E229A5 /* ImageEditorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorModel.swift; sourceTree = "<group>"; };
+		450549C224BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorBlurRegionsItem.swift; sourceTree = "<group>"; };
+		450549C324BF7ED000E229A5 /* OWSViewController+ImageEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "OWSViewController+ImageEditor.swift"; sourceTree = "<group>"; };
+		450549C424BF7ED000E229A5 /* ImageEditorCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorCanvasView.swift; sourceTree = "<group>"; };
+		450549C524BF7ED000E229A5 /* ImageEditorItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorItem.swift; sourceTree = "<group>"; };
+		450549C624BF7ED000E229A5 /* ImageEditorContents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorContents.swift; sourceTree = "<group>"; };
+		450549C824BF7ED000E229A5 /* ImageEditorPaletteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorPaletteView.swift; sourceTree = "<group>"; };
+		450549C924BF7ED000E229A5 /* ImageEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorView.swift; sourceTree = "<group>"; };
+		450549CA24BF7ED000E229A5 /* ImageEditorTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageEditorTransform.swift; sourceTree = "<group>"; };
+		450549EF24BF8BE700E229A5 /* CGPoint+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Helpers.swift"; sourceTree = "<group>"; };
+		450549F224BF959800E229A5 /* ImageEditorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorButton.swift; sourceTree = "<group>"; };
+		450549F524BF964600E229A5 /* ImageEditorLayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorLayerView.swift; sourceTree = "<group>"; };
+		450549F824BF9D7300E229A5 /* Weak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
+		450549FB24BFA04700E229A5 /* OrderedDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedDictionary.swift; sourceTree = "<group>"; };
 		451CBD221B3ED5EB00CCF832 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		451E51CF1AB3743C00849262 /* SpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTest.swift; sourceTree = "<group>"; };
 		451E51D21AB49AFA00849262 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -202,6 +271,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450549B824BF7ED000E229A5 /* ImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				450549EF24BF8BE700E229A5 /* CGPoint+Helpers.swift */,
+				450549B924BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift */,
+				450549BA24BF7ED000E229A5 /* ImageEditorTextItem.swift */,
+				450549BB24BF7ED000E229A5 /* ImageEditorBrushViewController.swift */,
+				450549BC24BF7ED000E229A5 /* ImageEditorTextViewController.swift */,
+				450549BD24BF7ED000E229A5 /* ImageEditorCropViewController.swift */,
+				450549BE24BF7ED000E229A5 /* PermissiveGestureRecognizer.swift */,
+				450549BF24BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift */,
+				450549C024BF7ED000E229A5 /* ImageEditorStrokeItem.swift */,
+				450549C124BF7ED000E229A5 /* ImageEditorModel.swift */,
+				450549C224BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift */,
+				450549C324BF7ED000E229A5 /* OWSViewController+ImageEditor.swift */,
+				450549C424BF7ED000E229A5 /* ImageEditorCanvasView.swift */,
+				450549C524BF7ED000E229A5 /* ImageEditorItem.swift */,
+				450549C624BF7ED000E229A5 /* ImageEditorContents.swift */,
+				450549C824BF7ED000E229A5 /* ImageEditorPaletteView.swift */,
+				450549F524BF964600E229A5 /* ImageEditorLayerView.swift */,
+				450549C924BF7ED000E229A5 /* ImageEditorView.swift */,
+				450549CA24BF7ED000E229A5 /* ImageEditorTransform.swift */,
+				450549F224BF959800E229A5 /* ImageEditorButton.swift */,
+				450549F824BF9D7300E229A5 /* Weak.swift */,
+				450549FB24BFA04700E229A5 /* OrderedDictionary.swift */,
+			);
+			path = ImageEditor;
+			sourceTree = "<group>";
+		};
 		451E51CE1AB3743C00849262 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +325,7 @@
 				45939FE21CAB725900360BE7 /* CorrectGuessViewController.swift */,
 				455526831CAC16D0001694BE /* TimesUpViewController.swift */,
 				45CDD4421CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift */,
+				450549B424BF7D6800E229A5 /* ImageEditorViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -318,6 +417,7 @@
 				45466E971ACA01AD00D7B69A /* Configs */,
 				4581A5F81AB7C9BA004C871F /* Services */,
 				45B488831A9AB73B00C7E03F /* Models */,
+				450549B824BF7ED000E229A5 /* ImageEditor */,
 				452897351A8681DD00AD077E /* Controllers */,
 				45AB7BAB1A3A1D8B00E1961E /* AppDelegate.swift */,
 				45AB7BB11A3A1D8B00E1961E /* Main.storyboard */,
@@ -557,44 +657,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				452897431A86827F00AD077E /* GuessSpotViewController.swift in Sources */,
+				450549CF24BF7ED000E229A5 /* ImageEditorBrushViewController.swift in Sources */,
 				459B3F8D1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				450549AF24BE441600E229A5 /* GradientView.swift in Sources */,
+				450549D124BF7ED000E229A5 /* ImageEditorTextViewController.swift in Sources */,
+				450549E124BF7ED000E229A5 /* ImageEditorCanvasView.swift in Sources */,
+				450549B524BF7D6800E229A5 /* ImageEditorViewController.swift in Sources */,
+				450549EB24BF7ED000E229A5 /* ImageEditorView.swift in Sources */,
 				45A3847D1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
 				45AB7BAC1A3A1D8B00E1961E /* AppDelegate.swift in Sources */,
+				450549D324BF7ED000E229A5 /* ImageEditorCropViewController.swift in Sources */,
+				450549E324BF7ED000E229A5 /* ImageEditorItem.swift in Sources */,
 				4581A6111AB7FC48004C871F /* ParsedSpot.swift in Sources */,
+				450549FC24BFA04700E229A5 /* OrderedDictionary.swift in Sources */,
 				4528973F1A86827F00AD077E /* CheckGuessViewController.swift in Sources */,
 				45021CCA1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */,
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				450549B224BE507300E229A5 /* PostYourOwnView.swift in Sources */,
+				450549D524BF7ED000E229A5 /* PermissiveGestureRecognizer.swift in Sources */,
 				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				45CB948424BD1842005240DF /* LoadingActivityView.swift in Sources */,
+				450549CD24BF7ED000E229A5 /* ImageEditorTextItem.swift in Sources */,
 				45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				452B83771CE251A400CE1F85 /* SpotsCollection.swift in Sources */,
 				4528973D1A86827F00AD077E /* CameraViewController.swift in Sources */,
+				450549D724BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift in Sources */,
 				4581A5FA1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45CDD4461CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				454E11051B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				45CDD4491CB9DB8E00CEC1DD /* DevicesService.swift in Sources */,
 				451CBD231B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
+				450549DB24BF7ED000E229A5 /* ImageEditorModel.swift in Sources */,
 				451E51D31AB49AFA00849262 /* User.swift in Sources */,
 				45C256651CEBFA1A0098E8FF /* LocationService.swift in Sources */,
 				452897401A86827F00AD077E /* HomeViewController.swift in Sources */,
 				454E11121B19564500FBAAC3 /* ApiService.swift in Sources */,
+				450549E524BF7ED000E229A5 /* ImageEditorContents.swift in Sources */,
+				450549CB24BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift in Sources */,
 				45D6B51D1CA8AE5C0047E7DA /* UIColor+Style.swift in Sources */,
 				452897411A86827F00AD077E /* NewSpotViewController.swift in Sources */,
+				450549F924BF9D7300E229A5 /* Weak.swift in Sources */,
 				456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */,
 				455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
 				450549AC24BE2E0C00E229A5 /* UIView+Helpers.swift in Sources */,
 				45E0ECDD1CAC13E30096C179 /* SadFaceView.swift in Sources */,
+				450549E924BF7ED000E229A5 /* ImageEditorPaletteView.swift in Sources */,
+				450549ED24BF7ED000E229A5 /* ImageEditorTransform.swift in Sources */,
 				45C757891CE2AAA000E9FEE8 /* Session.swift in Sources */,
+				450549F324BF959800E229A5 /* ImageEditorButton.swift in Sources */,
 				45B488851A9AB73B00C7E03F /* Spot.swift in Sources */,
+				450549DF24BF7ED000E229A5 /* OWSViewController+ImageEditor.swift in Sources */,
 				459F96241BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				454E110B1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
 				45D113011CA8B121004F7D66 /* UIFont+Style.swift in Sources */,
+				450549F024BF8BE700E229A5 /* CGPoint+Helpers.swift in Sources */,
 				45DB1F891B27BDCD0001EC8A /* SpotView.swift in Sources */,
+				450549DD24BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift in Sources */,
+				450549D924BF7ED000E229A5 /* ImageEditorStrokeItem.swift in Sources */,
+				450549F624BF964600E229A5 /* ImageEditorLayerView.swift in Sources */,
 				459F96211BB1CF72005D6C65 /* UsersService.swift in Sources */,
 				4560C4E21AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
 			);
@@ -604,21 +727,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				450549CC24BF7ED000E229A5 /* ImageEditorPanGestureRecognizer.swift in Sources */,
 				45939FE51CAB76BE00360BE7 /* GuessSpotViewController.swift in Sources */,
 				451E51D61AB4AB4C00849262 /* UserTest.swift in Sources */,
 				454E110C1B1927B200FBAAC3 /* ApiKeysService.swift in Sources */,
 				451CBD241B3ED5EB00CCF832 /* PrimaryButton.swift in Sources */,
 				45CDD44A1CB9DB8E00CEC1DD /* DevicesService.swift in Sources */,
 				454E11131B19564500FBAAC3 /* ApiService.swift in Sources */,
+				450549D824BF7ED000E229A5 /* ImageEditorPinchGestureRecognizer.swift in Sources */,
 				45C256641CEBFA190098E8FF /* LocationService.swift in Sources */,
 				45939FE71CAB76C700360BE7 /* HomeViewController.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				45939FE61CAB76C300360BE7 /* NewSpotViewController.swift in Sources */,
+				450549EE24BF7ED000E229A5 /* ImageEditorTransform.swift in Sources */,
+				450549EA24BF7ED000E229A5 /* ImageEditorPaletteView.swift in Sources */,
+				450549F124BF8BE700E229A5 /* CGPoint+Helpers.swift in Sources */,
 				45D6B51E1CA8AE5C0047E7DA /* UIColor+Style.swift in Sources */,
 				452B83791CE2646700CE1F85 /* SpotsCollectionTest.swift in Sources */,
+				450549E224BF7ED000E229A5 /* ImageEditorCanvasView.swift in Sources */,
 				459B3F8E1AE1B32900BFCF79 /* Logger.swift in Sources */,
 				45D113021CA8B121004F7D66 /* UIFont+Style.swift in Sources */,
 				45CB948524BD1B01005240DF /* LoadingActivityView.swift in Sources */,
+				450549FD24BFA04700E229A5 /* OrderedDictionary.swift in Sources */,
+				450549D024BF7ED000E229A5 /* ImageEditorBrushViewController.swift in Sources */,
+				450549D224BF7ED000E229A5 /* ImageEditorTextViewController.swift in Sources */,
+				450549EC24BF7ED000E229A5 /* ImageEditorView.swift in Sources */,
 				452B837A1CE266C500CE1F85 /* SpotsCollection.swift in Sources */,
 				45C7578A1CE2AAA000E9FEE8 /* Session.swift in Sources */,
 				45A3847E1B16B12300A286C9 /* FakeSpotsService.swift in Sources */,
@@ -627,6 +760,9 @@
 				45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */,
 				45DB1F8A1B27BDCD0001EC8A /* SpotView.swift in Sources */,
 				451E51D01AB3743C00849262 /* SpotTest.swift in Sources */,
+				450549DA24BF7ED000E229A5 /* ImageEditorStrokeItem.swift in Sources */,
+				450549DC24BF7ED000E229A5 /* ImageEditorModel.swift in Sources */,
+				450549B624BF7D6800E229A5 /* ImageEditorViewController.swift in Sources */,
 				451E51D41AB49AFA00849262 /* User.swift in Sources */,
 				450549B024BE441600E229A5 /* GradientView.swift in Sources */,
 				459F96221BB1CF72005D6C65 /* UsersService.swift in Sources */,
@@ -636,17 +772,27 @@
 				45939FE41CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */,
 				4581A6121AB7FC48004C871F /* ParsedSpot.swift in Sources */,
+				450549E024BF7ED000E229A5 /* OWSViewController+ImageEditor.swift in Sources */,
+				450549DE24BF7ED000E229A5 /* ImageEditorBlurRegionsItem.swift in Sources */,
 				450549B324BE507300E229A5 /* PostYourOwnView.swift in Sources */,
 				456116C31B2A0C6C00CDAF2A /* Game.swift in Sources */,
 				45C7578B1CE2AC2A00E9FEE8 /* AppDelegate.swift in Sources */,
+				450549E624BF7ED000E229A5 /* ImageEditorContents.swift in Sources */,
+				450549E424BF7ED000E229A5 /* ImageEditorItem.swift in Sources */,
+				450549D624BF7ED000E229A5 /* PermissiveGestureRecognizer.swift in Sources */,
 				45E0ECDE1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
 				45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */,
+				450549F724BF964600E229A5 /* ImageEditorLayerView.swift in Sources */,
+				450549D424BF7ED000E229A5 /* ImageEditorCropViewController.swift in Sources */,
 				45939FE81CAB76DA00360BE7 /* CheckGuessViewController.swift in Sources */,
 				45021CCB1CD3D99100FE95D7 /* PushNotificationManager.swift in Sources */,
 				450549AD24BE2E0C00E229A5 /* UIView+Helpers.swift in Sources */,
+				450549FA24BF9D7300E229A5 /* Weak.swift in Sources */,
 				454E11101B19501400FBAAC3 /* ApiKeyTest.swift in Sources */,
+				450549CE24BF7ED000E229A5 /* ImageEditorTextItem.swift in Sources */,
+				450549F424BF959800E229A5 /* ImageEditorButton.swift in Sources */,
 				45CDD4471CB994F300CEC1DD /* UserDefaults.swift in Sources */,
 				45939FE91CAB76DE00360BE7 /* CameraViewController.swift in Sources */,
 				4560C4E31AFE813E003FDD3A /* ApplicationViewController.swift in Sources */,
