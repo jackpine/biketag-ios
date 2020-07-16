@@ -25,6 +25,7 @@ class GuessSpotViewController: CameraViewController {
     @objc
     override func didTapCaptureButton() {
         Logger.debug("capturing image")
+        super.didTapCaptureButton()
         captureImage { [weak self] capturedImageData, location in
             guard let self = self else { return }
             let imageData = Platform.isSimulator

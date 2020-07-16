@@ -25,6 +25,7 @@ class NewSpotViewController: CameraViewController {
     @objc
     override func didTapCaptureButton() {
         Logger.debug("Touched take picture button")
+        super.didTapCaptureButton()
         takePictureButton.isUserInteractionEnabled = false
         captureImage { [weak self] capturedImageData, location in
             guard let self = self else { return }

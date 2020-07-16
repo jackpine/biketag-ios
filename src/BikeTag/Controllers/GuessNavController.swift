@@ -20,6 +20,11 @@ class GuessNavController: BaseNavController {
     var existingSpot: Spot!
     weak var guessNavDelegate: GuessNavDelegate?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationStyle = .fullScreen
+    }
+
     func showCheckGuessViewController(imageData: Data, location: CLLocation) {
         guard let image = UIImage(data: imageData) else {
             Logger.error("New guess image data not captured")

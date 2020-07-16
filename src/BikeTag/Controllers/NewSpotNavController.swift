@@ -16,6 +16,11 @@ protocol NewSpotNavDelegate: AnyObject {
 
 class NewSpotNavController: BaseNavController {
     weak var newSpotDelegate: NewSpotNavDelegate?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        modalPresentationStyle = .fullScreen
+    }
 }
 
 extension NewSpotNavController: SpotCreationDelegate {

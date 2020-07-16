@@ -38,6 +38,15 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         photoPreviewView.addGestureRecognizer(tap)
 
         takePictureButton.isEnabled = true
+
+        view.insertSubview(blinkView, aboveSubview: photoPreviewView)
+        blinkView.autoPinEdgesToSuperviewEdges()
+        blinkView.alpha = 0
+    }
+
+    func flashBlinkView() {
+        blinkView.alpha = 1
+        UIView.animate(withDuration: 0.2) { self.blinkView.alpha = 0 }
     }
 
     // MARK: - Subviews
@@ -68,13 +77,19 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         return bottomSection
     }()
 
+    lazy var blinkView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+
     // MARK: - For override
 
     @objc
     func didTapCaptureButton() {
         // better to do delegation or composition or something, but this was the smallest incremental step away
         // from the old storyboard based code
-        fatalError("abstract method")
+        flashBlinkView()
     }
 
     // MARK: -
