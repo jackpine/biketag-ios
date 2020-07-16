@@ -173,10 +173,16 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
             return
         }
 
-        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { imageDataSampleBuffer, _ -> Void in
+        stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { [weak self] imageDataSampleBuffer, _ -> Void in
+            guard let self = self else { return }
+
+            guard let previewLayer = self.previewLayer else {
+                assertionFailure("previewLayer was unexpectedly nil")
+                return
+            }
 
             guard let imageDataSampleBuffer = imageDataSampleBuffer else {
-                Logger.error("ImageDataSampleBuffer was unexpectedly nil")
+                Logger.error("imageDataSampleBuffer was unexpectedly nil")
                 return
             }
 
@@ -185,8 +191,32 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
                 return
             }
 
+            let originalSize: CGSize
+            let visibleLayerFrame = self.photoPreviewView.bounds
+
+            // Calculate the fractional size that is shown in the preview
+            let metaRect = previewLayer.metadataOutputRectConverted(fromLayerRect: visibleLayerFrame)
+
+            let image = UIImage(data: imageData)!
+            switch image.imageOrientation {
+            case .left, .leftMirrored, .right, .rightMirrored:
+                // For these images (which are portrait), swap the size of the
+                // image, because here the output image is actually rotated
+                // relative to what you see on screen.
+                originalSize = CGSize(width: image.size.height, height: image.size.width)
+            default:
+                originalSize = image.size
+            }
+
+            let cropRect: CGRect = CGRect(x: metaRect.origin.x * originalSize.width,
+                                          y: metaRect.origin.y * originalSize.height,
+                                          width: metaRect.size.width * originalSize.width,
+                                          height: metaRect.size.height * originalSize.height).integral
+
+            let finalCgImage = image.cgImage!.cropping(to: cropRect)!
+            let finalImage = UIImage(cgImage: finalCgImage, scale: 1.0, orientation: image.imageOrientation)
             self.ensureLocation(onSuccess: { (location: CLLocation) in
-                callback(imageData, location)
+                callback(finalImage.jpegData(compressionQuality: 0.95)!, location)
             })
         }
     }
@@ -214,7 +244,7 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         }
 
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.videoGravity = .resizeAspectFill
+        self.previewLayer = previewLayer
 
         photoPreviewView.layer.addSublayer(previewLayer)
 
