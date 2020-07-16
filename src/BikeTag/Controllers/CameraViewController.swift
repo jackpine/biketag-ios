@@ -16,17 +16,23 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         super.init(coder: aDecoder)
     }
 
+    // MARK: - UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
         if let captureDevice = getCaptureDevice() {
             beginCapturingVideo(captureDevice: captureDevice)
         }
 
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Retake", style: .plain, target: nil, action: nil)
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedPhotoPreview(recognizer:)))
         photoPreviewView.addGestureRecognizer(tap)
 
         takePictureButton.isEnabled = true
     }
+
+    // MARK: -
 
     @objc func tappedPhotoPreview(recognizer: UITapGestureRecognizer) {
         Logger.debug("tapped photoPreviewView: \(recognizer.state)")

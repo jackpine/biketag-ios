@@ -47,7 +47,8 @@ public class ImageEditorCanvasView: UIView {
 
         model.add(observer: self)
 
-        prepareBlurredImage()
+        // No blurring for now.
+        // prepareBlurredImage()
     }
 
     @available(*, unavailable, message: "use other init() instead.")

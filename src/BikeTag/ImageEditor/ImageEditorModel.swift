@@ -102,17 +102,31 @@ public class ImageEditorModel: NSObject {
 
         let properties = props as NSDictionary
 
-        guard let height = properties.object(forKey: "PixelHeight") as? NSNumber else {
-            assertionFailure("failed to create imageSourceRef")
+        guard let height = properties.object(forKey: kCGImagePropertyPixelHeight) as? NSNumber else {
+            assertionFailure("failed to get height from CGImageRef")
             throw ImageEditorError.invalidInput
         }
 
-        guard let width = properties.object(forKey: "PixelWidth") as? NSNumber else {
-            assertionFailure("failed to create imageSourceRef")
+        guard let width = properties.object(forKey: kCGImagePropertyPixelWidth) as? NSNumber else {
+            assertionFailure("failed to get width from CGImageRef")
             throw ImageEditorError.invalidInput
         }
 
-        return CGSize(width: width.intValue, height: height.intValue)
+        let rawSize = CGSize(width: width.intValue, height: height.intValue)
+
+        guard let orientationNum = properties.object(forKey: kCGImagePropertyOrientation) as? NSNumber else {
+            assertionFailure("failed to get orientation from CGImageRef")
+            throw ImageEditorError.invalidInput
+        }
+        let orientation = CGImagePropertyOrientation(rawValue: orientationNum.uint32Value)
+        switch orientation {
+        case .up, .upMirrored, .down, .downMirrored:
+            return rawSize
+        case .left, .leftMirrored, .right, .rightMirrored:
+            return CGSize(width: rawSize.height, height: rawSize.width)
+        default:
+            return rawSize
+        }
     }
 
     public func renderOutput() -> UIImage? {

@@ -10,6 +10,8 @@ class NewSpotViewController: CameraViewController {
     var game: Game?
     weak var spotCreationDelegate: SpotCreationDelegate?
 
+    // MARK: - Init
+
     class func fromStoryboard() -> NewSpotViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "newSpotViewController") as? NewSpotViewController else {
@@ -17,6 +19,8 @@ class NewSpotViewController: CameraViewController {
         }
         return vc
     }
+
+    // MARK: -
 
     @IBAction func takePictureButtonViewTouched(sender _: AnyObject) {
         Logger.debug("Touched take picture button")
