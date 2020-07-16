@@ -145,6 +145,7 @@ public extension UIView {
         setContentCompressionResistancePriority(.required, for: .vertical)
     }
 
+    @discardableResult
     func autoPin(toAspectRatio ratio: CGFloat) -> NSLayoutConstraint {
         return autoPin(toAspectRatio: ratio, relation: .equal)
     }
@@ -167,5 +168,24 @@ public extension UIView {
         constraint.autoInstall()
 
         return constraint
+    }
+}
+
+class CircleView: PillView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        autoPin(toAspectRatio: 1)
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class PillView: UIView {
+    override var bounds: CGRect {
+        didSet {
+            layer.cornerRadius = bounds.size.height / 2
+        }
     }
 }

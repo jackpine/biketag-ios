@@ -14,7 +14,8 @@ import UIKit
 extension UIColor {
     static let bt_red: UIColor = UIColor(rgbHex: 0xFC0D1B)
     static let bt_gray: UIColor = .gray
-    static let bt_primaryText: UIColor = .black
+    static let bt_blackText: UIColor = .black
+    static let bt_whiteText: UIColor = .white
     static let bt_background: UIColor = .white
 }
 

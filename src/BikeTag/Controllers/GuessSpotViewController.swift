@@ -22,7 +22,8 @@ class GuessSpotViewController: CameraViewController {
 
     // MARK: -
 
-    @IBAction func takePictureButtonViewTouched(sender _: AnyObject) {
+    @objc
+    override func didTapCaptureButton() {
         Logger.debug("capturing image")
         captureImage { [weak self] capturedImageData, location in
             guard let self = self else { return }

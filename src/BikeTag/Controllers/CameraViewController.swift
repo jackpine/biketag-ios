@@ -4,7 +4,12 @@ import UIKit
 
 class CameraViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet var photoPreviewView: UIView!
-    @IBOutlet var takePictureButton: PrimaryButton!
+
+    lazy var takePictureButton: CaptureButton = {
+        let button = CaptureButton()
+        button.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
+        return button
+    }()
 
     var previewLayer: AVCaptureVideoPreviewLayer?
     let stillImageOutput = AVCaptureStillImageOutput()
@@ -26,10 +31,50 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Retake", style: .plain, target: nil, action: nil)
 
+        view.addSubview(bottomSection)
+        bottomSection.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .top)
+
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedPhotoPreview(recognizer:)))
         photoPreviewView.addGestureRecognizer(tap)
 
         takePictureButton.isEnabled = true
+    }
+
+    // MARK: - Subviews
+
+    lazy var bottomSection: UIView = {
+        let bottomSection = UIView()
+        bottomSection.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        bottomSection.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        bottomSection.preservesSuperviewLayoutMargins = true
+
+        takePictureButton.autoSetDimensions(to: CGSize(square: 80))
+
+        let label = UILabel()
+        label.font = UIFont.bt_bold_label.withSize(18)
+        label.textColor = .bt_whiteText
+        label.text = NSLocalizedString("Don't forget to include your bike in the shot!", comment: "label text overlaying camera view")
+        label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+
+        let stack = UIStackView(arrangedSubviews: [label, takePictureButton])
+        stack.axis = .vertical
+        stack.alignment = .center
+        stack.spacing = 8
+
+        bottomSection.addSubview(stack)
+        stack.autoPinEdgesToSuperviewMargins()
+
+        return bottomSection
+    }()
+
+    // MARK: - For override
+
+    @objc
+    func didTapCaptureButton() {
+        // better to do delegation or composition or something, but this was the smallest incremental step away
+        // from the old storyboard based code
+        fatalError("abstract method")
     }
 
     // MARK: -
@@ -172,5 +217,36 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         }
 
         captureSession.startRunning()
+    }
+}
+
+class CaptureButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+
+    func commonInit() {
+        alpha = 0.8
+        backgroundColor = .red
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 2
+    }
+
+    override var bounds: CGRect {
+        didSet {
+            layer.cornerRadius = bounds.height / 2
+        }
+    }
+
+    override var frame: CGRect {
+        didSet {
+            layer.cornerRadius = bounds.height / 2
+        }
     }
 }

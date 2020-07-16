@@ -23,7 +23,7 @@ class PostYourOwnView: UIView {
         let label = UILabel()
         label.font = UIFont.bt_bold_label.withSize(24)
         label.text = NSLocalizedString("Don't know these spots?", comment: "label text")
-        label.textColor = UIColor.bt_primaryText
+        label.textColor = UIColor.bt_blackText
         return label
     }()
 

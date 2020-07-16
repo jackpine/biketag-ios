@@ -118,7 +118,6 @@ class ApprovalViewController: BaseViewController {
 
         assert(approvalDelegate != nil)
         approvalButton.setTitle(approvalDelegate?.approvalButtonText ?? "Post! ", for: .normal)
-
     }
 
     // MARK: - Subviews

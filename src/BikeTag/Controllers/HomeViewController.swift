@@ -84,14 +84,6 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
 
     // MARK: Score Button
 
-    class PillView: UIView {
-        override var bounds: CGRect {
-            didSet {
-                layer.cornerRadius = bounds.size.height / 2
-            }
-        }
-    }
-
     lazy var scoreButtonContainer: UIView = {
         let container = PillView()
         container.layer.cornerRadius = 16
@@ -109,7 +101,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     lazy var scoreButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(didTapScoreButton), for: .touchUpInside)
-        button.setTitleColor(.bt_primaryText, for: .normal)
+        button.setTitleColor(.bt_blackText, for: .normal)
         button.titleLabel?.font = UIFont.bt_bold_label.withSize(12)
         return button
     }()
