@@ -73,7 +73,7 @@ extension GuessNavController: GuessCreationDelegate {
     func guessCreation(_ newGuessVC: GuessSpotViewController, didCaptureImageData imageData: Data, location: CLLocation) {
         let approvalVC = ApprovalViewController.create(imageData: imageData, location: location, game: existingSpot.game)
         approvalVC.approvalDelegate = newGuessVC
-        pushViewController(approvalVC, animated: true)
+        fadeTo(approvalVC)
     }
 
     func guessCreation(_: GuessSpotViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback _: @escaping (Error) -> Void) {
@@ -94,7 +94,7 @@ extension GuessNavController: SpotCreationDelegate {
     func spotCreation(_ newSpotVC: NewSpotViewController, didCaptureImageData imageData: Data, location: CLLocation) {
         let approvalVC = ApprovalViewController.create(imageData: imageData, location: location, game: nil)
         approvalVC.approvalDelegate = newSpotVC
-        pushViewController(approvalVC, animated: true)
+        fadeTo(approvalVC)
     }
 
     func spotCreation(_: NewSpotViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback: @escaping (Error) -> Void) {
