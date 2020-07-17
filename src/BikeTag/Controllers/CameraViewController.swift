@@ -60,7 +60,7 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         takePictureButton.autoSetDimensions(to: CGSize(square: 80))
 
         let label = UILabel()
-        label.font = UIFont.bt_bold_label.withSize(18)
+        label.font = UIFont.bt_bold_label.withSize(16)
         label.textColor = .bt_whiteText
         label.text = NSLocalizedString("Don't forget to include your bike in the shot!", comment: "label text overlaying camera view")
         label.numberOfLines = 1
@@ -278,7 +278,7 @@ class CaptureButton: UIButton {
 
     func commonInit() {
         alpha = 0.8
-        backgroundColor = .red
+        backgroundColor = .bt_red
         layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 2
     }
