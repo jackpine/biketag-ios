@@ -5,6 +5,7 @@ class PostYourOwnView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .bt_background
         addSubview(button)
         button.autoAlignAxis(toSuperviewAxis: .vertical)
 
