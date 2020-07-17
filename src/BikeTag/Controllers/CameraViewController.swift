@@ -221,6 +221,12 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
         }
     }
 
+    final class PreviewView: UIView {
+        override class var layerClass: AnyClass {
+            return AVCaptureVideoPreviewLayer.self
+        }
+    }
+
     func beginCapturingVideo(captureDevice: AVCaptureDevice) {
         var err: Error?
         let captureDeviceInput: AVCaptureDeviceInput!
@@ -243,17 +249,14 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
             Logger.error("Couldn't add capture device input.")
         }
 
-        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        let previewView = PreviewView()
+        previewView.backgroundColor = .black
+        let previewLayer = previewView.layer as! AVCaptureVideoPreviewLayer
+        previewLayer.session = captureSession
         self.previewLayer = previewLayer
-
-        photoPreviewView.layer.addSublayer(previewLayer)
-
-        // HACK photo preview was not representative of captured photo.
-        // Debugging showed that at this point photoPreview frame was still 600x600,
-        // which is the storyboard generic size.
-        // Manually overriding frame to be fullscreen here seems to work.
-        photoPreviewView.frame = view.frame
-        previewLayer.frame = photoPreviewView.frame
+        previewLayer.videoGravity = .resizeAspectFill
+        photoPreviewView.addSubview(previewView)
+        previewView.autoPinEdgesToSuperviewEdges()
 
         if captureSession.canAddOutput(stillImageOutput) {
             captureSession.addOutput(stillImageOutput)
