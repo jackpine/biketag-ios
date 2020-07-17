@@ -4,14 +4,4 @@
    <FileRef
       location = "container:BikeTag.xcodeproj">
    </FileRef>
-   <Group
-      location = "container:"
-      name = "ExternalFrameworks">
-      <FileRef
-         location = "group:../Carthage/Checkouts/Alamofire/Alamofire.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:../Carthage/Checkouts/PureLayout/PureLayout/PureLayout.xcodeproj">
-      </FileRef>
-   </Group>
 </Workspace>
