@@ -576,6 +576,7 @@ extension HomeViewController: SpotViewDelegate {
 
 extension HomeViewController: GuessNavDelegate {
     func guessNav(_: GuessNavController, didPostNewSpot newSpot: Spot) {
+        fetchCurrentUser()
         currentSpots.addNewSpot(newSpot: newSpot)
         gameTableView.reloadData()
         gameTableView.setContentOffset(.zero, animated: true)
@@ -595,6 +596,7 @@ extension HomeViewController: PostYourOwnViewDelegate {
 
 extension HomeViewController: NewSpotNavDelegate {
     func newSpotNav(_: NewSpotNavController, didFinishCreatingSpot newSpot: Spot) {
+        fetchCurrentUser()
         currentSpots.addNewSpot(newSpot: newSpot)
         gameTableView.reloadData()
         gameTableView.setContentOffset(.zero, animated: true)
