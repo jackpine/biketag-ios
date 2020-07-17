@@ -150,28 +150,8 @@ class ApprovalViewController: BaseViewController {
     }()
 
     lazy var bottomSection: UIView = {
-        let bottomSection = UIView()
-        bottomSection.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        bottomSection.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        bottomSection.preservesSuperviewLayoutMargins = true
-
-        approvalButton.autoSetDimension(.height, toSize: 80)
-
-        let label = UILabel()
-        label.font = UIFont.bt_bold_label.withSize(16)
-        label.textColor = .bt_whiteText
-        label.text = NSLocalizedString("Everything looking good? 😎", comment: "label text overlaying camera view")
-        label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
-
-        let stack = UIStackView(arrangedSubviews: [label, approvalButton])
-        stack.axis = .vertical
-        stack.alignment = .center
-        stack.spacing = 8
-
-        bottomSection.addSubview(stack)
-        stack.autoPinEdgesToSuperviewMargins()
-
+        let bottomSection = BottomSectionView(frame: .zero, button: approvalButton)
+        bottomSection.label.text = NSLocalizedString("Everything looking good? 😎", comment: "label text overlaying camera view")
         return bottomSection
     }()
 

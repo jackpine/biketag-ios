@@ -129,6 +129,10 @@
 		45B25BDC24C0DFC100041144 /* NewSpotNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BDB24C0DFC100041144 /* NewSpotNavController.swift */; };
 		45B25BDD24C0DFC100041144 /* NewSpotNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BDB24C0DFC100041144 /* NewSpotNavController.swift */; };
 		45B25BDF24C1044A00041144 /* ImageEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B25BDE24C1044A00041144 /* ImageEditor.xcassets */; };
+		45B25BE224C2322F00041144 /* UIDevice+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BE124C2322F00041144 /* UIDevice+Util.swift */; };
+		45B25BE324C232DC00041144 /* UIDevice+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BE124C2322F00041144 /* UIDevice+Util.swift */; };
+		45B25BE524C234C000041144 /* BottomSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BE424C234C000041144 /* BottomSectionView.swift */; };
+		45B25BE624C234C000041144 /* BottomSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B25BE424C234C000041144 /* BottomSectionView.swift */; };
 		45B488851A9AB73B00C7E03F /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B488841A9AB73B00C7E03F /* Spot.swift */; };
 		45B6BD4B1ABCEA3200E9BCDA /* ParsedSpotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */; };
 		45C256641CEBFA190098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
@@ -245,6 +249,8 @@
 		45B25BD824C0C85A00041144 /* GuessNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuessNavController.swift; path = Controllers/GuessNavController.swift; sourceTree = "<group>"; };
 		45B25BDB24C0DFC100041144 /* NewSpotNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewSpotNavController.swift; path = Controllers/NewSpotNavController.swift; sourceTree = "<group>"; };
 		45B25BDE24C1044A00041144 /* ImageEditor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageEditor.xcassets; sourceTree = "<group>"; };
+		45B25BE124C2322F00041144 /* UIDevice+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Util.swift"; sourceTree = "<group>"; };
+		45B25BE424C234C000041144 /* BottomSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSectionView.swift; sourceTree = "<group>"; };
 		45B488841A9AB73B00C7E03F /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
 		45B6BD4A1ABCEA3200E9BCDA /* ParsedSpotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedSpotTest.swift; sourceTree = "<group>"; };
 		45C256661CEC2FDB0098E8FF /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
@@ -414,6 +420,7 @@
 		45AB7BA81A3A1D8B00E1961E /* BikeTag */ = {
 			isa = PBXGroup;
 			children = (
+				45B25BE024C2321E00041144 /* Utils */,
 				45434787216C6613009A9375 /* BikeTag.entitlements */,
 				45D6B5121CA8A26C0047E7DA /* Design */,
 				45DB1F871B27BDCD0001EC8A /* Views */,
@@ -455,6 +462,14 @@
 				45AB7BC21A3A1D8B00E1961E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45B25BE024C2321E00041144 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				45B25BE124C2322F00041144 /* UIDevice+Util.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		45B488831A9AB73B00C7E03F /* Models */ = {
@@ -505,6 +520,7 @@
 				45CB948324BD1842005240DF /* LoadingActivityView.swift */,
 				450549AB24BE2E0C00E229A5 /* UIView+Helpers.swift */,
 				450549AE24BE441600E229A5 /* GradientView.swift */,
+				45B25BE424C234C000041144 /* BottomSectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -670,10 +686,12 @@
 				45C770AA1ABE5D9A0036847D /* Config.swift in Sources */,
 				450549B224BE507300E229A5 /* PostYourOwnView.swift in Sources */,
 				450549D524BF7ED000E229A5 /* PermissiveGestureRecognizer.swift in Sources */,
+				45B25BE524C234C000041144 /* BottomSectionView.swift in Sources */,
 				45939FE01CAB62D400360BE7 /* IncorrectGuessViewController.swift in Sources */,
 				45939FE31CAB725900360BE7 /* CorrectGuessViewController.swift in Sources */,
 				45CB948424BD1842005240DF /* LoadingActivityView.swift in Sources */,
 				450549CD24BF7ED000E229A5 /* ImageEditorTextItem.swift in Sources */,
+				45B25BE224C2322F00041144 /* UIDevice+Util.swift in Sources */,
 				45CDD4431CB97ED100CEC1DD /* FirstSpotCreatedViewController.swift in Sources */,
 				45C770AD1AC081620036847D /* Guess.swift in Sources */,
 				452B83771CE251A400CE1F85 /* SpotsCollection.swift in Sources */,
@@ -737,6 +755,7 @@
 				45939FE71CAB76C700360BE7 /* HomeViewController.swift in Sources */,
 				454E11061B19278F00FBAAC3 /* ApiKey.swift in Sources */,
 				45939FE61CAB76C300360BE7 /* NewSpotViewController.swift in Sources */,
+				45B25BE324C232DC00041144 /* UIDevice+Util.swift in Sources */,
 				450549EE24BF7ED000E229A5 /* ImageEditorTransform.swift in Sources */,
 				450549EA24BF7ED000E229A5 /* ImageEditorPaletteView.swift in Sources */,
 				450549F124BF8BE700E229A5 /* CGPoint+Helpers.swift in Sources */,
@@ -782,6 +801,7 @@
 				45E0ECDE1CAC13E30096C179 /* SadFaceView.swift in Sources */,
 				459F96251BB1D396005D6C65 /* FakeUsersService.swift in Sources */,
 				4581A5FB1AB7C9BA004C871F /* SpotsService.swift in Sources */,
+				45B25BE624C234C000041144 /* BottomSectionView.swift in Sources */,
 				45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */,
 				450549F724BF964600E229A5 /* ImageEditorLayerView.swift in Sources */,
 				450549D424BF7ED000E229A5 /* ImageEditorCropViewController.swift in Sources */,

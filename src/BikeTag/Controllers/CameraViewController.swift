@@ -5,12 +5,6 @@ import UIKit
 class CameraViewController: BaseViewController, CLLocationManagerDelegate {
     @IBOutlet var photoPreviewView: UIView!
 
-    lazy var takePictureButton: CaptureButton = {
-        let button = CaptureButton()
-        button.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
-        return button
-    }()
-
     var previewLayer: AVCaptureVideoPreviewLayer?
     let stillImageOutput = AVCaptureStillImageOutput()
     let locationService: LocationService
@@ -51,29 +45,17 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
 
     // MARK: - Subviews
 
+    lazy var takePictureButton: CaptureButton = {
+        let button = CaptureButton()
+        button.addTarget(self, action: #selector(didTapCaptureButton), for: .touchUpInside)
+        button.autoPinToSquareAspectRatio()
+        return button
+    }()
+
     lazy var bottomSection: UIView = {
-        let bottomSection = UIView()
+        let bottomSection = BottomSectionView(frame: .zero, button: takePictureButton)
         bottomSection.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        bottomSection.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        bottomSection.preservesSuperviewLayoutMargins = true
-
-        takePictureButton.autoSetDimensions(to: CGSize(square: 80))
-
-        let label = UILabel()
-        label.font = UIFont.bt_bold_label.withSize(16)
-        label.textColor = .bt_whiteText
-        label.text = NSLocalizedString("Don't forget to include your bike in the shot!", comment: "label text overlaying camera view")
-        label.numberOfLines = 1
-        label.adjustsFontSizeToFitWidth = true
-
-        let stack = UIStackView(arrangedSubviews: [label, takePictureButton])
-        stack.axis = .vertical
-        stack.alignment = .center
-        stack.spacing = 8
-
-        bottomSection.addSubview(stack)
-        stack.autoPinEdgesToSuperviewMargins()
-
+        bottomSection.label.text = NSLocalizedString("Don't forget to include your bike in the shot!", comment: "label text overlaying camera view")
         return bottomSection
     }()
 

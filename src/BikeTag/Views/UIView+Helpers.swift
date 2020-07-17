@@ -146,6 +146,11 @@ public extension UIView {
     }
 
     @discardableResult
+    func autoPinToSquareAspectRatio() -> NSLayoutConstraint {
+        return autoPin(toAspectRatio: 1.0)
+    }
+
+    @discardableResult
     func autoPin(toAspectRatio ratio: CGFloat) -> NSLayoutConstraint {
         return autoPin(toAspectRatio: ratio, relation: .equal)
     }
@@ -174,7 +179,7 @@ public extension UIView {
 class CircleView: PillView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        autoPin(toAspectRatio: 1)
+        autoPinToSquareAspectRatio()
     }
 
     required init?(coder _: NSCoder) {
