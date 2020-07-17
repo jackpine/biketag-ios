@@ -85,7 +85,7 @@ class ApprovalViewController: BaseViewController {
     }()
 
     func updateImageEditorToolbar() {
-        Logger.debug("")
+        Logger.trace()
         imageEditorToolbar.subviews.forEach { $0.removeFromSuperview() }
         imageEditorView.navigationBarItems().forEach { imageEditorToolbar.addArrangedSubview($0) }
     }

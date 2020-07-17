@@ -358,6 +358,8 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             self.present(alertController, animated: true, completion: nil)
         }
 
+        // os_signpost_id_t ident = os_signpost_id_generate(_textSelectionLog);
+
         Spot.fetchCurrentSpots(location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
     }
 

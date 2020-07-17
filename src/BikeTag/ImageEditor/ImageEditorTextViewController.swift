@@ -83,7 +83,7 @@ private class VAlignTextView: UITextView {
 
     @objc
     public func modifiedReturnPressed(sender _: UIKeyCommand) {
-        Logger.verbose("")
+        Logger.trace()
 
         textViewDelegate?.textViewDidComplete()
     }
@@ -266,7 +266,7 @@ public class ImageEditorTextViewController: BaseViewController, VAlignTextViewDe
     // MARK: - Events
 
     @objc func didTapUndo(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         delegate?.textEditDidCancel()
 
@@ -276,7 +276,7 @@ public class ImageEditorTextViewController: BaseViewController, VAlignTextViewDe
     }
 
     @objc func didTapDone(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         completeAndDismiss()
     }

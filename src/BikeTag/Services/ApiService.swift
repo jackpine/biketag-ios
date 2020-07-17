@@ -34,7 +34,7 @@ class ApiService {
             switch response.result {
             case let .failure(error):
                 // Protocol level errors, e.g. connection timed out
-                Logger.warning("\(method.rawValue) \(url) HTTP Error: \(error)")
+                Logger.info("\(method.rawValue) \(url) HTTP Error: \(error)")
 
                 return errorCallback(error as Error)
             case let .success(result):

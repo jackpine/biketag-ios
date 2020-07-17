@@ -13,8 +13,5 @@
       <FileRef
          location = "group:../Carthage/Checkouts/PureLayout/PureLayout/PureLayout.xcodeproj">
       </FileRef>
-      <FileRef
-         location = "group:../Carthage/Checkouts/XCGLogger/XCGLogger.xcodeproj">
-      </FileRef>
    </Group>
 </Workspace>

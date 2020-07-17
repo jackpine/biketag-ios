@@ -191,7 +191,7 @@ class SpotView: UIView {
 
     @objc
     func didTapGuessSpot() {
-        Logger.debug("")
+        Logger.trace()
         guard let spot = spot else {
             assertionFailure("spot was unexpectedly nil")
             return

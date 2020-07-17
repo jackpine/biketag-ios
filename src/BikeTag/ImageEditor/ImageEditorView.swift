@@ -121,7 +121,7 @@ public class ImageEditorView: UIView {
     // MARK: - Actions
 
     @objc func didTapUndo(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
         guard model.canUndo() else {
             assertionFailure("Can't undo.")
             return
@@ -130,7 +130,7 @@ public class ImageEditorView: UIView {
     }
 
     @objc func didTapBrush(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         let brushView = ImageEditorBrushViewController(delegate: self, model: model, currentColor: currentColor)
         delegate?.imageEditor(presentFullScreenView: brushView,
@@ -138,19 +138,19 @@ public class ImageEditorView: UIView {
     }
 
     @objc func didTapCrop(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         presentCropTool()
     }
 
     @objc func didTapNewText(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         createNewTextItem()
     }
 
     private func createNewTextItem() {
-        Logger.verbose("")
+        Logger.trace()
 
         let viewSize = canvasView.gestureReferenceView.bounds.size
         let imageSize = model.srcImageSizePixels
@@ -176,7 +176,7 @@ public class ImageEditorView: UIView {
     }
 
     @objc func didTapDone(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
     }
 
     // MARK: - Tap Gesture
@@ -365,7 +365,7 @@ public class ImageEditorView: UIView {
     // MARK: - Edit Text Tool
 
     private func edit(textItem: ImageEditorTextItem, isNewItem: Bool) {
-        Logger.verbose("")
+        Logger.trace()
 
         // TODO:
         let maxTextWidthPoints = model.srcImageSizePixels.width * ImageEditorTextItem.kDefaultUnitWidth
@@ -383,7 +383,7 @@ public class ImageEditorView: UIView {
     // MARK: - Crop Tool
 
     private func presentCropTool() {
-        Logger.verbose("")
+        Logger.trace()
 
         guard let srcImage = canvasView.loadSrcImage() else {
             assertionFailure("Couldn't load src image.")

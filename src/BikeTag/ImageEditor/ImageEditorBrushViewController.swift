@@ -115,7 +115,7 @@ public class ImageEditorBrushViewController: BaseViewController {
     // MARK: - Actions
 
     @objc func didTapUndo(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
         guard model.canUndo() else {
             assertionFailure("Can't undo.")
             return
@@ -124,7 +124,7 @@ public class ImageEditorBrushViewController: BaseViewController {
     }
 
     @objc func didTapDone(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         completeAndDismiss()
     }

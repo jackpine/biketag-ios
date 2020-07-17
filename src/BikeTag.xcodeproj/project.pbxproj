@@ -85,7 +85,6 @@
 		454E11131B19564500FBAAC3 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454E11111B19564500FBAAC3 /* ApiService.swift */; };
 		455526841CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
 		455526851CAC16D0001694BE /* TimesUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455526831CAC16D0001694BE /* TimesUpViewController.swift */; };
-		455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455C74DA206722CC00E6D794 /* ObjcExceptionBridging.framework */; };
 		4560C4E21AFE813E003FDD3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* BaseViewController.swift */; };
 		4560C4E31AFE813E003FDD3A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4560C4E11AFE813E003FDD3A /* BaseViewController.swift */; };
 		456116C21B2A0C6C00CDAF2A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456116C11B2A0C6C00CDAF2A /* Game.swift */; };
@@ -138,7 +137,6 @@
 		45C256641CEBFA190098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
 		45C256651CEBFA1A0098E8FF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FC97B81CEBAB5D00F2E642 /* LocationService.swift */; };
 		45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C256661CEC2FDB0098E8FF /* Alamofire.framework */; };
-		45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C256671CEC2FDB0098E8FF /* XCGLogger.framework */; };
 		45C757861CE291EB00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757871CE2928D00E9FEE8 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757851CE291EB00E9FEE8 /* Platform.swift */; };
 		45C757891CE2AAA000E9FEE8 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C757881CE2AAA000E9FEE8 /* Session.swift */; };
@@ -275,10 +273,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45C256691CEC2FDB0098E8FF /* XCGLogger.framework in Frameworks */,
 				45C256681CEC2FDB0098E8FF /* Alamofire.framework in Frameworks */,
 				45A40107206841B40081C4D5 /* PureLayout.framework in Frameworks */,
-				455C74DB206722CC00E6D794 /* ObjcExceptionBridging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,8 +645,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/../Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/../Carthage/Build/iOS/XCGLogger.framework",
-				"$(SRCROOT)/../Carthage/Build/iOS/ObjcExceptionBridging.framework",
 				"$(SRCROOT)/../Carthage/Build/iOS/PureLayout.framework",
 			);
 			name = "Copy Carthage Built Frameworks";

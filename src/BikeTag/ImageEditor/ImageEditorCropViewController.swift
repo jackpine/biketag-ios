@@ -347,7 +347,7 @@ class ImageEditorCropViewController: BaseViewController {
     internal func updateContent() {
         assert(Thread.isMainThread)
 
-        Logger.verbose("")
+        Logger.trace()
 
         let viewSize = croppedContentView.bounds.size
         guard viewSize.width > 0,
@@ -430,7 +430,7 @@ class ImageEditorCropViewController: BaseViewController {
     public func handlePinchGesture(_ gestureRecognizer: ImageEditorPinchGestureRecognizer) {
         assert(Thread.isMainThread)
 
-        Logger.verbose("")
+        Logger.trace()
 
         // We could undo an in-progress pinch if the gesture is cancelled, but it seems gratuitous.
 
@@ -478,14 +478,14 @@ class ImageEditorCropViewController: BaseViewController {
     public func handlePanGesture(_ gestureRecognizer: ImageEditorPanGestureRecognizer) {
         assert(Thread.isMainThread)
 
-        Logger.verbose("")
+        Logger.trace()
 
         // We could undo an in-progress pinch if the gesture is cancelled, but it seems gratuitous.
 
         // Handle the GR if necessary.
         switch gestureRecognizer.state {
         case .began:
-            Logger.verbose("began: \(transform.unitTranslation)")
+            Logger.debug("began: \(transform.unitTranslation)")
             gestureStartTransform = transform
             // Pans that start near the crop rectangle should be treated as crop gestures.
             panCropRegion = cropRegion(forGestureRecognizer: gestureRecognizer)
@@ -523,7 +523,7 @@ class ImageEditorCropViewController: BaseViewController {
                                       panCropRegion: CropRegion) {
         assert(Thread.isMainThread)
 
-        Logger.verbose("")
+        Logger.trace()
 
         guard let locationStart = gestureRecognizer.locationFirst else {
             assertionFailure("Missing locationStart.")
@@ -791,7 +791,7 @@ class ImageEditorCropViewController: BaseViewController {
     }
 
     @objc func didTapReset(sender _: UIButton) {
-        Logger.verbose("")
+        Logger.trace()
 
         updateTransform(ImageEditorTransform.defaultTransform(srcImageSizePixels: model.srcImageSizePixels))
     }

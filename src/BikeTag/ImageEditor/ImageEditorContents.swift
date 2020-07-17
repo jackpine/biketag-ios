@@ -37,28 +37,28 @@ public class ImageEditorContents: NSObject {
 
     @objc
     public func append(item: ImageEditorItem) {
-        Logger.verbose("\(item.itemId)")
+        Logger.debug("\(item.itemId)")
 
         itemMap.appendValue(item, forKey: item.itemId)
     }
 
     @objc
     public func replace(item: ImageEditorItem) {
-        Logger.verbose("\(item.itemId)")
+        Logger.debug("\(item.itemId)")
 
         itemMap[item.itemId] = item
     }
 
     @objc
     public func remove(item: ImageEditorItem) {
-        Logger.verbose("\(item.itemId)")
+        Logger.debug("\(item.itemId)")
 
         itemMap.removeValue(forKey: item.itemId)
     }
 
     @objc
     public func remove(itemId: String) {
-        Logger.verbose("\(itemId)")
+        Logger.debug("\(itemId)")
 
         itemMap.removeValue(forKey: itemId)
     }
