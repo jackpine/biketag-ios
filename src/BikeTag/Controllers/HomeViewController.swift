@@ -1,7 +1,7 @@
 import CoreLocation
+import os
 import PureLayout
 import UIKit
-
 class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     // MARK: - Dependencies
 
@@ -267,6 +267,7 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
     }
 
     func refresh() {
+        let bench = logger.startBench("Refresh")
         // Getting current spots requires the ApiKey *and* Location.
         // *Order is important*. We get the APIKey first, meanwhile
         // the Location manager fetches the location in the background (started previously)
@@ -274,7 +275,11 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
         startLoadingAnimation()
         ensureApiKey {
             self.fetchCurrentUser()
-            self.ensureLocation(onSuccess: self.fetchCurrentSpots)
+            self.ensureLocation { location in
+                self.fetchCurrentSpots(near: location) { _ in
+                    self.logger.completeBench(bench)
+                }
+            }
         }
     }
 
@@ -330,8 +335,11 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
         gameTableView.scrollToRow(at: path, at: .middle, animated: animated)
     }
 
-    func fetchCurrentSpots(near: CLLocation) {
-        Logger.info("refreshing spots list near \(near)")
+    func fetchCurrentSpots(near: CLLocation, completion: @escaping (Error?) -> Void = { _ in }) {
+        logger.info("refreshing spots list near \(near)")
+
+        let fetchBench = logger.startBench("FetchCurrentSpot")
+
         timeOfLastReload = NSDate()
         let setCurrentSpots = { [weak self] (newSpots: [Spot]) -> Void in
             guard let self = self else { return }
@@ -341,9 +349,14 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             self.snapToCell(animated: true)
             self.completeLoadingAnimation()
             self.refreshControl.endRefreshing()
+            self.logger.completeBench(fetchBench)
+            completion(nil)
         }
 
-        let displayErrorAlert = { (error: Error) -> Void in
+        let displayErrorAlert = { [weak self] (error: Error) -> Void in
+            guard let self = self else { return }
+
+            self.logger.completeBench(fetchBench)
             let alertController = UIAlertController(
                 title: "Darn. Can't fetch spots right now.",
                 message: error.localizedDescription,
@@ -355,10 +368,9 @@ class HomeViewController: BaseViewController, UIScrollViewDelegate, UITableViewD
             }
             alertController.addAction(retryAction)
 
+            completion(error)
             self.present(alertController, animated: true, completion: nil)
         }
-
-        // os_signpost_id_t ident = os_signpost_id_generate(_textSelectionLog);
 
         Spot.fetchCurrentSpots(location: near, callback: setCurrentSpots, errorCallback: displayErrorAlert)
     }

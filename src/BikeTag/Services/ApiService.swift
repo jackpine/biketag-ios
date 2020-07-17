@@ -4,6 +4,10 @@ import Foundation
 let apiEndpoint = URL(string: Config.apiEndpoint)!
 
 class ApiService {
+    lazy var logger: Logger = {
+        Logger(category: String(describing: Self.self))
+    }()
+
     enum APIError: Error {
         case clientError(description: String)
         case serviceError(code: Int, message: String)

@@ -155,6 +155,7 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
             return
         }
 
+        let captureBench = logger.startBench("CaptureImage")
         stillImageOutput.captureStillImageAsynchronously(from: videoConnection) { [weak self] imageDataSampleBuffer, _ -> Void in
             guard let self = self else { return }
 
@@ -197,6 +198,7 @@ class CameraViewController: BaseViewController, CLLocationManagerDelegate {
 
             let finalCgImage = image.cgImage!.cropping(to: cropRect)!
             let finalImage = UIImage(cgImage: finalCgImage, scale: 1.0, orientation: image.imageOrientation)
+            self.logger.completeBench(captureBench)
             self.ensureLocation(onSuccess: { (location: CLLocation) in
                 callback(finalImage.jpegData(compressionQuality: 0.95)!, location)
             })

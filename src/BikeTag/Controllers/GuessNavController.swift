@@ -108,11 +108,19 @@ extension GuessNavController: SpotCreationDelegate {
             return
         }
 
+        let spotCreationBench = Logger.startBench("spotCreation")
         let spot = Spot(image: image, game: game, user: User.getCurrentUser(), location: location)
         Spot.createNewSpot(image: spot.image!,
                            game: spot.game,
                            location: spot.location!,
-                           callback: { newSpot in self.guessNavDelegate?.guessNav(self, didPostNewSpot: newSpot) },
-                           errorCallback: errorCallback)
+                           callback: { newSpot in
+                               Logger.completeBench(spotCreationBench)
+                               self.guessNavDelegate?.guessNav(self, didPostNewSpot: newSpot)
+
+                           },
+                           errorCallback: { e in
+                               Logger.completeBench(spotCreationBench)
+                               errorCallback(e)
+        })
     }
 }

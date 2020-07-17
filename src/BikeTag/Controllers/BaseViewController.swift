@@ -2,6 +2,10 @@ import Foundation
 import UIKit
 
 public class BaseViewController: UIViewController {
+    lazy var logger: Logger = {
+        Logger(category: Self.description())
+    }()
+
     override public var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
