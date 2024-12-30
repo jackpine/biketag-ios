@@ -9,21 +9,21 @@
 import UIKit
 
 public class GradientView: UIView {
-    let gradientLayer = CAGradientLayer()
+  let gradientLayer = CAGradientLayer()
 
-    public required init(from fromColor: UIColor, to toColor: UIColor) {
-        gradientLayer.colors = [fromColor.cgColor, toColor.cgColor]
-        super.init(frame: CGRect.zero)
+  public required init(from fromColor: UIColor, to toColor: UIColor) {
+    gradientLayer.colors = [fromColor.cgColor, toColor.cgColor]
+    super.init(frame: CGRect.zero)
 
-        layer.addSublayer(gradientLayer)
-    }
+    layer.addSublayer(gradientLayer)
+  }
 
-    public required init?(coder _: NSCoder) {
-        fatalError("not implemented")
-    }
+  public required init?(coder _: NSCoder) {
+    fatalError("not implemented")
+  }
 
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = bounds
-    }
+  override public func layoutSubviews() {
+    super.layoutSubviews()
+    gradientLayer.frame = bounds
+  }
 }

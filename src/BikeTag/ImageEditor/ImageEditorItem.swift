@@ -5,16 +5,16 @@
 import UIKit
 
 @objc public enum ImageEditorError: Int, Error {
-    case assertionError
-    case invalidInput
+  case assertionError
+  case invalidInput
 }
 
 @objc
 public enum ImageEditorItemType: Int {
-    case test
-    case stroke
-    case text
-    case blurRegions
+  case test
+  case stroke
+  case text
+  case blurRegions
 }
 
 // MARK: -
@@ -40,32 +40,34 @@ public typealias ImageEditorSample = CGPoint
 // as immutable, once configured.
 @objc
 public class ImageEditorItem: NSObject {
-    @objc
-    public let itemId: String
+  @objc
+  public let itemId: String
 
-    @objc
-    public let itemType: ImageEditorItemType
+  @objc
+  public let itemType: ImageEditorItemType
 
-    @objc
-    public init(itemType: ImageEditorItemType) {
-        itemId = UUID().uuidString
-        self.itemType = itemType
+  @objc
+  public init(itemType: ImageEditorItemType) {
+    itemId = UUID().uuidString
+    self.itemType = itemType
 
-        super.init()
-    }
+    super.init()
+  }
 
-    @objc
-    public init(itemId: String,
-                itemType: ImageEditorItemType) {
-        self.itemId = itemId
-        self.itemType = itemType
+  @objc
+  public init(
+    itemId: String,
+    itemType: ImageEditorItemType
+  ) {
+    self.itemId = itemId
+    self.itemType = itemType
 
-        super.init()
-    }
+    super.init()
+  }
 
-    // The scale with which to render this item's content
-    // when rendering the "output" image for sending.
-    public func outputScale() -> CGFloat {
-        return 1.0
-    }
+  // The scale with which to render this item's content
+  // when rendering the "output" image for sending.
+  public func outputScale() -> CGFloat {
+    return 1.0
+  }
 }

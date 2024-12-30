@@ -6,67 +6,75 @@ import UIKit
 
 @objc
 public class ImageEditorStrokeItem: ImageEditorItem {
-    // Until we need to serialize these items,
-    // just use UIColor.
-    @objc
-    public let color: UIColor?
+  // Until we need to serialize these items,
+  // just use UIColor.
+  @objc
+  public let color: UIColor?
 
-    @objc
-    public let isBlur: Bool
+  @objc
+  public let isBlur: Bool
 
-    public typealias StrokeSample = ImageEditorSample
+  public typealias StrokeSample = ImageEditorSample
 
-    @objc
-    public let unitSamples: [StrokeSample]
+  @objc
+  public let unitSamples: [StrokeSample]
 
-    // Expressed as a "Unit" value as a fraction of
-    // min(width, height) of the destination viewport.
-    @objc
-    public let unitStrokeWidth: CGFloat
+  // Expressed as a "Unit" value as a fraction of
+  // min(width, height) of the destination viewport.
+  @objc
+  public let unitStrokeWidth: CGFloat
 
-    @objc
-    public init(color: UIColor? = nil,
-                isBlur: Bool = false,
-                unitSamples: [StrokeSample],
-                unitStrokeWidth: CGFloat) {
-        self.color = color
-        self.isBlur = isBlur
-        self.unitSamples = unitSamples
-        self.unitStrokeWidth = unitStrokeWidth
+  @objc
+  public init(
+    color: UIColor? = nil,
+    isBlur: Bool = false,
+    unitSamples: [StrokeSample],
+    unitStrokeWidth: CGFloat
+  ) {
+    self.color = color
+    self.isBlur = isBlur
+    self.unitSamples = unitSamples
+    self.unitStrokeWidth = unitStrokeWidth
 
-        super.init(itemType: .stroke)
-    }
+    super.init(itemType: .stroke)
+  }
 
-    @objc
-    public init(itemId: String,
-                color: UIColor? = nil,
-                isBlur: Bool = false,
-                unitSamples: [StrokeSample],
-                unitStrokeWidth: CGFloat) {
-        self.color = color
-        self.isBlur = isBlur
-        self.unitSamples = unitSamples
-        self.unitStrokeWidth = unitStrokeWidth
+  @objc
+  public init(
+    itemId: String,
+    color: UIColor? = nil,
+    isBlur: Bool = false,
+    unitSamples: [StrokeSample],
+    unitStrokeWidth: CGFloat
+  ) {
+    self.color = color
+    self.isBlur = isBlur
+    self.unitSamples = unitSamples
+    self.unitStrokeWidth = unitStrokeWidth
 
-        super.init(itemId: itemId, itemType: .stroke)
-    }
+    super.init(itemId: itemId, itemType: .stroke)
+  }
 
-    @objc
-    public class func defaultUnitStrokeWidth() -> CGFloat {
-        return 0.02
-    }
+  @objc
+  public class func defaultUnitStrokeWidth() -> CGFloat {
+    return 0.02
+  }
 
-    @objc
-    public class func strokeWidth(forUnitStrokeWidth unitStrokeWidth: CGFloat,
-                                  dstSize: CGSize) -> CGFloat {
-        return (0 ... 1).clamp(unitStrokeWidth) * min(dstSize.width, dstSize.height)
-    }
+  @objc
+  public class func strokeWidth(
+    forUnitStrokeWidth unitStrokeWidth: CGFloat,
+    dstSize: CGSize
+  ) -> CGFloat {
+    return (0...1).clamp(unitStrokeWidth) * min(dstSize.width, dstSize.height)
+  }
 }
 
 extension ClosedRange {
-    func clamp(_ value: Bound) -> Bound {
-        return lowerBound > value ? lowerBound
-            : upperBound < value ? upperBound
-            : value
-    }
+  func clamp(_ value: Bound) -> Bound {
+    return lowerBound > value
+      ? lowerBound
+      : upperBound < value
+        ? upperBound
+        : value
+  }
 }

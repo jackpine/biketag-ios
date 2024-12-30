@@ -9,14 +9,14 @@
 import UIKit
 
 class TimesUpViewController: BaseViewController {
-    @IBOutlet var sadFaceView: SadFaceView!
+  @IBOutlet var sadFaceView: SadFaceView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        sadFaceView.rotate()
-    }
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    sadFaceView.rotate()
+  }
 }

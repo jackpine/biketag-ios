@@ -11,116 +11,131 @@ import Foundation
 import UIKit
 
 protocol GuessNavDelegate: AnyObject {
-    func guessNavRequestedStop(_ guessNav: GuessNavController)
-    func guessNav(_ guessNav: GuessNavController, didPostNewSpot spot: Spot)
+  func guessNavRequestedStop(_ guessNav: GuessNavController)
+  func guessNav(_ guessNav: GuessNavController, didPostNewSpot spot: Spot)
 }
 
 class GuessNavController: BaseNavController {
-    var game: Game { existingSpot.game }
-    var existingSpot: Spot!
-    weak var guessNavDelegate: GuessNavDelegate?
+  var game: Game { existingSpot.game }
+  var existingSpot: Spot!
+  weak var guessNavDelegate: GuessNavDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        modalPresentationStyle = .fullScreen
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    modalPresentationStyle = .fullScreen
+  }
+
+  func showCheckGuessViewController(imageData: Data, location: CLLocation) {
+    guard let image = UIImage(data: imageData) else {
+      Logger.error("New guess image data not captured")
+      return
     }
 
-    func showCheckGuessViewController(imageData: Data, location: CLLocation) {
-        guard let image = UIImage(data: imageData) else {
-            Logger.error("New guess image data not captured")
-            return
-        }
+    let newGuess = Guess(
+      spot: existingSpot, user: User.getCurrentUser(), location: location, image: image)
+    let checkGuessVC = CheckGuessViewController.fromStoryboard()
+    checkGuessVC.checkGuessDelegate = self
+    checkGuessVC.guess = newGuess
+    pushViewController(checkGuessVC, animated: true)
+  }
 
-        let newGuess = Guess(spot: existingSpot, user: User.getCurrentUser(), location: location, image: image)
-        let checkGuessVC = CheckGuessViewController.fromStoryboard()
-        checkGuessVC.checkGuessDelegate = self
-        checkGuessVC.guess = newGuess
-        pushViewController(checkGuessVC, animated: true)
+  func showCorrectGuess(_ guess: Guess) {
+    let vc = CorrectGuessViewController.fromStoryboard()
+    vc.guess = guess
+    if #available(iOS 13.0, *) {
+      // Disable swipe to dismiss while the countdown timer is showing.
+      vc.isModalInPresentation = true
     }
+    vc.correctGuessDelegate = self
+    setViewControllers([vc], animated: true)
+  }
 
-    func showCorrectGuess(_ guess: Guess) {
-        let vc = CorrectGuessViewController.fromStoryboard()
-        vc.guess = guess
-        if #available(iOS 13.0, *) {
-            // Disable swipe to dismiss while the countdown timer is showing.
-            vc.isModalInPresentation = true
-        }
-        vc.correctGuessDelegate = self
-        setViewControllers([vc], animated: true)
-    }
+  func showWrongGuess(_ guess: Guess) {
+    let vc = IncorrectGuessViewController.fromStoryboard()
+    vc.guess = guess
+    vc.navigationItem.leftBarButtonItem = UIBarButtonItem(
+      barButtonSystemItem: .stop,
+      target: self,
+      action: #selector(didTapExitGuessFlow))
+    setViewControllers([vc], animated: true)
+  }
 
-    func showWrongGuess(_ guess: Guess) {
-        let vc = IncorrectGuessViewController.fromStoryboard()
-        vc.guess = guess
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop,
-                                                              target: self,
-                                                              action: #selector(didTapExitGuessFlow))
-        setViewControllers([vc], animated: true)
-    }
-
-    @objc
-    func didTapExitGuessFlow() {
-        guessNavDelegate?.guessNavRequestedStop(self)
-    }
+  @objc
+  func didTapExitGuessFlow() {
+    guessNavDelegate?.guessNavRequestedStop(self)
+  }
 }
 
 extension GuessNavController: CheckGuessDelegate {
-    func checkedGuess(_: CheckGuessViewController, didGuessCorrect guess: Guess) {
-        showCorrectGuess(guess)
-    }
+  func checkedGuess(_: CheckGuessViewController, didGuessCorrect guess: Guess) {
+    showCorrectGuess(guess)
+  }
 
-    func checkedGuess(_: CheckGuessViewController, didGuessWrong guess: Guess) {
-        showWrongGuess(guess)
-    }
+  func checkedGuess(_: CheckGuessViewController, didGuessWrong guess: Guess) {
+    showWrongGuess(guess)
+  }
 }
 
 extension GuessNavController: GuessCreationDelegate {
-    func guessCreation(_ newGuessVC: GuessSpotViewController, didCaptureImageData imageData: Data, location: CLLocation) {
-        let approvalVC = ApprovalViewController.create(imageData: imageData, location: location, game: existingSpot.game)
-        approvalVC.approvalDelegate = newGuessVC
-        fadeTo(approvalVC)
-    }
+  func guessCreation(
+    _ newGuessVC: GuessSpotViewController, didCaptureImageData imageData: Data, location: CLLocation
+  ) {
+    let approvalVC = ApprovalViewController.create(
+      imageData: imageData, location: location, game: existingSpot.game)
+    approvalVC.approvalDelegate = newGuessVC
+    fadeTo(approvalVC)
+  }
 
-    func guessCreation(_: GuessSpotViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback _: @escaping (Error) -> Void) {
-        showCheckGuessViewController(imageData: imageData, location: location)
-    }
+  func guessCreation(
+    _: GuessSpotViewController, didApproveImageData imageData: Data, location: CLLocation,
+    errorCallback _: @escaping (Error) -> Void
+  ) {
+    showCheckGuessViewController(imageData: imageData, location: location)
+  }
 }
 
 extension GuessNavController: CorrectGuessDelegate {
-    func correctGuessAtNewSpot(_: CorrectGuessViewController, game: Game) {
-        let newSpotVC = NewSpotViewController.fromStoryboard()
-        newSpotVC.game = game
-        newSpotVC.spotCreationDelegate = self
-        pushViewController(newSpotVC, animated: true)
-    }
+  func correctGuessAtNewSpot(_: CorrectGuessViewController, game: Game) {
+    let newSpotVC = NewSpotViewController.fromStoryboard()
+    newSpotVC.game = game
+    newSpotVC.spotCreationDelegate = self
+    pushViewController(newSpotVC, animated: true)
+  }
 }
 
 extension GuessNavController: SpotCreationDelegate {
-    func spotCreation(_ newSpotVC: NewSpotViewController, didCaptureImageData imageData: Data, location: CLLocation) {
-        let approvalVC = ApprovalViewController.create(imageData: imageData, location: location, game: nil)
-        approvalVC.approvalDelegate = newSpotVC
-        fadeTo(approvalVC)
+  func spotCreation(
+    _ newSpotVC: NewSpotViewController, didCaptureImageData imageData: Data, location: CLLocation
+  ) {
+    let approvalVC = ApprovalViewController.create(
+      imageData: imageData, location: location, game: nil)
+    approvalVC.approvalDelegate = newSpotVC
+    fadeTo(approvalVC)
+  }
+
+  func spotCreation(
+    _: NewSpotViewController, didApproveImageData imageData: Data, location: CLLocation,
+    errorCallback: @escaping (Error) -> Void
+  ) {
+    guard let image = UIImage(data: imageData) else {
+      Logger.error("New spot image data not captured")
+      return
     }
 
-    func spotCreation(_: NewSpotViewController, didApproveImageData imageData: Data, location: CLLocation, errorCallback: @escaping (Error) -> Void) {
-        guard let image = UIImage(data: imageData) else {
-            Logger.error("New spot image data not captured")
-            return
-        }
+    let spotCreationBench = Logger.startBench("spotCreation")
+    let spot = Spot(image: image, game: game, user: User.getCurrentUser(), location: location)
+    Spot.createNewSpot(
+      image: spot.image!,
+      game: spot.game,
+      location: spot.location!,
+      callback: { newSpot in
+        Logger.completeBench(spotCreationBench)
+        self.guessNavDelegate?.guessNav(self, didPostNewSpot: newSpot)
 
-        let spotCreationBench = Logger.startBench("spotCreation")
-        let spot = Spot(image: image, game: game, user: User.getCurrentUser(), location: location)
-        Spot.createNewSpot(image: spot.image!,
-                           game: spot.game,
-                           location: spot.location!,
-                           callback: { newSpot in
-                               Logger.completeBench(spotCreationBench)
-                               self.guessNavDelegate?.guessNav(self, didPostNewSpot: newSpot)
-
-                           },
-                           errorCallback: { e in
-                               Logger.completeBench(spotCreationBench)
-                               errorCallback(e)
-        })
-    }
+      },
+      errorCallback: { e in
+        Logger.completeBench(spotCreationBench)
+        errorCallback(e)
+      })
+  }
 }
